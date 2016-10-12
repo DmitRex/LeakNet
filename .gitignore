@@ -1,0 +1,10 @@
+*.idb
+*.plg
+*.dsw
+*.ncb
+*.opt
+*.lib
+*Debug*/
+fxctmp9*/
+pshtmp9/
+vshtmp9/
