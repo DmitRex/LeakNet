@@ -5,6 +5,7 @@
 *.opt
 *.lib
 *Debug*/
+*Release*/
 fxctmp9*/
 pshtmp9/
 vshtmp9/
