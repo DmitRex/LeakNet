@@ -417,7 +417,7 @@ void CGameUI::Start(struct cl_enginefuncs_s *engineFuncs, int interfaceVersion, 
 		// add the tracker directory to the search path
 		// add localized version first if we're not in english
 		char language[128];
-		if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Steam\\Language", language, sizeof(language)))
+		if (vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Steam\\Language", language, sizeof(language)))
 		{
 			if (strlen(language) > 0 && stricmp(language, "english"))
 			{

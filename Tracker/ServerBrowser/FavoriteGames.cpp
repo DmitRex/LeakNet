@@ -406,13 +406,13 @@ void CFavoriteGames::ImportFavorites()
 
 	char name[512];
 	// check if halflife is installed
-	if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Half-life\\InstallPath", name, sizeof(name)))
+	if (vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Half-life\\InstallPath", name, sizeof(name)))
 	{
 		// attach name of favorites file
 		strcat(name, "\\favsvrs.dat");
 	}
 	// check if counterstrike is installed
-	else if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", name, sizeof(name)))
+	else if (vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", name, sizeof(name)))
 	{
 		// attach name of favorites file
 		strcat(name, "\\favsvrs.dat");
@@ -481,13 +481,13 @@ void CFavoriteGames::OnImportFavoritesFile()
 {	
 	char name[512];
 	// check if they have halflife
-	if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Half-life\\InstallPath", name, sizeof(name)))
+	if (vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Half-life\\InstallPath", name, sizeof(name)))
 	{
 		// add filename
 		strcat(name, "\\favsvrs.dat");
 	}
 	// check if they have counterstrike
-	else if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", name, sizeof(name)))
+	else if (vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", name, sizeof(name)))
 	{
 		// add filename
 		strcat(name, "\\favsvrs.dat");

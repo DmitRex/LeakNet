@@ -57,7 +57,7 @@ CServerList::CServerList(IServerRefreshResponse *target) : m_Queries(0, MAX_QUER
 	// calculate max sockets based on users' rate
 	char speedBuf[32];
 	int internetSpeed;
-	if (!vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Steam\\Rate", speedBuf, sizeof(speedBuf)-1))
+	if (!vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Steam\\Rate", speedBuf, sizeof(speedBuf)-1))
 	{
 		// default to DSL speed if no reg key found (an unlikely occurance)
 		strcpy(speedBuf, "7500");

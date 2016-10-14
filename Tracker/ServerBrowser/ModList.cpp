@@ -66,10 +66,10 @@ void CModList::ParseInstalledMods()
 	ParseSteamMods();
 	
 	// get half-life directory
-	if (!vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Half-life\\InstallPath", szGameDirectory, sizeof(szGameDirectory)))
+	if (!vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Half-life\\InstallPath", szGameDirectory, sizeof(szGameDirectory)))
 	{
 		// fallback to getting the cstrike retail directory
-		if (!vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", szGameDirectory, sizeof(szGameDirectory)))
+		if (!vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Sierra OnLine\\Setup\\CSTRIKE\\Directory", szGameDirectory, sizeof(szGameDirectory)))
 		{
 			return;
 		}
