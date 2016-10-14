@@ -406,8 +406,10 @@ bool CLocalizedStringTable::SaveToFile(IFileSystem *fileSystem, const char *szFi
 	unsigned short marker = 0xFEFF;
 	fileSystem->Write(&marker, 2, file);
 
-	char const *startStr = "\"lang\" { \"Language\" \"English\" \"Tokens\" { ";
-	char const *endStr = "} } ";
+//	char const *startStr = "\"lang\" { \"Language\" \"English\" \"Tokens\" { ";
+//	char const *endStr = "} } ";
+	const char *startStr = "\"lang\"\r\n{\r\n\"Language\" \"English\"\r\n\"Tokens\"\r\n{\r\n";
+	const char *endStr = "}\r\n}\r\n";
 
 	// write out the first string
 	static wchar_t unicodeString[1024];
@@ -418,10 +420,17 @@ bool CLocalizedStringTable::SaveToFile(IFileSystem *fileSystem, const char *szFi
 	fileSystem->Write(unicodeString, (strLength - 1) * sizeof(wchar_t), file);
 
 	// convert our spacing characters to unicode
-	wchar_t unicodeSpace, unicodeQuote, unicodeNewline;
-	ConvertANSIToUnicode(" ", &unicodeSpace, sizeof(wchar_t));
-	ConvertANSIToUnicode("\"", &unicodeQuote, sizeof(wchar_t));
-	ConvertANSIToUnicode("\n", &unicodeNewline, sizeof(wchar_t));
+//	wchar_t unicodeSpace, unicodeQuote, unicodeNewline;
+//	ConvertANSIToUnicode(" ", &unicodeSpace, sizeof(wchar_t));
+//	ConvertANSIToUnicode("\"", &unicodeQuote, sizeof(wchar_t));
+//	ConvertANSIToUnicode("\n", &unicodeNewline, sizeof(wchar_t));
+
+	// VXP
+//	wchar_t unicodeSpace = L' '; 
+	wchar_t unicodeQuote = L'\"'; 
+	wchar_t unicodeCR = L'\r'; 
+	wchar_t unicodeNewline = L'\n'; 
+	wchar_t unicodeTab = L'\t';
 
 	// write out all the key/value pairs
 	for (StringIndex_t idx = GetFirstStringIndex(); idx != INVALID_STRING_INDEX; idx = GetNextStringIndex(idx))
@@ -441,13 +450,17 @@ bool CLocalizedStringTable::SaveToFile(IFileSystem *fileSystem, const char *szFi
 		fileSystem->Write(unicodeString, (nameLength - 1) * sizeof(wchar_t), file);
 		fileSystem->Write(&unicodeQuote, sizeof(wchar_t), file);
 
-		fileSystem->Write(&unicodeSpace, sizeof(wchar_t), file);
+	//	fileSystem->Write(&unicodeSpace, sizeof(wchar_t), file);
+		fileSystem->Write(&unicodeTab, sizeof(wchar_t), file);
+		fileSystem->Write(&unicodeTab, sizeof(wchar_t), file);
 
 		fileSystem->Write(&unicodeQuote, sizeof(wchar_t), file);
 		fileSystem->Write(value, wcslen(value) * sizeof(wchar_t), file);
 		fileSystem->Write(&unicodeQuote, sizeof(wchar_t), file);
 
-		fileSystem->Write(&unicodeSpace, sizeof(wchar_t), file);
+	//	fileSystem->Write(&unicodeSpace, sizeof(wchar_t), file);
+		fileSystem->Write(&unicodeCR, sizeof(wchar_t), file);
+		fileSystem->Write(&unicodeNewline, sizeof(wchar_t), file);
 	}
 
 	// write end string
