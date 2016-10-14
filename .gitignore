@@ -1,11 +1,21 @@
+# VC++ 6.0 files
 *.idb
 *.plg
 *.dsw
 *.ncb
 *.opt
 *.lib
+*.log
+*.bak
+*.ilk
+*.exp
+
+# Folders
 *Debug*/
 *Release*/
 fxctmp9*/
 pshtmp9/
 vshtmp9/
+
+# Single files
+hlmv.exe
