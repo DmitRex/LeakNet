@@ -252,7 +252,7 @@ bool CLocalizedStringTable::AddFile(IFileSystem *fileSystem, const char *szFileN
 		fileName[offs] = 0;
 
 		// append the language
-		if (!vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Steam\\Language", language, MAX_LANGUAGE_NAME_LENGTH) || ( strcmp(language, "") == 0 ) )
+		if (!vgui::system()->GetRegistryString("HKEY_CURRENT_USER\\Software\\Valve\\Steam\\Language", language, MAX_LANGUAGE_NAME_LENGTH) || ( strcmp(language, "") == 0 ) )
 		{
 			// no reg key set, use the default
 			strcpy(language, ENGLISH_STRING);
