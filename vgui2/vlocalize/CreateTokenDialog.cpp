@@ -7,12 +7,12 @@
 
 #include "CreateTokenDialog.h"
 
-#include <VGUI_TextEntry.h>
-#include <VGUI_Button.h>
-#include <VGUI_MessageBox.h>
-#include <VGUI_KeyValues.h>
-#include <VGUI_Controls.h>
-#include <VGUI_ILocalize.h>
+#include <vgui_controls/TextEntry.h>
+#include <vgui_controls/Button.h>
+#include <vgui_controls/MessageBox.h>
+#include <KeyValues.h>
+#include <vgui_controls/Controls.h>
+#include <VGUI/ILocalize.h>
 
 using namespace vgui;
 
@@ -83,8 +83,8 @@ void CCreateTokenDialog::OnOK()
 {
 	// get the data
 	char tokenName[1024], tokenValue[1024];
-	m_pTokenName->GetText(0, tokenName, 1023);
-	m_pTokenValue->GetText(0, tokenValue, 1023);
+	m_pTokenName->GetText(tokenName, 1023);
+	m_pTokenValue->GetText(tokenValue, 1023);
 
 	if (strlen(tokenName) < 4)
 	{
@@ -96,7 +96,7 @@ void CCreateTokenDialog::OnOK()
 		// create the token
 		wchar_t unicodeString[1024];
 		vgui::localize()->ConvertANSIToUnicode(tokenValue, unicodeString, sizeof(unicodeString) / sizeof(wchar_t));
-		vgui::localize()->AddString(tokenName, unicodeString);
+		vgui::localize()->AddString(tokenName, unicodeString, NULL);
 
 		// notify the dialog creator
 		PostActionSignal(new KeyValues("TokenCreated", "name", tokenName));

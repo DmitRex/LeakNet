@@ -11,7 +11,7 @@
 #pragma once
 #endif
 
-#include <VGUI_Frame.h>
+#include <vgui_controls/Frame.h>
 
 namespace vgui
 {
@@ -39,7 +39,7 @@ private:
 	virtual void OnCommand(const char *command);
 
 	// message handlers
-	virtual void OnTokenSelected();
+	virtual void OnTokenSelected(int itemID);
 	virtual void OnTextChanged();
 	virtual void OnApplyChanges();
 	virtual void OnFileOpen();

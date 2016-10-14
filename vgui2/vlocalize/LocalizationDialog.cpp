@@ -9,17 +9,17 @@
 #include "LocalizationDialog.h"
 #include "CreateTokenDialog.h"
 
-#include <VGUI_Button.h>
-#include <VGUI_Controls.h>
-#include <VGUI_ListPanel.h>
-#include <VGUI_TextEntry.h>
-#include <VGUI_IVGui.h>
-#include <VGUI_ILocalize.h>
-#include <VGUI_KeyValues.h>
-#include <VGUI_Menu.h>
-#include <VGUI_MenuButton.h>
-#include <VGUI_MessageBox.h>
-#include <VGUI_FileOpenDialog.h>
+#include <vgui_controls/Button.h>
+#include <vgui_controls/Controls.h>
+#include <vgui_controls/ListPanel.h>
+#include <vgui_controls/TextEntry.h>
+#include <VGUI/IVGui.h>
+#include <VGUI/ILocalize.h>
+#include <KeyValues.h>
+#include <vgui_controls/Menu.h>
+#include <vgui_controls/MenuButton.h>
+#include <vgui_controls/MessageBox.h>
+#include <vgui_controls/FileOpenDialog.h>
 
 #include <stdio.h>
 
@@ -76,10 +76,10 @@ CLocalizationDialog::CLocalizationDialog(const char *fileName) : Frame(NULL, "Lo
 
 	// populate the dialog with the strings
 	StringIndex_t idx = localize()->GetFirstStringIndex();
-	while (idx != VGUI_INVALID_STRING_INDEX)
+	while (idx != INVALID_STRING_INDEX)
 	{
 		// adds the strings into the table, along with the indexes
-		m_pTokenList->AddItem(new KeyValues("LString", "Token", localize()->GetNameByIndex(idx)), idx);
+		m_pTokenList->AddItem(new KeyValues("LString", "Token", localize()->GetNameByIndex(idx)), idx, false, false);
 
 		// move to the next string
 		idx = localize()->GetNextStringIndex(idx);
@@ -121,9 +121,9 @@ void CLocalizationDialog::PerformLayout()
 //-----------------------------------------------------------------------------
 // Purpose: Sets the currently selected token
 //-----------------------------------------------------------------------------
-void CLocalizationDialog::OnTokenSelected()
+void CLocalizationDialog::OnTokenSelected( int itemID )
 {
-	if (m_pTokenList->GetNumSelectedRows() != 1)
+	if (m_pTokenList->GetSelectedItemsCount() != 1)
 	{
 		// clear the list
 		m_pLanguageEdit->SetText("");
@@ -137,7 +137,8 @@ void CLocalizationDialog::OnTokenSelected()
 	else
 	{
 		// get the data
-		ListPanel::DATAITEM *data = m_pTokenList->GetDataItem(m_pTokenList->GetSelectedRow(0));
+	//	ListPanel::DATAITEM *data = m_pTokenList->GetDataItem(m_pTokenList->GetSelectedItem(0));
+		ListPanelItem *data = m_pTokenList->GetItemData(m_pTokenList->GetSelectedItem(0));
 		m_iCurrentToken = data->userData;
 		wchar_t *unicodeString = localize()->GetValueByIndex(m_iCurrentToken);
 
@@ -162,8 +163,8 @@ void CLocalizationDialog::OnTextChanged()
 {
 	static char buf1[1024], buf2[1024];
 
-	m_pLanguageEdit->GetText(0, buf1, sizeof(buf1));
-	m_pEnglishEdit->GetText(0, buf2, sizeof(buf2));
+	m_pLanguageEdit->GetText(buf1, sizeof(buf1));
+	m_pEnglishEdit->GetText(buf2, sizeof(buf2));
 
 	if (!strcmp(buf1, buf2))
 	{
@@ -185,7 +186,7 @@ void CLocalizationDialog::OnApplyChanges()
 
 	static char buf1[1024];
 	static wchar_t unicodeString[1024];
-	m_pLanguageEdit->GetText(0, buf1, sizeof(buf1));
+	m_pLanguageEdit->GetText(buf1, sizeof(buf1));
 	localize()->ConvertANSIToUnicode(buf1, unicodeString, sizeof(unicodeString) / sizeof(wchar_t));
 
 	//!! unicode test label
@@ -198,7 +199,7 @@ void CLocalizationDialog::OnApplyChanges()
 	m_pApplyButton->SetEnabled(false);
 
 	// reselect the token
-	OnTokenSelected();
+	OnTokenSelected(0);
 }
 
 //-----------------------------------------------------------------------------
@@ -225,10 +226,10 @@ void CLocalizationDialog::OnFileSave()
 //-----------------------------------------------------------------------------
 void CLocalizationDialog::OnFileOpen()
 {
-	FileOpenDialog *box = new FileOpenDialog(this, "Open");
+	FileOpenDialog *box = new FileOpenDialog(this, "Open", true);
 
 	box->SetStartDirectory("u:\\");
-	box->AddFilter("*.*", "All Files (*.*)");
+	box->AddFilter("*.*", "All Files (*.*)", true);
 	box->DoModal(false);
 }
 
@@ -240,11 +241,12 @@ void CLocalizationDialog::OnTokenCreated(const char *tokenName)
 {
 	// add the new string table token to the token list
 	int idx = localize()->FindIndex(tokenName);
-	int newRow = m_pTokenList->AddItem(new KeyValues("LString", "Token", localize()->GetNameByIndex(idx)), idx);
+	int newRow = m_pTokenList->AddItem(new KeyValues("LString", "Token", localize()->GetNameByIndex(idx)), idx, false, false);
 
 	// make that currently selected
-	m_pTokenList->SetSelectedRows(newRow, newRow);
-	OnTokenSelected();
+//	m_pTokenList->SetSelectedCell(newRow, newRow); // VXP: Previous SetSelectedRows
+	m_pTokenList->SetSingleSelectedItem(newRow); // VXP: Or AddSelectedItem
+	OnTokenSelected(0);
 }
 
 //-----------------------------------------------------------------------------
@@ -279,7 +281,8 @@ void CLocalizationDialog::OnCommand(const char *command)
 //-----------------------------------------------------------------------------
 MessageMapItem_t CLocalizationDialog::m_MessageMap[] =
 {
-	MAP_MESSAGE( CLocalizationDialog, "RowSelected", OnTokenSelected ),	// message from the m_pTokenList
+//	MAP_MESSAGE( CLocalizationDialog, "RowSelected", OnTokenSelected ),	// message from the m_pTokenList
+	MAP_MESSAGE_INT( CLocalizationDialog, "ItemSelected", OnTokenSelected, "itemID" ),	// message from the m_pTokenList
 	MAP_MESSAGE( CLocalizationDialog, "TextChanged", OnTextChanged ),	// message from the text entry
 	MAP_MESSAGE( CLocalizationDialog, "ApplyChanges", OnApplyChanges ),	// message from the text entry
 	MAP_MESSAGE( CLocalizationDialog, "FileSave", OnFileSave ),
