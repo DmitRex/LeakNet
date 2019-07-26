@@ -1,0 +1,5 @@
+error D8016 : '/ZI' and '/Gy-' command-line options are incompatible
+	https://stackoverflow.com/questions/43141401/visual-studio-error-d8016-zi-and-gy-command-line-options-are-incompatible
+		"You are choosing "Edit and Continue" (/ZI) to be able to fix code during debugging, but also "Disable Function-Level Linking" (/Gy-).
+		Those two will not work together, as you cannot just change one function in the middle of the code. So just choose one of them, like changing /Gy- to /Gy."
+		ћен€ю Debug Information Format на Program Database
