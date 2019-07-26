@@ -116,7 +116,7 @@ if exist $(TargetDir)tier0.lib copy $(TargetDir)tier0.lib ..\lib\public\tier0.li
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>..\common;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;TIER0_DLL_EXPORT;_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;TIER0_DLL_EXPORT;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Release\tier0.pch</PrecompiledHeaderOutputFile>
