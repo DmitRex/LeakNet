@@ -839,11 +839,11 @@ int main (int argc, char **argv)
 			strcpy(qproject, argv[i+1]);
 			++i;
 		}
-		else if( !stricmp( argv[i], "-low" ) )
+		else if( !_stricmp( argv[i], "-low" ) )
 		{
 			g_bLowPriority = true;
 		}
-		else if( !stricmp( argv[i], "-lightifmissing" ) )
+		else if( !_stricmp( argv[i], "-lightifmissing" ) )
 		{
 			g_bLightIfMissing = true;
 		}

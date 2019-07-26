@@ -118,7 +118,7 @@ public:
 			for (int i = 0; i < friendDar.GetCount(); i++)
 			{
 				const char *buddyName = GetDoc()->GetBuddy(friendDar[i])->DisplayName();
-				if (stricmp(newName, buddyName) < 0)
+				if (_stricmp(newName, buddyName) < 0)
 				{
 					friendDar.InsertElementAt(buddyID, i);
 					bInserted = true;
@@ -1241,11 +1241,11 @@ void CDialogChat::OnCheckRemoteTypingTimeout()
 //-----------------------------------------------------------------------------
 bool CDialogChat::RequestInfo(KeyValues *outputData)
 {
-	if (!stricmp("DragDrop", outputData->GetName()))
+	if (!_stricmp("DragDrop", outputData->GetName()))
 	{
 		// drag drop
 		const char *type = outputData->GetString("type");
-		if (!stricmp(type, "TrackerFriend")	|| !stricmp(type, "Files") || !stricmp(type, "Text"))
+		if (!_stricmp(type, "TrackerFriend")	|| !_stricmp(type, "Files") || !_stricmp(type, "Text"))
 		{
 			// we accept all tracker friends, files, and text
 			// write in the ptr to this panel, so the final message is known where to sent
@@ -1263,7 +1263,7 @@ bool CDialogChat::RequestInfo(KeyValues *outputData)
 //-----------------------------------------------------------------------------
 void CDialogChat::OnDragDrop(vgui::KeyValues *data)
 {
-	if (!stricmp(data->GetString("type"), "TrackerFriend"))
+	if (!_stricmp(data->GetString("type"), "TrackerFriend"))
 	{		
 		int friendID = data->GetInt("friendID");
 		
@@ -1273,12 +1273,12 @@ void CDialogChat::OnDragDrop(vgui::KeyValues *data)
 			OnInviteUser(friendID);
 		}
 	}
-	else if (!stricmp(data->GetString("type"), "Files"))
+	else if (!_stricmp(data->GetString("type"), "Files"))
 	{
 		m_pTextEntry->DoGotoTextEnd();
 		m_pTextEntry->DoInsertString(data->GetString("list/0"));
 	}
-	else if (!stricmp(data->GetString("type"), "Text"))
+	else if (!_stricmp(data->GetString("type"), "Text"))
 	{
 		m_pTextEntry->DoGotoTextEnd();
 		m_pTextEntry->DoInsertString(data->GetString("text"));

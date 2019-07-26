@@ -34,7 +34,7 @@ CMapClass *CModelFactory::CreateModel(ModelType_t eModelType, const char *pszMod
 		case ModelTypeStudio:
 		{
 			int nLen = strlen(pszModelData);
-			if ((nLen > 4) && (!stricmp(&pszModelData[nLen - 4], ".mdl")))
+			if ((nLen > 4) && (!_stricmp(&pszModelData[nLen - 4], ".mdl")))
 			{
 				CMapStudioModel *pModel = new CMapStudioModel(pszModelData);
 				return(pModel);

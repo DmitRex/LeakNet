@@ -180,7 +180,7 @@ static mxTreeViewItem *TreeAddUnique( mxTreeView *pTree, mxTreeViewItem *parent,
 	while( child )
 	{
 		const char *label = pTree->getLabel( child );
-		if( stricmp( label, item ) == 0 )
+		if( _stricmp( label, item ) == 0 )
 		{
 			return child;
 		}

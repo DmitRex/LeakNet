@@ -422,11 +422,11 @@ void CMapLightCone::OnParentKeyChanged(const char *szKey, const char *szValue)
 
 	bool bRebuild = true;
 
-	if (!stricmp(szKey, "angles"))
+	if (!_stricmp(szKey, "angles"))
 	{
 		sscanf(szValue, "%f %f %f", &m_Angles[PITCH], &m_Angles[YAW], &m_Angles[ROLL]);
 	}
-	else if (!stricmp(szKey, "_light"))
+	else if (!_stricmp(szKey, "_light"))
 	{
 		int nRed;
 		int nGreen;
@@ -439,38 +439,38 @@ void CMapLightCone::OnParentKeyChanged(const char *szKey, const char *szValue)
 		b = nBlue;
 		m_fBrightness = nBrightness;
 	}
-	else if (!stricmp(szKey, "pitch"))
+	else if (!_stricmp(szKey, "pitch"))
 	{
 		// Pitch
 		m_bPitchSet = true;
 		m_fPitch = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_inner_cone"))
+	else if (!_stricmp(szKey, "_inner_cone"))
 	{
 		// Inner Cone angle
 		m_fInnerConeAngle = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_cone"))
+	else if (!_stricmp(szKey, "_cone"))
 	{
 		// Outer Cone angle
 		m_fOuterConeAngle = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_constant_attn"))
+	else if (!_stricmp(szKey, "_constant_attn"))
 	{
 		// Constant attenuation
 		m_fConstantAttn = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_linear_attn"))
+	else if (!_stricmp(szKey, "_linear_attn"))
 	{
 		// Linear attenuation
 		m_fLinearAttn = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_quadratic_attn"))
+	else if (!_stricmp(szKey, "_quadratic_attn"))
 	{
 		// Quadratic attenuation
 		m_fQuadraticAttn = atof(szValue);
 	}
-	else if (!stricmp(szKey, "_exponent"))
+	else if (!_stricmp(szKey, "_exponent"))
 	{
 		// Focus
 		m_fFocus = atof(szValue);

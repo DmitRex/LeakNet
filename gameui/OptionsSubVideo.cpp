@@ -167,15 +167,15 @@ void COptionsSubVideo::OnResetData()
 //-----------------------------------------------------------------------------
 void COptionsSubVideo::SetCurrentRendererComboItem()
 {
-	if ( !stricmp( m_CurrentSettings.renderer, "software" ) )
+	if ( !_stricmp( m_CurrentSettings.renderer, "software" ) )
 	{
         m_iStartRenderer = 0;
 	}
-	else if ( !stricmp( m_CurrentSettings.renderer, "gl" ) )
+	else if ( !_stricmp( m_CurrentSettings.renderer, "gl" ) )
 	{
         m_iStartRenderer = 1;
 	}
-	else if ( !stricmp( m_CurrentSettings.renderer, "d3d" ) )
+	else if ( !_stricmp( m_CurrentSettings.renderer, "d3d" ) )
 	{
         m_iStartRenderer = 2;
 	}
@@ -291,15 +291,15 @@ void COptionsSubVideo::ApplyVidSettings(bool bForceRefresh)
 		char sz[ 256 ];
 		m_pRenderer->GetText(sz, sizeof(sz));
 
-		if ( !stricmp( sz, m_pszRenderNames[0] ) )
+		if ( !_stricmp( sz, m_pszRenderNames[0] ) )
 		{
 			strcpy( m_CurrentSettings.renderer, "software" );
 		}
-		else if ( !stricmp( sz, m_pszRenderNames[1] ) )
+		else if ( !_stricmp( sz, m_pszRenderNames[1] ) )
 		{
 			strcpy( m_CurrentSettings.renderer, "gl" );
 		}
-		else if ( !stricmp( sz, m_pszRenderNames[2] ) )
+		else if ( !_stricmp( sz, m_pszRenderNames[2] ) )
 		{
 			strcpy( m_CurrentSettings.renderer, "d3d" );
 		}

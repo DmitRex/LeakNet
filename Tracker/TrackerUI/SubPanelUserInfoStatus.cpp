@@ -50,7 +50,7 @@ void CSubPanelUserInfoStatus::PerformLayout()
 //-----------------------------------------------------------------------------
 void CSubPanelUserInfoStatus::OnCommand(const char *command)
 {
-	if (!stricmp(command, "RemoveUser"))
+	if (!_stricmp(command, "RemoveUser"))
 	{
 		// open the warning dialog
 		CDialogRemoveUser *dialog = new CDialogRemoveUser(m_iUserID);

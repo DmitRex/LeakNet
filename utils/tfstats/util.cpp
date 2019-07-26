@@ -182,7 +182,7 @@ player_class playerClassNameToClassID(const char* plrClass)
 {
 	for (int i=0;i<NUM_CLASSES;i++)
 	{
-		if (stricmp(plrClass,plrClassNames[i])==0)
+		if (_stricmp(plrClass,plrClassNames[i])==0)
 			return (player_class)i;
 	}
 	return PC_UNDEFINED;

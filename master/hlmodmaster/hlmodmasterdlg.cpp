@@ -691,7 +691,7 @@ mod_t *CHLModMasterDlg::FindModByName ( char *modname )
 		pdir = GetValue( mod, "gamedir" );
 		if ( pdir )
 		{
-			if ( !stricmp( pdir, modname ) )
+			if ( !_stricmp( pdir, modname ) )
 			{
 				return mod;
 			}
@@ -1518,7 +1518,7 @@ void CHLModMasterDlg::ParseServers()
 		if (strlen(token.token) <= 0)
 			break;
 
-		if (!stricmp( token.token, "Banned" ) )
+		if (!_stricmp( token.token, "Banned" ) )
 		{
 			pList = &bannedips;
 		}
@@ -1537,7 +1537,7 @@ void CHLModMasterDlg::ParseServers()
 			break;
 		}
 
-		if ( stricmp ( token.token, "{" ) )
+		if ( _stricmp ( token.token, "{" ) )
 		{
 			AfxMessageBox("Expecting {");
 			break;
@@ -1557,13 +1557,13 @@ void CHLModMasterDlg::ParseServers()
 				break;
 			}
 
-			if ( !stricmp( token.token, "old" ) )
+			if ( !_stricmp( token.token, "old" ) )
 			{
 				bIsOld = TRUE;
 				token.ParseNextToken();
 			}
 
-			if ( !stricmp ( token.token, "}" ) )
+			if ( !_stricmp ( token.token, "}" ) )
 				break;
 
 			// It's an address
@@ -1666,7 +1666,7 @@ const char *CHLModMasterDlg::GetValue( mod_t *pMod, const char *pszKey )
 	kp = pMod->keys;
 	while ( kp )
 	{
-		if ( !stricmp( kp->key, pszKey ) )
+		if ( !_stricmp( kp->key, pszKey ) )
 			return kp->value;
 
 		kp = kp->next;
@@ -1683,7 +1683,7 @@ void CHLModMasterDlg::SetKey( mod_t *pMod, const char *pszKey, const char *pszVa
 	keypair_t *kp = pMod->keys;
 	while ( kp )
 	{
-		if ( !stricmp( kp->key, pszKey ) )
+		if ( !_stricmp( kp->key, pszKey ) )
 		{
 			free( kp->value );
 			kp->value = strdup( pszValue );

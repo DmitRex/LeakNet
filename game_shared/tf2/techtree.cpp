@@ -1018,7 +1018,7 @@ CBaseTechnology* CTechnologyTree::GetTechnology( const char *pName )
 {
 	for ( int i=0; i < m_Technologies.Size(); i++)
 	{
-		if( stricmp( pName, m_Technologies[i]->GetName() ) == 0 )
+		if( _stricmp( pName, m_Technologies[i]->GetName() ) == 0 )
 			return m_Technologies[i];
 	}
 	

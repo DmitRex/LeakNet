@@ -111,7 +111,7 @@ COptionsSubMultiplayer::COptionsSubMultiplayer(vgui::Panel *parent) : vgui::Prop
 	int selected = 0;
 	for ( int i = 0; i < count; i++ )
 	{
-		if ( currentcolor && !stricmp( currentcolor, itemlist[ i ].name ) )
+		if ( currentcolor && !_stricmp( currentcolor, itemlist[ i ].name ) )
 		{
 			selected = i;
 		}
@@ -201,7 +201,7 @@ COptionsSubMultiplayer::~COptionsSubMultiplayer()
 //-----------------------------------------------------------------------------
 void COptionsSubMultiplayer::OnCommand( const char *command )
 {
-	if ( !stricmp( command, "Advanced" ) )
+	if ( !_stricmp( command, "Advanced" ) )
 	{
 		if (!m_hMultiplayerAdvancedDialog.Get())
 		{
@@ -231,7 +231,7 @@ void COptionsSubMultiplayer::InitLogoList( CLabeledCommandComboBox *cb )
 	int i = 0, initialItem = 0; 
 	while (fn)
 	{
-		if (stricmp(fn, "remapped.bmp"))
+		if (_stricmp(fn, "remapped.bmp"))
 		{
 			if (fn[0] && fn[0] != '.')
 			{
@@ -244,7 +244,7 @@ void COptionsSubMultiplayer::InitLogoList( CLabeledCommandComboBox *cb )
 				}
 
 				// check to see if this is the one we have set
-				if (!stricmp(filename, logofile))
+				if (!_stricmp(filename, logofile))
 				{
 					initialItem = i;
 				}
@@ -356,7 +356,7 @@ void COptionsSubMultiplayer::InitModelList( CLabeledCommandComboBox *cb )
 			_snprintf( cmdstring, sizeof( cmdstring ), "model %s\n", modelname );
 
 
-			if ( !stricmp( currentmodel, modelname ) )
+			if ( !_stricmp( currentmodel, modelname ) )
 			{
 				selected = c;
 			}

@@ -91,7 +91,7 @@ void CChangeGameDialog::LoadModList()
 						CModInfo modInfo;
 						modInfo.LoadGameInfoFromBuffer(buf, size);
 
-						if (stricmp(modInfo.GetGameDescription(), ModInfo().GetGameDescription()))
+						if (_stricmp(modInfo.GetGameDescription(), ModInfo().GetGameDescription()))
 						{
 							// Add the game directory.
 							strlwr(wfd.cFileName);
@@ -119,7 +119,7 @@ void CChangeGameDialog::LoadModList()
 //-----------------------------------------------------------------------------
 void CChangeGameDialog::OnCommand(const char *command)
 {
-	if (!stricmp(command, "OK"))
+	if (!_stricmp(command, "OK"))
 	{
 		if (m_pModList->GetSelectedItemsCount() > 0)
 		{
@@ -136,7 +136,7 @@ void CChangeGameDialog::OnCommand(const char *command)
 			}
 		}
 	}
-	else if (!stricmp(command, "Cancel"))
+	else if (!_stricmp(command, "Cancel"))
 	{
 		Close();
 	}

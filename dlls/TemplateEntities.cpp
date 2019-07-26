@@ -139,7 +139,7 @@ string_t Templates_FindByTargetName(const char *pszName)
 	for (int i = 0; i < nCount; i++)
 	{
 		TemplateEntityData_t *pTemplate = g_Templates.Element(i);
-		if ( !stricmp(pTemplate->pszName, pszName) )
+		if ( !_stricmp(pTemplate->pszName, pszName) )
 			return Templates_FindByIndex( i );
 	}
 
@@ -191,7 +191,7 @@ void Templates_ReconnectIOForGroup( CPointTemplate *pGroup )
 			do 
 			{
 				// Ignore targetnames
-				if ( !stricmp( keyName, "targetname" ) )
+				if ( !_stricmp( keyName, "targetname" ) )
 					continue;
 
 				// Entity I/O values are stored as "Targetname,<data>", so we need to see if there's a ',' in the string
@@ -209,7 +209,7 @@ void Templates_ReconnectIOForGroup( CPointTemplate *pGroup )
 				for ( int iTName = 0; iTName < iCount; iTName++ )
 				{
 					char *pName = GroupTemplates[iTName].pszName;
-					if ( !stricmp( pName, sValue ) )
+					if ( !_stricmp( pName, sValue ) )
 					{
 						if ( template_debug.GetInt() )
 						{

@@ -180,7 +180,7 @@ const char *CCreateMultiplayerGameServerPage::GetMapName()
 
 void CCreateMultiplayerGameServerPage::OnCommand(const char *text)
 {
-	if(!stricmp(text,"go"))
+	if(!_stricmp(text,"go"))
 	{
 
 		// create the command to execute

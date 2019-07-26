@@ -98,7 +98,7 @@ void CServerConfigPanel::OnPageShow()
 				curPanel = GetChild(j);
 				const char *name = curPanel->GetName();
 
-				if(!stricmp(name,rulename)) // this control name matches a rule name
+				if(!_stricmp(name,rulename)) // this control name matches a rule name
 				{ 
 					break;
 				}
@@ -109,12 +109,12 @@ void CServerConfigPanel::OnPageShow()
 			{
 				const char *className= curPanel->GetClassName();
 
-				if(!stricmp(className,"TextEntry"))
+				if(!_stricmp(className,"TextEntry"))
 				{
 					TextEntry *entry = dynamic_cast<TextEntry *>(curPanel);
 					if (entry)
 					{
-						if(!stricmp(rulename,"sv_password") && !stricmp(value,"0"))
+						if(!_stricmp(rulename,"sv_password") && !_stricmp(value,"0"))
 							// sv_password is a special case..
 						{
 							entry->SetText("");
@@ -126,12 +126,12 @@ void CServerConfigPanel::OnPageShow()
 					}
 				} // if TextEntry
 
-				if(!stricmp(className,"CheckButton"))
+				if(!_stricmp(className,"CheckButton"))
 				{
 					CheckButton *entry = dynamic_cast<CheckButton *>(curPanel);
 					if (entry)
 					{
-						if(!stricmp(value,"0"))
+						if(!_stricmp(value,"0"))
 						{
 							entry->SetSelected(false);
 						} 
@@ -200,12 +200,12 @@ void CServerConfigPanel::OnSendConfig()
 
 			tmp_text[0]=0;
 		
-			if(!stricmp(className,"TextEntry"))
+			if(!_stricmp(className,"TextEntry"))
 			{
 				TextEntry *entry = dynamic_cast<TextEntry *>(curPanel);
 				if (entry)
 				{
-					if(!stricmp(name,"sv_password") ) // this is a special case to turn on passwords
+					if(!_stricmp(name,"sv_password") ) // this is a special case to turn on passwords
 					{
 						entry->GetText(0,tmp_text,512);
 						if(strlen(tmp_text) > 0) 
@@ -228,7 +228,7 @@ void CServerConfigPanel::OnSendConfig()
 				}
 			} // if TextEntry
 
-			if(!stricmp(className,"CheckButton"))
+			if(!_stricmp(className,"CheckButton"))
 			{
 				CheckButton *entry = dynamic_cast<CheckButton *>(curPanel);
 				if (entry)

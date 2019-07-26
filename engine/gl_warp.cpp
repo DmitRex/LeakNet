@@ -138,7 +138,7 @@ void R_LoadSkys( void )
 		success = false;
 
 		// See if user requested other than the default
-		if ( stricmp( requestedsky, "sky_urb01" ) )
+		if ( _stricmp( requestedsky, "sky_urb01" ) )
 		{
 			// Try the default
 			skyname->SetValue( "sky_urb01" );

@@ -35,7 +35,7 @@ void CHLCmdInfo::ParseParam(LPCTSTR lpszParam, BOOL bFlag, BOOL bLast)
 {
 	CCommandLineInfo::ParseParam(lpszParam, bFlag, bLast);
 	if ( !m_bWaitForUDPPort &&
-		 !stricmp(lpszParam, "udpport") )
+		 !_stricmp(lpszParam, "udpport") )
 	{
 		m_bWaitForUDPPort = TRUE;
 	}

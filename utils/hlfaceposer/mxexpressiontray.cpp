@@ -225,7 +225,7 @@ mxExpressionTray::mxETButton *mxExpressionTray::FindButton( const char *name )
 	mxETButton *p = m_pButtons;
 	while ( p )
 	{
-		if ( !stricmp( p->m_szName, name ) )
+		if ( !_stricmp( p->m_szName, name ) )
 			return p;
 		p = p->next;
 	}
@@ -1398,14 +1398,14 @@ void mxExpressionTray::CreateContextGroup( void )
 		return;
 
 	if ( ( strlen( params.m_szName ) <= 0 ) ||
-		!stricmp( params.m_szName, "unnamed" ) )
+		!_stricmp( params.m_szName, "unnamed" ) )
 	{
 		Con_ColorPrintf( ERROR_R, ERROR_G, ERROR_B, "You must type in a valid name\n" );
 		return;
 	}
 
 	if ( ( strlen( params.m_szDescription ) <= 0 ) ||
-   	   !stricmp( params.m_szDescription, "description" ) )
+   	   !_stricmp( params.m_szDescription, "description" ) )
 	{
 		Con_ColorPrintf( ERROR_R, ERROR_G, ERROR_B, "You must type in a valid description\n" );
 		return;

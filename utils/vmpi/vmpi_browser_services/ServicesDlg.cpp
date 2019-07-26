@@ -32,7 +32,7 @@ const char* FindArg( const char *pName, const char *pEndArgDefault="" )
 {
 	for ( int i=0; i < __argc; i++ )
 	{
-		if ( stricmp( pName, __argv[i] ) == 0 )
+		if ( _stricmp( pName, __argv[i] ) == 0 )
 		{
 			if ( (i+1) < __argc )
 				return __argv[i+1];

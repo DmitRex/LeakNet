@@ -331,7 +331,7 @@ void CMapDecal::OnParentKeyChanged(LPCSTR szKey, LPCSTR szValue)
 	//
 	// The decal texture has changed.
 	//
-	if (!stricmp(szKey, "texture"))
+	if (!_stricmp(szKey, "texture"))
 	{
 		IEditorTexture *pTexNew = g_Textures.FindActiveTexture(szValue);
 

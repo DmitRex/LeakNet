@@ -1518,15 +1518,15 @@ void CCmd_JointConstrain( CJointedModel &joints, const char *pJointName, const c
 	}
 
 	jointlimit_t jointType = JOINT_FREE;
-	if ( !stricmp( pJointType, "free" ) )
+	if ( !_stricmp( pJointType, "free" ) )
 	{
 		jointType = JOINT_FREE;
 	}
-	else if ( !stricmp( pJointType, "fixed" ) )
+	else if ( !_stricmp( pJointType, "fixed" ) )
 	{
 		jointType = JOINT_FIXED;
 	}
-	else if ( !stricmp( pJointType, "limit" ) )
+	else if ( !_stricmp( pJointType, "limit" ) )
 	{
 		jointType = JOINT_LIMIT;
 	}
@@ -1611,42 +1611,42 @@ void ParseCollisionCommands( CJointedModel &joints )
 
 		strcpy( command, token );
 
-		if ( !stricmp( command, "$mass" ) )
+		if ( !_stricmp( command, "$mass" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			CCmd_TotalMass( joints, args[0] );
 		}
 		// default properties
-		else if ( !stricmp( command, "$automass" ) )
+		else if ( !_stricmp( command, "$automass" ) )
 		{
 			joints.SetAutoMass();
 		}
-		else if ( !stricmp( command, "$inertia" ) )
+		else if ( !_stricmp( command, "$inertia" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			joints.DefaultInertia( Safe_atof( args[0] ) );
 		}
-		else if ( !stricmp( command, "$damping" ) )
+		else if ( !_stricmp( command, "$damping" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			joints.DefaultDamping( Safe_atof( args[0] ) );
 		}
-		else if ( !stricmp( command, "$rotdamping" ) )
+		else if ( !_stricmp( command, "$rotdamping" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			joints.DefaultRotdamping( Safe_atof( args[0] ) );
 		}
-		else if ( !stricmp( command, "$drag" ) )
+		else if ( !_stricmp( command, "$drag" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			joints.DefaultDrag( Safe_atof( args[0] ) );
 		}
-		else if ( !stricmp( command, "$rollingDrag" ) )
+		else if ( !_stricmp( command, "$rollingDrag" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			joints.DefaultRollingDrag( Safe_atof( args[0] ) );
 		}
-		else if ( !stricmp( command, "$concave" ) )
+		else if ( !_stricmp( command, "$concave" ) )
 		{
 			joints.AllowConcave();
 		}
@@ -1656,17 +1656,17 @@ void ParseCollisionCommands( CJointedModel &joints )
 			argCount = ReadArgs( args, 1 );
 			CCmd_JointSkip( joints, args[0] );
 		}
-		else if ( !stricmp( command, "$jointmerge" ) )
+		else if ( !_stricmp( command, "$jointmerge" ) )
 		{
 			argCount = ReadArgs( args, 2 );
 			CCmd_JointMerge( joints, args[0], args[1] );
 		}
-		else if ( !stricmp( command, "$rootbone" ) )
+		else if ( !_stricmp( command, "$rootbone" ) )
 		{
 			argCount = ReadArgs( args, 1 );
 			CCmd_JointRoot( joints, args[0] );
 		}
-		else if ( !stricmp( command, "$jointconstrain" ) )
+		else if ( !_stricmp( command, "$jointconstrain" ) )
 		{
 			argCount = ReadArgs( args, 6 );
 			char *pFriction = args[5];
@@ -1677,22 +1677,22 @@ void ParseCollisionCommands( CJointedModel &joints )
 			CCmd_JointConstrain( joints, args[0], args[1], args[2], args[3], args[4], pFriction );
 		}
 		// joint properties
-		else if ( !stricmp( command, "$jointinertia" ) )
+		else if ( !_stricmp( command, "$jointinertia" ) )
 		{
 			argCount = ReadArgs( args, 2 );
 			joints.JointInertia( args[0], Safe_atof( args[1] ) );
 		}
-		else if ( !stricmp( command, "$jointdamping" ) )
+		else if ( !_stricmp( command, "$jointdamping" ) )
 		{
 			argCount = ReadArgs( args, 2 );
 			joints.JointDamping( args[0], Safe_atof( args[1] ) );
 		}
-		else if ( !stricmp( command, "$jointrotdamping" ) )
+		else if ( !_stricmp( command, "$jointrotdamping" ) )
 		{
 			argCount = ReadArgs( args, 2 );
 			joints.JointRotdamping( args[0], Safe_atof( args[1] ) );
 		}
-		else if ( !stricmp( command, "$jointmassbias" ) )
+		else if ( !_stricmp( command, "$jointmassbias" ) )
 		{
 			argCount = ReadArgs( args, 2 );
 			joints.JointMassBias( args[0], Safe_atof( args[1] ) );

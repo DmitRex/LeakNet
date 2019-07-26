@@ -57,7 +57,7 @@ StudioModel *CStudioModelCache::CreateModel(const char *pszModelPath)
 	//
 	for (int i = 0; i < m_nItems; i++)
 	{
-		if (!stricmp(pszModelPath, m_Cache[i].pszPath))
+		if (!_stricmp(pszModelPath, m_Cache[i].pszPath))
 		{
 			m_Cache[i].nRefCount++;
 			return(m_Cache[i].pModel);

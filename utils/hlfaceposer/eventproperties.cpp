@@ -100,7 +100,7 @@ static void PopulateEventChoices2( HWND wnd, CEventParams *params )
 					if ( !cl || cl->IsOverrideClass() )
 						continue;
 
-					if ( stricmp( cl->GetName(), params->m_szParameters ) )
+					if ( _stricmp( cl->GetName(), params->m_szParameters ) )
 						continue;
 
 					for ( int i = 0 ; i < cl->GetNumExpressions() ; i++ )
@@ -217,7 +217,7 @@ void CMapEntities::CheckUpdateMap( char const *mapname )
 	if ( !mapname || !mapname[ 0 ] )
 		return;
 
-	if ( !stricmp( mapname, m_szCurrentMap ) )
+	if ( !_stricmp( mapname, m_szCurrentMap ) )
 		return;
 
 	// Load names from map
@@ -306,19 +306,19 @@ void CMapEntities::CheckUpdateMap( char const *mapname )
 
 			// Con_Printf( "Parsed %s -- %s\n", key, value );
 
-			if ( !stricmp( key, "name" ) )
+			if ( !_stricmp( key, "name" ) )
 			{
 				strcpy( name, value );
 			}
-			if ( !stricmp( key, "targetname" ) )
+			if ( !_stricmp( key, "targetname" ) )
 			{
 				strcpy( name, value );
 			}
-			if ( !stricmp( key, "origin" ) )
+			if ( !_stricmp( key, "origin" ) )
 			{
 				strcpy( origin, value );
 			}
-			if ( !stricmp( key, "angles" ) )
+			if ( !_stricmp( key, "angles" ) )
 			{
 				strcpy( angles, value );
 			}
@@ -410,7 +410,7 @@ static void PopulateNamedActorList( HWND wnd, CEventParams *params )
 
 static bool NameLessFunc( const char *const& name1, const char *const& name2 )
 {
-	if ( stricmp( name1, name2 ) < 0 )
+	if ( _stricmp( name1, name2 ) < 0 )
 		return true;
 	return false;
 }
@@ -646,7 +646,7 @@ static void ShowControlsForEventType( HWND wnd, CEventParams *params )
 					{
 						for (int i = 0; i < hdr->numseq; i++)
 						{
-							// if (stricmp( hdr->pSeqdesc(i)->pszActivityName(), "ACT_GESTURE") == 0)
+							// if (_stricmp( hdr->pSeqdesc(i)->pszActivityName(), "ACT_GESTURE") == 0)
 							{
 								SendMessage( control, CB_ADDSTRING, 0, (LPARAM)hdr->pSeqdesc(i)->pszLabel() ); 
 							}

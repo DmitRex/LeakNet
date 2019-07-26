@@ -290,7 +290,7 @@ void CUser::ProcessNetworkInput()
 		int arraySize = ARRAYSIZE(g_ServerMsgDispatch);
 		for (int i = 0; i < arraySize; i++)
 		{
-			if (!stricmp(msg->GetName(), g_ServerMsgDispatch[i].msgName))
+			if (!_stricmp(msg->GetName(), g_ServerMsgDispatch[i].msgName))
 			{
 				(this->*g_ServerMsgDispatch[i].msgFunc)(msg);
 				break;

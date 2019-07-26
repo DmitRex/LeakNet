@@ -499,11 +499,11 @@ int CounterStrikeViewport::MsgFunc_TeamInfo( const char *pszName, int iSize, voi
 		// set the players team
 		strncpy( g_PlayerExtraInfo[cl].teamname, READ_STRING(), MAX_TEAM_NAME );
 
-		if (!stricmp(g_PlayerExtraInfo[cl].teamname, "TEAM_CT"))
+		if (!_stricmp(g_PlayerExtraInfo[cl].teamname, "TEAM_CT"))
 		{
 			g_PlayerExtraInfo[cl].teamnumber = 2;
 		}
-		else if (!stricmp(g_PlayerExtraInfo[cl].teamname, "TEAM_TERRORIST"))
+		else if (!_stricmp(g_PlayerExtraInfo[cl].teamname, "TEAM_TERRORIST"))
 		{
 			g_PlayerExtraInfo[cl].teamnumber = 1;
 		}

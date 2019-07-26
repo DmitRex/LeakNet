@@ -44,19 +44,19 @@ public:
 
 		// quick hack, gamedir -> steam game name mapping
 		const char *gameName = "0";
-		if (!stricmp(gameDir, "cstrike"))
+		if (!_stricmp(gameDir, "cstrike"))
 		{
 			gameName = "1";
 		}
-		else if (!stricmp(gameDir, "tfc"))
+		else if (!_stricmp(gameDir, "tfc"))
 		{
 			gameName = "2";
 		}
-		else if (!stricmp(gameDir, "dmc"))
+		else if (!_stricmp(gameDir, "dmc"))
 		{
 			gameName = "3";
 		}
-		else if (!stricmp(gameDir, "dod"))
+		else if (!_stricmp(gameDir, "dod"))
 		{
 			gameName = "4";
 		}

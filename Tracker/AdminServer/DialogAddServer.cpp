@@ -52,7 +52,7 @@ void CDialogAddServer::Open()
 //-----------------------------------------------------------------------------
 void CDialogAddServer::OnCommand(const char *command)
 {
-	if (!stricmp(command, "OK"))
+	if (!_stricmp(command, "OK"))
 	{
 		OnOK();
 	}

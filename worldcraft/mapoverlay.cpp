@@ -1545,15 +1545,15 @@ void CMapOverlay::OnParentKeyChanged( LPCSTR szKey, LPCSTR szValue )
 	// Read geometry data.
 	//
 	float flDummy;
-	if ( !stricmp( szKey, "uv0" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[0].x, &m_Handles.m_vecBasisCoords[0].y, &flDummy ); }	// handle 1 2D
-	if ( !stricmp( szKey, "uv1" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[1].x, &m_Handles.m_vecBasisCoords[1].y, &flDummy ); }	// handle 2 2D
-	if ( !stricmp( szKey, "uv2" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[2].x, &m_Handles.m_vecBasisCoords[2].y, &flDummy ); }	// handle 3 2D
-	if ( !stricmp( szKey, "uv3" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[3].x, &m_Handles.m_vecBasisCoords[3].y, &flDummy ); }	// handle 4 2D
+	if ( !_stricmp( szKey, "uv0" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[0].x, &m_Handles.m_vecBasisCoords[0].y, &flDummy ); }	// handle 1 2D
+	if ( !_stricmp( szKey, "uv1" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[1].x, &m_Handles.m_vecBasisCoords[1].y, &flDummy ); }	// handle 2 2D
+	if ( !_stricmp( szKey, "uv2" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[2].x, &m_Handles.m_vecBasisCoords[2].y, &flDummy ); }	// handle 3 2D
+	if ( !_stricmp( szKey, "uv3" ) )     { sscanf( szValue, "%f %f %f", &m_Handles.m_vecBasisCoords[3].x, &m_Handles.m_vecBasisCoords[3].y, &flDummy ); }	// handle 4 2D
 
 	//
 	// Read material data.
 	//
-	if ( !stricmp( szKey, "material" ) )
+	if ( !_stricmp( szKey, "material" ) )
 	{
 		// get the new material
 		IEditorTexture *pTex = g_Textures.FindActiveTexture( szValue );
@@ -1564,15 +1564,15 @@ void CMapOverlay::OnParentKeyChanged( LPCSTR szKey, LPCSTR szValue )
 		m_Material.m_pTexture = pTex;
 	}
 
-	if ( !stricmp( szKey, "StartU" ) )	{ m_Material.m_vecTextureU.x = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
-	if ( !stricmp( szKey, "EndU" ) )	{ m_Material.m_vecTextureU.y = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
-	if ( !stricmp( szKey, "StartV" ) )	{ m_Material.m_vecTextureV.x = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
-	if ( !stricmp( szKey, "EndV" ) )	{ m_Material.m_vecTextureV.y = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
+	if ( !_stricmp( szKey, "StartU" ) )	{ m_Material.m_vecTextureU.x = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
+	if ( !_stricmp( szKey, "EndU" ) )	{ m_Material.m_vecTextureU.y = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
+	if ( !_stricmp( szKey, "StartV" ) )	{ m_Material.m_vecTextureV.x = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
+	if ( !_stricmp( szKey, "EndV" ) )	{ m_Material.m_vecTextureV.y = atof( szValue ); MaterialUpdateTexCoordsFromUVs(); }
 
 	//
 	// Read side data.
 	//
-	if ( !stricmp( szKey, "sides" ) )	{ BasisBuildFromSideList(); }
+	if ( !_stricmp( szKey, "sides" ) )	{ BasisBuildFromSideList(); }
 
 	// Re-clip and post "changed."
 	DoClip();

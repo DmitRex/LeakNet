@@ -32,7 +32,7 @@ int __cdecl PlayerNameCompare(const void *elem1, const void *elem2 )
 	const char *name1 = p1->kv->GetString("name");
 	const char *name2 = p2->kv->GetString("name");
 
-	return stricmp(name1,name2);
+	return _stricmp(name1,name2);
 }
 
 
@@ -80,7 +80,7 @@ int __cdecl PlayerAuthCompare(const void *elem1, const void *elem2 )
 	const char *authid1 = p1->kv->GetString("authid");
 	const char *authid2 = p2->kv->GetString("authid");
 
-	return stricmp(authid1,authid2);
+	return _stricmp(authid1,authid2);
 }
 
 

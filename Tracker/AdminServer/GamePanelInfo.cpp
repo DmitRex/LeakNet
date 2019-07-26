@@ -1191,7 +1191,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 	const char *playerName=data->GetString("player");
 
 
-	if(!stricmp(type,"kick")) 
+	if(!_stricmp(type,"kick")) 
 	{
 		char kickText[255];
 		_snprintf(kickText,255,"kick \"%s\"",playerName);
@@ -1199,7 +1199,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		OnRefresh();
 
 	} 
-	else if(!stricmp(type,"slap")) 
+	else if(!_stricmp(type,"slap")) 
 	{
 		char slapText[255];
 		_snprintf(slapText,255,"admin_command admin_slap %s",playerName);
@@ -1207,7 +1207,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		OnRefresh();
 
 	} 	
-	else if(!stricmp(type,"chat")) 
+	else if(!_stricmp(type,"chat")) 
 	{
 		char slapText[255];
 		const char *message=data->GetString("value");
@@ -1217,7 +1217,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		OnRefresh();
 
 	} 
-	else if(!stricmp(type,"ban")) 
+	else if(!_stricmp(type,"ban")) 
 	{
 		const char *valueBan=data->GetString("value");
 		float timeBan = (float)atof(valueBan);
@@ -1247,13 +1247,13 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		}
 
 	}
-	else if(!stricmp(type,"status")) 
+	else if(!_stricmp(type,"status")) 
 	{
 		//m_bPlayerStatus=true;
 		//	m_pRcon->SendRcon("status",m_szPassword);
 
 	}
-	else if(!stricmp(type,"cvar")) 
+	else if(!_stricmp(type,"cvar")) 
 	{
 
 		char cvar_text[512];
@@ -1265,7 +1265,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		OnRefresh();	
 
 	}
-	else if(!stricmp(type,"rconpassword")) 
+	else if(!_stricmp(type,"rconpassword")) 
 	{
 		const char *value=data->GetString("value");
 		m_pRcon->SetPassword(value);
@@ -1287,7 +1287,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		RequestInfo();
 
 	}
-	else if(!stricmp(type,"changemap")) 
+	else if(!_stricmp(type,"changemap")) 
 	{
 		char map_text[512];
 		
@@ -1297,7 +1297,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		// queue a refresh, but give it long enough for the map to actually change
 		m_iRequestRetry = system()->GetTimeMillis() + MAP_CHANGE_TIME;
 	}
-	else if(!stricmp(type,"changeban")) 
+	else if(!_stricmp(type,"changeban")) 
 	{
 		char kickText[255];
 		const char *value=data->GetString("value");
@@ -1330,7 +1330,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		}		
 	
 	}
-	else if(!stricmp(type,"removeban")) 
+	else if(!_stricmp(type,"removeban")) 
 	{
 		char kickText[255];
 		int i;
@@ -1365,7 +1365,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 
 
 	} 
-	else if(!stricmp(type,"addban")) 
+	else if(!_stricmp(type,"addban")) 
 	{
 		char kickText[255];
 		const char *id=data->GetString("id");
@@ -1384,7 +1384,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		m_pRcon->SendRcon(kickText);
 		OnRefresh();
 	} 
-	else if(!stricmp(type,"stop")) 
+	else if(!_stricmp(type,"stop")) 
 	{
 		char banText[255];
 
@@ -1394,7 +1394,7 @@ void CGamePanelInfo::OnPlayerDialog(vgui::KeyValues *data)
 		box->SetTitle("Stop the server",true);
 		box->Activate("", banText,"stop2");
 	}
-	else if(!stricmp(type,"stop2")) 
+	else if(!_stricmp(type,"stop2")) 
 	{
 		if(m_pCMDList->QueryCommand("_restart"))
 		{ //  if the server has the new restart functionality

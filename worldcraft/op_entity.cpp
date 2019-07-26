@@ -370,7 +370,7 @@ void COP_Entity::MergeKeyValue(char const *pszKey)
 					// We'll catch the main angles control below, since it's supported even
 					// for objects of an unknown class.
 					//
-					if (stricmp(pVar->GetName(), "angles"))
+					if (_stricmp(pVar->GetName(), "angles"))
 					{
 						m_SmartAngle.SetDifferent(true);
 					}
@@ -387,7 +387,7 @@ void COP_Entity::MergeKeyValue(char const *pszKey)
 		//
 		m_kv.SetValue(pszKey, VALUE_DIFFERENT_STRING);
 
-		if (!stricmp(pszKey, "angles"))
+		if (!_stricmp(pszKey, "angles"))
 		{
 			// We can't merge angles, so set the main angles control to "different".
 			m_Angle.SetDifferent(true);
@@ -1170,7 +1170,7 @@ void COP_Entity::CreateSmartControls(GDinputvariable *pVar)
 	bool bShowSmartAngles = false;
 	if (eType == ivAngle)
 	{
-		if (stricmp(pVar->GetName(), "angles"))
+		if (_stricmp(pVar->GetName(), "angles"))
 		{
 			bShowSmartAngles = true;
 
@@ -1187,7 +1187,7 @@ void COP_Entity::CreateSmartControls(GDinputvariable *pVar)
 			LPCTSTR pszValue = m_kv.GetValue(pVar->GetName());
 			if (pszValue != NULL)
 			{
-				if (!stricmp(pszValue, VALUE_DIFFERENT_STRING))
+				if (!_stricmp(pszValue, VALUE_DIFFERENT_STRING))
 				{
 					m_SmartAngle.SetDifferent(true);
 				}
@@ -1574,7 +1574,7 @@ void COP_Entity::OnChangeKeyorValue(void)
 
 		// This code should only be hit as a result of user input in the edit control!
 		// If they changed the "angles" key, update the main angles control.
-		if (!stricmp(szKey, "angles"))
+		if (!_stricmp(szKey, "angles"))
 		{
 			m_Angle.SetDifferent(false);
 			m_Angle.SetAngles(szValue, true);
@@ -1916,7 +1916,7 @@ void COP_Entity::OnChangeSmartcontrol(void)
 		if (pVar->GetType() == ivAngle)
 		{
 			// If they changed the "angles" key, update the main angles control.
-			if (!stricmp(pVar->GetName(), "angles"))
+			if (!_stricmp(pVar->GetName(), "angles"))
 			{
 				m_Angle.SetDifferent(false);
 				m_Angle.SetAngles(szValue, true);
@@ -2221,7 +2221,7 @@ void COP_Entity::OnCopy(void)
 	bKvClipEmpty = FALSE;
 	for (int i = 0; i < m_kv.GetCount(); i++)
 	{
-		if (stricmp(m_kv.GetKey(i), "origin"))
+		if (_stricmp(m_kv.GetKey(i), "origin"))
 		{
 			kvClipboard.SetValue(m_kv.GetKey(i), m_kv.GetValue(i));
 		}

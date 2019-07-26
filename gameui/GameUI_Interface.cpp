@@ -419,7 +419,7 @@ void CGameUI::Start(struct cl_enginefuncs_s *engineFuncs, int interfaceVersion, 
 		char language[128];
 		if (vgui::system()->GetRegistryString("HKEY_LOCAL_MACHINE\\Software\\Valve\\Steam\\Language", language, sizeof(language)))
 		{
-			if (strlen(language) > 0 && stricmp(language, "english"))
+			if (strlen(language) > 0 && _stricmp(language, "english"))
 			{
 				char path[256];
 				sprintf(path, "platform_%s", language);
@@ -944,7 +944,7 @@ void CGameUI::LoadingStarted(const char *resourceType, const char *resourceName)
 {
 	g_VModuleLoader.PostMessageToAllModules(new KeyValues("LoadingStarted", "type", resourceType, "name", resourceName));
 
-	if (!stricmp(resourceType, "transition"))
+	if (!_stricmp(resourceType, "transition"))
 	{
 		// activate the loading image
 		staticPanel->SetBackgroundRenderState(CBasePanel::BACKGROUND_LOADINGTRANSITION);

@@ -376,7 +376,7 @@ public:
 					CChoreoActor *a = scene->GetActor( i );
 					Assert( a );
 				
-					if ( stricmp( a->GetFacePoserModelName(), filename ) )
+					if ( _stricmp( a->GetFacePoserModelName(), filename ) )
 						continue;
 					hasassoc = true;
 					break;
@@ -521,7 +521,7 @@ public:
 									
 									strcpy( text.choice, a->GetName() );
 
-									if ( !stricmp( a->GetFacePoserModelName(), modelname ) )
+									if ( !_stricmp( a->GetFacePoserModelName(), modelname ) )
 									{
 										params.m_nSelected = i;
 										oldsel = -1;

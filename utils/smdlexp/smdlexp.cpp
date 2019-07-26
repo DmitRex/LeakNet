@@ -765,7 +765,7 @@ int DumpModelTEP::callback(INode *pnode)
 		
 		/*
 		const char *szExpectedExtension = ".bmp";
-		if (stricmp(szBitmapName+strlen(szBitmapName)-strlen(szExpectedExtension), szExpectedExtension) != 0)
+		if (_stricmp(szBitmapName+strlen(szBitmapName)-strlen(szExpectedExtension), szExpectedExtension) != 0)
 			{
 			sprintf(st_szDBG, "Node %s uses %s, which is not a %s file", (char*)strNodeName, szBitmapName, szExpectedExtension);
 			ASSERT_AND_ABORT(FALSE, st_szDBG);

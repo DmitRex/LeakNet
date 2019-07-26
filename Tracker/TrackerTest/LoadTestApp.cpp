@@ -152,7 +152,7 @@ void CLoadTestApp::ProcessConsoleInput()
 	char cmd[256];
 	g_pConsole->GetInput(cmd, sizeof(cmd));
 
-	if (!stricmp(cmd, "quit"))
+	if (!_stricmp(cmd, "quit"))
 	{
 		m_bRunning = false;
 	}

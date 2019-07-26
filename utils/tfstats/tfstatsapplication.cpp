@@ -213,8 +213,8 @@ void CTFStatsApplication::ParseCommandLine(int argc,const char* argv[])
 			fatalError("Malformed switch,  required format is <variable>=<value> with no spaces");
 		
 		cmdLineSwitches[var]=val;
-		if (stricmp(var,"displaystartupinfo")==0)
-			if (stricmp(val,"yes")==0)
+		if (_stricmp(var,"displaystartupinfo")==0)
+			if (_stricmp(val,"yes")==0)
 			{
 				displayStartupInfo=true;
 				break;

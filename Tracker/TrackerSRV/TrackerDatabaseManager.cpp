@@ -147,7 +147,7 @@ bool CTrackerDatabaseManager::ReloadUserDistribution()
 		for (int i = 0; i < m_UserDatabase.Size(); i++)
 		{
 			db_t &database = m_UserDatabase[i];
-			if (!stricmp(database.serverName, server.serverName) && !stricmp(database.catalogName, server.catalogName))
+			if (!_stricmp(database.serverName, server.serverName) && !_stricmp(database.catalogName, server.catalogName))
 			{
 				// the server and catalog names match, so instead just update this server
 				database.rangeMin = server.userRangeMin;

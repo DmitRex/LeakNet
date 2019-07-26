@@ -120,7 +120,7 @@ public:
 	{
 		for ( int i=0; i < m_Files.Count(); i++ )
 		{
-			if ( stricmp( pFilename, m_Files[i]->m_Name ) == 0 )
+			if ( _stricmp( pFilename, m_Files[i]->m_Name ) == 0 )
 				return m_Files[i];
 		}
 		return NULL;
@@ -267,7 +267,7 @@ const char* VMPI_FindArg( int argc, char **argv, const char *pName, const char *
 {
 	for ( int i=0; i < argc; i++ )
 	{
-		if ( stricmp( argv[i], pName ) == 0 )
+		if ( _stricmp( argv[i], pName ) == 0 )
 		{
 			if ( (i+1) < argc )
 				return argv[i+1];

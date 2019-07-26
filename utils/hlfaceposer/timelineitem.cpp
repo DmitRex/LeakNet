@@ -1068,7 +1068,7 @@ CFlexAnimationTrack *TimelineItem::GetSafeTrack( void )
 	for ( int i = 0; i < ev->GetNumFlexAnimationTracks() ; i++ )
 	{
 		CFlexAnimationTrack *track = ev->GetFlexAnimationTrack( i );
-		if ( track && !stricmp( track->GetFlexControllerName(), m_szTrackName ) )
+		if ( track && !_stricmp( track->GetFlexControllerName(), m_szTrackName ) )
 		{
 			return track;
 		}

@@ -186,19 +186,19 @@ void CPlayerPanel::OnCommand(const char *command)
 	if( m_bHasRcon && m_pPlayerListPanel->GetNumSelectedRows())  // if a user is selected
 	{
 		int playerID = m_pPlayerListPanel->GetDataItem(m_pPlayerListPanel->GetSelectedRow(0))->userData;
-		if (!stricmp(command, "kick"))
+		if (!_stricmp(command, "kick"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("Kick", "playerID",playerID));
 		}
-		else if (!stricmp(command, "ban"))
+		else if (!_stricmp(command, "ban"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("Ban", "playerID",playerID));
 		}
-		else if (!stricmp(command, "slap"))
+		else if (!_stricmp(command, "slap"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("Slap",  "playerID",playerID));
 		}
-		else if (!stricmp(command, "chat"))
+		else if (!_stricmp(command, "chat"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("chat", "playerID",playerID));
 		}

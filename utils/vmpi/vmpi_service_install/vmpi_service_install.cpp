@@ -37,7 +37,7 @@ char* FindArg( int argc, char **argv, const char *pArgName, char *pDefaultValue=
 {
 	for ( int i=0; i < argc; i++ )
 	{
-		if ( stricmp( argv[i], pArgName ) == 0 )
+		if ( _stricmp( argv[i], pArgName ) == 0 )
 		{
 			if ( (i+1) >= argc )
 				return pDefaultValue;

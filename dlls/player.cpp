@@ -4572,7 +4572,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 
 bool CBasePlayer::ClientCommand(const char *cmd)
 {
-	if( stricmp( cmd, "SmokeGrenade" ) == 0 )
+	if( _stricmp( cmd, "SmokeGrenade" ) == 0 )
 	{
 		ParticleSmokeGrenade *pSmoke = dynamic_cast<ParticleSmokeGrenade*>( CreateEntityByName(PARTICLESMOKEGRENADE_ENTITYNAME) );
 		if ( pSmoke )
@@ -4591,7 +4591,7 @@ bool CBasePlayer::ClientCommand(const char *cmd)
 			return true;
 		}
 	}
-	else if( stricmp( cmd, "vehicleRole" ) == 0 )
+	else if( _stricmp( cmd, "vehicleRole" ) == 0 )
 	{
 		// Get the vehicle role value.
 		if ( engine->Cmd_Argc() == 2 )
@@ -4615,7 +4615,7 @@ bool CBasePlayer::ClientCommand(const char *cmd)
 			return true;
 		}
 	}
-	else if ( stricmp( cmd, "spectate" ) == 0 ) // join spectator team & start observer mode
+	else if ( _stricmp( cmd, "spectate" ) == 0 ) // join spectator team & start observer mode
 	{
 		if ( GetTeamNumber() == TEAM_SPECTATOR )
 			return true;
@@ -4635,7 +4635,7 @@ bool CBasePlayer::ClientCommand(const char *cmd)
 		StartObserverMode( GetAbsOrigin(), GetAbsAngles() );
 		return true;
 	}
-	else if ( stricmp( cmd, "specmode" ) == 0 ) // new observer mode
+	else if ( _stricmp( cmd, "specmode" ) == 0 ) // new observer mode
 	{
 		// check for parameters.
 		if ( engine->Cmd_Argc() >= 2 )
@@ -4667,7 +4667,7 @@ bool CBasePlayer::ClientCommand(const char *cmd)
 		}
 		return true;
 	}
-	else if ( stricmp( cmd, "specnext" ) == 0 ) // chase next player
+	else if ( _stricmp( cmd, "specnext" ) == 0 ) // chase next player
 	{
 		if ( IsObserver() )
 		{
@@ -4679,7 +4679,7 @@ bool CBasePlayer::ClientCommand(const char *cmd)
 		
 		return true;
 	}
-	else if ( stricmp( cmd, "specprev" ) == 0 ) // chase prevoius player
+	else if ( _stricmp( cmd, "specprev" ) == 0 ) // chase prevoius player
 	{
 		if ( IsObserver() )
 		{

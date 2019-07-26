@@ -128,7 +128,7 @@ void CBuddyButton::OnMouseDoublePressed(MouseCode code)
 //-----------------------------------------------------------------------------
 void CBuddyButton::OnCommand(const char *command)
 {
-	if (!stricmp(command, "Chat"))
+	if (!_stricmp(command, "Chat"))
 	{
 		if (m_iBuddyStatus >= COnlineStatus::ONLINE)
 		{
@@ -137,7 +137,7 @@ void CBuddyButton::OnCommand(const char *command)
 		}
 		return;
 	}
-	else if (!stricmp(command, "GameInfo"))
+	else if (!_stricmp(command, "GameInfo"))
 	{
 		if (m_iBuddyStatus == COnlineStatus::INGAME)
 		{
@@ -145,7 +145,7 @@ void CBuddyButton::OnCommand(const char *command)
 		}
 		return;
 	}
-	else if (!stricmp(command, "JoinGame"))
+	else if (!_stricmp(command, "JoinGame"))
 	{
 		if (m_iBuddyStatus == COnlineStatus::INGAME)
 		{
@@ -153,7 +153,7 @@ void CBuddyButton::OnCommand(const char *command)
 		}
 		return;
 	}
-	else if (!stricmp(command, "AuthReq"))
+	else if (!_stricmp(command, "AuthReq"))
 	{
 		if (m_iBuddyStatus == COnlineStatus::REQUESTINGAUTHORIZATION)
 		{
@@ -161,21 +161,21 @@ void CBuddyButton::OnCommand(const char *command)
 		}
 		return;
 	}
-	else if (!stricmp(command, "UserInfo"))
+	else if (!_stricmp(command, "UserInfo"))
 	{
 		// open the user info dialog
 		m_pBuddy->OpenUserInfoDialog(false);
 		return;
 	}
-	else if (!stricmp(command, "Block"))
+	else if (!_stricmp(command, "Block"))
 	{
 		m_pBuddy->SetRemoteBlock(CBuddy::BLOCK_ONLINE);
 	}
-	else if (!stricmp(command, "Unblock"))
+	else if (!_stricmp(command, "Unblock"))
 	{
 		m_pBuddy->SetRemoteBlock(CBuddy::BLOCK_NONE);
 	}
-	else if (!stricmp(command, "Remove"))
+	else if (!_stricmp(command, "Remove"))
 	{
 		// open the warning dialog
 		CDialogRemoveUser *dialog = new CDialogRemoveUser(m_iBuddyID);

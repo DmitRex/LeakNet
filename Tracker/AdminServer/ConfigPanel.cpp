@@ -147,7 +147,7 @@ void CConfigPanel::SetControlText(const char *textEntryName, const char *text)
 void CConfigPanel::OnCommand(const char *command)
 {
 
-	if(!stricmp(command,"okay"))
+	if(!_stricmp(command,"okay"))
 	{ // save away the new settings
 		char timeText[20];
 		int time,timeGraphs;
@@ -178,7 +178,7 @@ void CConfigPanel::OnCommand(const char *command)
 			dlg->DoModal();
 		}
 	}
-	else if(!stricmp(command,"close") )
+	else if(!_stricmp(command,"close") )
 	{
 		OnClose();
 	}

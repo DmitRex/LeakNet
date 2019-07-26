@@ -196,7 +196,7 @@ void CEditGameClass::GetDefaultKeys( void )
 					//
 					// Only set the key value if it is non-zero.
 					//
-					if ((tmpkv.szKey[0] != 0) && (tmpkv.szValue[0] != 0) && (stricmp(tmpkv.szValue, "0")))
+					if ((tmpkv.szKey[0] != 0) && (tmpkv.szValue[0] != 0) && (_stricmp(tmpkv.szValue, "0")))
 					{
 						SetKeyValue(tmpkv.szKey, tmpkv.szValue);
 					}
@@ -301,7 +301,7 @@ ChunkFileResult_t CEditGameClass::SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInf
 		// Don't write keys that were already written above.
 		//
 		bool bAlreadyWritten = false;
-		if (!stricmp(KeyValue.szKey, "classname"))
+		if (!_stricmp(KeyValue.szKey, "classname"))
 		{
 			bAlreadyWritten = true;
 		}
@@ -354,7 +354,7 @@ ChunkFileResult_t CEditGameClass::SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInf
 					//
 					// Only write the key value if it is non-zero.
 					//
-					if ((TempKey.szKey[0] != 0) && (TempKey.szValue[0] != 0) && (stricmp(TempKey.szValue, "0")))
+					if ((TempKey.szKey[0] != 0) && (TempKey.szValue[0] != 0) && (_stricmp(TempKey.szValue, "0")))
 					{
 						eResult = pFile->WriteKeyValue(TempKey.szKey, TempKey.szValue);
 						if (eResult != ChunkFile_Ok)

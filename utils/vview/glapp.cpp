@@ -303,7 +303,7 @@ int FindNumParameter(const char *s)
    
    for (i = 0; i < (WinData.argc-1); i++)
    {
-	   if (stricmp(WinData.argv[i], s) == 0)
+	   if (_stricmp(WinData.argv[i], s) == 0)
        {
 		   if (isdigits(WinData.argv[i+1]) == TRUE)
            {
@@ -333,7 +333,7 @@ bool FindParameter(const char *s)
    
    for (i = 0; i < WinData.argc; i++)
    {
-	   if (stricmp(WinData.argv[i], s) == 0)
+	   if (_stricmp(WinData.argv[i], s) == 0)
        {
 		   return true;
        }
@@ -347,7 +347,7 @@ const char *FindParameterArg( const char *s )
    
    for (i = 0; i < WinData.argc-1; i++)
    {
-	   if (stricmp(WinData.argv[i], s) == 0)
+	   if (_stricmp(WinData.argv[i], s) == 0)
        {
 		   return WinData.argv[i+1];
        }

@@ -225,7 +225,7 @@ static bool __cdecl DefaultSortFunc(KeyValues *kv1, KeyValues *kv2)
 {
 	const char *string1 = kv1->GetString("text");
 	const char *string2 = kv2->GetString("text");
-	return stricmp(string1, string2) < 0;
+	return _stricmp(string1, string2) < 0;
 }
 
 //-----------------------------------------------------------------------------

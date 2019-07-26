@@ -44,12 +44,12 @@ CSubPanelTrackerState::~CSubPanelTrackerState()
 //-----------------------------------------------------------------------------
 void CSubPanelTrackerState::OnCommand(const char *command)
 {
-	if (!stricmp("Cancel", command))
+	if (!_stricmp("Cancel", command))
 	{
 		ServerSession().CancelConnect();
 		InvalidateLayout();
 	}
-	else if (!stricmp("Signin", command))
+	else if (!_stricmp("Signin", command))
 	{
 		ServerSession().SendInitialLogin(COnlineStatus::ONLINE);
 	}

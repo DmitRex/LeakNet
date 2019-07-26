@@ -258,7 +258,7 @@ char* FindArg( int argc, char **argv, const char *pArgName, char *pDefaultValue=
 {
 	for ( int i=0; i < argc; i++ )
 	{
-		if ( stricmp( argv[i], pArgName ) == 0 )
+		if ( _stricmp( argv[i], pArgName ) == 0 )
 		{
 			if ( (i+1) >= argc )
 				return pDefaultValue;
@@ -529,10 +529,10 @@ void GetArgsFromBuffer(
 		buf.ReadString( argStr, sizeof( argStr ) );
 
 		AppendArg( newArgv, argStr );
-		if ( stricmp( argStr, "-mpi_verbose" ) == 0 )
+		if ( _stricmp( argStr, "-mpi_verbose" ) == 0 )
 			bSpewArgs = true;
 
-		if ( stricmp( argStr, "-mpi_ShowAppWindow" ) == 0 )
+		if ( _stricmp( argStr, "-mpi_ShowAppWindow" ) == 0 )
 			*bShowAppWindow = true;
 
 		// Add these arguments after the executable filename to tell the program
@@ -863,7 +863,7 @@ void VMPI_Waiter_Update()
 		}
 		else
 		{
-			if ( !g_pPassword || stricmp( g_pPassword, pwString ) != 0 )
+			if ( !g_pPassword || _stricmp( g_pPassword, pwString ) != 0 )
 				continue;
 		}
 
@@ -940,7 +940,7 @@ void VMPI_Waiter_Update()
 			// Figure out the name of the master machine.
 			for ( int iArg=0; iArg < newArgv.Count()-1; iArg++ )
 			{
-				if ( stricmp( newArgv[iArg], "-mpi_MasterName" ) == 0 )
+				if ( _stricmp( newArgv[iArg], "-mpi_MasterName" ) == 0 )
 				{
 					Q_strncpy( g_CurMasterName, newArgv[iArg+1], sizeof( g_CurMasterName ) );
 				}

@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 	unsigned srandNum = 0xFFFF;
 	if(argc > 1)
 	{
-		if(stricmp(argv[1], "-seed") == 0)
+		if(_stricmp(argv[1], "-seed") == 0)
 		{
 			srandNum = time(0);
 			srand(srandNum);

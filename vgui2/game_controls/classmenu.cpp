@@ -68,7 +68,7 @@ CClassMenu::~CClassMenu()
 
 Panel *CClassMenu::CreateControlByName(const char *controlName)
 {
-	if( !stricmp( "MouseOverPanelButton", controlName ) )
+	if( !_stricmp( "MouseOverPanelButton", controlName ) )
 	{
 		ClassHelperPanel *classPanel = new ClassHelperPanel( this, NULL );
 		classPanel->SetVisible( false );
@@ -100,7 +100,7 @@ Panel *CClassMenu::CreateControlByName(const char *controlName)
 //-----------------------------------------------------------------------------
 void CClassMenu::OnCommand( const char *command)
 {
-	if ( stricmp( command, "vguicancel" ) )
+	if ( _stricmp( command, "vguicancel" ) )
 	{
 		gViewPortInterface->GetClientDllInterface()->ClientCmd( const_cast<char *>( command ));
 	}
@@ -142,7 +142,7 @@ void CClassMenu::Update( int *validClasses, int numClasses)
 	{
 		for( i = 0; i < m_pClassButtons.Count(); i++ )
 		{
-			if( !stricmp(m_pClassButtons[i]->GetName(), "civilian") )
+			if( !_stricmp(m_pClassButtons[i]->GetName(), "civilian") )
 			{
 				m_pClassButtons[i]->SetEnabled(true);
 			}
@@ -229,43 +229,43 @@ void CClassMenu::ClassHelperPanel::ApplySchemeSettings(IScheme *pScheme)
 	if ( m_pButton )
 	{
 			// map string names to illegal class ints, used in Update()
-		if ( !stricmp("scout", name ) )
+		if ( !_stricmp("scout", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_SCOUT, -1 );
 		}
-		else if ( !stricmp("sniper", name ) )
+		else if ( !_stricmp("sniper", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_SNIPER, -1 );
 		}
-		else if ( !stricmp("soldier", name ) )
+		else if ( !_stricmp("soldier", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_SOLDIER, -1 );
 		}
-		else if ( !stricmp("demoman", name ) )
+		else if ( !_stricmp("demoman", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_DEMOMAN, -1 );
 		}
-		else if ( !stricmp("medic", name ) )
+		else if ( !_stricmp("medic", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_MEDIC, -1 );
 		}
-		else if ( !stricmp("hwguy", name ) )
+		else if ( !_stricmp("hwguy", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_HVYWEP, -1 );
 		}
-		else if ( !stricmp("pyro", name ) )
+		else if ( !_stricmp("pyro", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_PYRO, -1 );
 		}
-		else if ( !stricmp("spy", name ) )
+		else if ( !_stricmp("spy", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_SPY, -1 );
 		}
-		else if ( !stricmp("engineer", name) )
+		else if ( !_stricmp("engineer", name) )
 		{
 			m_pButton->SetClass( TF_ILL_ENGINEER, -1 );
 		}
-		else if ( !stricmp("randompc", name ) )
+		else if ( !_stricmp("randompc", name ) )
 		{
 			m_pButton->SetClass( TF_ILL_RANDOMPC, -1 );// this is the 11th entry...
 		}

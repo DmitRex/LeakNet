@@ -40,7 +40,7 @@ void CMatchResults::generate()
 			token = strtok( eventText, seps );
 			while( token != NULL )
 			{
-				if (stricmp(token,"defeated")==0)
+				if (_stricmp(token,"defeated")==0)
 					fWinMode=false;
 				
 				else if (token[0]=='\"')

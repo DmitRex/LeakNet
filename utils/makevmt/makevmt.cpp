@@ -205,7 +205,7 @@ void Traverse_Materials( const char *original, const char *basedir )
 			_splitpath( wfd.cFileName, NULL, NULL, fname, ext );
 
 			// Not a .tga
-			if ( stricmp( ext, ".tga" ) )
+			if ( _stricmp( ext, ".tga" ) )
 				continue;
 
 			// One of the filters applied?

@@ -63,7 +63,7 @@ int COnlineStatus::StringToID(const char *statusString)
 	// search the lists for the string
 	for (int i = 0; i < (sizeof(g_OnlineStatusStrings)/sizeof(g_OnlineStatusStrings[0])); i++)
 	{
-		if (!stricmp(statusString, g_OnlineStatusStrings[i]))
+		if (!_stricmp(statusString, g_OnlineStatusStrings[i]))
 		{
 			return i + 1;
 		}
@@ -71,7 +71,7 @@ int COnlineStatus::StringToID(const char *statusString)
 	
 	for (i = 0; i < (sizeof(g_OfflineStatusStrings)/sizeof(g_OfflineStatusStrings[0])); i++)
 	{
-		if (!stricmp(statusString, g_OfflineStatusStrings[i]))
+		if (!_stricmp(statusString, g_OfflineStatusStrings[i]))
 		{
 			return -i;
 		}

@@ -860,11 +860,11 @@ ChunkFileResult_t CMapWorld::LoadHiddenCallback(CChunkFile *pFile, CMapWorld *pW
 //-----------------------------------------------------------------------------
 ChunkFileResult_t CMapWorld::LoadKeyCallback(const char *szKey, const char *szValue, CMapWorld *pWorld)
 {
-	if (!stricmp(szKey, "id"))
+	if (!_stricmp(szKey, "id"))
 	{
 		pWorld->SetID(atoi(szValue));
 	}
-	else if (stricmp(szKey, "mapversion") != 0)
+	else if (_stricmp(szKey, "mapversion") != 0)
 	{
 		pWorld->SetKeyValue(szKey, szValue);
 	}

@@ -57,7 +57,7 @@ bool ArgsExist( const char *pName )
 			if ( g_Args[i][0] != '-' )
 				continue;
 
-			if ( !stricmp( pName, g_Args[i] ) )
+			if ( !_stricmp( pName, g_Args[i] ) )
 			{
 				return true;
 			}
@@ -85,7 +85,7 @@ const char *ArgsGet( const char *pName, const char *pDefault )
 		if ( g_Args[i][0] != '-' )
 			continue;
 
-		if ( !stricmp( pName, g_Args[i] ) )
+		if ( !_stricmp( pName, g_Args[i] ) )
 		{
 			// If the next arg is not a switch, return it
 			if ( g_Args[i+1][0] != '-' )

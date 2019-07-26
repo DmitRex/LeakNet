@@ -1592,7 +1592,7 @@ inline bool CBaseEntity::NameMatches( const char *pszNameOrWildcard )
 		return ( m_iName == NULL_STRING );
 	
 	if ( pszNameOrWildcard[ len - 1 ] != '*' )
-		return ( stricmp( STRING(m_iName), pszNameOrWildcard ) == 0 );
+		return ( _stricmp( STRING(m_iName), pszNameOrWildcard ) == 0 );
 
 	return ( _strnicmp( STRING(m_iName), pszNameOrWildcard, len - 1 ) == 0 );
 }
@@ -1608,7 +1608,7 @@ inline bool CBaseEntity::ClassMatches( const char *pszClassOrWildcard )
 		return ( m_iName == NULL_STRING );
 	
 	if ( pszClassOrWildcard[ len - 1 ] != '*' )
-		return ( stricmp( STRING(m_iClassname), pszClassOrWildcard ) == 0 );
+		return ( _stricmp( STRING(m_iClassname), pszClassOrWildcard ) == 0 );
 
 	return ( _strnicmp( STRING(m_iClassname), pszClassOrWildcard, len - 1 ) == 0 );
 }

@@ -109,7 +109,7 @@ bool RestartKeyframer()
 		char *pEffectName = __argv[1];
 		for(PrototypeEffectLink *pCur=g_pPrototypeEffects; pCur; pCur=pCur->m_pNext)
 		{
-			if(stricmp(pEffectName, pCur->m_pEffectName) == 0)
+			if(_stricmp(pEffectName, pCur->m_pEffectName) == 0)
 			{
 				if(g_pCurEffect = pCur->m_CreateFn())
 				{

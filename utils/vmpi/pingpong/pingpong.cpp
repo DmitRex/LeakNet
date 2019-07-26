@@ -204,7 +204,7 @@ int main( int argc, char* argv[] )
 	const char *pIP = NULL;
 
 	bool bClient = false;
-	if ( stricmp( pClientOrServer, "-client" ) == 0 )
+	if ( _stricmp( pClientOrServer, "-client" ) == 0 )
 	{
 		if ( argc < 3 )
 		{

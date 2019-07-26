@@ -83,7 +83,7 @@ CLoadGameDialog::~CLoadGameDialog()
 //-----------------------------------------------------------------------------
 void CLoadGameDialog::OnCommand( const char *command )
 {
-	if ( !stricmp( command, "Load" )  )
+	if ( !_stricmp( command, "Load" )  )
 	{
 		KeyValues *item = m_pGameList->GetItem( m_pGameList->GetSelectedItem(0) );
 		if ( item )

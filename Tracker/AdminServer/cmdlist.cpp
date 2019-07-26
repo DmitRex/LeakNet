@@ -150,7 +150,7 @@ bool CCMDList::QueryCommand(char *cmd)
 	for(int i=0;i<m_CMDList.Count();i++)
 	{
 		char *cmd_in = m_CMDList[i];
-		if(!stricmp(cmd,m_CMDList[i]))
+		if(!_stricmp(cmd,m_CMDList[i]))
 			break;
 	}
 	if(i!=m_CMDList.Count())

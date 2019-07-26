@@ -1113,7 +1113,7 @@ int CChangeLevel::AddTransitionToList( levellist_t *pLevelList, int listCount, c
 
 	for ( i = 0; i < listCount; i++ )
 	{
-		if ( pLevelList[i].pentLandmark == pentLandmark && stricmp( pLevelList[i].mapName, pMapName ) == 0 )
+		if ( pLevelList[i].pentLandmark == pentLandmark && _stricmp( pLevelList[i].mapName, pMapName ) == 0 )
 			return 0;
 	}
 	Q_strncpy( pLevelList[listCount].mapName, pMapName, sizeof(pLevelList[listCount].mapName) );

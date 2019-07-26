@@ -640,7 +640,7 @@ LPCTSTR GDinputvariable::ItemStringForValue(const char *szValue)
 {
 	for (int i = 0; i < m_nItems; i++)
 	{
-		if (!stricmp(m_Items[i].szValue, szValue))
+		if (!_stricmp(m_Items[i].szValue, szValue))
 		{
 			return(m_Items[i].szCaption);
 		}

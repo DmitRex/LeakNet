@@ -1273,7 +1273,7 @@ bool CHL2_Player::ClientCommand(const char *cmd)
 #if	HL2_SINGLE_PRIMARY_WEAPON_MODE
 
 	//Drop primary weapon
-	if( stricmp( cmd, "DropPrimary" ) == 0 )
+	if( _stricmp( cmd, "DropPrimary" ) == 0 )
 	{
 		Weapon_DropSlot( WEAPON_PRIMARY_SLOT );
 		return true;
@@ -1281,7 +1281,7 @@ bool CHL2_Player::ClientCommand(const char *cmd)
 
 #endif
 
-	if ( !stricmp( cmd, "emit" ) )
+	if ( !_stricmp( cmd, "emit" ) )
 	{
 		CSingleUserRecipientFilter filter( this );
 		if ( engine->Cmd_Argc() > 1 )

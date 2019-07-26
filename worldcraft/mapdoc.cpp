@@ -82,7 +82,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 #define KeyInt( key, dest ) \
-	if (stricmp(szKey, key) != 0) \
+	if (_stricmp(szKey, key) != 0) \
 		; \
 	else \
 	{ \
@@ -90,7 +90,7 @@ static char THIS_FILE[] = __FILE__;
 	}
 
 #define KeyBool( key, dest ) \
-	if (stricmp(szKey, key) != 0) \
+	if (_stricmp(szKey, key) != 0) \
 		; \
 	else \
 	{ \
@@ -853,7 +853,7 @@ BOOL CMapDoc::FindEntityCallback(CMapClass *pObject, FindEntity_t *pFindInfo)
 
 		if (VectorCompare(Pos, pFindInfo->Pos))
 		{
-			if (stricmp(pEntity->GetClassName(), pFindInfo->szClassName) == 0)
+			if (_stricmp(pEntity->GetClassName(), pFindInfo->szClassName) == 0)
 			{
 				pFindInfo->pEntityFound = pEntity;
 				return(FALSE);
@@ -958,7 +958,7 @@ bool CMapDoc::FindEntitiesByClassName(CMapEntityList *pFound, const char *pszCla
 
 			if (pszThisClass != NULL)
 			{
-				if ((pszClassName != NULL) && (!stricmp(pszClassName, pszThisClass)))
+				if ((pszClassName != NULL) && (!_stricmp(pszClassName, pszThisClass)))
 				{
 					pFound->AddTail(pEntity);
 				}
@@ -997,7 +997,7 @@ bool CMapDoc::FindEntitiesByKeyValue(CMapEntityList *pFound, const char *pszKey,
 
 			if (pszThisValue != NULL)
 			{
-				if ((pszValue != NULL) && (!stricmp(pszValue, pszThisValue)))
+				if ((pszValue != NULL) && (!_stricmp(pszValue, pszThisValue)))
 				{
 					pFound->AddTail(pEntity);
 				}
@@ -1901,11 +1901,11 @@ BOOL CMapDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	BOOL bRMF = FALSE;
 	BOOL bMAP = FALSE;
 
-	if (!stricmp(lpszPathName + strlen(lpszPathName) - 3, "rmf"))
+	if (!_stricmp(lpszPathName + strlen(lpszPathName) - 3, "rmf"))
 	{
 		bRMF = TRUE;
 	}
-	else if (!stricmp(lpszPathName + strlen(lpszPathName) - 3, "map"))
+	else if (!_stricmp(lpszPathName + strlen(lpszPathName) - 3, "map"))
 	{
 		bMAP = TRUE;
 	}
@@ -2020,11 +2020,11 @@ BOOL CMapDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	//
 	BOOL bRMF = FALSE;
 	BOOL bMAP = FALSE;
-	if (!stricmp(lpszPathName + strlen(lpszPathName) - 3, "rmf"))
+	if (!_stricmp(lpszPathName + strlen(lpszPathName) - 3, "rmf"))
 	{
 		bRMF = TRUE;
 	}
-	else if (!stricmp(lpszPathName + strlen(lpszPathName) - 3, "map"))
+	else if (!_stricmp(lpszPathName + strlen(lpszPathName) - 3, "map"))
 	{
 		bMAP = TRUE;
 	}
@@ -5342,7 +5342,7 @@ bool CMapDoc::ExpandTargetNameKeywords(char *szNewTargetName, const char *szOldT
 					// If the prefix and the suffix match ours, extract the instance number
 					// from between them and check it against our highest instance number.
 					//
-					if ((strnicmp(szTemp, szPrefix, nPrefixLen) == 0) && (stricmp(pszTempSuffix, szSuffix) == 0))
+					if ((strnicmp(szTemp, szPrefix, nPrefixLen) == 0) && (_stricmp(pszTempSuffix, szSuffix) == 0))
 					{
 						*pszTempSuffix = '\0';
 
@@ -6237,7 +6237,7 @@ static BOOL BatchReplaceTextureCallback( CMapClass *pObject, BatchReplaceTexture
 	{
 		face = solid->GetFace( i );
 		face->GetTextureName( szCurrentTexture );
-		if( stricmp( szCurrentTexture, pInfo->szFindTexName ) == 0 )
+		if( _stricmp( szCurrentTexture, pInfo->szFindTexName ) == 0 )
 		{
 			face->SetTexture( pInfo->szReplaceTexName );
 		}

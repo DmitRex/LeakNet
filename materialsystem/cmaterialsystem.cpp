@@ -3488,7 +3488,7 @@ void CMaterialSystem::ToggleSuppressMaterial( char const* pMaterialName )
 	IMaterial *pMaterial = GetFirstMaterial();
 	while (pMaterial)
 	{
-		if (stricmp(pMaterial->GetName(), pMaterialName))
+		if (_stricmp(pMaterial->GetName(), pMaterialName))
 		{
 			IMaterialInternal* pMatInt = static_cast<IMaterialInternal*>(pMaterial);
 			pMatInt->ToggleSuppression();

@@ -1505,7 +1505,7 @@ modsv_t *CHLMasterDlg::FindMod( const char *pgamedir )
 	p = mods[h];
 	while ( p )
 	{
-		if ( !stricmp( pgamedir, p->gamedir ) )
+		if ( !_stricmp( pgamedir, p->gamedir ) )
 			return p;
 
 		p = p->next;
@@ -1838,51 +1838,51 @@ void CHLMasterDlg::Packet_Heartbeat2 (void)
 		}
 
 		// Check the version against the Mod version
-		if ( !stricmp( gamedir, "valve" ) )
+		if ( !_stricmp( gamedir, "valve" ) )
 		{
-			if ( stricmp( version, m_szHLVersion ) )
+			if ( _stricmp( version, m_szHLVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "cstrike" ) )
+		else if ( !_stricmp( gamedir, "cstrike" ) )
 		{
-			if ( stricmp( version, m_szCSVersion ) )
+			if ( _stricmp( version, m_szCSVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "tfc" ) )
+		else if ( !_stricmp( gamedir, "tfc" ) )
 		{
-			if ( stricmp( version, m_szTFCVersion ) )
+			if ( _stricmp( version, m_szTFCVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "dmc" ) )
+		else if ( !_stricmp( gamedir, "dmc" ) )
 		{
-			if ( stricmp( version, m_szDMCVersion ) )
+			if ( _stricmp( version, m_szDMCVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "opfor" ) )
+		else if ( !_stricmp( gamedir, "opfor" ) )
 		{
-			if ( stricmp( version, m_szOpForVersion ) )
+			if ( _stricmp( version, m_szOpForVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "ricochet" ) )
+		else if ( !_stricmp( gamedir, "ricochet" ) )
 		{
-			if ( stricmp( version, m_szRicochetVersion ) )
+			if ( _stricmp( version, m_szRicochetVersion ) )
 			{
 				reject = 1;
 			}
 		}
-		else if ( !stricmp( gamedir, "dod" ) )
+		else if ( !_stricmp( gamedir, "dod" ) )
 		{
-			if ( stricmp( version, m_szDODVersion ) )
+			if ( _stricmp( version, m_szDODVersion ) )
 			{
 				reject = 1;
 			}
@@ -2129,7 +2129,7 @@ void CHLMasterDlg::Packet_GetModBatch2 (void)
 		return;
 	}
 
-	if ( !stricmp( pszNextMod, "start-of-list" ) )
+	if ( !_stricmp( pszNextMod, "start-of-list" ) )
 	{
 		h = 0;
 		pMod = mods[h];
@@ -2247,7 +2247,7 @@ void CHLMasterDlg::Packet_GetModBatch3 (void)
 		return;
 	}
 
-	if ( !stricmp( pszNextMod, "start-of-list" ) )
+	if ( !_stricmp( pszNextMod, "start-of-list" ) )
 	{
 		h = 0;
 		pMod = mods[h];
@@ -2381,7 +2381,7 @@ void CHLMasterDlg::Packet_GetModBatch (void)
 		return;
 	}
 
-	if ( !stricmp( pszNextMod, "start-of-list" ) )
+	if ( !_stricmp( pszNextMod, "start-of-list" ) )
 	{
 		h = 0;
 		pMod = mods[h];
@@ -3357,19 +3357,19 @@ void CHLMasterDlg::ParseServers()
 		if (strlen(token.token) <= 0)
 			break;
 
-		if (!stricmp( token.token, "Auth" ) )
+		if (!_stricmp( token.token, "Auth" ) )
 		{
 			pList = &authservers;
 		}
-		else if (!stricmp( token.token, "Master" ) )
+		else if (!_stricmp( token.token, "Master" ) )
 		{
 			pList = &masterservers;
 		}
-		else if (!stricmp( token.token, "Titan" ) )
+		else if (!_stricmp( token.token, "Titan" ) )
 		{
 			pList = &titanservers;
 		}
-		else if (!stricmp( token.token, "Banned" ) )
+		else if (!_stricmp( token.token, "Banned" ) )
 		{
 			pList = &bannedips;
 		}
@@ -3388,7 +3388,7 @@ void CHLMasterDlg::ParseServers()
 			break;
 		}
 
-		if ( stricmp ( token.token, "{" ) )
+		if ( _stricmp ( token.token, "{" ) )
 		{
 			AfxMessageBox("Expecting {");
 			break;
@@ -3408,13 +3408,13 @@ void CHLMasterDlg::ParseServers()
 				break;
 			}
 
-			if ( !stricmp( token.token, "old" ) )
+			if ( !_stricmp( token.token, "old" ) )
 			{
 				bIsOld = TRUE;
 				token.ParseNextToken();
 			}
 
-			if ( !stricmp ( token.token, "}" ) )
+			if ( !_stricmp ( token.token, "}" ) )
 				break;
 
 			// It's an address
@@ -3634,11 +3634,11 @@ void CHLMasterDlg::Packet_GetMasterServers()
 		version = m_szHLVersion;
 
 	// we don't want to check the version of the Steam clients
-	if ( !bSteam && stricmp( szVersion, version ) )
+	if ( !bSteam && _stricmp( szVersion, version ) )
 	{
 		// Post 1009 can handle the rejection
 		// Otherwise, pass in the "old" servers
-		if ( !stricmp( szVersion, "1.0.0.9" ) )
+		if ( !_stricmp( szVersion, "1.0.0.9" ) )
 		{
 			bOldOnly = TRUE;
 		}

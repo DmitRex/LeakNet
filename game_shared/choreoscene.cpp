@@ -404,7 +404,7 @@ CChoreoActor *CChoreoScene::FindActor( const char *name )
 		if ( !a )
 			continue;
 
-		if ( !stricmp( a->GetName(), name ) )
+		if ( !_stricmp( a->GetName(), name ) )
 			return a;
 	}
 
@@ -499,7 +499,7 @@ void CChoreoScene::ParseRamp( ISceneTokenProcessor *tokenizer, CChoreoEvent *e )
 
 	tokenizer->GetToken( true );
 
-	if ( stricmp( tokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( tokenizer->CurrentToken(), "{" ) )
 		tokenizer->Error( "expecting {\n" );
 	
 	while ( 1 )
@@ -513,7 +513,7 @@ void CChoreoScene::ParseRamp( ISceneTokenProcessor *tokenizer, CChoreoEvent *e )
 			break;
 		}
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "}" ) )
 			break;
 		
 		CUtlVector< CExpressionSample > samples;
@@ -549,7 +549,7 @@ void CChoreoScene::ParseSceneRamp( ISceneTokenProcessor *tokenizer, CChoreoScene
 
 	tokenizer->GetToken( true );
 
-	if ( stricmp( tokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( tokenizer->CurrentToken(), "{" ) )
 		tokenizer->Error( "expecting {\n" );
 	
 	while ( 1 )
@@ -563,7 +563,7 @@ void CChoreoScene::ParseSceneRamp( ISceneTokenProcessor *tokenizer, CChoreoScene
 			break;
 		}
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "}" ) )
 			break;
 		
 		CUtlVector< CExpressionSample > samples;
@@ -625,13 +625,13 @@ void CChoreoScene::ParseFlexAnimations( ISceneTokenProcessor *tokenizer, CChoreo
 	float event_time	= endtime - starttime;
 
 	// Is it the new file format?
-	if ( !stricmp( tokenizer->CurrentToken(), "samples_use_time" ) )
+	if ( !_stricmp( tokenizer->CurrentToken(), "samples_use_time" ) )
 	{
 		samples_use_realtime = true;
 		tokenizer->GetToken( true );
 	}
 
-	if ( stricmp( tokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( tokenizer->CurrentToken(), "{" ) )
 		tokenizer->Error( "expecting {\n" );
 	
 	while ( 1 )
@@ -645,7 +645,7 @@ void CChoreoScene::ParseFlexAnimations( ISceneTokenProcessor *tokenizer, CChoreo
 			break;
 		}
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "}" ) )
 			break;
 		
 		char flexcontroller[ CFlexAnimationTrack::MAX_CONTROLLER_NAME ];
@@ -658,19 +658,19 @@ void CChoreoScene::ParseFlexAnimations( ISceneTokenProcessor *tokenizer, CChoreo
 		float range_max = 1.0f;
 		tokenizer->GetToken( true );
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "disabled" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "disabled" ) )
 		{
 			active = false;
 			tokenizer->GetToken( true );
 		}
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "combo" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "combo" ) )
 		{
 			combo = true;
 			tokenizer->GetToken( true );
 		}
 		
-		if ( !stricmp( tokenizer->CurrentToken(), "range" ) )
+		if ( !_stricmp( tokenizer->CurrentToken(), "range" ) )
 		{
 			tokenizer->GetToken( false );
 			range_min = atof( tokenizer->CurrentToken() );
@@ -683,7 +683,7 @@ void CChoreoScene::ParseFlexAnimations( ISceneTokenProcessor *tokenizer, CChoreo
 		
 		for ( int samplecount = 0; samplecount < ( combo ? 2 : 1 ); samplecount++ )
 		{
-			if ( stricmp( tokenizer->CurrentToken(), "{" ) )
+			if ( _stricmp( tokenizer->CurrentToken(), "{" ) )
 			{
 				tokenizer->Error( "expecting {\n" );
 			}
@@ -698,7 +698,7 @@ void CChoreoScene::ParseFlexAnimations( ISceneTokenProcessor *tokenizer, CChoreo
 					break;
 				}
 				
-				if ( !stricmp( tokenizer->CurrentToken(), "}" ) )
+				if ( !_stricmp( tokenizer->CurrentToken(), "}" ) )
 					break;
 				
 				float time = (float)atof( tokenizer->CurrentToken() );
@@ -777,13 +777,13 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 	e->SetName( m_pTokenizer->CurrentToken() );
 
 	m_pTokenizer->GetToken( true );
-	if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 		m_pTokenizer->Error( "expecting {\n" );
 
 	while ( 1 )
 	{
 		m_pTokenizer->GetToken( true );
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 			break;
 
 		if ( strlen( m_pTokenizer->CurrentToken() ) <= 0 )
@@ -792,7 +792,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 			break;
 		}
 
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "time" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "time" ) )
 		{
 			float start, end = 1.0f;
 
@@ -813,7 +813,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 			e->SetStartTime( start );
 			e->SetEndTime( end );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "ramp" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "ramp" ) )
 		{
 			hadramp = true;
 
@@ -830,47 +830,47 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 				decay = (float)atof( m_pTokenizer->CurrentToken() );
 			}
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "param" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "param" ) )
 		{
 			m_pTokenizer->GetToken( false );
 
 			e->SetParameters( m_pTokenizer->CurrentToken() );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "param2" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "param2" ) )
 		{
 			m_pTokenizer->GetToken( false );
 
 			e->SetParameters2( m_pTokenizer->CurrentToken() );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "pitch" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "pitch" ) )
 		{
 			m_pTokenizer->GetToken( false );
 			e->SetPitch( atoi( m_pTokenizer->CurrentToken() )  );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "yaw" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "yaw" ) )
 		{
 			m_pTokenizer->GetToken( false );
 			e->SetYaw( atoi( m_pTokenizer->CurrentToken() )  );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "loopcount" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "loopcount" ) )
 		{
 			m_pTokenizer->GetToken( false );
 			e->SetLoopCount( atoi( m_pTokenizer->CurrentToken() ) );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "resumecondition" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "resumecondition" ) )
 		{
 			e->SetResumeCondition( true );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "fixedlength" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "fixedlength" ) )
 		{
 			e->SetFixedLength( true );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "tags" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "tags" ) )
 		{
 			// Parse tags between { }
 			//
 			m_pTokenizer->GetToken( true );
-			if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+			if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 				m_pTokenizer->Error( "expecting {\n" );
 
 			while ( 1 )
@@ -884,7 +884,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 					break;
 				}
 
-				if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+				if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 					break;
 
 				char tagname[ CEventRelativeTag::MAX_EVENTTAG_LENGTH ];
@@ -897,7 +897,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 				e->AddRelativeTag( tagname, percentage );
 			}
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "sequenceduration" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "sequenceduration" ) )
 		{
 			float duration = 0.0f;
 
@@ -906,7 +906,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 
 			e->SetGestureSequenceDuration( duration );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "absolutetags" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "absolutetags" ) )
 		{
 			m_pTokenizer->GetToken( true );
 			CChoreoEvent::AbsTagType tagtype;
@@ -921,7 +921,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 			// Parse tags between { }
 			//
 			m_pTokenizer->GetToken( true );
-			if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+			if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 				m_pTokenizer->Error( "expecting {\n" );
 
 			while ( 1 )
@@ -935,7 +935,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 					break;
 				}
 
-				if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+				if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 					break;
 
 				char tagname[ CFlexTimingTag::MAX_EVENTTAG_LENGTH ];
@@ -948,12 +948,12 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 				e->AddAbsoluteTag( tagtype, tagname, t );
 			}
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "flextimingtags" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "flextimingtags" ) )
 		{
 			// Parse tags between { }
 			//
 			m_pTokenizer->GetToken( true );
-			if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+			if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 				m_pTokenizer->Error( "expecting {\n" );
 
 			while ( 1 )
@@ -967,7 +967,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 					break;
 				}
 
-				if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+				if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 					break;
 
 				char tagname[ CFlexTimingTag::MAX_EVENTTAG_LENGTH ];
@@ -984,7 +984,7 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 				e->AddTimingTag( tagname, percentage, locked );
 			}
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "relativetag" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "relativetag" ) )
 		{
 			char tagname[ CChoreoEvent::MAX_TAGNAME_STRING ];
 			char wavname[ CChoreoEvent::MAX_TAGNAME_STRING ];
@@ -996,11 +996,11 @@ CChoreoEvent *CChoreoScene::ParseEvent( CChoreoActor *actor, CChoreoChannel *cha
 
 			e->SetUsingRelativeTag( true, tagname, wavname );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "flexanimations" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "flexanimations" ) )
 		{
 			ParseFlexAnimations( m_pTokenizer, e );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "event_ramp" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "event_ramp" ) )
 		{
 			ParseRamp( m_pTokenizer, e );
 		}
@@ -1050,25 +1050,25 @@ CChoreoActor *CChoreoScene::ParseActor( void )
 	a->SetName( m_pTokenizer->CurrentToken() );
 
 	m_pTokenizer->GetToken( true );
-	if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 		m_pTokenizer->Error( "expecting {" );
 
 	// Parse channels
 	while ( 1 )
 	{
 		m_pTokenizer->GetToken( true );
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 			break;
 
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "channel" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "channel" ) )
 		{
 			ParseChannel( a );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "faceposermodel" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "faceposermodel" ) )
 		{
 			ParseFacePoserModel( a );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "active" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "active" ) )
 		{
 			m_pTokenizer->GetToken( true );
 			a->SetActive( atoi( m_pTokenizer->CurrentToken() ) ? true : false );
@@ -1129,7 +1129,7 @@ void CChoreoScene::ParseFPS( void )
 void CChoreoScene::ParseSnap( void )
 {
 	m_pTokenizer->GetToken( true );
-	m_bUseFrameSnap = !stricmp( m_pTokenizer->CurrentToken(), "on" ) ? true : false;
+	m_bUseFrameSnap = !_stricmp( m_pTokenizer->CurrentToken(), "on" ) ? true : false;
 }
 
 
@@ -1157,21 +1157,21 @@ CChoreoChannel *CChoreoScene::ParseChannel( CChoreoActor *actor )
 	c->SetName( m_pTokenizer->CurrentToken() );
 
 	m_pTokenizer->GetToken( true );
-	if ( stricmp( m_pTokenizer->CurrentToken(), "{" ) )
+	if ( _stricmp( m_pTokenizer->CurrentToken(), "{" ) )
 		m_pTokenizer->Error( "expecting {" );
 
 	// Parse channels
 	while ( 1 )
 	{
 		m_pTokenizer->GetToken( true );
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "}" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "}" ) )
 			break;
 
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "event" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "event" ) )
 		{
 			ParseEvent( actor, c );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "active" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "active" ) )
 		{
 			m_pTokenizer->GetToken( true );
 			c->SetActive( atoi( m_pTokenizer->CurrentToken() ) ? true : false );
@@ -1217,27 +1217,27 @@ bool CChoreoScene::ParseFromBuffer( ISceneTokenProcessor *tokenizer )
 		if ( strlen( m_pTokenizer->CurrentToken() ) <= 0 )
 			break;
 
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "event" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "event" ) )
 		{
 			ParseEvent( NULL, NULL );
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "actor" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "actor" ) )
 		{
 			ParseActor();
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "mapname" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "mapname" ) )
 		{
 			ParseMapname();
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "fps" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "fps" ) )
 		{
 			ParseFPS();
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "snap" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "snap" ) )
 		{
 			ParseSnap();
 		}
-		else if ( !stricmp( m_pTokenizer->CurrentToken(), "scene_ramp" ) )
+		else if ( !_stricmp( m_pTokenizer->CurrentToken(), "scene_ramp" ) )
 		{
 			ParseSceneRamp( m_pTokenizer, this );
 		}
@@ -2452,10 +2452,10 @@ CChoreoEvent *CChoreoScene::FindTargetingEvent( const char *wavname, const char 
 				if ( !e->IsUsingRelativeTag() )
 					continue;
 
-				if ( stricmp( wavname, e->GetRelativeWavName() ) )
+				if ( _stricmp( wavname, e->GetRelativeWavName() ) )
 					continue;
 
-				if ( stricmp( name, e->GetRelativeTagName() ) )
+				if ( _stricmp( name, e->GetRelativeTagName() ) )
 					continue;
 
 				return e;
@@ -2576,7 +2576,7 @@ void CChoreoScene::ImportEvents( ISceneTokenProcessor *tokenizer, CChoreoActor *
 		if ( strlen( m_pTokenizer->CurrentToken() ) <= 0 )
 			break;
 
-		if ( !stricmp( m_pTokenizer->CurrentToken(), "event" ) )
+		if ( !_stricmp( m_pTokenizer->CurrentToken(), "event" ) )
 		{
 			ParseEvent( actor, channel, starttime );
 		}

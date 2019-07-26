@@ -207,7 +207,7 @@ void CClientScoreBoardDialog::UpdateTeamInfo()
 		// find what team this player is in
 		for ( int j = 1; j <= m_iNumTeams; j++ )
 		{
-			if ( !stricmp( playerInfo.teamname, m_TeamInfo[j].name ) )
+			if ( !_stricmp( playerInfo.teamname, m_TeamInfo[j].name ) )
 				break;
 		}
 		if ( j > m_iNumTeams )  // player is not in a team, skip to the next guy

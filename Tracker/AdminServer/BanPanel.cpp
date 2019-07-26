@@ -132,7 +132,7 @@ void CBanPanel::BanListPanel::OnMouseDoublePressed(vgui::MouseCode code)
 //----------------------------------------------------------------------------
 void CBanPanel::OnCommand(const char *command)
 {
-	if (!stricmp(command, "addban"))
+	if (!_stricmp(command, "addban"))
 	{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("addban", "banID",0));
 	}
@@ -140,11 +140,11 @@ void CBanPanel::OnCommand(const char *command)
 	if( m_pBanListPanel->GetNumSelectedRows())  // if a user is selected
 	{
 		int playerID = m_pBanListPanel->GetDataItem(m_pBanListPanel->GetSelectedRow(0))->userData;
-		if (!stricmp(command, "removeban"))
+		if (!_stricmp(command, "removeban"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("removeban", "playerID",playerID));
 		}
-		else if (!stricmp(command, "changeban"))
+		else if (!_stricmp(command, "changeban"))
 		{
 			PostMessage(m_pParent->GetVPanel(),new KeyValues("changeban",  "playerID",playerID));
 		}

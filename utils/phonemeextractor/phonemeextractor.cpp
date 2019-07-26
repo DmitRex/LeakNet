@@ -1221,7 +1221,7 @@ static SR_RESULT SAPI_ExtractPhonemes(
 				if ( tag )
 				{
 					// Skip '...' tag
-					if ( stricmp( tag->m_pszWord, "..." ) )
+					if ( _stricmp( tag->m_pszWord, "..." ) )
 					{
 						CWordTag *newTag = new CWordTag( *tag );
 
@@ -1269,7 +1269,7 @@ static SR_RESULT SAPI_ExtractPhonemes(
 				const CWordTag *toTag = outwords.m_Words[ topos ];
 
 				// Words match, just skip ahead
-				if ( !stricmp( fromTag->m_pszWord, toTag->m_pszWord ) )
+				if ( !_stricmp( fromTag->m_pszWord, toTag->m_pszWord ) )
 				{
 					frompos++;
 					topos++;
@@ -1284,7 +1284,7 @@ static SR_RESULT SAPI_ExtractPhonemes(
 				while ( skipAhead < inwords.m_Words.Size() )
 				{
 					const CWordTag *sourceWord = inwords.m_Words[ skipAhead ];
-					if ( !stricmp( sourceWord->m_pszWord, toTag->m_pszWord ) )
+					if ( !_stricmp( sourceWord->m_pszWord, toTag->m_pszWord ) )
 					{
 						found = true;
 						break;

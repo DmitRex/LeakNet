@@ -243,7 +243,7 @@ CSender* CMessageWatchDlg::FindSenderByName( const char *pName )
 {
 	FOR_EACH_LL( m_Senders, i )
 	{
-		if ( stricmp( pName, m_Senders[i]->m_Name ) == 0 )
+		if ( _stricmp( pName, m_Senders[i]->m_Name ) == 0 )
 			return m_Senders[i];
 	}
 	return NULL;

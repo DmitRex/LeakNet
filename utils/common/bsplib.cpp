@@ -876,7 +876,7 @@ int	TexDataStringTable_AddOrFindString( const char *pString )
 	// garymcthack: Make this use an RBTree!
 	for( i = 0; i < g_nTexDataStringTable; i++ )
 	{
-		if( stricmp( pString, &g_TexDataStringData[g_TexDataStringTable[i]] ) == 0 )
+		if( _stricmp( pString, &g_TexDataStringData[g_TexDataStringTable[i]] ) == 0 )
 		{
 			return i;
 		}

@@ -14,7 +14,7 @@ const char* FindArg( int argc, char **argv, const char *pName, const char *pDefa
 {
 	for ( int i=0; i < argc; i++ )
 	{
-		if ( stricmp( argv[i], pName ) == 0 )
+		if ( _stricmp( argv[i], pName ) == 0 )
 		{
 			if ( (i+1) < argc )
 				return argv[i+1];

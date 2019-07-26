@@ -91,7 +91,7 @@ void CSubPanelOptionsConnection::OnApplyChanges()
 	m_pInternetSpeed->GetText(0, text, sizeof(text)-1);
 	for (int i = 0; i < ARRAYSIZE(g_Speeds); i++)
 	{
-		if (!stricmp(text, g_Speeds[i].description))
+		if (!_stricmp(text, g_Speeds[i].description))
 		{
 			speed = g_Speeds[i].speed;
 			break;

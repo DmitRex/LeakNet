@@ -255,7 +255,7 @@ static int Cubemap_CreateTexInfo( int originalTexInfo, int origin[3] )
 	int i;
 	for( i = 0; i < numtexdata; i++ )
 	{
-		if( stricmp( TexDataStringTable_GetString( GetTexData( i )->nameStringTableID ), 
+		if( _stricmp( TexDataStringTable_GetString( GetTexData( i )->nameStringTableID ), 
 			generatedTexDataName ) == 0 )
 		{
 			hasTexData = true;
@@ -286,7 +286,7 @@ static int Cubemap_CreateTexInfo( int originalTexInfo, int origin[3] )
 			}
 			return originalTexInfo;
 		}
-		if( stricmp( envmapVal, "env_cubemap" ) != 0 )
+		if( _stricmp( envmapVal, "env_cubemap" ) != 0 )
 		{
 			if( UTL_INVAL_SYMBOL == complainedSymbolTable.Find( originalMatName ) )
 			{

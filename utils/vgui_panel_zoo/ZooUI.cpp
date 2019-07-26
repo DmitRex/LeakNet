@@ -104,7 +104,7 @@ CZooUI::~CZooUI()
 
 void CZooUI::OnCommand(const char *command)
 {
-	if (!stricmp(command, "Close"))
+	if (!_stricmp(command, "Close"))
 	{
 		OnClose();
 	}

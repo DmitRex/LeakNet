@@ -56,7 +56,7 @@ void main(int argc, char *argv[])
 
   for (x=1;x<argc;x++)
   {
-    if (!stricmp(argv[x]+strlen(argv[x])-4,".tga"))
+    if (!_stricmp(argv[x]+strlen(argv[x])-4,".tga"))
     {
       fname[numsrc]=argv[x];
       numsrc++;

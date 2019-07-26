@@ -495,7 +495,7 @@ void CAutorunApp::CheckOS()
 		return;
 	}
 
-	bNTServicePack3=!stricmp(vinfo.szCSDVersion,"Service Pack 3");
+	bNTServicePack3=!_stricmp(vinfo.szCSDVersion,"Service Pack 3");
 	OSVersion=vinfo.dwMajorVersion;
 	Platform=vinfo.dwPlatformId;
 

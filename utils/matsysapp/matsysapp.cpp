@@ -889,7 +889,7 @@ int MaterialSystemApp::FindNumParameter(const char *s, int defaultVal)
    
    for (i = 0; i < (m_argc-1); i++)
    {
-	   if (stricmp(m_argv[i], s) == 0)
+	   if (_stricmp(m_argv[i], s) == 0)
        {
 		   if (isdigits(m_argv[i+1]))
            {
@@ -911,7 +911,7 @@ bool MaterialSystemApp::FindParameter(const char *s)
    
    for (i = 0; i < m_argc; i++)
    {
-	   if (stricmp(m_argv[i], s) == 0)
+	   if (_stricmp(m_argv[i], s) == 0)
        {
 		   return true;
        }
@@ -926,7 +926,7 @@ const char *MaterialSystemApp::FindParameterArg( const char *s )
    
    for (i = 0; i < m_argc; i++)
    {
-	   if (stricmp(m_argv[i], s) == 0)
+	   if (_stricmp(m_argv[i], s) == 0)
        {
 		   if( (i+1) < m_argc )
 			   return m_argv[i+1];

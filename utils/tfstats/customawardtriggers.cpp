@@ -44,25 +44,25 @@ CCustomAwardTrigger* CCustomAwardTrigger::readTrigger(CTextFile& f)
 	
 	while (token)	
 	{
-		if (stricmp(token,"value")==0)
+		if (_stricmp(token,"value")==0)
 		{
 			f.discard("=");
 			value=atoi(f.readString());
 			f.discard(";");
 		}
-		else if (stricmp(token,"teamvalue")==0)
+		else if (_stricmp(token,"teamvalue")==0)
 		{
 			f.discard("=");
 			teamValue=atoi(f.readString());
 			f.discard(";");
 		}
-		else if (stricmp(token,"type")==0)
+		else if (_stricmp(token,"type")==0)
 		{
 			f.discard("=");
 			type=f.readString();
 			f.discard(";");
 		}
-		else if (stricmp(token,"key")==0)
+		else if (_stricmp(token,"key")==0)
 		{
 			f.discard("=");
 			char lowerbuf[500];
@@ -70,7 +70,7 @@ CCustomAwardTrigger* CCustomAwardTrigger::readTrigger(CTextFile& f)
 			keys.push_back(lowerbuf);
 			f.discard(";");
 		}
-		else if (stricmp(token,"}")==0)
+		else if (_stricmp(token,"}")==0)
 		{
 			break;
 		}
@@ -291,7 +291,7 @@ bool CFullSearchTrigger::compare(string str_msg,string str_key,map<string,string
 			else if (matchexpr.at(0)!='!' && matchexpr.at(1)!='!')
 			{
 				//do a normal string compare
-				if (stricmp(matchexpr.c_str(),cmpbuf)==0)
+				if (_stricmp(matchexpr.c_str(),cmpbuf)==0)
 					varmatches.insert(pair<string,string>(varbuf,cmpbuf));
 				else
 					return false;

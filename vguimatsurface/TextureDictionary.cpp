@@ -719,7 +719,7 @@ int	CTextureDictionary::FindTextureIdForTextureFile( char const *pFileName )
 		if ( !mat )
 			continue;
 
-		if ( !stricmp( mat->GetName(), pFileName ) )
+		if ( !_stricmp( mat->GetName(), pFileName ) )
 			return i;
 	}
 

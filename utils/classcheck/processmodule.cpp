@@ -41,7 +41,7 @@ CClass *CCodeProcessor::FindClass( const char *name ) const
 	CClass *cl = m_pClassList;
 	while ( cl )
 	{
-		if ( !stricmp( cl->m_szName, name ) )
+		if ( !_stricmp( cl->m_szName, name ) )
 			return cl;
 
 		cl = cl->m_pNext;
@@ -84,7 +84,7 @@ int FnClassSortCompare( const void *elem1, const void *elem2 )
 	CClass *c1 = *(CClass **)elem1;
 	CClass *c2 = *(CClass **)elem2;
 
-	return ( stricmp( c1->m_szName, c2->m_szName ) );
+	return ( _stricmp( c1->m_szName, c2->m_szName ) );
 }
 
 void CCodeProcessor::SortClassList( void )
@@ -358,7 +358,7 @@ void CCodeProcessor::PrintClassList( void ) const
 			missingwarning[0]=0;
 			if ( cl->m_szTypedefBaseClass[0] )
 			{
-				if ( stricmp( cl->m_szBaseClass, cl->m_szTypedefBaseClass ) )
+				if ( _stricmp( cl->m_szBaseClass, cl->m_szTypedefBaseClass ) )
 				{
 					vprint( 0, "class %s has incorrect typedef %s BaseClass\n", cl->m_szName, cl->m_szTypedefBaseClass );
 				}
@@ -409,7 +409,7 @@ void CCodeProcessor::PrintClassList( void ) const
 						if ( *p == '~' )
 							p++;
 
-						if ( stricmp( p, cl->m_szName ) )
+						if ( _stricmp( p, cl->m_szName ) )
 						{
 							vprint( 0, "class %s has member function %s with no return type!!!\n",
 								cl->m_szName, member->m_szName );
@@ -540,13 +540,13 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 			return current;
 
 		current = CC_ParseToken( current );
-		if (stricmp( com_token, ":" ) )
+		if (_stricmp( com_token, ":" ) )
 		{
 			return current;
 		}
 
 		current = CC_ParseToken( current );
-		assert( !stricmp( com_token, ":" ) );
+		assert( !_stricmp( com_token, ":" ) );
 
 		current = CC_ParseToken( current );
 		if ( strlen( com_token ) <= 0 )
@@ -557,7 +557,7 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 	else
 	{
 		current = CC_ParseToken( current );
-		if (stricmp( com_token, "(" ) )
+		if (_stricmp( com_token, "(" ) )
 		{
 			return current;
 		}
@@ -571,7 +571,7 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 			return current;
 
 		current = CC_ParseToken( current );
-		if (stricmp( com_token, ")" ) )
+		if (_stricmp( com_token, ")" ) )
 		{
 			return current;
 		}
@@ -599,18 +599,18 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 			break;
 
 		// Go to next line
-		if ( !stricmp( com_token, "," ) )
+		if ( !_stricmp( com_token, "," ) )
 			continue;
 
 		// end
 		if ( !fIsMacroized )
 		{
-			if ( !stricmp( com_token, "}" ) )
+			if ( !_stricmp( com_token, "}" ) )
 				break;
 		}
 		else
 		{
-			if ( !stricmp( com_token, "END_DATADESC" ) )
+			if ( !_stricmp( com_token, "END_DATADESC" ) )
 				break;
 		}
 
@@ -621,10 +621,10 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 			continue;
 		}
 
-		if ( !stricmp( com_token, "/" ) )
+		if ( !_stricmp( com_token, "/" ) )
 		{
 			current = CC_ParseToken( current );
-			if ( !stricmp( com_token, "/" ) )
+			if ( !_stricmp( com_token, "/" ) )
 			{
 				// There are two styles supported. One is to have the member definition present but commented out:
 				//		DEFINE_FIELD( CMyClass, m_member, FIELD_INTEGER ),
@@ -664,23 +664,23 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 		strcpy( definetype, com_token );
 
 		current = CC_ParseToken( current );
-		if ( stricmp( com_token, "(" ) )
+		if ( _stricmp( com_token, "(" ) )
 			break;
 
 		// skip classname
 		current = CC_ParseToken( current );
-		if( stricmp( com_token, classname ) )
+		if( _stricmp( com_token, classname ) )
 		{
 			vprint( 0, "TYPEDESCRIPTION for class %s uses offset from class %s\n",
 				classname, com_token );
 		}
 		// skip comma
 		current = CC_ParseToken( current );
-		if ( !stricmp( com_token, ":" ) )
+		if ( !_stricmp( com_token, ":" ) )
 		{
 			// Scoped class name here...
 			current = CC_ParseToken( current );
-			assert( !stricmp( com_token, ":" ) );
+			assert( !_stricmp( com_token, ":" ) );
 			current = CC_ParseToken( current );
 
 			// skip comma
@@ -697,25 +697,25 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 
 		vartype[0]=0;
 
-		if ( !stricmp( definetype, "DEFINE_FUNCTION" ) ||
-			!stricmp( definetype, "DEFINE_THINKFUNC" ) ||
-			!stricmp( definetype, "DEFINE_ENTITYFUNC" ) ||
-			!stricmp( definetype, "DEFINE_USEFUNC" ) ||
-			!stricmp( definetype, "DEFINE_OUTPUT" ) ||
-			!stricmp( definetype, "DEFINE_INPUTFUNC" ) )
+		if ( !_stricmp( definetype, "DEFINE_FUNCTION" ) ||
+			!_stricmp( definetype, "DEFINE_THINKFUNC" ) ||
+			!_stricmp( definetype, "DEFINE_ENTITYFUNC" ) ||
+			!_stricmp( definetype, "DEFINE_USEFUNC" ) ||
+			!_stricmp( definetype, "DEFINE_OUTPUT" ) ||
+			!_stricmp( definetype, "DEFINE_INPUTFUNC" ) )
 		{
 			strcpy( vartype, "funcptr" );
 		}
-		else if ( !stricmp(definetype, "DEFINE_FIELD") || 
-			!stricmp(definetype, "DEFINE_KEYFIELD") || 
-			!stricmp(definetype, "DEFINE_KEYFIELD_NOT_SAVED") || 
-			!stricmp(definetype, "DEFINE_UTLVECTOR") || 
-			!stricmp(definetype, "DEFINE_GLOBAL_FIELD") || 
-			!stricmp(definetype, "DEFINE_GLOBAL_KEYFIELD") || 
-			!stricmp(definetype, "DEFINE_INPUT") ||
-			!stricmp(definetype, "DEFINE_AUTO_ARRAY") ||
-			!stricmp(definetype, "DEFINE_AUTO_ARRAY2D") ||
-			!stricmp(definetype, "DEFINE_ARRAY") )
+		else if ( !_stricmp(definetype, "DEFINE_FIELD") || 
+			!_stricmp(definetype, "DEFINE_KEYFIELD") || 
+			!_stricmp(definetype, "DEFINE_KEYFIELD_NOT_SAVED") || 
+			!_stricmp(definetype, "DEFINE_UTLVECTOR") || 
+			!_stricmp(definetype, "DEFINE_GLOBAL_FIELD") || 
+			!_stricmp(definetype, "DEFINE_GLOBAL_KEYFIELD") || 
+			!_stricmp(definetype, "DEFINE_INPUT") ||
+			!_stricmp(definetype, "DEFINE_AUTO_ARRAY") ||
+			!_stricmp(definetype, "DEFINE_AUTO_ARRAY2D") ||
+			!_stricmp(definetype, "DEFINE_ARRAY") )
 		{
 			// skip comma
 			current = CC_ParseToken( current );
@@ -746,11 +746,11 @@ char *CCodeProcessor::ParseTypeDescription( char *current, bool fIsMacroized )
 			if ( strlen( com_token ) <= 0 )
 				break;
 
-			if ( !stricmp( com_token, "(" ) )
+			if ( !_stricmp( com_token, "(" ) )
 			{
 				++nParenCount; 
 			}
-			else if ( !stricmp( com_token, ")" ) )
+			else if ( !_stricmp( com_token, ")" ) )
 			{
 				if ( --nParenCount == 0 )
 				{
@@ -794,7 +794,7 @@ char *CCodeProcessor::ParseReceiveTable( char *current )
 	char classname[ 256 ];
 
 	current = CC_ParseToken( current );
-	if (stricmp( com_token, "(" ) )
+	if (_stricmp( com_token, "(" ) )
 	{
 		return current;
 	}
@@ -832,11 +832,11 @@ char *CCodeProcessor::ParseReceiveTable( char *current )
 			break;
 
 		// Go to next line
-		if ( !stricmp( com_token, "," ) )
+		if ( !_stricmp( com_token, "," ) )
 			continue;
 
 		// end
-		if ( !stricmp( com_token, "END_RECV_TABLE" ) )
+		if ( !_stricmp( com_token, "END_RECV_TABLE" ) )
 			break;
 
 		// skip #ifdef's inside of recv tables
@@ -859,7 +859,7 @@ char *CCodeProcessor::ParseReceiveTable( char *current )
 		if ( !strcmp( recvproptype, "RecvPropArray" ) )
 		{
 			current = CC_ParseToken( current );
-			if ( stricmp( com_token, "(" ) )
+			if ( _stricmp( com_token, "(" ) )
 				break;
 
 			current = CC_ParseToken( current );
@@ -871,7 +871,7 @@ char *CCodeProcessor::ParseReceiveTable( char *current )
 		}
 
 		current = CC_ParseToken( current );
-		if ( stricmp( com_token, "(" ) )
+		if ( _stricmp( com_token, "(" ) )
 			break;
 
 		// Read macro or fieldname
@@ -882,7 +882,7 @@ char *CCodeProcessor::ParseReceiveTable( char *current )
 		if ( !strnicmp( com_token, "RECVINFO", strlen( "RECVINFO" ) ) )
 		{
 			current = CC_ParseToken( current );
-			if ( stricmp( com_token, "(" ) )
+			if ( _stricmp( com_token, "(" ) )
 				break;
 			current = CC_ParseToken( current );
 		}
@@ -958,7 +958,7 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 	char variablename[ 256 ];
 
 	current = CC_ParseToken( current );
-	if (stricmp( com_token, "(" ) )
+	if (_stricmp( com_token, "(" ) )
 	{
 		return current;
 	}
@@ -978,7 +978,7 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 	}
 
 	current = CC_ParseToken( current );
-	if (stricmp( com_token, ")" ) )
+	if (_stricmp( com_token, ")" ) )
 	{
 		return current;
 	}
@@ -997,11 +997,11 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 			break;
 
 		// Go to next line
-		if ( !stricmp( com_token, "," ) )
+		if ( !_stricmp( com_token, "," ) )
 			continue;
 
 		// end
-		if ( !stricmp( com_token, "END_PREDICTION_DATA" ) )
+		if ( !_stricmp( com_token, "END_PREDICTION_DATA" ) )
 			break;
 
 		// skip #ifdef's inside of typedescs
@@ -1011,10 +1011,10 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 			continue;
 		}
 
-		if ( !stricmp( com_token, "/" ) )
+		if ( !_stricmp( com_token, "/" ) )
 		{
 			current = CC_ParseToken( current );
-			if ( !stricmp( com_token, "/" ) )
+			if ( !_stricmp( com_token, "/" ) )
 			{
 				current = CC_ParseToken( current );
 				if ( !strnicmp( com_token, "DEFINE_", 7 ) )
@@ -1037,12 +1037,12 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 		strcpy( definetype, com_token );
 
 		current = CC_ParseToken( current );
-		if ( stricmp( com_token, "(" ) )
+		if ( _stricmp( com_token, "(" ) )
 			break;
 
 		// skip classname
 		current = CC_ParseToken( current );
-		if( stricmp( com_token, classname ) )
+		if( _stricmp( com_token, classname ) )
 		{
 			vprint( 0, "PREDICTION TYPEDESCRIPTION for class %s uses offset from class %s\n",
 				classname, com_token );
@@ -1060,7 +1060,7 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 
 		vartype[0]=0;
 
-		if ( stricmp( definetype, "DEFINE_FUNCTION" ) )
+		if ( _stricmp( definetype, "DEFINE_FUNCTION" ) )
 		{
 			// skip comma
 			current = CC_ParseToken( current );
@@ -1083,11 +1083,11 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 			if ( strlen( com_token ) <= 0 )
 				break;
 
-			if ( !stricmp( com_token, "(" ) )
+			if ( !_stricmp( com_token, "(" ) )
 			{
 				++nParenCount; 
 			}
-			else if ( !stricmp( com_token, ")" ) )
+			else if ( !_stricmp( com_token, ")" ) )
 			{
 				if ( --nParenCount == 0 )
 				{
@@ -1095,7 +1095,7 @@ char *CCodeProcessor::ParsePredictionTypeDescription( char *current )
 				}
 			}
 
-			if ( !stricmp( com_token, "FTYPEDESC_INSENDTABLE" ) )
+			if ( !_stricmp( com_token, "FTYPEDESC_INSENDTABLE" ) )
 			{
 				inrecvtable = true;
 			}
@@ -1198,17 +1198,17 @@ bool CCodeProcessor::LoadFile( char **buffer, char *filename, char const *module
 
 static bool SkipFile( char const *module )
 {
-	if ( !stricmp( module, "predictable_entity.h" ) )
+	if ( !_stricmp( module, "predictable_entity.h" ) )
 		return true;
-	if ( !stricmp( module, "baseentity_shared.h" ) )
+	if ( !_stricmp( module, "baseentity_shared.h" ) )
 		return true;
-	if ( !stricmp( module, "baseplayer_shared.h" ) )
+	if ( !_stricmp( module, "baseplayer_shared.h" ) )
 		return true;
-	if ( !stricmp( module, "tf_tacticalmap.cpp" ) )
+	if ( !_stricmp( module, "tf_tacticalmap.cpp" ) )
 		return true;
-	if ( !stricmp( module, "techtree.cpp" ) )
+	if ( !_stricmp( module, "techtree.cpp" ) )
 		return true;
-	if ( !stricmp( module, "techtree_parse.cpp" ) )
+	if ( !_stricmp( module, "techtree_parse.cpp" ) )
 		return true;
 
 	return false;
@@ -1275,7 +1275,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 		if ( !current )
 			break;
 
-		if ( !stricmp( com_token, "#include" ) )
+		if ( !_stricmp( com_token, "#include" ) )
 		{
 			current = CC_ParseToken( current );
 			if ( strlen( com_token ) > 0 &&
@@ -1287,8 +1287,8 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 				ProcessModule( true, depth + 1, maxdepth, numheaders, skippedfiles, srcroot, baseroot, root, com_token );
 			}
 		}
-		else if ( !stricmp( com_token, "class" ) ||
-			 !stricmp( com_token, "struct" ) )
+		else if ( !_stricmp( com_token, "class" ) ||
+			 !_stricmp( com_token, "struct" ) )
 		{
 			current = CC_ParseToken( current );
 			if ( strlen( com_token ) > 0 )
@@ -1299,11 +1299,11 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 
 				// Now see if there's a base class
 				current = CC_ParseToken( current );
-				if ( !stricmp( com_token, ":" ) )
+				if ( !_stricmp( com_token, ":" ) )
 				{
 					// Parse out public and then classname an
 					current = CC_ParseToken( current );
-					if ( !stricmp( com_token, "public" ) )
+					if ( !_stricmp( com_token, "public" ) )
 					{
 						current = CC_ParseToken( current );
 						if ( strlen( com_token ) > 0 )
@@ -1313,16 +1313,16 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 							do
 							{
 								current = CC_ParseToken( current );
-							} while ( strlen( com_token ) && stricmp( com_token, "{" ) );
+							} while ( strlen( com_token ) && _stricmp( com_token, "{" ) );
 
-							if ( !stricmp( com_token, "{" ) )
+							if ( !_stricmp( com_token, "{" ) )
 							{
 								current = cl->ParseClassDeclaration( current );
 							}
 						}
 					}
 				}
-				else if ( !stricmp( com_token, "{" ) )
+				else if ( !_stricmp( com_token, "{" ) )
 				{
 					current = cl->ParseClassDeclaration( current );
 				}
@@ -1336,7 +1336,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 			int bases = 1;
 			int usebase = 0;
 
-			if ( !stricmp( com_token, "PREDICTABLE_CLASS_ALIASED" ) )
+			if ( !_stricmp( com_token, "PREDICTABLE_CLASS_ALIASED" ) )
 			{
 				type = 2;
 				bases = 2;
@@ -1350,12 +1350,12 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 					usebase = 1;
 				}
 			}
-			else if ( !stricmp( com_token, "PREDICTABLE_CLASS_SHARED" ) )
+			else if ( !_stricmp( com_token, "PREDICTABLE_CLASS_SHARED" ) )
 			{
 				type = 1;
 				bases = 1;
 			}
-			else if ( !stricmp( com_token, "PREDICTABLE_CLASS" ) )
+			else if ( !_stricmp( com_token, "PREDICTABLE_CLASS" ) )
 			{
 				type = 0;
 				bases = 1;
@@ -1368,7 +1368,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 					strcpy( prefix, "C" );
 				}
 			}
-			else if ( !stricmp( com_token, "PREDICTABLE_CLASS_ALIASED_PREFIXED" ) )
+			else if ( !_stricmp( com_token, "PREDICTABLE_CLASS_ALIASED_PREFIXED" ) )
 			{
 				// Nothing
 			}
@@ -1391,7 +1391,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 
 					// Now see if there's a base class
 					current = CC_ParseToken( current );
-					if ( !stricmp( com_token, "," ) )
+					if ( !_stricmp( com_token, "," ) )
 					{
 						// Parse out public and then classname an
 						current = CC_ParseToken( current );
@@ -1407,7 +1407,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 								valid = false;
 
 								current = CC_ParseToken( current );
-								if ( !stricmp( com_token, "," ) )
+								if ( !_stricmp( com_token, "," ) )
 								{
 									current = CC_ParseToken( current );
 									if ( strlen( com_token ) > 0 )
@@ -1430,15 +1430,15 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 							do
 							{
 								current = CC_ParseToken( current );
-							} while ( strlen( com_token ) && stricmp( com_token, ")" ) );
+							} while ( strlen( com_token ) && _stricmp( com_token, ")" ) );
 
-							if ( !stricmp( com_token, ")" ) )
+							if ( !_stricmp( com_token, ")" ) )
 							{
 								current = cl->ParseClassDeclaration( current );
 							}
 						}
 					}
-					else if ( !stricmp( com_token, ")" ) )
+					else if ( !_stricmp( com_token, ")" ) )
 					{
 						current = cl->ParseClassDeclaration( current );
 					}
@@ -1654,11 +1654,11 @@ void CCodeProcessor::SetupIncludePath( const char *sourcetreebase, const char *s
 	AddIncludePath( path );
 
 	char modsubdir[128];
-	if ( !stricmp(subdir, "dlls") )
+	if ( !_stricmp(subdir, "dlls") )
 	{
 		sprintf(modsubdir,"%s\\%s_dll", subdir, gamespecific );
 	}
-	else if ( !stricmp(subdir, "cl_dll") )
+	else if ( !_stricmp(subdir, "cl_dll") )
 	{
 		sprintf(modsubdir,"%s\\%s_hud", subdir, gamespecific );
 	}

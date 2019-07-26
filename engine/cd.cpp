@@ -353,13 +353,13 @@ void CCDAudio::CD_f ( void )
 
 	command = Cmd_Argv (1);
 
-	if (stricmp(command, "on") == 0)
+	if (_stricmp(command, "on") == 0)
 	{
 		m_bEnabled = true;
 		return;
 	}
 
-	if (stricmp(command, "off") == 0)
+	if (_stricmp(command, "off") == 0)
 	{
 		if (m_bIsPlaying)
 			Stop();
@@ -367,7 +367,7 @@ void CCDAudio::CD_f ( void )
 		return;
 	}
 
-	if (stricmp(command, "reset") == 0)
+	if (_stricmp(command, "reset") == 0)
 	{
 		m_bEnabled = true;
 		if (m_bIsPlaying)
@@ -378,7 +378,7 @@ void CCDAudio::CD_f ( void )
 		return;
 	}
 
-	if (stricmp(command, "remap") == 0)
+	if (_stricmp(command, "remap") == 0)
 	{
 		ret = Cmd_Argc() - 2;
 		if ( ret > 0)
@@ -391,7 +391,7 @@ void CCDAudio::CD_f ( void )
 		return;
 	}
 
-	if (stricmp(command, "close") == 0)
+	if (_stricmp(command, "close") == 0)
 	{
 		CloseDoor();
 		return;
@@ -406,37 +406,37 @@ void CCDAudio::CD_f ( void )
 		}
 	}
 
-	if (stricmp(command, "play") == 0)
+	if (_stricmp(command, "play") == 0)
 	{
 		Play( atoi(Cmd_Argv (2)), false );
 		return;
 	}
 
-	if (stricmp(command, "loop") == 0)
+	if (_stricmp(command, "loop") == 0)
 	{
 		Play( atoi(Cmd_Argv (2)), true );
 		return;
 	}
 
-	if (stricmp(command, "stop") == 0)
+	if (_stricmp(command, "stop") == 0)
 	{
 		Stop();
 		return;
 	}
 
-	if (stricmp(command, "pause") == 0)
+	if (_stricmp(command, "pause") == 0)
 	{
 		Pause();
 		return;
 	}
 
-	if (stricmp(command, "resume") == 0)
+	if (_stricmp(command, "resume") == 0)
 	{
 		Resume();
 		return;
 	}
 
-	if (stricmp(command, "eject") == 0)
+	if (_stricmp(command, "eject") == 0)
 	{
 		if (m_bIsPlaying)
 			Stop();
@@ -445,7 +445,7 @@ void CCDAudio::CD_f ( void )
 		return;
 	}
 
-	if (stricmp(command, "info") == 0)
+	if (_stricmp(command, "info") == 0)
 	{
 		Msg("%u tracks\n", m_nMaxTrack);
 		if ( m_bIsPlaying )

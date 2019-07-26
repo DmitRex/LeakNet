@@ -119,7 +119,7 @@ void CModList::ParseInstalledMods()
 						pnew->next = g_pModList;
 						g_pModList = pnew;
 
-						if ( !stricmp( wfd.cFileName, "VALVE" ) )
+						if ( !_stricmp( wfd.cFileName, "VALVE" ) )
 							g_pHalfLife = pnew;
 					}
 					FindClose( hResult2 );

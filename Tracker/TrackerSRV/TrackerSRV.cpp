@@ -121,7 +121,7 @@ void CTrackerSRV::RunTrackerServer(const char *lpCmdLine)
 	char *token = strtok((char *)lpCmdLine, seps);
 	while (token != NULL)
 	{
-		if (!stricmp(token, "-connect"))
+		if (!_stricmp(token, "-connect"))
 		{
 			// server to connect to has been specified
 			token = strtok(NULL, seps);
@@ -130,7 +130,7 @@ void CTrackerSRV::RunTrackerServer(const char *lpCmdLine)
 				strcpy(szServerName, token);
 			}
 		}
-		else if (!stricmp(token, "-sqldb"))
+		else if (!_stricmp(token, "-sqldb"))
 		{
 			token = strtok(NULL, seps);
 			if (token)
@@ -217,7 +217,7 @@ void CTrackerSRV::RunTrackerServer(const char *lpCmdLine)
 		char buf[128];
 		if (g_pConsole->GetInput(buf, 127))
 		{
-			if (!stricmp(buf, "Quit"))
+			if (!_stricmp(buf, "Quit"))
 			{
 				g_pConsole->Print(3, "Initiating Shutdown...\n");
 
@@ -292,7 +292,7 @@ bool CTrackerSRV::RegisterServerInNetwork(const char *serverName)
 //-----------------------------------------------------------------------------
 void CTrackerSRV::HandleTextCommand(const char *command)
 {
-	if (!stricmp(command, "status"))
+	if (!_stricmp(command, "status"))
 	{
 		// print server details
 		g_pConsole->Print(9, "Server status\n");
@@ -314,7 +314,7 @@ void CTrackerSRV::HandleTextCommand(const char *command)
 		g_pConsole->Print(9, "Total sent: %d bytes\n", net()->BytesSent());
 		g_pConsole->Print(9, "Total received: %d bytes\n", net()->BytesReceived());
 	}
-	else if (!stricmp(command, "users"))
+	else if (!_stricmp(command, "users"))
 	{
 		m_SessionManager.PrintUserList();
 	}

@@ -2124,7 +2124,7 @@ int findGlobalBone( const char *name )
 
 	for (k = 0; k < g_numbones; k++)
 	{
-		if (stricmp( g_bonetable[k].name, name ) == 0)
+		if (_stricmp( g_bonetable[k].name, name ) == 0)
 		{
 			return k;
 		}
@@ -2145,7 +2145,7 @@ bool IsGlobalBoneXSI( const char *name, const char *bonename )
 	{
 		if (bonename[len2-len-1] == '.')
 		{
-			if (stricmp( &bonename[len2-len], name ) == 0)
+			if (_stricmp( &bonename[len2-len], name ) == 0)
 			{
 				return true;
 			}
@@ -2636,7 +2636,7 @@ bool BoneHasAttachments( char const *pname )
 {
 	for (int k = 0; k < g_numattachments; k++)
 	{
-		if ( !stricmp( g_attachment[k].bonename, pname ) )
+		if ( !_stricmp( g_attachment[k].bonename, pname ) )
 		{
 			return true;
 		}
@@ -2650,7 +2650,7 @@ bool BoneIsProcedural( char const *pname )
 
 	for (k = 0; k < g_numaxisinterpbones; k++)
 	{
-		if (! stricmp( g_axisinterpbones[k].bonename, pname ) )
+		if (! _stricmp( g_axisinterpbones[k].bonename, pname ) )
 		{
 			return true;
 		}
@@ -2674,7 +2674,7 @@ bool BoneShouldCollapse( char const *pname )
 
 	for (k = 0; k < g_numcollapse; k++)
 	{
-		if (stricmp( g_collapse[k], pname ) == 0)
+		if (_stricmp( g_collapse[k], pname ) == 0)
 		{
 			return true;
 		}
@@ -2896,7 +2896,7 @@ void TagUsedBones( )
 		{
 			for (j = 0; j < psource->numbones; j++)
 			{
-				if ( !stricmp( g_attachment[k].bonename, psource->localBone[j].name ) )
+				if ( !_stricmp( g_attachment[k].bonename, psource->localBone[j].name ) )
 				{
 					// this bone is a keeper with or without associated vertices
 					// because an attachment point depends on it.
@@ -2923,7 +2923,7 @@ void TagUsedBones( )
 		{
 			for (j = 0; j < psource->numbones; j++)
 			{
-				if ( !stricmp( g_mouth[k].bonename, psource->localBone[j].name ) )
+				if ( !_stricmp( g_mouth[k].bonename, psource->localBone[j].name ) )
 				{
 					// this bone is a keeper with or without associated vertices
 					// because a mouth shader depends on it.
@@ -2973,7 +2973,7 @@ void RenameBones( )
 		{
 			for (k = 0; k < g_numrenamedbones; k++)
 			{
-				if (!stricmp( g_source[i]->localBone[j].name, g_renamedbone[k].from))
+				if (!_stricmp( g_source[i]->localBone[j].name, g_renamedbone[k].from))
 				{
 					strcpy( g_source[i]->localBone[j].name, g_renamedbone[k].to );
 					break;
@@ -2989,7 +2989,7 @@ const char *RenameBone( const char *pName )
 	int k;
 	for (k = 0; k < g_numrenamedbones; k++)
 	{
-		if (!stricmp( pName, g_renamedbone[k].from))
+		if (!_stricmp( pName, g_renamedbone[k].from))
 		{
 			return g_renamedbone[k].to;
 		}
@@ -3421,7 +3421,7 @@ int MapSourcesToGlobalBonetable( )
 				// garymcthack - This gets tripped on the antlion if there are any lods at all.
 				// I don't understand why.
 
-				if (stricmp(szAnim, szNode) && !(g_bonetable[k].flags & BONE_ALWAYS_PROCEDURAL))
+				if (_stricmp(szAnim, szNode) && !(g_bonetable[k].flags & BONE_ALWAYS_PROCEDURAL))
 				{
 					printf("illegal parent bone replacement in g_sequence \"%s\"\n\t\"%s\" has \"%s\", reference has \"%s\"\n", 
 						g_source[i]->filename, 
@@ -4107,7 +4107,7 @@ static void FindAutolayers()
 			int j;
 			for ( j = 0; j < g_numseq; j++)
 			{
-				if (stricmp( g_sequence[i].autolayer[k].name, g_sequence[j].name) == 0)
+				if (_stricmp( g_sequence[i].autolayer[k].name, g_sequence[j].name) == 0)
 				{
 					g_sequence[i].autolayer[k].sequence = j;
 					break;
@@ -4179,7 +4179,7 @@ static void LinkAttachments()
 		// search through known bones
 		for (k = 0; k < g_numbones; k++)
 		{
-			if ( !stricmp( g_attachment[i].bonename, g_bonetable[k].name ))
+			if ( !_stricmp( g_attachment[i].bonename, g_bonetable[k].name ))
 			{
 				g_attachment[i].bone = k;
 				MatrixCopy( g_bonetable[k].boneToPose, boneToPose );
@@ -4197,7 +4197,7 @@ static void LinkAttachments()
 			{
 				for (k = 0; k < g_source[j]->numbones && !found; k++)
 				{
-					if ( !stricmp( g_attachment[i].bonename, g_source[j]->localBone[k].name ) )
+					if ( !_stricmp( g_attachment[i].bonename, g_source[j]->localBone[k].name ) )
 					{
 						MatrixCopy( g_source[j]->boneToPose[k], boneToPose );
 
@@ -4263,7 +4263,7 @@ static void LinkMouths()
 		int j;
 		for ( j = 0; j < g_numbones; j++)
 		{
-			if (g_mouth[i].bonename[0] && stricmp( g_mouth[i].bonename, g_bonetable[j].name) == 0)
+			if (g_mouth[i].bonename[0] && _stricmp( g_mouth[i].bonename, g_bonetable[j].name) == 0)
 				break;
 		}
 		if (j >= g_numbones)
@@ -4450,7 +4450,7 @@ static void LinkIKLocks( )
 	{
 		for (j = 0; j < g_numikchains; j++)
 		{
-			if (stricmp( g_ikchain[j].name, g_ikautoplaylock[i].name) == 0)
+			if (_stricmp( g_ikchain[j].name, g_ikautoplaylock[i].name) == 0)
 			{
 				break;
 			}
@@ -4471,7 +4471,7 @@ static void LinkIKLocks( )
 		{
 			for (j = 0; j < g_numikchains; j++)
 			{
-				if (stricmp( g_ikchain[j].name, g_sequence[k].iklock[i].name) == 0)
+				if (_stricmp( g_ikchain[j].name, g_sequence[k].iklock[i].name) == 0)
 				{
 					break;
 				}

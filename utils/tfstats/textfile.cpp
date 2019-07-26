@@ -289,7 +289,7 @@ bool CTextFile::discard(char* test)
 	char wordBuf2[BUF_SIZE];
 	getToken(wordBuf2);
 
-	int result = stricmp(wordBuf2,test);
+	int result = _stricmp(wordBuf2,test);
 	if (result !=0)
 		g_pApp->fatalError("While parsing %s, expecting \"%s\", got \"%s\"",filename.c_str(),test,wordBuf2);
 	

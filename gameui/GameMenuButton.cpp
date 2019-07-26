@@ -134,43 +134,43 @@ vgui::Menu *CGameMenuButton::RecursiveLoadGameMenu(KeyValues *datafile)
 //-----------------------------------------------------------------------------
 void CGameMenuButton::OnCommand(const char *command)
 {
-	if (!stricmp(command, "OpenNewGameDialog"))
+	if (!_stricmp(command, "OpenNewGameDialog"))
 	{
 		OnOpenNewGameDialog();
 	}
-	else if (!stricmp(command, "OpenLoadGameDialog"))
+	else if (!_stricmp(command, "OpenLoadGameDialog"))
 	{
 		OnOpenLoadGameDialog();
 	}
-	else if (!stricmp(command, "OpenSaveGameDialog"))
+	else if (!_stricmp(command, "OpenSaveGameDialog"))
 	{
 		OnOpenSaveGameDialog();
 	}
-	else if (!stricmp(command, "OpenOptionsDialog"))
+	else if (!_stricmp(command, "OpenOptionsDialog"))
 	{
 		OnOpenOptionsDialog();
 	}
-	else if (!stricmp(command, "OpenMultiplayerCustomizeDialog"))
+	else if (!_stricmp(command, "OpenMultiplayerCustomizeDialog"))
 	{
 		OnOpenMultiplayerDialog();
 	}
-	else if (!stricmp(command, "OpenMultiplayerAdvancedDialog"))
+	else if (!_stricmp(command, "OpenMultiplayerAdvancedDialog"))
 	{
 		OnOpenMultiplayerAdvancedDialog();
 	}
-	else if (!stricmp(command, "OpenContentControlDialog"))
+	else if (!_stricmp(command, "OpenContentControlDialog"))
 	{
 		OnOpenContentControlDialog();
 	}
-	else if (!stricmp(command, "OpenServerBrowser"))
+	else if (!_stricmp(command, "OpenServerBrowser"))
 	{
 		OnOpenServerBrowser();
 	}
-	else if (!stricmp(command, "OpenCreateMultiplayerGameDialog"))
+	else if (!_stricmp(command, "OpenCreateMultiplayerGameDialog"))
 	{
 		OnOpenCreateMultiplayerGameDialog();
 	}
-	else if (!stricmp(command, "Quit"))
+	else if (!_stricmp(command, "Quit"))
 	{
 		engine->ClientCmd("quit\n" );
 	}

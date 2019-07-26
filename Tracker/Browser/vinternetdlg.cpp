@@ -211,7 +211,7 @@ bool VInternetDlg::OnStartURL(const char *text)
 	{
 		for( i=0;i<m_AddressHistory.Count();i++ )
 		{
-			if( !stricmp(text,m_AddressHistory[i]) )
+			if( !_stricmp(text,m_AddressHistory[i]) )
 			{
 				break;
 			} 
@@ -274,7 +274,7 @@ void VInternetDlg::OnFinishURL()
 //-----------------------------------------------------------------------------
 void VInternetDlg::OnCommand(const char *command)
 {
-	if(!stricmp(command,"back")) // the back button
+	if(!_stricmp(command,"back")) // the back button
 	{	
 		// backup one 
 		curAddress--;
@@ -288,7 +288,7 @@ void VInternetDlg::OnCommand(const char *command)
 			m_pHTML->OpenURL(m_AddressHistory[curAddress]);
 		}
 	}
-	else if(!stricmp(command,"forward")) // the forward button
+	else if(!_stricmp(command,"forward")) // the forward button
 	{
 		// go forward one
 		curAddress++;
@@ -302,18 +302,18 @@ void VInternetDlg::OnCommand(const char *command)
 			m_pHTML->OpenURL(m_AddressHistory[curAddress]);
 		}
 	}
-	else if(!stricmp(command,"go")) // the go button
+	else if(!_stricmp(command,"go")) // the go button
 	{
 		char newUrl[512];
 		m_pAddressBar->GetText(0,newUrl,512);
 		// open url calls OnStartURL where we handle the history list
 		m_pHTML->OpenURL(newUrl);
 	}
-	else if(!stricmp(command,"stop")) // the stop button
+	else if(!_stricmp(command,"stop")) // the stop button
 	{
 		m_pHTML->StopLoading();
 	}
-	else if(!stricmp(command,"refresh")) // the refresh button
+	else if(!_stricmp(command,"refresh")) // the refresh button
 	{
 		m_pHTML->Refresh();
 	}

@@ -111,7 +111,7 @@ vgui::HFont CFontManager::GetFontByName(const char *name)
 {
 	for (int i = 1; i < m_FontAmalgams.Count(); i++)
 	{
-		if (!stricmp(name, m_FontAmalgams[i].Name()))
+		if (!_stricmp(name, m_FontAmalgams[i].Name()))
 		{
 			return i;
 		}

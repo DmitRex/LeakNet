@@ -790,7 +790,7 @@ void PropertySheet::OnTextChanged(Panel *panel,const wchar_t *wszText)
 void PropertySheet::OnCommand(const char *command)
 {
     // propogate the close command to our parent
-	if (!stricmp(command, "Close") && GetParent())
+	if (!_stricmp(command, "Close") && GetParent())
     {
         GetParent()->OnCommand(command);
     }

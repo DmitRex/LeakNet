@@ -2359,7 +2359,7 @@ void PhonemeEditor::ReadLinguisticTags( void )
 void PhonemeEditor::SetCurrentWaveFile( const char *wavefile, bool force /*=false*/, CChoreoEvent *event /*=NULL*/ )
 {
 	// No change?
-	if ( !force && !stricmp( m_WorkFile.m_szWaveFile, wavefile ) )
+	if ( !force && !_stricmp( m_WorkFile.m_szWaveFile, wavefile ) )
 		return;
 
 	if ( GetDirty() )

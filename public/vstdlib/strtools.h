@@ -90,7 +90,7 @@ inline int		Q_strlen (const char *str)							{ return strlen ( str ); }
 inline void		Q_strcpy (char *dest, const char *src)				{ strcpy( dest, src ); }
 inline char*	Q_strrchr (const char *s, char c)					{ return strrchr( s, c ); }
 inline int		Q_strcmp (const char *s1, const char *s2)			{ return strcmp( s1, s2 ); }
-inline int		Q_stricmp( const char *s1, const char *s2 )			{ return stricmp( s1, s2 ); }
+inline int		Q_stricmp( const char *s1, const char *s2 )			{ return _stricmp( s1, s2 ); }
 inline char*	Q_strstr( const char *s1, const char *search )		{ return strstr( s1, search ); }
 inline char*	Q_strupr (char *start)								{ return strupr( start ); }
 inline char*	Q_strlower (char *start)							{ return strlwr( start ); }

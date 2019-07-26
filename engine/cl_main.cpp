@@ -165,13 +165,13 @@ void CL_HideHud_f( void )
 		Con_Printf( "Usage:  hud <on | off>\nShows or hides the hud\n" );
 	}
 
-	if ( !stricmp( Cmd_Argv(1), "off" ) )
+	if ( !_stricmp( Cmd_Argv(1), "off" ) )
 	{
 		Con_Printf( "hiding hud\n" );
 		c = HIDEHUD_ALL;
 		DispatchDirectUserMsg("HideWeapon", 1, (void *)&c);
 	}
-	else if ( !stricmp( Cmd_Argv(1), "on" ) )
+	else if ( !_stricmp( Cmd_Argv(1), "on" ) )
 	{
 		c = 0;
 		Con_Printf( "showing hud\n" );
@@ -485,7 +485,7 @@ void CL_ConnectClient( void )
 	NET_ClearLagData( true, false );
 
 	// Report connection success.
-	if ( stricmp("loopback", NET_AdrToString (net_from) ) )
+	if ( _stricmp("loopback", NET_AdrToString (net_from) ) )
 	{
 		Con_Printf( "Connected to %s\n", NET_AdrToString (net_from) );
 	}
@@ -584,7 +584,7 @@ void CL_ConnectionlessPacket (void)
 		c = (unsigned char)cmd[0];
 	}
 
-	if ( !stricmp( cmd, "infostringresponse" ) )
+	if ( !_stricmp( cmd, "infostringresponse" ) )
 	{
 		CL_ServiceInfoStringResponse();
 		return;
@@ -1142,7 +1142,7 @@ void CL_SendConnectPacket (void)
 	Q_strncpy(szServerName, cls.servername, MAX_OSPATH);
 
 	// Deal with local connection.
-	if ( !stricmp( cls.servername, "local" ) )
+	if ( !_stricmp( cls.servername, "local" ) )
 	{
 		Q_snprintf(szServerName, sizeof( szServerName ), "%s", "localhost");
 	}
@@ -1213,7 +1213,7 @@ void CL_CheckForResend (void)
 	Q_strncpy(szServerName, cls.servername, MAX_OSPATH);
 
 	// Deal with local connection.
-	if (!stricmp(cls.servername, "local"))
+	if (!_stricmp(cls.servername, "local"))
 		Q_snprintf(szServerName, sizeof( szServerName ), "%s", "localhost");
 
 	if (!NET_StringToAdr (szServerName, &adr))
@@ -1239,7 +1239,7 @@ void CL_CheckForResend (void)
 	cls.connect_time = realtime;	// for retransmit requests
 
 	// Display appropriate message
-	if (stricmp(szServerName, "localhost"))
+	if (_stricmp(szServerName, "localhost"))
 	{
 		if (s_connection.retrynumber == 0)
 			Con_Printf ("Connecting to %s...\n", szServerName);

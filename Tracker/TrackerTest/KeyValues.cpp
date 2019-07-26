@@ -411,7 +411,7 @@ KeyValues *KeyValues::FindKey(const char *keyName, bool bCreate)
 		lastItem = dat;	// record the last item looked at (for if we need to append to the end of the list)
 
 		// case-insensitive string compare
-		if ( !stricmp(dat->m_sKeyName, searchStr) )
+		if ( !_stricmp(dat->m_sKeyName, searchStr) )
 		{
 			break;
 		}

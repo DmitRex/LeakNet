@@ -440,7 +440,7 @@ CMatchInfo::CMatchInfo(CEventList* plf)
 int CMatchInfo::teamID(string teamname)
 {
 	for (int i=0;i<MAX_TEAMS;i++)
-		if (stricmp(teamname.c_str(),teamnames[i].c_str())==0)
+		if (_stricmp(teamname.c_str(),teamnames[i].c_str())==0)
 			return i;
 		return -1;
 }

@@ -31,7 +31,7 @@ void CSentryRebuildAward::getWinner()
 		{
 			string built=(*it)->getArgument(1)->getStringValue();
 			
-			if (stricmp(built.c_str(),"sentry") == 0)
+			if (_stricmp(built.c_str(),"sentry") == 0)
 			{
 				PID builder=(*it)->getArgument(0)->asPlayerGetPID();
 				numbuilds[builder]++;

@@ -739,7 +739,7 @@ void CPhonemeExtractorLipSinc::ProcessWords( TALKBACK_ANALYSIS *analysis, CSente
 			return;
 		}
 
-		if ( !stricmp( w->buffer, "<SIL>" ) )
+		if ( !_stricmp( w->buffer, "<SIL>" ) )
 		{
 			awordpos++;
 			continue;

@@ -380,7 +380,7 @@ void C_BaseAnimating::BuildTransformations( Vector *pos, Quaternion *q, const ma
 
 				for (j = 0; j < fhdr->numbones; j++)
 				{
-					if ( stricmp(pbones[i].pszName(), pfbones[j].pszName() ) == 0 )
+					if ( _stricmp(pbones[i].pszName(), pfbones[j].pszName() ) == 0 )
 					{
 						MatrixCopy( follow->m_CachedBones[ j ], m_CachedBones[ i ] );
 						break;
@@ -875,7 +875,7 @@ mstudioposeparamdesc_t *C_BaseAnimating::GetPoseParameterPtr( const char *pName 
 	{
 		mstudioposeparamdesc_t *pPose = pstudiohdr->pPoseParameter( i );
 		
-		if ( pPose && ( stricmp( pstudiohdr->pPoseParameter( i )->pszName(), pName ) == 0 ) )
+		if ( pPose && ( _stricmp( pstudiohdr->pPoseParameter( i )->pszName(), pName ) == 0 ) )
 		{
 			return pPose;
 		}
@@ -1771,7 +1771,7 @@ void C_BaseAnimating::PostDataUpdate( DataUpdateType_t updateType )
 
 	/*
 	studiohdr_t *hdr = GetModelPtr();
-	if (hdr && stricmp( hdr->name, "player.mdl") != 0)
+	if (hdr && _stricmp( hdr->name, "player.mdl") != 0)
 	{
 		Msg("PostDataUpdate : %d  %.3f : %.3f %.3f : %d:%d %s\n", 
 			m_nSequence, m_flAnimTime, 
@@ -2526,7 +2526,7 @@ int C_BaseAnimating::LookupPoseParameter( const char *szName )
 
 	for (int i = 0; i < pstudiohdr->numposeparameters; i++)
 	{
-		if (stricmp( pstudiohdr->pPoseParameter( i )->pszName(), szName ) == 0)
+		if (_stricmp( pstudiohdr->pPoseParameter( i )->pszName(), szName ) == 0)
 		{
 			return i;
 		}

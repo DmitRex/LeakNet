@@ -56,7 +56,7 @@ public:
 			curEntry = m_HashTable[hashID];
 			while( curEntry )
 			{
-				if( stricmp( curEntry->string, string ) == 0 )
+				if( _stricmp( curEntry->string, string ) == 0 )
 				{
 					// replace the data at the current entry with the enw data.
 					curEntry->data = val;
@@ -81,7 +81,7 @@ public:
 		curEntry = m_HashTable[hashID];
 		while( curEntry )
 		{
-			if( stricmp( curEntry->string, string ) == 0 )
+			if( _stricmp( curEntry->string, string ) == 0 )
 			{
 				return curEntry->data;
 			}

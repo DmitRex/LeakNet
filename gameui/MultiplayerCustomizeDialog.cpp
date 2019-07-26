@@ -114,7 +114,7 @@ CMultiplayerCustomizeDialog::CMultiplayerCustomizeDialog( Panel *menuTarget )
 	int selected = 0;
 	for ( int i = 0; i < count; i++ )
 	{
-		if ( currentcolor && !stricmp( currentcolor, itemlist[ i ].name ) )
+		if ( currentcolor && !_stricmp( currentcolor, itemlist[ i ].name ) )
 		{
 			selected = i;
 		}
@@ -158,13 +158,13 @@ CMultiplayerCustomizeDialog::~CMultiplayerCustomizeDialog()
 //-----------------------------------------------------------------------------
 void CMultiplayerCustomizeDialog::OnCommand( const char *command )
 {
-	if ( !stricmp( command, "Ok" ) )
+	if ( !_stricmp( command, "Ok" ) )
 	{
 		OnApplyChanges();
 		OnClose();
 		return;
 	}
-	else if ( !stricmp( command, "Advanced" ) )
+	else if ( !_stricmp( command, "Advanced" ) )
 	{
 		if ( m_pMenuTarget )
 		{
@@ -264,7 +264,7 @@ void CMultiplayerCustomizeDialog::InitModelList( CLabeledCommandComboBox *cb )
 			Q_snprintf( cmdstring, sizeof( cmdstring ), "model %s\n", modelname );
 
 
-			if ( !stricmp( currentmodel, modelname ) )
+			if ( !_stricmp( currentmodel, modelname ) )
 			{
 				selected = c;
 			}
@@ -515,7 +515,7 @@ void CMultiplayerCustomizeDialog::ColorForName( char const *pszColorName, int&r,
 
 	for ( int i = 0; i < count; i++ )
 	{
-		if (!stricmp(pszColorName, itemlist[ i ].name ))
+		if (!_stricmp(pszColorName, itemlist[ i ].name ))
 		{
 			r = itemlist[ i ].r;
 			g = itemlist[ i ].g;

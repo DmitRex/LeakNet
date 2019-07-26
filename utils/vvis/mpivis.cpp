@@ -166,7 +166,7 @@ void VVIS_SetupMPI( int argc, char **argv )
 	int i;
 	for (i=1; i<argc; ++i) 
 	{
-		if (!stricmp(argv[i], "-mpi")) {
+		if (!_stricmp(argv[i], "-mpi")) {
 			g_bUseMPI = true;
 			break;
 		}

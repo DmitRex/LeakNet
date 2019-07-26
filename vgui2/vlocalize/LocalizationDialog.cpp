@@ -263,7 +263,7 @@ void CLocalizationDialog::OnCreateToken()
 //-----------------------------------------------------------------------------
 void CLocalizationDialog::OnCommand(const char *command)
 {
-	if (!stricmp(command, "CreateToken"))
+	if (!_stricmp(command, "CreateToken"))
 	{
 		OnCreateToken();
 	}

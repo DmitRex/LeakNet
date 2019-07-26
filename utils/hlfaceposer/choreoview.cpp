@@ -1436,7 +1436,7 @@ void CChoreoView::AssociateModel( void )
 
 		strcpy( text.choice, modelname );
 
-		if ( !stricmp( a->GetName(), modelname ) )
+		if ( !_stricmp( a->GetName(), modelname ) )
 		{
 			params.m_nSelected = i;
 			oldsel = -1;
@@ -2394,7 +2394,7 @@ bool CChoreoView::AutoaddSequenceKeys( CChoreoEvent *e )
 			KeyValues *pkvFaceposer;
 			for ( pkvFaceposer = pkvAllFaceposer->GetFirstSubKey(); pkvFaceposer; pkvFaceposer = pkvFaceposer->GetNextKey() )
 			{
-				if (!stricmp( pkvFaceposer->GetName(), "event_ramp" ))
+				if (!_stricmp( pkvFaceposer->GetName(), "event_ramp" ))
 				{
 					KeyValues *pkvTags;
 					for ( pkvTags = pkvFaceposer->GetFirstSubKey(); pkvTags; pkvTags = pkvTags->GetNextKey() )
@@ -2404,11 +2404,11 @@ bool CChoreoView::AutoaddSequenceKeys( CChoreoEvent *e )
 						// e->AddRamp( time, weight );
 					}
 				}
-				else if (!stricmp( pkvFaceposer->GetName(), "length" ))
+				else if (!_stricmp( pkvFaceposer->GetName(), "length" ))
 				{
 					float seqduration  = pkvFaceposer->GetFloat();
 					// e->SetEndTime( e->GetStartTime() + seqduration );
-				} else if (!stricmp( pkvFaceposer->GetName(), "tags" ))
+				} else if (!_stricmp( pkvFaceposer->GetName(), "tags" ))
 				{
 					KeyValues *pkvTags;
 					for ( pkvTags = pkvFaceposer->GetFirstSubKey(); pkvTags; pkvTags = pkvTags->GetNextKey() )
@@ -3693,7 +3693,7 @@ void CChoreoView::ProcessFlexAnimation( CChoreoScene *scene, CChoreoEvent *event
 		if ( !actor )
 			continue;
 
-		if ( !stricmp( actor->GetActor()->GetName(), a->GetName() ) )
+		if ( !_stricmp( actor->GetActor()->GetName(), a->GetName() ) )
 			break;
 	}
 
@@ -3768,15 +3768,15 @@ void CChoreoView::ProcessLookat( CChoreoScene *scene, CChoreoEvent *event )
 
 	Assert( a );
 
-	if (!stricmp( event->GetParameters(), a->GetName() ))
+	if (!_stricmp( event->GetParameters(), a->GetName() ))
 	{
 		g_viewerSettings.flHeadTurn = 0.0f;
 		g_viewerSettings.vecHeadTarget.Init();
 		g_viewerSettings.vecEyeTarget.Init();
 		m_bHasLookTarget = false;
 	}
-	else if ( !stricmp( event->GetParameters(), "player" ) || 
-		!stricmp( event->GetParameters(), "!player" ) )
+	else if ( !_stricmp( event->GetParameters(), "player" ) || 
+		!_stricmp( event->GetParameters(), "!player" ) )
 	{
 		g_viewerSettings.flHeadTurn = event->GetIntensity( scene->GetTime() );
 		Vector vecTarget = g_viewerSettings.trans;
@@ -4007,16 +4007,16 @@ void CChoreoView::ProcessPause( CChoreoScene *scene, CChoreoEvent *event )
 	if ( g_TokenProcessor.TokenAvailable() )
 	{
 		g_TokenProcessor.GetToken( false );
-		if ( !stricmp( g_TokenProcessor.CurrentToken(), "automate" ) )
+		if ( !_stricmp( g_TokenProcessor.CurrentToken(), "automate" ) )
 		{
 			if ( g_TokenProcessor.TokenAvailable() )
 			{
 				g_TokenProcessor.GetToken( false );
-				if ( !stricmp( g_TokenProcessor.CurrentToken(), "Cancel" ) )
+				if ( !_stricmp( g_TokenProcessor.CurrentToken(), "Cancel" ) )
 				{
 					m_nAutomatedAction = SCENE_ACTION_CANCEL;
 				}
-				else if ( !stricmp( g_TokenProcessor.CurrentToken(), "Resume" ) )
+				else if ( !_stricmp( g_TokenProcessor.CurrentToken(), "Resume" ) )
 				{
 					m_nAutomatedAction = SCENE_ACTION_RESUME;
 				}

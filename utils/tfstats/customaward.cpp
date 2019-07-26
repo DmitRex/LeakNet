@@ -118,9 +118,9 @@ CCustomAward* CCustomAward::readCustomAward(CTextFile& f)
 	while (token)
 	{
 		
-		if (!stricmp(token,"Award"))
+		if (!_stricmp(token,"Award"))
 			break;
-		else if (!stricmp(token,"{"))
+		else if (!_stricmp(token,"{"))
 			f.discardBlock();
 		
 		token=f.getToken();
@@ -134,32 +134,32 @@ CCustomAward* CCustomAward::readCustomAward(CTextFile& f)
 	CCustomAward* pCustAward=new TRACKED CCustomAward(g_pMatchInfo);
 	while (token)	
 	{
-		if (stricmp(token,"trigger")==0)
+		if (_stricmp(token,"trigger")==0)
 		{
 			
 			CCustomAwardTrigger* ptrig=CCustomAwardTrigger::readTrigger(f);
 			pCustAward->triggers.push_back(ptrig);
 			
 		}
-		else if (stricmp(token,"extraInfo")==0)
+		else if (_stricmp(token,"extraInfo")==0)
 		{
 			f.discard("=");
 			pCustAward->extraInfoMsg=f.readString();
 			f.discard(";");
 		}
-		else if (stricmp(token,"noWinnerMessage")==0)
+		else if (_stricmp(token,"noWinnerMessage")==0)
 		{
 			f.discard("=");
 			pCustAward->noWinnerMsg=f.readString();
 			f.discard(";");
 		}
-		else if (stricmp(token,"name")==0)
+		else if (_stricmp(token,"name")==0)
 		{
 			f.discard("=");
 			pCustAward->awardName=f.readString();
 			f.discard(";");
 		}
-		else if (stricmp(token,"}")==0)
+		else if (_stricmp(token,"}")==0)
 		{
 			break;
 		}

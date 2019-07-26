@@ -61,7 +61,7 @@ CPrefabLibrary *CreatePrefabLibrary(const char *szFile)
 {
 	CPrefabLibrary *pLibrary;
 
-	if (stricmp(&szFile[strlen(szFile) - 2], ".ol") != 0)
+	if (_stricmp(&szFile[strlen(szFile) - 2], ".ol") != 0)
 	{
 		pLibrary = new CPrefabLibraryVMF;
 	}

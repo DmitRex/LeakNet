@@ -122,11 +122,11 @@ void CCreateTokenDialog::OnSkip()
 //-----------------------------------------------------------------------------
 void CCreateTokenDialog::OnCommand(const char *command)
 {
-	if (!stricmp(command, "OK"))
+	if (!_stricmp(command, "OK"))
 	{
 		OnOK();
 	}
-	else if (!stricmp(command, "SkipToken"))
+	else if (!_stricmp(command, "SkipToken"))
 	{
 		OnSkip();
 	}

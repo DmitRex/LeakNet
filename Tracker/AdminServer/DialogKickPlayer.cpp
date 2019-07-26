@@ -79,7 +79,7 @@ void CDialogKickPlayer::OnCommand(const char *command)
 {
 	bool bClose = false;
 
-	if (!stricmp(command, "Okay"))
+	if (!_stricmp(command, "Okay"))
 	{
 		KeyValues *msg = new KeyValues("KickPlayer");
 		char buf[64];
@@ -91,7 +91,7 @@ void CDialogKickPlayer::OnCommand(const char *command)
 
 		bClose = true;
 	}
-	else if (!stricmp(command, "Close"))
+	else if (!_stricmp(command, "Close"))
 	{
 		bClose = true;
 	}

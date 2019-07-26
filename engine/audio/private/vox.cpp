@@ -987,7 +987,7 @@ char *VOX_LookupString(const char *pSentenceName, int *psentencenum)
 	int i;
 	for (i = 0; i < g_Sentences.Size(); i++)
 	{
-		if (!stricmp(pSentenceName, g_Sentences[i].pName))
+		if (!_stricmp(pSentenceName, g_Sentences[i].pName))
 		{
 			if (psentencenum)
 				*psentencenum = i;

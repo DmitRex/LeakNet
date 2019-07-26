@@ -338,7 +338,7 @@ BOOL RunCommands(CCommandArray& Commands, LPCTSTR pszOrigDocName)
 					RemoveQuotes(ppParms[2]);
 					
 					// don't copy if we're already there
-					if (stricmp(ppParms[1], ppParms[2]) && 					
+					if (_stricmp(ppParms[1], ppParms[2]) && 					
 							(!CopyFile(ppParms[1], ppParms[2], FALSE)))
 					{
 						bError = TRUE;

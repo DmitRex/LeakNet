@@ -269,7 +269,7 @@ void ScorePanel::ApplySchemeSettings( vgui::IScheme *pScheme )
 //-----------------------------------------------------------------------------
 void ScorePanel::OnCommand( const char *command )
 {
-	if ( !stricmp( command, "close" )  )
+	if ( !_stricmp( command, "close" )  )
 	{
 		UserCmd_HideScores();
 	}
@@ -509,7 +509,7 @@ void ScorePanel::SortTeams()
 		// find what team this player is in
 		for ( int j = 1; j <= m_iNumTeams; j++ )
 		{
-			if ( !stricmp( g_PlayerExtraInfo[i].teamname, g_TeamInfo[j].name ) )
+			if ( !_stricmp( g_PlayerExtraInfo[i].teamname, g_TeamInfo[j].name ) )
 				break;
 		}
 		if ( j > m_iNumTeams )  // player is not in a team, skip to the next guy
@@ -606,7 +606,7 @@ void ScorePanel::SortPlayers( int iTeam, char *team )
 				g_PlayerInfoList[i].name && 
 				g_PlayerExtraInfo[i].frags >= highest_frags )
 			{
-				if ( !team || !stricmp(g_PlayerExtraInfo[i].teamname, team) )  
+				if ( !team || !_stricmp(g_PlayerExtraInfo[i].teamname, team) )  
 				{
 					extra_player_info_t *pl_info = &g_PlayerExtraInfo[i];
 					if ( pl_info->frags > highest_frags || pl_info->deaths < lowest_deaths )
@@ -672,7 +672,7 @@ void ScorePanel::RebuildTeams()
 			if ( g_TeamInfo[j].name[0] == '\0' )
 				break;
 
-			if ( !stricmp( g_PlayerExtraInfo[i].teamname, g_TeamInfo[j].name ) )
+			if ( !_stricmp( g_PlayerExtraInfo[i].teamname, g_TeamInfo[j].name ) )
 				break;
 		}
 
@@ -1308,7 +1308,7 @@ int TeamFortressViewport::MsgFunc_TeamScore( const char *pszName, int iSize, voi
 	// find the team matching the name
 	for ( int i = 1; i <= m_pScoreBoard->m_iNumTeams; i++ )
 	{
-		if ( !stricmp( TeamName, g_TeamInfo[i].name ) )
+		if ( !_stricmp( TeamName, g_TeamInfo[i].name ) )
 			break;
 	}
 

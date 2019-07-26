@@ -809,7 +809,7 @@ int CALLBACK ModCompareFunc(LPARAM lParam1, LPARAM lParam2,
 		return 0;
 	}
 
-	return ( stricmp( p1->GetGameDir(), p2->GetGameDir() ) );
+	return ( _stricmp( p1->GetGameDir(), p2->GetGameDir() ) );
 }
 
 char *game_name =
@@ -2623,7 +2623,7 @@ CModStats *CStatusDlg::LoadModUpdates( char *pszFile, bool markasfileloaded, int
 	l->list = NULL;
 
 	p = COM_Parse( p );
-	if ( stricmp( com_token, "{" ) )
+	if ( _stricmp( com_token, "{" ) )
 	{
 		goto finish_parse;
 	}
@@ -2637,7 +2637,7 @@ CModStats *CStatusDlg::LoadModUpdates( char *pszFile, bool markasfileloaded, int
 		}
 
 		p = COM_Parse( p );
-		if ( stricmp( com_token, "time" ) )
+		if ( _stricmp( com_token, "time" ) )
 		{
 			goto finish_parse;
 		}
@@ -2679,10 +2679,10 @@ CModStats *CStatusDlg::LoadModUpdates( char *pszFile, bool markasfileloaded, int
 
 		// Serialize raw data.
 		p = COM_Parse( p );
-		if ( !stricmp( com_token, "}" ) )
+		if ( !_stricmp( com_token, "}" ) )
 			break;
 
-		if ( stricmp( com_token, "{" ) )
+		if ( _stricmp( com_token, "{" ) )
 		{
 			goto finish_parse;
 		}
@@ -2710,7 +2710,7 @@ CModStats *CStatusDlg::LoadModUpdates( char *pszFile, bool markasfileloaded, int
 				keepmod = false;
 				break;
 			case SPECIFICMOD:
-				if ( modname && modname[ 0 ] &&	stricmp( modname, m->GetGameDir() )  )
+				if ( modname && modname[ 0 ] &&	_stricmp( modname, m->GetGameDir() )  )
 				{
 					keepmod = false;
 				}
@@ -2754,7 +2754,7 @@ CModStats *CStatusDlg::LoadModUpdates( char *pszFile, bool markasfileloaded, int
 		l->count++;
 
 		p = COM_Parse( p );
-		if ( !stricmp( com_token, "}" ) )
+		if ( !_stricmp( com_token, "}" ) )
 		{
 			break;
 		}
@@ -3595,7 +3595,7 @@ void CStatusDlg::OnWarnDialog()
 		m_iMinPlayersLevel = minPlayers;
 	}
 
-	if ( warnEmail && stricmp( warnEmail, m_sWarnEmail ) ) 
+	if ( warnEmail && _stricmp( warnEmail, m_sWarnEmail ) ) 
 	{
 		theApp.WriteProfileString( "Status", "WarnEmail", dlg.m_sWarnEmail );
 		delete m_sWarnEmail;

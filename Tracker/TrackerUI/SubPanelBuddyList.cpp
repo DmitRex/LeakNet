@@ -144,7 +144,7 @@ void CSubPanelBuddyList::PerformLayout()
 			for (int i = 0; i < m_BuddyButtonDar.GetCount(); i++)
 			{
 				const char *buddyName = GetDoc()->GetBuddy(m_BuddyButtonDar[i]->GetBuddyID())->DisplayName();
-				if (stricmp(newName, buddyName) < 0)
+				if (_stricmp(newName, buddyName) < 0)
 				{
 					m_BuddyButtonDar.InsertElementAt(newBuddy, i);
 					bInserted = true;

@@ -166,29 +166,29 @@ void CBaseGamesPage::SetRefreshing(bool state)
 //-----------------------------------------------------------------------------
 void CBaseGamesPage::OnCommand(const char *command)
 {
-	if (!stricmp(command, "Connect"))
+	if (!_stricmp(command, "Connect"))
 	{
 		OnBeginConnect();
 	}
-	else if (!stricmp(command, "stoprefresh"))
+	else if (!_stricmp(command, "stoprefresh"))
 	{
 		// cancel the existing refresh
 		StopRefresh();
 	}
-	else if (!stricmp(command, "refresh"))
+	else if (!_stricmp(command, "refresh"))
 	{
 		// start a new refresh
 		StartRefresh();
 	}
-	else if (!stricmp(command, "GetNewList"))
+	else if (!_stricmp(command, "GetNewList"))
 	{
 		GetNewServerList();
 	}
-	else if (!stricmp(command, "addip"))
+	else if (!_stricmp(command, "addip"))
 	{
 		PostMessage(this,new KeyValues("AddServerByName")); // CFavorites handles this message
 	}
-	else if (!stricmp(command, "config"))
+	else if (!_stricmp(command, "config"))
 	{
 		CServerPage::GetInstance()->ConfigPanel();
 	}

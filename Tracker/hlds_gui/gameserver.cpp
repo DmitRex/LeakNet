@@ -147,7 +147,7 @@ void CGameServer::ConsoleText(const char *text)
 
 void CGameServer::OnCommand(const char *command)
 {
-	if(!stricmp(command,"submit"))
+	if(!_stricmp(command,"submit"))
 	{
 		char command[512];
 		m_CommandTextEntry->GetText(0,command,512);
@@ -162,7 +162,7 @@ void CGameServer::OnCommand(const char *command)
 			m_CommandTextEntry->SetText("");
 		}
 	} 
-	else if (!stricmp(command,"quit"))
+	else if (!_stricmp(command,"quit"))
 	{
 		Stop();
 		VInternetDlg::GetInstance()->StopServer();

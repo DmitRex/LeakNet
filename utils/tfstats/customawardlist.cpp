@@ -38,7 +38,7 @@ CCustomAwardList* CCustomAwardList::readCustomAwards(string mapname)
 
 	if (!ctf1.isValid() && ctf2.isValid())
 	{
-		if (stricmp(filename,"tfc..rul")==0)
+		if (_stricmp(filename,"tfc..rul")==0)
 			g_pApp->warning("Could not find mapname in the log file, map-specific custom rules will not be used");
 		else
 			g_pApp->warning("Could not find %s, map-specific custom rules will not be used",filename);

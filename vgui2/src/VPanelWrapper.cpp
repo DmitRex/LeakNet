@@ -266,7 +266,7 @@ public:
 
 /*#ifdef _DEBUG
 		// assert that the specified vpanel is from the same module as requesting the cast
-		if (stricmp(GetModuleName(vguiPanel), moduleName))
+		if (_stricmp(GetModuleName(vguiPanel), moduleName))
 		{
 			// FIXME!!!!
 			// DON'T CHECK ME IN!!!

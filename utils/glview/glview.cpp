@@ -1058,10 +1058,10 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance
 	};
 
 	// Compare remainder to command we are interested in
-	if (!stricmp(szTempCmd, "-portal"))
+	if (!_stricmp(szTempCmd, "-portal"))
 		g_bReadPortals = 1;
 
-	if( !stricmp( szTempCmd, "-disp" ) )
+	if( !_stricmp( szTempCmd, "-disp" ) )
 	{
 		ReadDisplacementFile( pStart );
 		g_bDisp = TRUE;

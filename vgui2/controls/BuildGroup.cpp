@@ -799,7 +799,7 @@ void BuildGroup::ApplySettings( KeyValues *resourceData )
 			Assert (panel);
 
 			// make the control name match CASE INSENSITIVE!
-			if (!stricmp(panel->GetName(), controlKeys->GetName()))
+			if (!_stricmp(panel->GetName(), controlKeys->GetName()))
 			{
 				// apply the settings
 				panel->ApplySettings(controlKeys);

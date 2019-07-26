@@ -512,7 +512,7 @@ static int FindMaterialVar( IShader* pShader, char const* pVarName )
 {
 	for (int i = pShader->GetNumParams(); --i >= 0; )
 	{
-		if (!stricmp( pShader->GetParamName(i), pVarName ))
+		if (!_stricmp( pShader->GetParamName(i), pVarName ))
 			return i;
 	}
 	return -1;
@@ -707,7 +707,7 @@ int CMaterial::FindMaterialVarFlag( char const* pFlagName ) const
 {
 	for( int i = 0; *ShaderSystem()->ShaderStateString(i); ++i )
 	{
-		if (!stricmp( pFlagName, ShaderSystem()->ShaderStateString(i) ))
+		if (!_stricmp( pFlagName, ShaderSystem()->ShaderStateString(i) ))
 			return (1 << i);
 	}
 	return 0;
@@ -839,7 +839,7 @@ int CMaterial::ParseMaterialVars( IShader* pShader, KeyValues& keyValues,
 				for ( i = numParams; i < varCount; ++i)
 				{
 					Assert( ppVars[i] );
-					if (!stricmp( ppVars[i]->GetName(), pVar->GetName() ))
+					if (!_stricmp( ppVars[i]->GetName(), pVar->GetName() ))
 						break;
 				}
 				if (i != varCount)
@@ -2175,7 +2175,7 @@ static void WriteKeyValuesToFile( const char *pFileName, KeyValues& keyValues )
 static void ExpandPatchFile( KeyValues& keyValues )
 {
 	int count = 0;
-	while( count < 10 && stricmp( keyValues.GetName(), "patch" ) == 0 )
+	while( count < 10 && _stricmp( keyValues.GetName(), "patch" ) == 0 )
 	{
 //		WriteKeyValuesToFile( "patch.txt", keyValues );
 		const char *pIncludeFileName = keyValues.GetString( "include" );

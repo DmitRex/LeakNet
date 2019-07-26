@@ -45,7 +45,7 @@ void CCVarList::writeHTML(CHTMLFile& html)
 			
 
 			//mask off any passwords that the server op may not want to be displayed
-			if (stricmp(var,"rcon_password")==0 || stricmp(var,"sv_password")==0 || stricmp(var,"password")==0)
+			if (_stricmp(var,"rcon_password")==0 || _stricmp(var,"sv_password")==0 || _stricmp(var,"password")==0)
 			{
 				html.write("<!-- %s not shown! -->\n",var);
 				continue;

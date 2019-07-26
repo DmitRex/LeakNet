@@ -3273,7 +3273,7 @@ int Studio_FindAttachment( const studiohdr_t *pStudioHdr, const char *pAttachmen
 		// Extract the bone index from the name
 		for (int i = 0; i < pStudioHdr->numattachments; i++)
 		{
-			if (!stricmp(pAttachmentName,pStudioHdr->pAttachment(i)->pszName( ))) 
+			if (!_stricmp(pAttachmentName,pStudioHdr->pAttachment(i)->pszName( ))) 
 			{
 				return i;
 			}
@@ -3321,7 +3321,7 @@ int Studio_BoneIndexByName( const studiohdr_t *pStudioHdr, const char *pName )
 	mstudiobone_t *pbones = pStudioHdr->pBone( 0 );
 	for ( int i = 0; i < pStudioHdr->numbones; i++ )
 	{
-		if (!stricmp(pName,pbones[i].pszName( ))) 
+		if (!_stricmp(pName,pbones[i].pszName( ))) 
 			return i;
 	}
 

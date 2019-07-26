@@ -156,7 +156,7 @@ void CEmailManager::AddEmailAddress( char const *email, char const *frequency, b
 
 	p = &m_Items[ idx ];
 	
-	if ( stricmp( frequency, p->m_szFreq ) )
+	if ( _stricmp( frequency, p->m_szFreq ) )
 	{
 		strcpy( p->m_szFreq, frequency );
 		p->m_flUpdateInterval = CEmailItem::ComputeInterval( frequency );
@@ -201,7 +201,7 @@ int CEmailManager::FindEmailAddress( char const *email )
 {
 	for ( int i = 0; i < GetItemCount(); i++ )
 	{
-		if ( !stricmp( email, GetItemEmailAddress( i ) ) )
+		if ( !_stricmp( email, GetItemEmailAddress( i ) ) )
 			return i;
 	}
 	
