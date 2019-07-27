@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vstdlib", "..\vstdlib\vstdlib.vcxproj", "{1A10F3F3-66AD-4897-9268-A7BA41CC3A39}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtf", "..\vtf\vtf.vcxproj", "{8510DA71-0C34-423C-AABB-056A5BB26DA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -31,6 +33,12 @@ Global
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39}.Release|x86.Build.0 = Release|Win32
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39}.Template|x86.ActiveCfg = Template|Win32
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39}.Template|x86.Build.0 = Template|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Debug|x86.ActiveCfg = Debug|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Debug|x86.Build.0 = Debug|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Release|x86.ActiveCfg = Release|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Release|x86.Build.0 = Release|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Template|x86.ActiveCfg = Release|Win32
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6}.Template|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
