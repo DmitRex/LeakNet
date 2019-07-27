@@ -19,12 +19,7 @@
 #define STRING_MATCHES_ID( p, id )		( (*((int *)(p)) == (id) ) ? true : false )
 #define ID_TO_STRING( id, p )			( (p)[3] = (((id)>>24) & 0xFF), (p)[2] = (((id)>>16) & 0xFF), (p)[1] = (((id)>>8) & 0xFF), (p)[0] = (((id)>>0) & 0xFF) )
 
-// VXP: Using ARRAYSIZE implementation from winnt.h:
-#ifdef ARRAYSIZE
-#undef ARRAYSIZE
-#endif
-
-#define ARRAYSIZE(p)		(sizeof(p)/sizeof(p[0]))
+//#define ARRAYSIZE(p)		(sizeof(p)/sizeof(p[0]))
 
 // Keeps clutter down a bit, when using a float as a bit-vector
 #define SETBITS(flBitVector, bits)		((flBitVector) = (int)(flBitVector) | (bits))
