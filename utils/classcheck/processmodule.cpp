@@ -1181,7 +1181,7 @@ bool CCodeProcessor::LoadFile( char **buffer, char *filename, char const *module
 	{
 		// Load the base module
 		sprintf( filename, "%s\\%s", m_IncludePath[i], module );
-		strlwr( filename );
+		_strlwr( filename );
 
 		if ( CheckShouldSkip( forcequiet, depth, filename, numheaders, skippedfiles ) )
 		{
@@ -1650,7 +1650,7 @@ void CCodeProcessor::SetupIncludePath( const char *sourcetreebase, const char *s
 
 	char path[MAX_PATH];
 	sprintf( path, "%s\\%s", sourcetreebase, subdir );
-	strlwr( path );
+	_strlwr( path );
 	AddIncludePath( path );
 
 	char modsubdir[128];
@@ -1668,20 +1668,20 @@ void CCodeProcessor::SetupIncludePath( const char *sourcetreebase, const char *s
 	}
 
 	sprintf( path, "%s\\%s", sourcetreebase, modsubdir );
-	strlwr( path );
+	_strlwr( path );
 	AddIncludePath( path );
 
 	// Game shared
 	sprintf( path, "%s\\game_shared", sourcetreebase );
-	strlwr( path );
+	_strlwr( path );
 	AddIncludePath( path );
 
 	sprintf( path, "%s\\game_shared\\%s", sourcetreebase, gamespecific );
-	strlwr( path );
+	_strlwr( path );
 	AddIncludePath( path );
 
 	sprintf( path, "%s\\public", sourcetreebase );
-	strlwr( path );
+	_strlwr( path );
 	AddIncludePath( path );
 }
 

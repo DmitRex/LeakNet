@@ -69,7 +69,7 @@ inline char *_strupr( char *start )
       return start;
 }
 
-inline char *strlwr( char *start )
+inline char *_strlwr( char *start )
 {
       char *str = start;
       while( str && *str )
@@ -93,7 +93,7 @@ inline int		Q_strcmp (const char *s1, const char *s2)			{ return strcmp( s1, s2 
 inline int		Q_stricmp( const char *s1, const char *s2 )			{ return _stricmp( s1, s2 ); }
 inline char*	Q_strstr( const char *s1, const char *search )		{ return strstr( s1, search ); }
 inline char*	Q__strupr (char *start)								{ return _strupr( start ); }
-inline char*	Q_strlower (char *start)							{ return strlwr( start ); }
+inline char*	Q_strlower (char *start)							{ return _strlwr( start ); }
 
 #endif
 

@@ -912,7 +912,7 @@ int main (int argc, char **argv)
 	LoadEmitDetailObjectDictionary( gamedir );
 
 	ExtractFileBase( source, mapbase, sizeof( mapbase ) );
-	strlwr( mapbase );
+	_strlwr( mapbase );
 
 	// delete portal and line files
 	sprintf (path, "%s.prt", source);

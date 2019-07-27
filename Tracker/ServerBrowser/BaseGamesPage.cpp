@@ -547,11 +547,11 @@ void CBaseGamesPage::UpdateFilterSettings()
 		m_pGameFilter->GetText(m_szGameFilter, sizeof(m_szGameFilter) - 1);
 		m_pGameFilter->SetEnabled(true);
 	}
-	strlwr(m_szGameFilter);
+	_strlwr(m_szGameFilter);
 
 	// map
 	m_pMapFilter->GetText(m_szMapFilter, sizeof(m_szMapFilter) - 1);
-	strlwr(m_szMapFilter);
+	_strlwr(m_szMapFilter);
 	
 	// ping
 	char buf[256];

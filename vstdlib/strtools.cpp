@@ -149,7 +149,7 @@ char *_Q__strupr (const char* file, int line, char *start)
 char *_Q_strlower (const char* file, int line, char *start)
 {
 	AssertValidStringPtr( start );
-	return strlwr(start);
+	return _strlwr(start);
 }
 
 

@@ -720,7 +720,7 @@ qboolean FindGamedir( const char *path )
 
 	// cleanup the path
 	COM_FixSlashes( gamedir );
-	strlwr( gamedir );
+	_strlwr( gamedir );
 	AppendSlash( gamedir, sizeof( gamedir ) );
 
 	// strip off the end
@@ -813,7 +813,7 @@ void SetQdirFromPath( const char *path )
 	
 	// qdir
 	COM_FixSlashes( qdir );
-	strlwr( qdir );
+	_strlwr( qdir );
 	StripFilename( qdir );
 	if (qdir[0] != '\0')
 	{

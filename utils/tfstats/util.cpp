@@ -237,7 +237,7 @@ int Util::time_t2secs(time_t tmr)
 
 //------------------------------------------------------------------------------------------------------
 // Function:	str2lowercase
-// Purpose:	 portable _strlwr.  linux doesn't support _strlwr
+// Purpose:	 portable __strlwr.  linux doesn't support __strlwr
 // Input:	out - destination of lower case string
 //				in - string to lowercasify
 //------------------------------------------------------------------------------------------------------

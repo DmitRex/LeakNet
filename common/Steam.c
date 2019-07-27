@@ -175,7 +175,7 @@ FILE *STEAM_fopen(const char *filename, const char *options)
 	FixSlashes(wadName);
 
 #if 0
-	strlwr(wadName);
+	_strlwr(wadName);
 	if (   strstr(wadName, "client.dll")
 	   )
 	   hndl = STEAM_INVALID_HANDLE; // convenient breakpoint spot...
@@ -1231,7 +1231,7 @@ void STEAM_LogLevelLoadStarted( const char *name )
 	char wadName[256];
 	int i;
 	strcpy(wadName, name);
-	strlwr(wadName);
+	_strlwr(wadName);
 	if ( strstr(wadName, "c0a0b")  )
 	   i = 0; // convenient breakpoint spot...
 #endif

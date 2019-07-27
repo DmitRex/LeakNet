@@ -100,7 +100,7 @@ write_error:
 				char szShort[MAX_PATH];
 
 				strcpy(szShort, FindData.cFileName);
-				strlwr(szShort);
+				_strlwr(szShort);
 			
 				if ( nFiles >= nMaxFiles )
 				{

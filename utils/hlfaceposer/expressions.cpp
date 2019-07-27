@@ -344,7 +344,7 @@ const char *CExpressionManager::GetClassnameFromFilename( const char *filename )
 
 	COM_FixSlashes( cleanname );
 	ExtractFileBase( cleanname, classname, sizeof( classname ) );
-	strlwr( classname );
+	_strlwr( classname );
 	return classname;
 };
 

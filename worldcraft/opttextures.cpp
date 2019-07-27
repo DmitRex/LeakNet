@@ -261,7 +261,7 @@ void COPTTextures::OnAddtexfile2()
 						&&(FindData.cFileName[0] != '.'))
 				{
 					sprintf(szNewPath, "%s\\%s", szPathName, FindData.cFileName);
-					strlwr(szNewPath);
+					_strlwr(szNewPath);
 					if (m_TextureFiles.FindStringExact(-1, szNewPath) == CB_ERR)
 						m_TextureFiles.AddString(szNewPath);
 				}
@@ -270,9 +270,9 @@ void COPTTextures::OnAddtexfile2()
 		}
 		else
 		{
-			strlwr(szPathName);
+			_strlwr(szPathName);
 			if (m_TextureFiles.FindStringExact(-1, szPathName) == CB_ERR)
-				m_TextureFiles.AddString(strlwr(szPathName));
+				m_TextureFiles.AddString(_strlwr(szPathName));
 		}
 		SetModified();
 
@@ -375,7 +375,7 @@ void StripOffMaterialDirectory( const char *pszDirectoryName, char *pszName )
 	pszName[0] = '\0';
 
 	// create a lower case version of the string
-	char *pLowerCase = _strlwr( _strdup( pszDirectoryName ) );
+	char *pLowerCase = __strlwr( _strdup( pszDirectoryName ) );
 	char *pAtMat = strstr( pLowerCase, "materials" );
 	if( !pAtMat )
 		return;

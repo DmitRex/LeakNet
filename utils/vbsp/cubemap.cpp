@@ -273,7 +273,7 @@ static int Cubemap_CreateTexInfo( int originalTexInfo, int origin[3] )
 		sprintf( generatedMatName, "maps/%s/%s_%d_%d_%d", mapbase, 
 			TexDataStringTable_GetString( pTexData->nameStringTableID ), 
 			( int )origin[0], ( int )origin[1], ( int )origin[2] );
-		strlwr( generatedTexDataName );
+		_strlwr( generatedTexDataName );
 
 		char envmapVal[512];
 		GetValueFromMaterial( originalMatName, "$envmap", envmapVal, 511 );
@@ -317,7 +317,7 @@ static int Cubemap_CreateTexInfo( int originalTexInfo, int origin[3] )
 		{
 			Error( "generatedTexDataName: %s too long!\n", generatedTexDataName );
 		}
-		strlwr( generatedTexDataName );
+		_strlwr( generatedTexDataName );
 		texDataID = AddCloneTexData( pTexData, generatedTexDataName );
 		
 	}

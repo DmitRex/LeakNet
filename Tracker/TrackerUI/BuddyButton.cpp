@@ -265,7 +265,7 @@ void CBuddyButton::PerformLayout(void)
 			char buf[256];
 			strncpy(buf, gameText, sizeof(buf) - 1);
 			buf[sizeof(buf) - 1]  = 0;
-			strlwr(buf);
+			_strlwr(buf);
 
 			_statusText->SetText(buf);
 			_statusText->SetColor(m_GameColor);

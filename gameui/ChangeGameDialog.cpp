@@ -94,7 +94,7 @@ void CChangeGameDialog::LoadModList()
 						if (_stricmp(modInfo.GetGameDescription(), ModInfo().GetGameDescription()))
 						{
 							// Add the game directory.
-							strlwr(wfd.cFileName);
+							_strlwr(wfd.cFileName);
 							KeyValues *itemData = new KeyValues("Mod");
 							itemData->SetString("ModName", modInfo.GetGameDescription());
 							itemData->SetString("ModDir", wfd.cFileName);

@@ -4685,7 +4685,7 @@ void CChoreoView::New( void )
 
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	// Show file io
@@ -4781,7 +4781,7 @@ void CChoreoView::SaveAs( void )
 
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	// Show file io
@@ -7397,7 +7397,7 @@ void CChoreoView::ExportEvents( void )
 {
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	// Show file io

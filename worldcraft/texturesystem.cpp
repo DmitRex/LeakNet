@@ -276,7 +276,7 @@ IEditorTexture *CTextureSystem::FindActiveTexture(LPCSTR pszName, int *piIndex, 
 				szBuf[i] = '\\';
 		}
 
-		strlwr(szBuf);
+		_strlwr(szBuf);
 
 		while (pTex = EnumActiveTextures(&iIndex, g_pGameConfig->GetTextureFormat()))
 		{

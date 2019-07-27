@@ -194,7 +194,7 @@ void CCodeProcessor::ProcessModule( bool forcequiet, int depth, int& maxdepth, i
 
 	// Load the base module
 	sprintf( filename, "%s\\%s", root, module );
-	strlwr( filename );
+	_strlwr( filename );
 
 	bool firstheader = true;
 retry:
@@ -433,10 +433,10 @@ char const *stristr( char const *src, char const *search )
 	char buf2[ 512 ];
 
 	strcpy( buf1, src );
-	_strlwr( buf1 );
+	__strlwr( buf1 );
 
 	strcpy( buf2, search );
-	_strlwr( buf2 );
+	__strlwr( buf2 );
 
 	char *p =  strstr( buf1, buf2 );
 	if ( p )

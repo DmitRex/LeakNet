@@ -51,7 +51,7 @@ void SetCriteria( string_criteria_t *c, const char *value )
 	strncpy( c->value, value, VALUE_LENGTH -1 );
 	c->value[ VALUE_LENGTH-1 ] =0;
 
-	strlwr( c->value );
+	_strlwr( c->value );
 
 	// compute length
 	c->length = strlen( c->value );
@@ -328,7 +328,7 @@ void CHLMasterDlg::Peer_GetHeartbeat( void )
 	if ( pgamedir && pgamedir[0] )
 		strcpy( gamedir, pgamedir );
 
-	strlwr( gamedir );
+	_strlwr( gamedir );
 
 	pinfo = MSG_ReadString();
 
@@ -435,9 +435,9 @@ void CHLMasterDlg::Peer_GetHeartbeat2( void )
 	map[ 63 ]		= 0;
 	os[ 1 ]			= 0;
 
-	strlwr( gamedir );
-	strlwr( map );
-	strlwr( os );
+	_strlwr( gamedir );
+	_strlwr( map );
+	_strlwr( os );
 
 	// protocol != 1 for Sony stand-alone game support...1.1.1.0 engine license (EricS)
 	if ( !islan && !m_bAllowOldProtocols && ( protocol != CURRENT_PROTOCOL ) && ( protocol != 1 ) ) 
@@ -1522,7 +1522,7 @@ int CHLMasterDlg::HashMod( const char *pgamedir )
 	char *p;
 
 	strcpy( szLowerCaseDir, pgamedir );
-	strlwr( szLowerCaseDir );
+	_strlwr( szLowerCaseDir );
 
 	p = ( char * )szLowerCaseDir;
 	while ( *p )
@@ -1797,9 +1797,9 @@ void CHLMasterDlg::Packet_Heartbeat2 (void)
 	os[ 1 ]			= 0;
 	version[ 31 ]   = 0;
 
-	strlwr( gamedir );
-	strlwr( map );
-	strlwr( os );
+	_strlwr( gamedir );
+	_strlwr( map );
+	_strlwr( os );
 
 	// protocol != 1 for Sony stand-alone game support...1.1.1.0 engine license (EricS)
 	if ( !m_bAllowOldProtocols && ( protocol != CURRENT_PROTOCOL ) && ( protocol != 1 ) )

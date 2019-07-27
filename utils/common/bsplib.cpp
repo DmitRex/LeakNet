@@ -390,7 +390,7 @@ void CPakFile::ParseFromBuffer( byte *buffer, int bufferlength )
 		char tmpString[1024];
 		buf.Get( tmpString, fileHeader.fileNameLength );
 		tmpString[fileHeader.fileNameLength] = '\0';
-		strlwr( tmpString );
+		_strlwr( tmpString );
 		newfiles[i].m_Name = tmpString;
 		newfiles[i].filepos = fileHeader.relativeOffsetOfLocalHeader;
 		newfiles[i].filelen = fileHeader.compressedSize;
@@ -496,7 +496,7 @@ void CPakFile::AddBufferToPack( const char *relativename, void *data, int length
 	// Lower case only
 	char name[ 512 ];
 	strcpy( name, relativename );
-	strlwr( name );
+	_strlwr( name );
 
 	int dstLength = length;
 	if( bTextMode )

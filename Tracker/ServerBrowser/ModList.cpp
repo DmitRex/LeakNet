@@ -103,7 +103,7 @@ void CModList::ParseInstalledMods()
 				if (hResult2 != INVALID_HANDLE_VALUE)
 				{
 					// Add the game directory.
-					strlwr(wfd.cFileName);
+					_strlwr(wfd.cFileName);
 
 					mod_t mod;
 
@@ -151,7 +151,7 @@ void CModList::ParseSteamMods()
 				mod_t mod;
 				strncpy(mod.modName, kv->GetString("gamedir"), sizeof(mod.modName) - 1);
 				mod.modName[sizeof(mod.modName) - 1] = 0;
-				strlwr(mod.modName);
+				_strlwr(mod.modName);
 				m_ModList.AddToTail(mod);
 			}
 		}

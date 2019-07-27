@@ -389,7 +389,7 @@ void CBugUIPanel::GetDataFileBase( char const *suffix, char *buf, int bufsize )
 
 	char who[ 128 ];
 	Q_strncpy( who, suffix, sizeof( who ) );
-	_strlwr( who );
+	__strlwr( who );
 
 	Q_snprintf( buf, bufsize, "%i_%02i_%02i_%02i_%02i_%02i_%s",
 		t.tm_year + 1900, t.tm_mon + 1, t.tm_mday, 

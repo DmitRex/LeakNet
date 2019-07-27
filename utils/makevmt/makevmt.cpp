@@ -228,8 +228,8 @@ void Traverse_Materials( const char *original, const char *basedir )
 			sprintf( texturename, "%s\\%s", p, fname );
 			
 			// Convert all to lower case
-			strlwr( texturename );
-			strlwr( filename );
+			_strlwr( texturename );
+			_strlwr( filename );
 			
 			// Create or report
 			if ( docreate )

@@ -340,7 +340,7 @@ int CMapFace::SerializeMAP(fstream& file, BOOL fIsStoring)
 		char szTexture[sizeof(texture.texture)+1];
 		szTexture[sizeof(texture.texture)] = 0;
 		memcpy(szTexture, texture.texture, sizeof texture.texture);
-		strlwr(szTexture);
+		_strlwr(szTexture);
 
 		if (MapFormat == mfQuake2)
 		{

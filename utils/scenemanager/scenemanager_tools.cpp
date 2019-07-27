@@ -294,7 +294,7 @@ int Sys_Exec( const char *pProgName, const char *pCmdLine, bool verbose )
 	char tmp[1024];
 	sprintf( tmp, "%s %s\n", pProgName, pCmdLine );
 
-	_strlwr( tmp );
+	__strlwr( tmp );
 
 	int iret = system( tmp );
 	if ( iret != 0 && verbose )

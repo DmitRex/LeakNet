@@ -201,7 +201,7 @@ int CMapEntities::FindNamedEntity( char const *name )
 {
 	char lowername[ 128 ];
 	strcpy( lowername, name );
-	_strlwr( lowername );
+	__strlwr( lowername );
 
 	int index = m_Entities.Find( lowername );
 	if ( index == m_Entities.InvalidIndex() )
@@ -898,7 +898,7 @@ static void OnSelectWaveFile( HWND hwndDlg )
 {
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	const char *filename = NULL;
@@ -1171,7 +1171,7 @@ static BOOL CALLBACK EventPropertiesDialogProc( HWND hwndDlg, UINT uMsg, WPARAM 
 				{
 					char workingdir[ 256 ];
 					Q_getwd( workingdir );
-					strlwr( workingdir );
+					_strlwr( workingdir );
 					COM_FixSlashes( workingdir );
 
 					const char *filename = NULL;

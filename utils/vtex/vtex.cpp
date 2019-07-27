@@ -864,8 +864,8 @@ int Find_Files( WIN32_FIND_DATA &wfd, HANDLE &hResult, const char *basedir, cons
 		sprintf( texturename, "%s\\%s", p, fname );
 		
 		// Convert all to lower case
-		strlwr( texturename );
-		strlwr( filename );
+		_strlwr( texturename );
+		_strlwr( filename );
 	}
 
 	return bMoreFiles;

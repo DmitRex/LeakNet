@@ -360,7 +360,7 @@ bool CBaseFileSystem::PreparePackFile( CSearchPath& packfile, int offsetofpackin
 		char tmpString[1024];		
 		Read( (void *)tmpString, fileHeader.fileNameLength, (FileHandle_t)packfile.m_hPackFile );
 		tmpString[fileHeader.fileNameLength] = '\0';
-		strlwr( tmpString );
+		_strlwr( tmpString );
 		newfiles[i].m_Name = g_PathIDTable.AddString( tmpString );
 		newfiles[i].filepos = fileHeader.relativeOffsetOfLocalHeader;
 		newfiles[i].filelen = fileHeader.compressedSize;
@@ -504,7 +504,7 @@ void CBaseFileSystem::AddMapPackFile( const char *pPath, SearchPathAdd_t addType
 	// +2 for '\0' and potential slash added at end.
 	newPath = ( char * )_alloca( strlen( pPath ) + 2 );
 	strcpy( newPath, pPath );
-	strlwr( newPath );
+	_strlwr( newPath );
 	FixSlashes( newPath );
 
 	// Open the .bsp and find the map lump
@@ -626,7 +626,7 @@ void CBaseFileSystem::AddSearchPath( const char *pPath, const char *pathID, Sear
 	{
 		strcpy( newPath, pPath );
 #ifdef _WIN32
-		strlwr( newPath );
+		_strlwr( newPath );
 #endif
 		FixPath( newPath );
 	}
@@ -688,7 +688,7 @@ bool CBaseFileSystem::RemoveSearchPath( const char *pPath, const char *pathID )
 		newPath = ( char * )_alloca( strlen( pPath ) + 2 );
 		strcpy( newPath, pPath );
 #ifdef _WIN32
-		strlwr( newPath );
+		_strlwr( newPath );
 #endif
 		FixPath( newPath );
 	}
@@ -797,7 +797,7 @@ FileHandle_t CBaseFileSystem::FindFile( const CSearchPath *path, const char *pFi
 		CPackFileEntry search;
 		char *temp = (char *)_alloca( strlen( pFileName ) + 1 );
 		strcpy( temp, pFileName );
-		strlwr( temp );
+		_strlwr( temp );
 
 		search.m_Name = g_PathIDTable.AddString( temp );
 
@@ -1211,7 +1211,7 @@ int CBaseFileSystem::FastFindFile( const CSearchPath *path, const char *pFileNam
 		CPackFileEntry search;
 		char *temp = (char *)_alloca( strlen( pFileName ) + 1 );
 		strcpy( temp, pFileName );
-		strlwr( temp );
+		_strlwr( temp );
 
 		search.m_Name = g_PathIDTable.AddString( temp );
 
@@ -1976,7 +1976,7 @@ bool CBaseFileSystem::FullPathToRelativePath( const char *pFullpath, char *pRela
 	strcpy( inpath, pFullpath );
 	FixSlashes( inpath );
 #ifdef _WIN32
-	strlwr( inpath );
+	_strlwr( inpath );
 #endif
 
 	for( int i = 0; i < m_SearchPaths.Count() && !success; i++ )
@@ -1990,7 +1990,7 @@ bool CBaseFileSystem::FullPathToRelativePath( const char *pFullpath, char *pRela
 		strcpy( searchbase, m_SearchPaths[i].GetPathString() );
 		FixSlashes( searchbase );
 #ifdef _WIN32
-		strlwr( searchbase );
+		_strlwr( searchbase );
 #endif
 
 		if ( !strnicmp( searchbase, inpath, strlen( searchbase ) ) )

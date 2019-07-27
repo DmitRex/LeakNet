@@ -4617,7 +4617,7 @@ void PhonemeEditor::OnImport()
 {
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	bool inSoundAlready = false;
@@ -4649,7 +4649,7 @@ void PhonemeEditor::OnExport()
 
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	bool inSoundAlready = false;
@@ -5294,7 +5294,7 @@ void PhonemeEditor::LoadWaveFile( void )
 
 	char workingdir[ 256 ];
 	Q_getwd( workingdir );
-	strlwr( workingdir );
+	_strlwr( workingdir );
 	COM_FixSlashes( workingdir );
 
 	if ( strstr( workingdir, va( "%s/sound", GetGameDirectory() ) ) )
