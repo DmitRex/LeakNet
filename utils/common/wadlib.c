@@ -291,7 +291,7 @@ void	AddLump (char *name, void *buffer, int length, int type, int compress)
 	memset (info,0,sizeof(info));
 	
 	strcpy (info->name, name);
-	Q_strupr (info->name);
+	Q__strupr (info->name);
 	
 	ofs = ftell(outwad);
 	info->filepos = wadlong(ofs);

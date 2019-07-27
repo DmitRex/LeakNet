@@ -364,7 +364,7 @@ int CMapFace::SerializeMAP(fstream& file, BOOL fIsStoring)
 			pszTexture = szTexture;
 		}
 
-		strupr(szTexture);
+		_strupr(szTexture);
 
 
 		//

@@ -2395,7 +2395,7 @@ ChunkFileResult_t CMapFace::SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInfo)
 	{
 		char szTexture[MAX_PATH];
 		strcpy(szTexture, texture.texture);
-		strupr(szTexture);
+		_strupr(szTexture);
 
 		eResult = pFile->WriteKeyValue("material", szTexture);
 	}

@@ -139,10 +139,10 @@ char *_Q_strstr(const char* file, int line,  const char *s1, const char *search 
 	return (char*)strstr( s1, search );
 }
 
-char *_Q_strupr (const char* file, int line, char *start)
+char *_Q__strupr (const char* file, int line, char *start)
 {
 	AssertValidStringPtr( start );
-	return strupr( start );
+	return _strupr( start );
 }
 
 

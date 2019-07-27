@@ -37,7 +37,7 @@ VSTDLIB_INTERFACE char*	_Q_strrchr (const char* file, int line, const char *s, c
 VSTDLIB_INTERFACE int	_Q_strcmp (const char* file, int line, const char *s1, const char *s2);
 VSTDLIB_INTERFACE int	_Q_stricmp( const char* file, int line, const char *s1, const char *s2 );
 VSTDLIB_INTERFACE char*	_Q_strstr( const char* file, int line, const char *s1, const char *search );
-VSTDLIB_INTERFACE char*	_Q_strupr (const char* file, int line, char *start);
+VSTDLIB_INTERFACE char*	_Q__strupr (const char* file, int line, char *start);
 VSTDLIB_INTERFACE char*	_Q_strlower (const char* file, int line, char *start);
 
 #ifdef _DEBUG
@@ -52,13 +52,13 @@ VSTDLIB_INTERFACE char*	_Q_strlower (const char* file, int line, char *start);
 	#define Q_strcmp(s1, s2)				_Q_strcmp	(__FILE__, __LINE__, (s1), (s2))			
 	#define Q_stricmp(s1, s2 )				_Q_stricmp	(__FILE__, __LINE__, (s1), (s2) )			
 	#define Q_strstr(s1, search )			_Q_strstr	(__FILE__, __LINE__, (s1), (search) )		
-	#define Q_strupr(start)					_Q_strupr	(__FILE__, __LINE__, (start))				
+	#define Q__strupr(start)					_Q__strupr	(__FILE__, __LINE__, (start))				
 	#define Q_strlower(start)				_Q_strlower (__FILE__, __LINE__, (start))				
 
 #else
 
 #ifdef _LINUX
-inline char *strupr( char *start )
+inline char *_strupr( char *start )
 {
       char *str = start;
       while( str && *str )
@@ -92,7 +92,7 @@ inline char*	Q_strrchr (const char *s, char c)					{ return strrchr( s, c ); }
 inline int		Q_strcmp (const char *s1, const char *s2)			{ return strcmp( s1, s2 ); }
 inline int		Q_stricmp( const char *s1, const char *s2 )			{ return _stricmp( s1, s2 ); }
 inline char*	Q_strstr( const char *s1, const char *search )		{ return strstr( s1, search ); }
-inline char*	Q_strupr (char *start)								{ return strupr( start ); }
+inline char*	Q__strupr (char *start)								{ return _strupr( start ); }
 inline char*	Q_strlower (char *start)							{ return strlwr( start ); }
 
 #endif

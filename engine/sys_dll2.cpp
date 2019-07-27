@@ -587,7 +587,7 @@ public:
 		char *keyname = const_cast<char *>( Key_NameForBinding( bind ) );
 		if( keyname )
 		{
-			engineKeyCode = Key_StringToKeynum( _strupr( keyname ) ) ;
+			engineKeyCode = Key_StringToKeynum( __strupr( keyname ) ) ;
 		}
 
 		if( keyname )	

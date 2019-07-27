@@ -327,7 +327,7 @@ void SetupDependencyFilename( CDependencyInfo *pInfo )
 		strcpy( pInfo->m_OriginalExeDir, "." );
 	}
 
-	strupr( pInfo->m_OriginalExeDir );
+	_strupr( pInfo->m_OriginalExeDir );
 }
 
 
