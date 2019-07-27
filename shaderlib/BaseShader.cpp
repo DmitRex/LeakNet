@@ -1133,7 +1133,7 @@ void CBaseShader::FixedFunctionBaseTimesDetailPass( int baseTextureVar,
 
 	if (IsSnapshotting())
 	{
-		IMaterialVar** params = s_ppParams;
+	//	IMaterialVar** params = s_ppParams;
 
 		s_pShaderShadow->EnableTexGen( SHADER_TEXTURE_STAGE0, false );
 		s_pShaderShadow->EnableTexGen( SHADER_TEXTURE_STAGE1, false );
