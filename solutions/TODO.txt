@@ -5,3 +5,5 @@ error D8016 : '/ZI' and '/Gy-' command-line options are incompatible
 		ћен€ю Debug Information Format на Program Database
 
 stricmp, strcmpi, strupr, strlwr
+
+devtools\bin\fxc.exe и другие возможно заменить на современные версии
