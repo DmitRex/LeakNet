@@ -19,6 +19,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtf", "..\vtf\vtf.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderlib", "..\shaderlib\shaderlib.vcxproj", "{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dbg", "..\materialsystem\stdshaders\stdshader_dbg.vcxproj", "{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -50,6 +57,12 @@ Global
 		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}.Release|x86.Build.0 = Release|Win32
 		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}.Template|x86.ActiveCfg = Template|Win32
 		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}.Template|x86.Build.0 = Template|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Debug|x86.ActiveCfg = Debug|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Debug|x86.Build.0 = Debug|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Release|x86.ActiveCfg = Release|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Release|x86.Build.0 = Release|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Template|x86.ActiveCfg = Template|Win32
+		{F4A9DAEB-51B8-4DE6-B55F-962454D907E4}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
