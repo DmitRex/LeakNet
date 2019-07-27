@@ -129,7 +129,7 @@ int FindLocalBoneNamed( const s_source_t *pSource, const char *pName )
 		int i;
 		for ( i = 0; i < pSource->numbones; i++ )
 		{
-			if ( !strcmpi( pName, pSource->localBone[i].name ) )
+			if ( !_strcmpi( pName, pSource->localBone[i].name ) )
 				return i;
 		}
 
@@ -137,7 +137,7 @@ int FindLocalBoneNamed( const s_source_t *pSource, const char *pName )
 
 		for ( i = 0; i < pSource->numbones; i++ )
 		{
-			if ( !strcmpi( pName, pSource->localBone[i].name ) )
+			if ( !_strcmpi( pName, pSource->localBone[i].name ) )
 				return i;
 		}
 	}
@@ -319,7 +319,7 @@ int CJointedModel::BoneIndex( const char *pName )
 	pName = RenameBone( pName );
 	for ( int boneIndex = 0; boneIndex < m_pModel->numbones; boneIndex++ )
 	{
-		if ( !strcmpi( m_pModel->localBone[boneIndex].name, pName ) )
+		if ( !_strcmpi( m_pModel->localBone[boneIndex].name, pName ) )
 			return boneIndex;
 	}
 
@@ -368,7 +368,7 @@ int CJointedModel::CollisionIndex( const char *pName )
 	int index = 0;
 	while ( pList )
 	{
-		if ( !strcmpi( pName, pList->m_name ) )
+		if ( !_strcmpi( pName, pList->m_name ) )
 			return index;
 		
 		pList = pList->m_pNext;
@@ -422,7 +422,7 @@ void CJointedModel::SortCollisionList( void )
 				if ( j == i )
 					continue;
 
-				if ( !strcmpi( pPhys->m_parent, pArray[j]->m_name ) )
+				if ( !_strcmpi( pPhys->m_parent, pArray[j]->m_name ) )
 					break;
 			}
 
@@ -476,7 +476,7 @@ CPhysCollisionModel *CJointedModel::GetCollisionModel( const char *pName )
 	CPhysCollisionModel *pList = m_pCollisionList;
 	while ( pList )
 	{
-		if ( !strcmpi( pName, pList->m_name ) )
+		if ( !_strcmpi( pName, pList->m_name ) )
 			return pList;
 		
 		pList = pList->m_pNext;
@@ -999,7 +999,7 @@ CPhysCollisionModel *FindObjectInList( CPhysCollisionModel *pHead, const char *p
 {
 	while ( pHead )
 	{
-		if ( !strcmpi( pName, pHead->m_name ) )
+		if ( !_strcmpi( pName, pHead->m_name ) )
 			break;
 		pHead = pHead->m_pNext;
 	}
@@ -2028,7 +2028,7 @@ void BuildRagdollConstraint( CPhysCollisionModel *pPhys, constraint_ragdollparam
 		{
 			Error("ERROR: Rotation constraint on bone \"%s\" which does not appear in collision model!!!\n", pList->m_pJointName );
 		}
-		else if ( (!pListModel->m_parent || g_JointedModel.CollisionIndex(pListModel->m_parent) < 0) && strcmpi( pList->m_pJointName, g_JointedModel.m_rootName ) )
+		else if ( (!pListModel->m_parent || g_JointedModel.CollisionIndex(pListModel->m_parent) < 0) && _strcmpi( pList->m_pJointName, g_JointedModel.m_rootName ) )
 		{
 			Error("ERROR: Rotation constraint on bone \"%s\" which has no parent!!!\n", pList->m_pJointName );
 		}

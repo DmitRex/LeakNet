@@ -94,7 +94,7 @@ void emitanoperand (int tnum, char *type, int notdata)
 	// register
 		for (i=0 ; i<numregs ; i++)
 		{
-			if (!strcmpi (pt, reglist[i].text))
+			if (!_strcmpi (pt, reglist[i].text))
 			{
 				printf ("%s", reglist[i].emit);
 				return;
@@ -528,7 +528,7 @@ void emit_1_or_2_operandsl_vartext (char *str0, char *str1)
 	}
 	else if (tokennum == 3)
 	{
-		if (!strcmpi (tokens[2], "%st(0)"))
+		if (!_strcmpi (tokens[2], "%st(0)"))
 			printf (" %s ", str0);
 		else
 			printf (" %s ", str1);
@@ -906,7 +906,7 @@ tokenstat parseline (void)
 
 				for (i=0 ; i<numparse; i++)
 				{
-					if (!strcmpi (tokens[0], parsedata[i].text))
+					if (!_strcmpi (tokens[0], parsedata[i].text))
 					{
 						if (((parsedata[i].numtokens > 0) &&
 							 (parsedata[i].numtokens != tokennum)) ||

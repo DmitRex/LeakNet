@@ -730,7 +730,7 @@ void CSentence::ParseOptions( CUtlBuffer& buf )
 		buf.GetString( token );
 		strcpy( value, token );
 
-		if ( !strcmpi( key, "voice_duck" ) )
+		if ( !_strcmpi( key, "voice_duck" ) )
 		{
 			SetVoiceDuck( atoi(value) ? true : false );
 		}

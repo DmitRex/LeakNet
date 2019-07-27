@@ -92,7 +92,7 @@ class CWorldcraftCmdLine : public CCommandLineInfo
 			{
 				m_bShowLogo = FALSE;
 			}
-			else if (bFlag && !strcmpi(lpszParam, "makelib"))
+			else if (bFlag && !_strcmpi(lpszParam, "makelib"))
 			{
 				bMakeLib = TRUE;
 			}

@@ -434,7 +434,7 @@ int CPhysicsSurfaceProps::ParseSurfaceData( const char *pFileName, const char *p
 			do
 			{
 				pText = ParseKeyvalue( pText, key, value );
-				if ( !strcmpi( key, "}" ) )
+				if ( !_strcmpi( key, "}" ) )
 				{
 					// already in the database, don't add again
 					if ( GetSurfaceIndex( m_strings.String(prop.m_name) ) >= 0 )
@@ -488,70 +488,70 @@ int CPhysicsSurfaceProps::ParseSurfaceData( const char *pFileName, const char *p
 					m_props.AddToTail( prop );
 					break;
 				}
-				else if ( !strcmpi( key, "base" ) )
+				else if ( !_strcmpi( key, "base" ) )
 				{
 					baseMaterial = GetSurfaceIndex( value );
 					CopyPhysicsProperties( &prop, baseMaterial );
 				}
-				else if ( !strcmpi( key, "thickness" ) )
+				else if ( !_strcmpi( key, "thickness" ) )
 				{
 					prop.data.thickness = atof(value);
 				}
-				else if ( !strcmpi( key, "density" ) )
+				else if ( !_strcmpi( key, "density" ) )
 				{
 					prop.data.density = atof(value);
 				}
-				else if ( !strcmpi( key, "elasticity" ) )
+				else if ( !_strcmpi( key, "elasticity" ) )
 				{
 					prop.data.elasticity = atof(value);
 				}
-				else if ( !strcmpi( key, "friction" ) )
+				else if ( !_strcmpi( key, "friction" ) )
 				{
 					prop.data.friction = atof(value);
 				}
-				else if ( !strcmpi( key, "maxspeedfactor" ) )
+				else if ( !_strcmpi( key, "maxspeedfactor" ) )
 				{
 					prop.data.maxSpeedFactor = atof(value);
 				}
-				else if ( !strcmpi( key, "jumpfactor" ) )
+				else if ( !_strcmpi( key, "jumpfactor" ) )
 				{
 					prop.data.jumpFactor = atof(value);
 				}
-				else if ( !strcmpi( key, "climbable" ) )
+				else if ( !_strcmpi( key, "climbable" ) )
 				{
 					prop.data.climbable = atoi(value);
 				}
-				else if ( !strcmpi( key, "stepleft" ) )
+				else if ( !_strcmpi( key, "stepleft" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_STEP_LEFT].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "stepright" ) )
+				else if ( !_strcmpi( key, "stepright" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_STEP_RIGHT].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "impact" ) )
+				else if ( !_strcmpi( key, "impact" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_IMPACT_SOUND].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "scrape" ) )
+				else if ( !_strcmpi( key, "scrape" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_SCRAPE_SOUND].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "bulletimpact" ) )
+				else if ( !_strcmpi( key, "bulletimpact" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_BULLET_IMPACT_SOUND].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "bulletdecal" ) )
+				else if ( !_strcmpi( key, "bulletdecal" ) )
 				{
 					CUtlSymbol sym = m_strings.AddString( value );
 					stringlists[STRING_BULLET_DECAL].AddToTail( sym );
 				}
-				else if ( !strcmpi( key, "gamematerial" ) )
+				else if ( !_strcmpi( key, "gamematerial" ) )
 				{
 					if ( strlen(value) == 1 && !isdigit(value[0]) )
 					{
@@ -562,7 +562,7 @@ int CPhysicsSurfaceProps::ParseSurfaceData( const char *pFileName, const char *p
 						prop.data.gameMaterial = atoi(value);
 					}
 				}
-				else if ( !strcmpi( key, "dampening" ) )
+				else if ( !_strcmpi( key, "dampening" ) )
 				{
 					prop.data.dampening = atof(value);
 				}

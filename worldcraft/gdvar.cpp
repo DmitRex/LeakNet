@@ -660,7 +660,7 @@ const char *GDinputvariable::ItemValueForString(const char *szString)
 {
 	for (int i = 0; i < m_nItems; i++)
 	{
-		if (!strcmpi(m_Items[i].szCaption, szString))
+		if (!_strcmpi(m_Items[i].szCaption, szString))
 		{
 			return(m_Items[i].szValue);
 		}

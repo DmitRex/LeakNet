@@ -22,7 +22,7 @@
 
 bool StrLess( const char * const &pszLeft, const char * const &pszRight )
 {
-	return ( strcmpi( pszLeft, pszRight) < 0 );
+	return ( _strcmpi( pszLeft, pszRight) < 0 );
 }
 
 //-----------------------------------------------------------------------------

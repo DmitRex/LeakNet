@@ -498,7 +498,7 @@ void COP_Entity::UpdateData(int Mode, PVOID pData)
 		// Deal with class name.
 		//
 		m_cClasses.GetWindowText(szBuf, 128);
-		if (strcmpi(szBuf, pEdit->GetClassName()))
+		if (_strcmpi(szBuf, pEdit->GetClassName()))
 		{
 			//
 			// Not the same - set class to be blank and 
@@ -820,7 +820,7 @@ void COP_Entity::SetupForMode(void)
 			//
 			// Spawnflags are handled separately - don't add that key.
 			//
-			if (strcmpi(pVar->GetName(), "spawnflags") != 0)
+			if (_strcmpi(pVar->GetName(), "spawnflags") != 0)
 			{
 				m_VarMap[j++] = i;
 
@@ -1005,7 +1005,7 @@ void COP_Entity::SetCurKey(LPCTSTR pszKey)
 		{
 			m_VarList.GetText(i, str);
 			strKey = str.Left(str.Find('\t'));
-			if (!strcmpi(strKey, pszKey))
+			if (!_strcmpi(strKey, pszKey))
 			{
 				// found it here - 
 				m_VarList.SetCurSel(i);
@@ -1022,7 +1022,7 @@ void COP_Entity::SetCurKey(LPCTSTR pszKey)
 		for (int i = 0; i < nSel; i++)
 		{
 			GDinputvariable * pVar = m_pObjClass->GetVariableAt(m_VarMap[i]);
-			if (!strcmpi(pVar->GetName(), pszKey))
+			if (!_strcmpi(pVar->GetName(), pszKey))
 			{
 				// found it here - 
 				m_VarList.SetCurSel(i);
@@ -1688,7 +1688,7 @@ void COP_Entity::UpdateClass(const char *pszClass)
 	//
 	// Remove unused keyvalues.
 	//
-	if (m_pObjClass != pOldObjClass && m_pObjClass && strcmpi(pszClass, "multi_manager"))
+	if (m_pObjClass != pOldObjClass && m_pObjClass && _strcmpi(pszClass, "multi_manager"))
 	{
 		int nKeyValues = m_kv.GetCount();
 		for (int i = nKeyValues - 1; i >= 0; i--)

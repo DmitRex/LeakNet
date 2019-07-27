@@ -3407,11 +3407,11 @@ void Cmd_ScreenAlign ( void )
 
 		if( GetToken( false ) )
 		{
-			if( !strcmpi( "sphere", token )  )
+			if( !_strcmpi( "sphere", token )  )
 			{
 				g_screenalignedbone[g_numscreenalignedbones].flags = BONE_SCREEN_ALIGN_SPHERE;				
 			}
-			else if( !strcmpi( "cylinder", token ) )
+			else if( !_strcmpi( "cylinder", token ) )
 			{
 				g_screenalignedbone[g_numscreenalignedbones].flags = BONE_SCREEN_ALIGN_CYLINDER;				
 			}

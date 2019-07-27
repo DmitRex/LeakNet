@@ -1051,7 +1051,7 @@ GDinputvariable *GDclass::VarForName(LPCTSTR pszName, int *piIndex)
 	for(int i = 0; i < GetVariableCount(); i++)
 	{
 		GDinputvariable *pVar = GetVariableAt(i);
-		if(!strcmpi(pVar->GetName(), pszName))
+		if(!_strcmpi(pVar->GetName(), pszName))
 		{
 			if(piIndex)
 				piIndex[0] = i;

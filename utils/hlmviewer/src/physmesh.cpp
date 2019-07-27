@@ -178,19 +178,19 @@ public:
 	virtual void ParseKeyValue( void *pCustom, const char *pKey, const char *pValue )
 	{
 		editparams_t *pEdit = (editparams_t *)pCustom;
-		if ( !strcmpi( pKey, "rootname" ) )
+		if ( !_strcmpi( pKey, "rootname" ) )
 		{
 			strncpy( pEdit->rootName, pValue, sizeof(pEdit->rootName) );
 		}
-		else if ( !strcmpi( pKey, "totalmass" ) )
+		else if ( !_strcmpi( pKey, "totalmass" ) )
 		{
 			pEdit->totalMass = atof( pValue );
 		}
-		else if ( !strcmpi( pKey, "concave" ) )
+		else if ( !_strcmpi( pKey, "concave" ) )
 		{
 			pEdit->concave = atoi( pValue );
 		}
-		else if ( !strcmpi( pKey, "jointmerge" ) )
+		else if ( !_strcmpi( pKey, "jointmerge" ) )
 		{
 			char tmp[1024];
 			char parentName[512], childName[512];
@@ -221,7 +221,7 @@ public:
 	virtual void ParseKeyValue( void *pCustom, const char *pKey, const char *pValue )
 	{
 		hlmvsolid_t *pSolid = (hlmvsolid_t *)pCustom;
-		if ( !strcmpi( pKey, "massbias" ) )
+		if ( !_strcmpi( pKey, "massbias" ) )
 		{
 			pSolid->massBias = atof( pValue );
 		}
@@ -289,7 +289,7 @@ int FindPhysprop( const char *pPropname )
 		int count = physprop->SurfacePropCount();
 		for ( int i = 0; i < count; i++ )
 		{
-			if ( !strcmpi( pPropname, physprop->GetPropName(i) ) )
+			if ( !_strcmpi( pPropname, physprop->GetPropName(i) ) )
 				return i;
 		}
 	}

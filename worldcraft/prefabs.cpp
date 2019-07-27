@@ -196,11 +196,11 @@ CPrefab::pfiletype_t CPrefab::CheckFileType(LPCTSTR pszFilename)
 	char *p = strrchr(pszFilename, '.');
 	if(p)
 	{
-		if(!strcmpi(p, ".rmf"))
+		if(!_strcmpi(p, ".rmf"))
 			return pftRMF;
-		else if(!strcmpi(p, ".map"))
+		else if(!_strcmpi(p, ".map"))
 			return pftMAP;
-		else if(!strcmpi(p, ".os"))
+		else if(!_strcmpi(p, ".os"))
 			return pftScript;
 	}
 
@@ -275,7 +275,7 @@ CPrefabLibrary::~CPrefabLibrary()
 //-----------------------------------------------------------------------------
 static int SortPrefabs(CPrefab *a, CPrefab *b)
 {
-	return(strcmpi(a->GetName(), b->GetName()));
+	return(_strcmpi(a->GetName(), b->GetName()));
 }
 
 
@@ -544,7 +544,7 @@ CPrefabLibraryRMF::~CPrefabLibraryRMF()
 //-----------------------------------------------------------------------------
 bool CPrefabLibraryRMF::IsFile(const char *szFilename)
 {
-	return(strcmpi(m_strOpenFileName, szFilename) == 0);
+	return(_strcmpi(m_strOpenFileName, szFilename) == 0);
 }
 
 
@@ -869,7 +869,7 @@ CPrefabLibraryVMF::~CPrefabLibraryVMF()
 //-----------------------------------------------------------------------------
 bool CPrefabLibraryVMF::IsFile(const char *szFilename)
 {
-	return(strcmpi(m_szFolderName, szFilename) == 0);
+	return(_strcmpi(m_szFolderName, szFilename) == 0);
 }
 
 
