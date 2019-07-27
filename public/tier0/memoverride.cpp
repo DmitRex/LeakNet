@@ -6,6 +6,8 @@
 // $NoKeywords: $
 //=============================================================================
 
+#if 0 // VXP: FIXME: Probably going to redo this
+
 #include "tier0/dbg.h"
 #include "tier0/memalloc.h"
 #include <string.h>
@@ -459,6 +461,8 @@ int __cdecl _CrtDbgReport( int nRptType, const char * szFile,
 	
 } // end extern "C"
 #endif // _WIN32
+
+#endif // #if 0
 
 // Most files include this file, so when it's used it adds an extra .ValveDbg section,
 // to help identify debug binaries.

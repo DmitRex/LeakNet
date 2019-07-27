@@ -113,6 +113,10 @@
       <OutputFile>.\Debug\vstdlib.dll</OutputFile>
       <ImportLibrary>.\Debug\vstdlib.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ForceFileOutput>
+      </ForceFileOutput>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
@@ -137,7 +141,7 @@ if exist $(TargetDir)vstdlib.lib copy $(TargetDir)vstdlib.lib ..\lib\public\vstd
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>..\common;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;VSTDLIB_DLL_EXPORT;_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;VSTDLIB_DLL_EXPORT;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Release\vstdlib.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
