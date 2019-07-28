@@ -33,6 +33,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx6", "..\materia
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx7", "..\materialsystem\stdshaders\stdshader_dx7.vcxproj", "{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -76,6 +83,12 @@ Global
 		{9DED0143-FA77-444C-ABCA-4497B19618A4}.Release|x86.Build.0 = Release|Win32
 		{9DED0143-FA77-444C-ABCA-4497B19618A4}.Template|x86.ActiveCfg = Release|Win32
 		{9DED0143-FA77-444C-ABCA-4497B19618A4}.Template|x86.Build.0 = Release|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Debug|x86.ActiveCfg = Debug|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Debug|x86.Build.0 = Debug|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Release|x86.ActiveCfg = Release|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Release|x86.Build.0 = Release|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Template|x86.ActiveCfg = Template|Win32
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
