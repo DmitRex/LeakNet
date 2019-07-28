@@ -27,6 +27,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dbg", "..\materia
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx6", "..\materialsystem\stdshaders\stdshader_dx6.vcxproj", "{9DED0143-FA77-444C-ABCA-4497B19618A4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
