@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>stdshader_dx8</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <ProjectGuid>{D0B274A3-B71B-4084-A55B-25635E3687E2}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug_dx8\</OutDir>
+    <IntDir>.\Debug_dx8\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release_dx8\</OutDir>
+    <IntDir>.\Release_dx8\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;fopen=dont_use_fopen;STDSHADER_DX8_DLL_EXPORT;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug_dx8\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug_dx8\stdshader_dx8.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Debug_dx8\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug_dx8\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug_dx8\stdshader_dx8.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug_dx8\stdshader_dx8.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Debug_dx8\stdshader_dx8.dll</OutputFile>
+      <ImportLibrary>.\Debug_dx8\stdshader_dx8.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <CustomBuildStep>
+      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
+copy $(TargetPath) ..\..\..\bin\stdshader_dx8.dll 
+if exist $(TargetDir)stdshader_dx8.map copy $(TargetDir)stdshader_dx8.map ..\..\..\bin\stdshader_dx8.map </Command>
+      <Message>Publishing to target directory (..\..\..\bin\)...</Message>
+      <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>..\..\common;..\..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;fopen=dont_use_fopen;STDSHADER_DX8_DLL_EXPORT;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release_dx8\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release_dx8\stdshader_dx8.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Release_dx8\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release_dx8\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release_dx8\stdshader_dx8.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release_dx8\stdshader_dx8.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <LinkDLL>true</LinkDLL>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release_dx8\stdshader_dx8.dll</OutputFile>
+      <ImportLibrary>.\Release_dx8\stdshader_dx8.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <CustomBuildStep>
+      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
+copy $(TargetPath) ..\..\..\bin\stdshader_dx8.dll 
+if exist $(TargetDir)stdshader_dx8.map copy $(TargetDir)stdshader_dx8.map ..\..\..\bin\stdshader_dx8.map </Command>
+      <Message>Publishing to target directory (..\..\..\bin\)...</Message>
+      <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\public\bumpvects.cpp" />
+    <ClCompile Include="..\..\public\mathlib.cpp" />
+    <ClCompile Include="..\..\public\tier0\memoverride.cpp" />
+    <ClCompile Include="..\..\public\vmatrix.cpp" />
+    <ClCompile Include="alienscale_dx8.cpp" />
+    <ClCompile Include="basetimeslightmapwet.cpp" />
+    <ClCompile Include="BaseVSShader.cpp" />
+    <ClCompile Include="cable.cpp" />
+    <ClCompile Include="eyes.cpp" />
+    <ClCompile Include="gooinglass.cpp" />
+    <ClCompile Include="jellyfish.cpp" />
+    <ClCompile Include="jojirium.cpp" />
+    <ClCompile Include="lightmappedgeneric_dx8.cpp" />
+    <ClCompile Include="modulate.cpp" />
+    <ClCompile Include="overlay_fit.cpp" />
+    <ClCompile Include="particlesphere.cpp" />
+    <ClCompile Include="predator.cpp" />
+    <ClCompile Include="refract_dx80.cpp" />
+    <ClCompile Include="shadowbuild.cpp" />
+    <ClCompile Include="shadowmodel.cpp" />
+    <ClCompile Include="shadow_dx8.cpp" />
+    <ClCompile Include="sprite.cpp" />
+    <ClCompile Include="stdshader_dx8.cpp" />
+    <ClCompile Include="teeth_dx8.cpp" />
+    <ClCompile Include="unlitgeneric_dx8.cpp" />
+    <ClCompile Include="unlittwotexture.cpp" />
+    <ClCompile Include="vertexlitgeneric_dx8.cpp" />
+    <ClCompile Include="water_dx80.cpp" />
+    <ClCompile Include="water_dx81.cpp" />
+    <ClCompile Include="worldvertexalpha_dx8.cpp" />
+    <ClCompile Include="WorldVertexTransition_dx8.cpp" />
+    <ClCompile Include="writez.cpp" />
+    <ClCompile Include="yuv.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseVSShader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="alienscale_overbright2_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="alienscale_overbright2_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="alienscale_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="alienscale_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="alienscale_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="alienscale_vs14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BaseTimesLightmapWet.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BaseTimesLightmapWet.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BumpmappedEnvmap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BumpmappedEnvmap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BumpmappedLightmap_OverBright1.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="BumpmappedLightmap_OverBright2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Cable.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Cable.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Eyes.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Eyes.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Eyes_Overbright2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="glowwarp.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="HotSpotGlow.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="JellyFish.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="JellyFish.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Jojirium.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BaseAlphaMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BaseTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BaseTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="lightmappedgeneric_basetextureblend.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BaseTextureBlend.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedEnvmap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedEnvmap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedEnvmap_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedEnvmap_ps14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedLightmap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_BumpmappedLightmap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_Detail.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_Detail.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_DetailNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_DetailSelfIlluminated.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_DetailVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapCameraSpace.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapCameraSpaceVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapSphere.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapSphereVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_EnvMapVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="lightmappedgeneric_inc.vsh">
+      <FileType>Document</FileType>
+    </None>
+    <CustomBuild Include="LightmappedGeneric_MaskedEnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_MaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_MultiplyByLighting.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_MultiplyByLightingNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_MultiplyByLightingSelfIllum.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_NoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_SelfIlluminated.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_SelfIlluminatedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_SelfIlluminatedMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedGeneric_VertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedTranslucentTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="LightmappedTranslucentTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">LightmappedGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="macros.vsh">
+      <FileType>Document</FileType>
+    </None>
+    <CustomBuild Include="Modulate_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="overlay_fit_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="overlay_fit_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ParticleSphere.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="predator.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="predator.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Refract_model_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Refract_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Refract_world_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ScreenSpaceEffect.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Shadow.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ShadowBuildTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ShadowModel.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="ShadowModel.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="shadow_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="shadow_vs14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="SpriteRenderNormal.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="SpriteRenderTransAdd.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="SpriteRenderTransColor.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Teeth.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_BaseAlphaMaskedEnvMap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_Detail.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_Detail.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailBaseAlphaMaskedEnvMap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapCameraSpace.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapCameraSpaceVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapMask.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapMaskNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapSphere.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapSphereVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailEnvMapVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_DetailVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMap.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapCameraSpace.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapCameraSpaceVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapMask.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapMaskNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapSphere.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapSphereVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_EnvMapVertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="unlitgeneric_inc.vsh">
+      <FileType>Document</FileType>
+    </None>
+    <CustomBuild Include="UnlitGeneric_LightingOnlyWorld.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_NoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitGeneric_VertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">UnlitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitTwoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="UnlitTwoTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;unlittwotexture_inc.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="unlittwotexture_inc.vsh">
+      <FileType>Document</FileType>
+    </None>
+    <CustomBuild Include="UnlitTwoTexture_VertexColor.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;unlittwotexture_inc.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitEnvMappedTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitEnvMappedTexture_CameraSpace.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitEnvMappedTexture_SphereMap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_BaseAlphaMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_Detail.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_Detail.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailBaseAlphaMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailEnvMap.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailEnvMapCameraSpace.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailEnvMapSphere.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailSelfIlluminated.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailSelfIlluminatedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DetailSelfIlluminatedMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpLightingOnly_Overbright1.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpLightingOnly_Overbright2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpTimesBase.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpTimesBase_Overbright1.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpTimesBase_Overbright1_Translucent.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpTimesBase_Overbright2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_DiffBumpTimesBase_Overbright2_Translucent.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmapV2_MultByAlpha.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmapV2_MultByAlpha_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmapV2_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmap_NoLighting.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmap_NoLighting_ps14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvmappedBumpmap_VertLit.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_EnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <None Include="vertexlitgeneric_inc.vsh">
+      <FileType>Document</FileType>
+    </None>
+    <CustomBuild Include="VertexLitGeneric_MaskedEnvMapNoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_MaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_NoTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_SelfIlluminated.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_SelfIlluminatedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_SelfIlluminatedMaskedEnvMapV2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_SelfIllumOnly.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitGeneric_SelfIllumOnly.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VertexLitGeneric_inc.vsh;macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="VertexLitTexture_Overbright2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_vs14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterReflect_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WaterRefract_ps11.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Water_ps14.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Water_ps14.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="Water_vs11.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="white.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldTexture.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldTexture.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexAlpha.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexAlpha.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition_BlendBase2.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition_Micros.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition_Micros.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WorldVertexTransition_Micros_EditMode.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WriteEnvMapMaskToAlphaBuffer.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="writez.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WriteZWithHeightClipPlane.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WriteZWithHeightClipPlane.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="WriteZWithHeightClipPlane_World.vsh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\vsh_prep.pl -dx9 $(InputName).vsh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">macros.vsh;..\..\devtools\bin\vsa9.exe;..\..\devtools\bin\vsh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="yuv.psh">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\perl ..\..\devtools\bin\psh_prep.pl -dx9 $(InputName).psh</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pshtmp9\$(InputName).inc;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\devtools\bin\psa9.exe;..\..\devtools\bin\psh_prep.pl;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\devtools\bin\psh_prep.pl" />
+    <CustomBuild Include="..\..\devtools\bin\vsh_prep.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="stdshader_dx8.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\lib\public\shaderlib.lib" />
+    <Library Include="..\..\lib\public\tier0.lib" />
+    <Library Include="..\..\lib\public\vstdlib.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
