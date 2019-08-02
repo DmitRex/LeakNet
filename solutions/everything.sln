@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tier0", "..\tier0\tier0.vcxproj", "{83618132-680F-491F-8DE6-73EECEACC393}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B987F12A-7892-49E4-BDE5-84DB43EFC8EF}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,6 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vstdlib", "..\vstdlib\vstdlib.vcxproj", "{1A10F3F3-66AD-4897-9268-A7BA41CC3A39}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtf", "..\vtf\vtf.vcxproj", "{8510DA71-0C34-423C-AABB-056A5BB26DA6}"
 EndProject
@@ -37,10 +37,25 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx7", "..\materia
 	ProjectSection(ProjectDependencies) = postProject
 		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
 		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{9DED0143-FA77-444C-ABCA-4497B19618A4} = {9DED0143-FA77-444C-ABCA-4497B19618A4}
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx8", "..\materialsystem\stdshaders\stdshader_dx8.vcxproj", "{50AF6F8A-7832-437A-956E-A35CD5EAFA15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{99A42256-89F8-4BEB-9A28-005BD0BB6E4B} = {99A42256-89F8-4BEB-9A28-005BD0BB6E4B}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdshader_dx9", "..\materialsystem\stdshaders\stdshader_dx9.vcxproj", "{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{50AF6F8A-7832-437A-956E-A35CD5EAFA15} = {50AF6F8A-7832-437A-956E-A35CD5EAFA15}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +112,12 @@ Global
 		{50AF6F8A-7832-437A-956E-A35CD5EAFA15}.Release|x86.Build.0 = Release|Win32
 		{50AF6F8A-7832-437A-956E-A35CD5EAFA15}.Template|x86.ActiveCfg = Release|Win32
 		{50AF6F8A-7832-437A-956E-A35CD5EAFA15}.Template|x86.Build.0 = Release|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Debug|x86.ActiveCfg = Debug|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Debug|x86.Build.0 = Debug|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Release|x86.ActiveCfg = Release|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Release|x86.Build.0 = Release|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Template|x86.ActiveCfg = Template|Win32
+		{69BF968F-FBEB-4FBD-89D2-47EFB35760D1}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
