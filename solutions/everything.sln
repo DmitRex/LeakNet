@@ -92,6 +92,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shader_nvfx_ps20", "..\mate
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitlib", "..\unitlib\unitlib.vcxproj", "{385EE5AF-9279-4EF9-A098-11BB542AB5F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -171,6 +177,12 @@ Global
 		{5B787882-0611-4642-90BD-37230BA5A6C4}.Release|x86.Build.0 = Release|Win32
 		{5B787882-0611-4642-90BD-37230BA5A6C4}.Template|x86.ActiveCfg = Template|Win32
 		{5B787882-0611-4642-90BD-37230BA5A6C4}.Template|x86.Build.0 = Template|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Debug|x86.ActiveCfg = Debug|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Debug|x86.Build.0 = Debug|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Release|x86.ActiveCfg = Release|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Release|x86.Build.0 = Release|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Template|x86.ActiveCfg = Template|Win32
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
