@@ -3,6 +3,7 @@ error D8016 : '/ZI' and '/Gy-' command-line options are incompatible
 		"You are choosing "Edit and Continue" (/ZI) to be able to fix code during debugging, but also "Disable Function-Level Linking" (/Gy-).
 		Those two will not work together, as you cannot just change one function in the middle of the code. So just choose one of them, like changing /Gy- to /Gy."
 		Меняю Debug Information Format на Program Database
+			Может, наоборот, оставить "Edit and Continue", но отключить "Disable Function-Level Linking"?
 
 stricmp, strcmpi, strupr, strlwr
 
