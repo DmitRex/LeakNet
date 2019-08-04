@@ -5216,7 +5216,8 @@ void CShaderAPIDX8::SetPixelShaderConstant( int var, float const* pVec, int numV
 		DWORD* pDst = (DWORD*)&m_DynamicState.m_pPixelShaderConstant[var];
 		int count = numVecs * 4;
 
-		for(int i=0; i<count; i++) 
+		int i;
+		for(i=0; i<count; i++) 
 		{
 			if( pSrc[i] != pDst[i] )
 				break;
