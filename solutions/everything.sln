@@ -101,8 +101,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderapiempty", "..\materialsystem\shaderempty\shaderempty.vcxproj", "{A42D3682-E7A0-47C1-8F40-286304685871}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderapidx8", "..\materialsystem\shaderdx8\shaderdx8.vcxproj", "{59D95977-E291-4553-BEC8-0FB799EEB677}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "playback", "..\materialsystem\shaderdx8\playback\playback.vcxproj", "{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaterialSystem", "..\materialsystem\materialsystem.vcxproj", "{376C26EF-6512-4219-88BD-A214BC0627AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -201,12 +205,12 @@ Global
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Release|x86.Build.0 = Release|Win32
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Template|x86.ActiveCfg = Release|Win32
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Template|x86.Build.0 = Release|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Debug|x86.ActiveCfg = Debug|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Debug|x86.Build.0 = Debug|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Release|x86.ActiveCfg = Release|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Release|x86.Build.0 = Release|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Template|x86.ActiveCfg = Template|Win32
-		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Template|x86.Build.0 = Template|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Debug|x86.ActiveCfg = Debug|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Debug|x86.Build.0 = Debug|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Release|x86.ActiveCfg = Release|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Release|x86.Build.0 = Release|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Template|x86.ActiveCfg = Template|Win32
+		{376C26EF-6512-4219-88BD-A214BC0627AB}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
