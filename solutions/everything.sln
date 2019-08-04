@@ -107,6 +107,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderapidx8", "..\material
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaterialSystem", "..\materialsystem\materialsystem.vcxproj", "{376C26EF-6512-4219-88BD-A214BC0627AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0} = {4A4F9202-3F4C-46C3-BBF5-4C86C1EE20A0}
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6} = {8510DA71-0C34-423C-AABB-056A5BB26DA6}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mxtoolkitwin32", "..\utils\mxtk\msvc\mxtoolkitwin32.vcxproj", "{2E19DCCB-0857-44A8-B30F-A043BE655897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +219,12 @@ Global
 		{376C26EF-6512-4219-88BD-A214BC0627AB}.Release|x86.Build.0 = Release|Win32
 		{376C26EF-6512-4219-88BD-A214BC0627AB}.Template|x86.ActiveCfg = Template|Win32
 		{376C26EF-6512-4219-88BD-A214BC0627AB}.Template|x86.Build.0 = Template|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Debug|x86.Build.0 = Debug|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Release|x86.ActiveCfg = Release|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Release|x86.Build.0 = Release|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Template|x86.ActiveCfg = Template|Win32
+		{2E19DCCB-0857-44A8-B30F-A043BE655897}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
