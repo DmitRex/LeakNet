@@ -8,7 +8,7 @@ error D8016 : '/ZI' and '/Gy-' command-line options are incompatible
 stricmp, strcmpi, strupr, strlwr
 
 devtools\bin\fxc.exe и другие возможно заменить на современные версии
-shaderapidx8 (shaderdx8) адаптировать под Platform Toolset v120 (VS2019)
+shaderapidx8 (shaderdx8) адаптировать под Platform Toolset v142 (VS2019)
 	¬ременный workaround - выставил Platform Toolset в v100 (VS2010). —корее всего, дл€ компил€ции будет требовать установки VS2010 (дл€ мен€ не проблема)
 
 _CRT_NON_CONFORMING_SWPRINTFS дл€ swprintf в KeyValues.cpp

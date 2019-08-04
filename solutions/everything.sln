@@ -100,7 +100,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitlib", "..\unitlib\unitl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderapiempty", "..\materialsystem\shaderempty\shaderempty.vcxproj", "{A42D3682-E7A0-47C1-8F40-286304685871}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderdx8", "..\materialsystem\shaderdx8\shaderdx8.vcxproj", "{59D95977-E291-4553-BEC8-0FB799EEB677}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shaderapidx8", "..\materialsystem\shaderdx8\shaderdx8.vcxproj", "{59D95977-E291-4553-BEC8-0FB799EEB677}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "playback", "..\materialsystem\shaderdx8\playback\playback.vcxproj", "{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +201,12 @@ Global
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Release|x86.Build.0 = Release|Win32
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Template|x86.ActiveCfg = Release|Win32
 		{59D95977-E291-4553-BEC8-0FB799EEB677}.Template|x86.Build.0 = Release|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Debug|x86.ActiveCfg = Debug|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Debug|x86.Build.0 = Debug|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Release|x86.ActiveCfg = Release|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Release|x86.Build.0 = Release|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Template|x86.ActiveCfg = Template|Win32
+		{87088380-8BB9-4E8D-A2FF-7ABB8D2A354C}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
