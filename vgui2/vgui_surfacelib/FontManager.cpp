@@ -70,7 +70,8 @@ bool CFontManager::AddGlyphSetToFont(HFont font, const char *windowsFontName, in
 {
 	// see if we already have the win32 font
 	CWin32Font *winFont = NULL;
-	for (int i = 0; i < m_Win32Fonts.Count(); i++)
+	int i;
+	for (i = 0; i < m_Win32Fonts.Count(); i++)
 	{
 		if (m_Win32Fonts[i]->IsEqualTo(windowsFontName, tall, weight, blur, scanlines, flags))
 		{
