@@ -118,6 +118,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mxtoolkitwin32", "..\utils\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_surfacelib", "..\vgui2\vgui_surfacelib\vgui_surfacelib.vcxproj", "{6635273C-36B8-4C45-83C3-DD713FB0F4D7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui2", "..\vgui2\src\vgui_dll.vcxproj", "{63976CFF-452A-4452-971F-DA0F4AD3AEAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{6635273C-36B8-4C45-83C3-DD713FB0F4D7} = {6635273C-36B8-4C45-83C3-DD713FB0F4D7}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -233,6 +240,12 @@ Global
 		{6635273C-36B8-4C45-83C3-DD713FB0F4D7}.Release|x86.Build.0 = Release|Win32
 		{6635273C-36B8-4C45-83C3-DD713FB0F4D7}.Template|x86.ActiveCfg = Template|Win32
 		{6635273C-36B8-4C45-83C3-DD713FB0F4D7}.Template|x86.Build.0 = Template|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Debug|x86.ActiveCfg = Debug|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Debug|x86.Build.0 = Debug|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Release|x86.ActiveCfg = Release|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Release|x86.Build.0 = Release|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Template|x86.ActiveCfg = Template|Win32
+		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

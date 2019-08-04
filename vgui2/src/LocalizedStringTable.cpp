@@ -243,7 +243,7 @@ bool CLocalizedStringTable::AddFile(IFileSystem *fileSystem, const char *szFileN
 	bool bTriedEnglish = false;
 
 	strcpy(fileName, szFileName);
-	char *langptr = strstr(szFileName, LANGUAGE_STRING);
+	const char *langptr = strstr(szFileName, LANGUAGE_STRING);
 	if (langptr)
 	{
 		// copy out the initial part of the string

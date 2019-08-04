@@ -82,7 +82,8 @@ void Border::Paint(int x, int y, int wide, int tall, int breakSide, int breakSta
 {
 	// iterate through and draw all lines
 	// draw left
-	for (int i = 0; i < _sides[SIDE_LEFT].count; i++)
+	int i;
+	for (i = 0; i < _sides[SIDE_LEFT].count; i++)
 	{
 		line_t *line = &(_sides[SIDE_LEFT].lines[i]);
 		surface()->DrawSetColor(line->col[0], line->col[1], line->col[2], line->col[3]);
@@ -195,7 +196,8 @@ void Border::ParseSideSettings(int side_index, KeyValues *inResourceData, ISchem
 
 	// count the numeber of lines in the side
 	int count = 0;
-	for (KeyValues *kv = inResourceData->GetFirstSubKey(); kv != NULL; kv = kv->GetNextKey())
+	KeyValues* kv;
+	for (kv = inResourceData->GetFirstSubKey(); kv != NULL; kv = kv->GetNextKey())
 	{
 		count++;
 	}

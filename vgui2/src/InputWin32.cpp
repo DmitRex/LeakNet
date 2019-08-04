@@ -423,7 +423,8 @@ void CInputWin32::RunFrame()
 	}
 
 	//clear mouse and key states
-	for (int i = 0; i < MOUSE_LAST; i++)
+	int i;
+	for (i = 0; i < MOUSE_LAST; i++)
 	{
 		pContext->_mousePressed[i] = 0;
 		pContext->_mouseDoublePressed[i] = 0;
