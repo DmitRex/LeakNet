@@ -894,7 +894,7 @@ void ListPanel::IndexItem(int itemID)
 	s_pCurrentSortingListPanel = this;
 
 	// add the item into the RB tree for each column
-	for (i = 0; i < m_ColumnsHistory.Count(); i++)
+	for (int i = 0; i < m_ColumnsHistory.Count(); i++)
 	{
 		// skip over any removed columns
 		if ( m_ColumnsHistory[i] == m_ColumnsData.InvalidIndex() )

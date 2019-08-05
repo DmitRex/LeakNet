@@ -388,7 +388,7 @@ void BuildGroup::MousePressed(MouseCode code, Panel *panel)
 		_dragStartPanelPos[1]=y;
 
 		// figure out the deltas of the other panels from the base panel
-		for (i=0; i<_controlGroup.Size(); ++i)
+		for (int i=0; i<_controlGroup.Size(); ++i)
 		{
 			int cx, cy;
 			_controlGroup[i].Get()->GetPos(cx, cy);
@@ -992,7 +992,8 @@ void BuildGroup::GetSettings( KeyValues *resourceData )
 void BuildGroup::RemoveSettings()
 {	
 	// loop though objects in the current control group and remove them all
-	for( int i = 0; i < _controlGroup.Size(); i++ )
+	int i;
+	for( i = 0; i < _controlGroup.Size(); i++ )
 	{		
 		// only delete delatable panels
 		if ( _controlGroup[i].Get()->IsBuildModeDeletable())

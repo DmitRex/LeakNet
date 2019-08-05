@@ -760,7 +760,7 @@ void SectionedListPanel::LayoutPanels(int &contentTall)
 		else
 		{
 			// arrange all the items in this section underneath
-			for (i = iStart; i <= iEnd; i++)
+			for (int i = iStart; i <= iEnd; i++)
 			{
 				CItemButton *item = m_SortedItems[i]; //items[i];
 				item->SetBounds(x, y, wide, m_iLineSpacing);

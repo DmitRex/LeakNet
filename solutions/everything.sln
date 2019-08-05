@@ -125,6 +125,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui2", "..\vgui2\src\vgui_
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_controls", "..\vgui2\controls\vgui_controls.vcxproj", "{28900E72-9E3A-47BB-A2B3-361184E8CEF2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -246,6 +251,12 @@ Global
 		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Release|x86.Build.0 = Release|Win32
 		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Template|x86.ActiveCfg = Template|Win32
 		{63976CFF-452A-4452-971F-DA0F4AD3AEAF}.Template|x86.Build.0 = Template|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Debug|x86.ActiveCfg = Debug|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Debug|x86.Build.0 = Debug|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Release|x86.ActiveCfg = Release|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Release|x86.Build.0 = Release|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Template|x86.ActiveCfg = Template|Win32
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

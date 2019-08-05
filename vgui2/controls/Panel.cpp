@@ -1108,7 +1108,8 @@ VPANEL Panel::IsWithinTraverse(int x, int y, bool traversePopups)
 	if (traversePopups)
 	{
 		// check popups first
-		for (int i = GetChildCount() - 1; i >= 0; i--)
+		int i;
+		for (i = GetChildCount() - 1; i >= 0; i--)
 		{
 			VPANEL panel = ipanel()->GetChild(GetVPanel(), i);
 			if (ipanel()->IsPopup(panel))
@@ -1429,7 +1430,8 @@ void Panel::PostActionSignal( KeyValues *message )
 	// add who it was from the message
 	message->SetPtr("panel", this);
 
-	for (int i = _actionSignalTargetDar.GetCount() - 1; i > 0; i--)
+	int i;
+	for (i = _actionSignalTargetDar.GetCount() - 1; i > 0; i--)
 	{
 		VPANEL panel = ivgui()->HandleToPanel(_actionSignalTargetDar[i]);
 		if (panel)

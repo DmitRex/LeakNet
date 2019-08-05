@@ -470,7 +470,8 @@ int TextEntry::PixelToCursorSpace(int cx, int cy)
 	
 	int startIndex = GetStartDrawIndex(lineBreakIndexIndex);
 	bool onRightLine = false;
-	for (int i = startIndex; i < m_TextStream.Count(); i++)
+	int i;
+	for (i = startIndex; i < m_TextStream.Count(); i++)
 	{
 		wchar_t ch = m_TextStream[i];
 		if (_hideText)
@@ -648,7 +649,8 @@ void TextEntry::PaintBackground()
 		{
 			// loop through all the characters and sum their widths	
 			bool addElipsis = false;
-			for (int i = 0; i < m_TextStream.Count(); ++i)
+			int i;
+			for (i = 0; i < m_TextStream.Count(); ++i)
 			{	
 				wide += getCharWidth(_font, m_TextStream[i]);
 				if (wide > _drawWidth)
@@ -676,7 +678,8 @@ void TextEntry::PaintBackground()
 			}
 		}
 		// draw the text
-		for ( int i = startIndex; i < endIndex; i++)
+		int i;
+		for ( i = startIndex; i < endIndex; i++)
 		{
 			wchar_t ch = m_TextStream[i];
 			if (_hideText)
@@ -817,7 +820,8 @@ void TextEntry::RecalculateLineBreaks()
 	}
 	
 	// loop through all the characters	
-	for (int i = startChar; i < m_TextStream.Count(); ++i)
+	int i;
+	for (i = startChar; i < m_TextStream.Count(); ++i)
 	{
 		wchar_t ch = m_TextStream[i];
 		
@@ -1795,7 +1799,8 @@ void TextEntry::GotoRight()
 int TextEntry::GetCursorLine()
 {
 	// find which line the cursor is on
-	for (int cursorLine = 0; cursorLine < m_LineBreaks.Count(); cursorLine++)
+	int cursorLine;
+	for (cursorLine = 0; cursorLine < m_LineBreaks.Count(); cursorLine++)
 	{
 		if (_cursorPos < m_LineBreaks[cursorLine])
 			break;
@@ -1902,7 +1907,8 @@ void TextEntry::MoveCursor(int line, int pixelsAcross)
 	int x = DRAW_OFFSET_X, y = yStart;
 	int lineBreakIndexIndex = 0;
 	_pixelsIndent = 0;
-	for (int i = 0; i < m_TextStream.Count(); i++)
+	int i;
+	for (i = 0; i < m_TextStream.Count(); i++)
 	{
 		wchar_t ch = m_TextStream[i];
 		
@@ -2218,9 +2224,10 @@ int TextEntry::GetCurrentLineStart()
 	if (!_multiline)			// quick out for non multline buffers
 		return _currentStartIndex;
 	
+	int i;
 	if (IsLineBreak(_cursorPos))
 	{
-		for (int i = 0; i < m_LineBreaks.Count(); ++i )
+		for (i = 0; i < m_LineBreaks.Count(); ++i )
 		{
 			if (_cursorPos == m_LineBreaks[i])
 				break;
@@ -2273,9 +2280,10 @@ void TextEntry::GotoEndOfLine()
 //-----------------------------------------------------------------------------
 int TextEntry::GetCurrentLineEnd()
 {
+	int i;
 	if (IsLineBreak(_cursorPos)	)
 	{
-		for (int i = 0; i < m_LineBreaks.Count()-1; ++i )
+		for (i = 0; i < m_LineBreaks.Count()-1; ++i )
 		{
 			if (_cursorPos == m_LineBreaks[i])
 				break;
@@ -2291,7 +2299,7 @@ int TextEntry::GetCurrentLineEnd()
 			return _cursorPos; // we are already at end
 	}
 	
-	for (int i = 0; i < m_LineBreaks.Count()-1; i++)
+	for (i = 0; i < m_LineBreaks.Count()-1; i++)
 	{
 		if ( _cursorPos < m_LineBreaks[i])
 		{
