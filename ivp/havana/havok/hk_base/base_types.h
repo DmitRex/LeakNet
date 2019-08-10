@@ -103,7 +103,7 @@ typedef hk_uint16	hk_array_store_index;
 typedef hk_uint32	hk_id;
 
 #ifdef HK_HAVE_FORCE_INLINE
-#	define inline __forceinline
+//#	define inline __forceinline
 #endif
 #define HK_TEMPLATE_INLINE inline
 
