@@ -82,7 +82,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\../../hk_library/win32/release\</OutDir>
-    <IntDir>.\../../hk_tmp/win32/hk_base/release\</IntDir>
+    <IntDir>.\../../hk_library/win32/release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
@@ -149,7 +149,7 @@
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
-copy $(TargetPath) ..\..\..\..\lib\common\hk_base.lib </Command>
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
