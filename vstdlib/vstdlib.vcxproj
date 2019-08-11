@@ -119,14 +119,18 @@
       </IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
-copy $(TargetPath) ..\..\bin\vstdlib.dll  
-if exist $(TargetDir)vstdlib.map copy $(TargetDir)vstdlib.map ..\..\bin\vstdlib.map  
-if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
-if exist $(TargetDir)vstdlib.lib copy $(TargetDir)vstdlib.lib ..\lib\public\vstdlib.lib</Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
+copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
+if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
+if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
+if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -172,14 +176,18 @@ if exist $(TargetDir)vstdlib.lib copy $(TargetDir)vstdlib.lib ..\lib\public\vstd
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
-copy $(TargetPath) ..\..\bin\vstdlib.dll  
-if exist $(TargetDir)vstdlib.map copy $(TargetDir)vstdlib.map ..\..\bin\vstdlib.map  
-if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
-if exist $(TargetDir)vstdlib.lib copy $(TargetDir)vstdlib.lib ..\lib\public\vstdlib.lib</Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
+copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
+if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
+if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
+if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\public\mempool.cpp" />

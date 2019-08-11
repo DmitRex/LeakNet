@@ -93,16 +93,16 @@
     <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>.\../../hk_library/win32/release\</OutDir>
-    <IntDir>.\../../hk_library/win32/release\</IntDir>
+    <OutDir>..\..\hk_library\win32\release\</OutDir>
+    <IntDir>..\..\hk_tmp\win32\hk_math\release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>.\../../hk_library/win32/debug\</OutDir>
-    <IntDir>.\../../hk_library/win32/debug\</IntDir>
+    <OutDir>..\..\hk_library\win32\debug\</OutDir>
+    <IntDir>..\..\hk_tmp\win32\hk_math\debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
@@ -206,13 +206,17 @@
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\../../hk_library/win32/release\hk_math.lib</OutputFile>
+      <OutputFile>..\..\hk_library\win32\release\hk_math.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -244,13 +248,17 @@ copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\../../hk_library/win32/debug\hk_math.lib</OutputFile>
+      <OutputFile>..\..\hk_library\win32\debug\hk_math.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="densematrix.cpp">

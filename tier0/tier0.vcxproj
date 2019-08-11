@@ -95,14 +95,18 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
-copy $(TargetPath) ..\..\bin\tier0.dll  
-if exist $(TargetDir)tier0.map copy $(TargetDir)tier0.map ..\..\bin\tier0.map  
-if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
-if exist $(TargetDir)tier0.lib copy $(TargetDir)tier0.lib ..\lib\public\tier0.lib</Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\tier0.dll;..\lib\public\tier0.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
+copy "$(TargetPath)" ..\..\bin\tier0.dll  
+if exist "$(TargetDir)tier0.map" copy "$(TargetDir)tier0.map" ..\..\bin\tier0.map  
+if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
+if exist "$(TargetDir)tier0.lib" copy "$(TargetDir)tier0.lib" ..\lib\public\tier0.lib</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -149,14 +153,18 @@ if exist $(TargetDir)tier0.lib copy $(TargetDir)tier0.lib ..\lib\public\tier0.li
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
-copy $(TargetPath) ..\..\bin\tier0.dll  
-if exist $(TargetDir)tier0.map copy $(TargetDir)tier0.map ..\..\bin\tier0.map  
-if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
-if exist $(TargetDir)tier0.lib copy $(TargetDir)tier0.lib ..\lib\public\tier0.lib</Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\tier0.dll;..\lib\public\tier0.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
+copy "$(TargetPath)" ..\..\bin\tier0.dll  
+if exist "$(TargetDir)tier0.map" copy "$(TargetDir)tier0.map" ..\..\bin\tier0.map  
+if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
+if exist "$(TargetDir)tier0.lib" copy "$(TargetDir)tier0.lib" ..\lib\public\tier0.lib</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp" />

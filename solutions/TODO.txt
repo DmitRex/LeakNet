@@ -13,3 +13,5 @@ shaderapidx8 (shaderdx8) адаптировать под Platform Toolset v142 (VS2019)
 
 _CRT_NON_CONFORMING_SWPRINTFS для swprintf в KeyValues.cpp
 	Заменить на ISOшный вариант?
+
+Пофиксить "The intermediate directory (...) contains files shared from another project ..."

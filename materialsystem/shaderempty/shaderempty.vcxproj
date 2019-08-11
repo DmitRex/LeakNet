@@ -114,10 +114,14 @@
       <AdditionalLibraryDirectories>..\..\..\lib\common;..\..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
-if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapiempty.dll </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\bin\shaderapiempty.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -163,10 +167,14 @@ if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapiempty.dll </Comm
       <AdditionalLibraryDirectories>..\..\..\lib\common;..\..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
-if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapiempty.dll </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\bin\shaderapiempty.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Public\interface.cpp" />

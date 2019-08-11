@@ -87,12 +87,16 @@
       <OutputFile>.\Debug\vtf.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
-copy $(TargetPath) ..\lib\public\vtf.lib 
-if exist $(TargetDir)vtf.map copy $(TargetDir)vtf.map ..\lib\public\vtf.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\vtf.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
+copy "$(TargetPath)" ..\lib\public\vtf.lib 
+if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -126,12 +130,16 @@ if exist $(TargetDir)vtf.map copy $(TargetDir)vtf.map ..\lib\public\vtf.map </Co
       <OutputFile>.\Release\vtf.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
-copy $(TargetPath) ..\lib\public\vtf.lib 
-if exist $(TargetDir)vtf.map copy $(TargetDir)vtf.map ..\lib\public\vtf.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\vtf.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
+copy "$(TargetPath)" ..\lib\public\vtf.lib 
+if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Public\imageloader.cpp" />

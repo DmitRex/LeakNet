@@ -86,19 +86,24 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LinkDLL>true</LinkDLL>
       <SubSystem>Console</SubSystem>
-      <IgnoreSpecificDefaultLibraries>libc.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;libcp.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>.\Release\vphysics.dll</OutputFile>
       <ImportLibrary>.\Release\vphysics.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\public;..\lib\common;..\ivp\havana\hk_library\win32\release\;..\ivp\ivp_library\win32_release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <BaseAddress>0x26000000</BaseAddress>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\vphysics.dll attrib -r ..\..\bin\vphysics.dll 
-copy $(TargetPath) ..\..\bin\vphysics.dll 
-if exist $(TargetDir)vphysics.map copy $(TargetDir)vphysics.map ..\..\bin\vphysics.map </Command>
+      <Command>
+      </Command>
       <Message>Copying to Game Directory</Message>
       <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\vphysics.dll attrib -r ..\..\bin\vphysics.dll 
+copy "$(TargetPath)" ..\..\bin\vphysics.dll 
+if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vphysics.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -147,12 +152,16 @@ if exist $(TargetDir)vphysics.map copy $(TargetDir)vphysics.map ..\..\bin\vphysi
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\vphysics.dll attrib -r ..\..\bin\vphysics.dll 
-copy $(TargetPath) ..\..\bin\vphysics.dll 
-if exist $(TargetDir)vphysics.map copy $(TargetDir)vphysics.map ..\..\bin\vphysics.map </Command>
+      <Command>
+      </Command>
       <Message>Copying to Game Directory</Message>
       <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\vphysics.dll attrib -r ..\..\bin\vphysics.dll 
+copy "$(TargetPath)" ..\..\bin\vphysics.dll 
+if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vphysics.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\public\characterset.cpp" />

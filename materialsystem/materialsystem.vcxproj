@@ -118,12 +118,16 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
-if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
-if exist $(TargetPath) copy $(TargetPath) ..\..\bin\MaterialSystem.dll 
-if exist $(TargetDir)MaterialSystem.map copy $(TargetDir)MaterialSystem.map ..\..\bin\MaterialSystem.map </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
+if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
+if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" ..\..\bin\MaterialSystem.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -174,12 +178,16 @@ if exist $(TargetDir)MaterialSystem.map copy $(TargetDir)MaterialSystem.map ..\.
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
-if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
-if exist $(TargetPath) copy $(TargetPath) ..\..\bin\MaterialSystem.dll 
-if exist $(TargetDir)MaterialSystem.map copy $(TargetDir)MaterialSystem.map ..\..\bin\MaterialSystem.map </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
+if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
+if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" ..\..\bin\MaterialSystem.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\public\characterset.cpp" />

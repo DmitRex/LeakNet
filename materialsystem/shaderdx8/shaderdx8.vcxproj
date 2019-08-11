@@ -102,10 +102,14 @@
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
-if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapidx9.dll </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\bin\shaderapidx9.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -153,10 +157,14 @@ if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapidx9.dll </Comman
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
-if exist $(TargetPath) copy $(TargetPath) ..\..\..\bin\shaderapidx9.dll </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\bin\shaderapidx9.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\public\characterset.cpp" />

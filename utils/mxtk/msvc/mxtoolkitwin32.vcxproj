@@ -99,10 +99,14 @@
       <OutputFile>.\mxToolKit - Debug\mxtk.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\lib\common\mxtk.lib attrib -r ..\..\..\lib\common\mxtk.lib 
-copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\lib\common\mxtk.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\lib\common\mxtk.lib attrib -r ..\..\..\lib\common\mxtk.lib 
+copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -133,10 +137,14 @@ copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
       <OutputFile>.\mxToolKit - Release\mxtk.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\lib\common\mxtk.lib attrib -r ..\..\..\lib\common\mxtk.lib 
-copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\lib\common\mxtk.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\lib\common\mxtk.lib attrib -r ..\..\..\lib\common\mxtk.lib 
+copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\common\mxBmp.cpp">

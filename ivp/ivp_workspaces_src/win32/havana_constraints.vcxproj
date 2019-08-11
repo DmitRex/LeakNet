@@ -145,10 +145,14 @@
       <OutputFile>.\..\..\obj\win32_debug\havana_constraints\havana_constraints.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\lib\common\havana_constraints.lib attrib -r ..\..\..\lib\common\havana_constraints.lib 
-copy $(TargetPath) ..\..\..\lib\common\havana_constraints.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\lib\common\havana_constraints.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\lib\common\havana_constraints.lib attrib -r ..\..\..\lib\common\havana_constraints.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\havana_constraints.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -181,10 +185,14 @@ copy $(TargetPath) ..\..\..\lib\common\havana_constraints.lib </Command>
       <OutputFile>.\..\..\obj\win32_release\havana_constraints\havana_constraints.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\lib\common\havana_constraints.lib attrib -r ..\..\..\lib\common\havana_constraints.lib 
-copy $(TargetPath) ..\..\..\lib\common\havana_constraints.lib </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\..\lib\common\havana_constraints.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\lib\common\havana_constraints.lib attrib -r ..\..\..\lib\common\havana_constraints.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\havana_constraints.lib </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK MultiThreaded|Win32'">
     <ClCompile>

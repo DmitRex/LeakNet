@@ -105,9 +105,13 @@
       <OutputFile>.\Debug\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>call ..\..\filecopy.bat $(TargetPath) $(ProjectDir)..\..\lib\public\$(TargetName).lib</Command>
+      <Command>
+      </Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -140,9 +144,13 @@
       <OutputFile>.\Release\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>call ..\..\filecopy.bat $(TargetPath) $(ProjectDir)..\..\lib\public\$(TargetName).lib</Command>
+      <Command>
+      </Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Public\FileSystem.h" />

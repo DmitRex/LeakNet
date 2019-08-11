@@ -162,12 +162,16 @@
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shader_nvfx.dll attrib -r ..\..\..\bin\shader_nvfx.dll 
-copy $(TargetPath) ..\..\..\bin\shader_nvfx.dll 
-if exist $(TargetDir)shader_nvfx.map copy $(TargetDir)shader_nvfx.map ..\..\..\bin\shader_nvfx.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shader_nvfx.dll attrib -r ..\..\..\bin\shader_nvfx.dll 
+copy "$(TargetPath)" ..\..\..\bin\shader_nvfx.dll 
+if exist "$(TargetDir)shader_nvfx.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug ps20|Win32'">
     <ClCompile>
@@ -311,12 +315,16 @@ if exist $(TargetDir)shader_nvfx_ps20.map copy $(TargetDir)shader_nvfx.map ..\..
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\shader_nvfx.dll attrib -r ..\..\..\bin\shader_nvfx.dll 
-copy $(TargetPath) ..\..\..\bin\shader_nvfx.dll 
-if exist $(TargetDir)shader_nvfx.map copy $(TargetDir)shader_nvfx.map ..\..\..\bin\shader_nvfx.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\shader_nvfx.dll attrib -r ..\..\..\bin\shader_nvfx.dll 
+copy "$(TargetPath)" ..\..\..\bin\shader_nvfx.dll 
+if exist "$(TargetDir)shader_nvfx.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\public\bumpvects.cpp" />

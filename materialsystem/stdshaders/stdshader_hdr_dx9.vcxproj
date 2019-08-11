@@ -100,12 +100,16 @@
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\stdshader_hdr_dx9.dll attrib -r ..\..\..\bin\stdshader_hdr_dx9.dll 
-copy $(TargetPath) ..\..\..\bin\stdshader_hdr_dx9.dll 
-if exist $(TargetDir)stdshader_hdr_dx9.map copy $(TargetDir)stdshader_hdr_dx9.map ..\..\..\bin\stdshader_hdr_dx9.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_hdr_dx9.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\stdshader_hdr_dx9.dll attrib -r ..\..\..\bin\stdshader_hdr_dx9.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_hdr_dx9.dll 
+if exist "$(TargetDir)stdshader_hdr_dx9.map" copy "$(TargetDir)stdshader_hdr_dx9.map" ..\..\..\bin\stdshader_hdr_dx9.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -149,12 +153,16 @@ if exist $(TargetDir)stdshader_hdr_dx9.map copy $(TargetDir)stdshader_hdr_dx9.ma
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\stdshader_hdr_dx9.dll attrib -r ..\..\..\bin\stdshader_hdr_dx9.dll 
-copy $(TargetPath) ..\..\..\bin\stdshader_hdr_dx9.dll 
-if exist $(TargetDir)stdshader_hdr_dx9.map copy $(TargetDir)stdshader_hdr_dx9.map ..\..\..\bin\stdshader_hdr_dx9.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_hdr_dx9.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\..\bin\stdshader_hdr_dx9.dll attrib -r ..\..\..\bin\stdshader_hdr_dx9.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_hdr_dx9.dll 
+if exist "$(TargetDir)stdshader_hdr_dx9.map" copy "$(TargetDir)stdshader_hdr_dx9.map" ..\..\..\bin\stdshader_hdr_dx9.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\public\bumpvects.cpp" />

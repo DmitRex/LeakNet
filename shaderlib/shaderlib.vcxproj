@@ -104,12 +104,16 @@
       <OutputFile>.\Release\shaderlib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\lib\public\shaderlib.lib attrib -r ..\lib\public\shaderlib.lib 
-copy $(TargetPath) ..\lib\public\shaderlib.lib 
-if exist $(TargetDir)shaderlib.map copy $(TargetDir)shaderlib.map ..\lib\public\shaderlib.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\shaderlib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\lib\public\shaderlib.lib attrib -r ..\lib\public\shaderlib.lib 
+copy "$(TargetPath)" ..\lib\public\shaderlib.lib 
+if exist "$(TargetDir)shaderlib.map" copy "$(TargetDir)shaderlib.map" ..\lib\public\shaderlib.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -142,12 +146,16 @@ if exist $(TargetDir)shaderlib.map copy $(TargetDir)shaderlib.map ..\lib\public\
       <OutputFile>.\Debug\shaderlib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\lib\public\shaderlib.lib attrib -r ..\lib\public\shaderlib.lib 
-copy $(TargetPath) ..\lib\public\shaderlib.lib 
-if exist $(TargetDir)shaderlib.map copy $(TargetDir)shaderlib.map ..\lib\public\shaderlib.map </Command>
+      <Command>
+      </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\shaderlib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\lib\public\shaderlib.lib attrib -r ..\lib\public\shaderlib.lib 
+copy "$(TargetPath)" ..\lib\public\shaderlib.lib 
+if exist "$(TargetDir)shaderlib.map" copy "$(TargetDir)shaderlib.map" ..\lib\public\shaderlib.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\public\convar.cpp" />

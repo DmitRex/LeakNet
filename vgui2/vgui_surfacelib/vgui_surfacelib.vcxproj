@@ -105,11 +105,15 @@
       <OutputFile>.\Debug\vgui_surfacelib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
-copy $(TargetPath) ..\..\lib\public\vgui_surfacelib.lib 
-if exist $(TargetDir)vgui_surfacelib.map copy $(TargetDir)vgui_surfacelib.map ..\..\lib\public\vgui_surfacelib.map </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
+copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
+if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map" ..\..\lib\public\vgui_surfacelib.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -141,11 +145,15 @@ if exist $(TargetDir)vgui_surfacelib.map copy $(TargetDir)vgui_surfacelib.map ..
       <OutputFile>.\Release\vgui_surfacelib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
-copy $(TargetPath) ..\..\lib\public\vgui_surfacelib.lib 
-if exist $(TargetDir)vgui_surfacelib.map copy $(TargetDir)vgui_surfacelib.map ..\..\lib\public\vgui_surfacelib.map </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
+copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
+if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map" ..\..\lib\public\vgui_surfacelib.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\public\utlbuffer.cpp" />
