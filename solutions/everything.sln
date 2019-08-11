@@ -171,6 +171,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSystem_Steam", "..\file
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "appframework", "..\appframework\appframework.vcxproj", "{ECEBB89D-9B58-4AA0-B52D-B081AD1EDE5A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vguimatsurface", "..\vguimatsurface\vguimatsurface.vcxproj", "{B863D229-38E9-4D11-A5B6-F37B1B5140DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{6635273C-36B8-4C45-83C3-DD713FB0F4D7} = {6635273C-36B8-4C45-83C3-DD713FB0F4D7}
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2} = {28900E72-9E3A-47BB-A2B3-361184E8CEF2}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -358,6 +366,12 @@ Global
 		{ECEBB89D-9B58-4AA0-B52D-B081AD1EDE5A}.Release|x86.Build.0 = Release|Win32
 		{ECEBB89D-9B58-4AA0-B52D-B081AD1EDE5A}.Template|x86.ActiveCfg = Template|Win32
 		{ECEBB89D-9B58-4AA0-B52D-B081AD1EDE5A}.Template|x86.Build.0 = Template|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Debug|x86.Build.0 = Debug|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Release|x86.ActiveCfg = Release|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Release|x86.Build.0 = Release|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Template|x86.ActiveCfg = Template|Win32
+		{B863D229-38E9-4D11-A5B6-F37B1B5140DC}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
