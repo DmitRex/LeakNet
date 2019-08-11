@@ -97,7 +97,8 @@ void CmdLib_FPrintf( FileHandle_t hFile, const char *pFormat, ... )
 
 char* CmdLib_FGets( char *pOut, int outSize, FileHandle_t hFile )
 {
-	for ( int iCur=0; iCur < (outSize-1); iCur++ )
+	int iCur;
+	for ( iCur=0; iCur < (outSize-1); iCur++ )
 	{
 		char c;
 		if ( !g_pFileSystem->Read( &c, 1, hFile ) )
