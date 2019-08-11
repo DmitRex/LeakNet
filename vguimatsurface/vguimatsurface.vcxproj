@@ -169,7 +169,7 @@ if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" 
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <IgnoreSpecificDefaultLibraries>LIBCMT;libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc;libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>.\Release\vguimatsurface.dll</OutputFile>
       <ImportLibrary>.\Release\vguimatsurface.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
