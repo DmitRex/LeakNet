@@ -437,7 +437,8 @@ void CTaskbar::UpdateTaskButtons()
 	VPANEL focus = input()->GetFocus();
 	int validTasks = 0;
 	int reorderedButtons = 0;
-	for (int i = 0; i < g_Tasks.Size(); i++)
+	int i;
+	for (i = 0; i < g_Tasks.Size(); i++)
 	{
 		if (focus && ipanel()->HasParent(focus, g_Tasks[i]->GetTaskPanel()))
 		{

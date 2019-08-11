@@ -70,7 +70,8 @@ bool CVGuiSystemModuleLoader::IsPlatformReady()
 void CVGuiSystemModuleLoader::InitializeAllModules(CreateInterfaceFn *factorylist, int factorycount)
 {
 	// Init vgui in the modules
-	for (int i = 0; i < m_Modules.Size(); i++)
+	int i;
+	for (i = 0; i < m_Modules.Size(); i++)
 	{
 		if (!m_Modules[i].moduleInterface->Initialize(factorylist, factorycount))
 		{
@@ -218,7 +219,8 @@ void CVGuiSystemModuleLoader::ShutdownPlatformModules()
 	DeactivatePlatformModules();
 
 	// give all the modules notice of quit
-	for (int i = 0; i < m_Modules.Size(); i++)
+	int i;
+	for (i = 0; i < m_Modules.Size(); i++)
 	{
 		vgui::ivgui()->PostMessage(m_Modules[i].moduleInterface->GetPanel(), new KeyValues("Command", "command", "Quit"), NULL);
 	}

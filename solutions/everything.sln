@@ -185,6 +185,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "miles", "..\engine\voice_co
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameUI", "..\gameui\GameUI.vcxproj", "{B159C945-CF43-40D7-B84D-DEDCF2E4B754}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2} = {28900E72-9E3A-47BB-A2B3-361184E8CEF2}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -384,6 +391,12 @@ Global
 		{6AF59313-89D3-4D75-AD4E-88EA9BF1FAC2}.Release|x86.Build.0 = Release|Win32
 		{6AF59313-89D3-4D75-AD4E-88EA9BF1FAC2}.Template|x86.ActiveCfg = Template|Win32
 		{6AF59313-89D3-4D75-AD4E-88EA9BF1FAC2}.Template|x86.Build.0 = Template|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Debug|x86.ActiveCfg = Debug|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Debug|x86.Build.0 = Debug|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Release|x86.ActiveCfg = Release|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Release|x86.Build.0 = Release|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Template|x86.ActiveCfg = Template|Win32
+		{B159C945-CF43-40D7-B84D-DEDCF2E4B754}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

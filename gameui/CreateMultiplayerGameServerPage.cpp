@@ -127,7 +127,7 @@ void CCreateMultiplayerGameServerPage::LoadMapList()
 		// remove the text 'maps/' and '.bsp' from the file name to get the map name
 		char mapname[256];
 		
-		char *str = strstr(filename, "maps");
+		const char *str = strstr(filename, "maps");
 		if (str)
 		{
 			strncpy(mapname, str + 5, sizeof(mapname) - 1);	// maps + \\ = 5
@@ -136,11 +136,15 @@ void CCreateMultiplayerGameServerPage::LoadMapList()
 		{
 			strncpy(mapname, filename, sizeof(mapname) - 1);
 		}
+
+		// VXP: FIXME: What does this even do?
+	/*
 		str = strstr(mapname, ".bsp");
 		if (str)
 		{
 			*str = 0;
 		}
+	*/
 
 		//!! hack: strip out single player HL maps
 		// this needs to be specified in a seperate file

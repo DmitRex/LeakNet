@@ -63,7 +63,7 @@ must be multiples of sixteen
 */
 int GrabMip ( HANDLE hdib, unsigned char *lump_p, char *lumpname, COLORREF crf, int *width, int *height)
 {
-	int             x,y,xl,yl,xh,yh,w,h;
+	int             i,x,y,xl,yl,xh,yh,w,h;
 	unsigned char   *screen_p, *source;
 	miptex_t		*qtex;
 	int				miplevel, mipstep;
@@ -116,7 +116,7 @@ int GrabMip ( HANDLE hdib, unsigned char *lump_p, char *lumpname, COLORREF crf, 
 	}
 
 	// calculate gamma corrected linear palette
-	for (int i = 0; i < 256; i++)
+	for (i = 0; i < 256; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
