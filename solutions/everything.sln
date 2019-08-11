@@ -157,6 +157,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StudioRender", "..\studiore
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSystem_Stdio", "..\filesystem\filesystem_stdio\filesystem_stdio.vcxproj", "{8B7FB425-96B6-4934-A810-343A902303FE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSystem_Steam", "..\filesystem\filesystem_stdio\filesystem_steam.vcxproj", "{D662A414-DF9B-48D3-8858-3046ADC4DD01}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -326,6 +338,18 @@ Global
 		{8E8F839C-04CC-4467-87DF-25FC82333350}.Release|x86.Build.0 = Release|Win32
 		{8E8F839C-04CC-4467-87DF-25FC82333350}.Template|x86.ActiveCfg = Release|Win32
 		{8E8F839C-04CC-4467-87DF-25FC82333350}.Template|x86.Build.0 = Release|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Debug|x86.ActiveCfg = Debug|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Debug|x86.Build.0 = Debug|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Release|x86.ActiveCfg = Release|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Release|x86.Build.0 = Release|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Template|x86.ActiveCfg = Template|Win32
+		{8B7FB425-96B6-4934-A810-343A902303FE}.Template|x86.Build.0 = Template|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Debug|x86.ActiveCfg = Debug|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Debug|x86.Build.0 = Debug|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Release|x86.ActiveCfg = Release|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Release|x86.Build.0 = Release|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Template|x86.ActiveCfg = Template|Win32
+		{D662A414-DF9B-48D3-8858-3046ADC4DD01}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

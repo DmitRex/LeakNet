@@ -102,11 +102,15 @@
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\bin\studiorender.dll attrib -r ..\..\bin\studiorender.dll 
-copy $(TargetPath) ..\..\bin\studiorender.dll 
-if exist $(TargetDir)studiorender.map copy $(TargetDir)studiorender.map ..\..\bin\studiorender.map </Command>
+      <Command>
+      </Command>
       <Outputs>..\..\bin\StudioRender.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>if exist ..\..\bin\studiorender.dll attrib -r ..\..\bin\studiorender.dll 
+copy "$(TargetPath)" ..\..\bin\studiorender.dll 
+if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\..\bin\studiorender.map </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

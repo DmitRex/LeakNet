@@ -346,7 +346,7 @@ bool CBaseFileSystem::PreparePackFile( CSearchPath& packfile, int offsetofpackin
 	Assert( newfiles );
 	if ( !newfiles )
 	{
-		Warning( FILESYSTEM_WARNING, "%s out of memory allocating directoryf for %i files", packfile, numpackfiles );
+		Warning( FILESYSTEM_WARNING, "%s out of memory allocating directoryf for %i files", packfile.GetPathString(), numpackfiles );
 		return false;
 	}
 
@@ -1505,7 +1505,8 @@ long CBaseFileSystem::GetFileTime( const char *pFileName, const char *pPathID )
 //-----------------------------------------------------------------------------
 void CBaseFileSystem::FileTimeToString( char *pString, int maxCharsIncludingTerminator, long fileTime )
 {
-	strncpy( pString, ctime( &fileTime ), maxCharsIncludingTerminator );
+	time_t time = fileTime;
+	strncpy( pString, ctime( &time ), maxCharsIncludingTerminator );
 	pString[maxCharsIncludingTerminator-1] = '\0';
 }
 
