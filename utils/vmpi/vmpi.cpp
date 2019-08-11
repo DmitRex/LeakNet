@@ -1058,7 +1058,7 @@ void InternalHandleSocketErrors()
 	csLock.Unlock();
 
 	// Handle the errors.
-	for ( i=0; i < errorSockets.Count(); i++ )
+	for ( int i=0; i < errorSockets.Count(); i++ )
 	{
 		errorSockets[i]->HandleDisconnect();
 	}
@@ -1257,7 +1257,7 @@ bool VMPI_SendChunks( void const * const *pChunks, const int *pChunkLengths, int
 		if ( iDest == VMPI_PERSISTENT )
 		{
 			PersistentPacket *pNew = new PersistentPacket;
-			for ( i=0; i < nChunks; i++ )
+			for ( int i=0; i < nChunks; i++ )
 				pNew->AddMultipleToTail( pChunkLengths[i], (const char*)pChunks[i] );
 
 			g_PersistentPackets.AddToTail( pNew );

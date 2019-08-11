@@ -16,6 +16,8 @@
 #include "mathlib.h"
 #include "vstdlib/strtools.h"
 
+#include <cmath> // VXP: For abs(float) in bf_write::WriteBitCoord(const float f)
+
 // FIXME: Can't use this until we get multithreaded allocations in tier0 working for tools
 // This is used by VVIS and fails to link
 // NOTE: This must be the last file included!!!

@@ -206,6 +206,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VGUI", "VGUI", "{5C36B398-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shaders", "Shaders", "{3C8F334B-4540-4ACB-A38A-E31909A42692}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vmpi", "..\utils\vmpi\vmpi.vcxproj", "{26A17136-B7EC-443E-906E-6D876A42027E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -417,6 +419,12 @@ Global
 		{13294A0A-7D51-47E5-8C8E-932EDE0E1D8F}.Release|x86.Build.0 = Release|Win32
 		{13294A0A-7D51-47E5-8C8E-932EDE0E1D8F}.Template|x86.ActiveCfg = Template|Win32
 		{13294A0A-7D51-47E5-8C8E-932EDE0E1D8F}.Template|x86.Build.0 = Template|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Debug|x86.ActiveCfg = Debug|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Debug|x86.Build.0 = Debug|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Release|x86.ActiveCfg = Release|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Release|x86.Build.0 = Release|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Template|x86.ActiveCfg = Template|Win32
+		{26A17136-B7EC-443E-906E-6D876A42027E}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

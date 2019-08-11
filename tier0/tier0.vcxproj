@@ -102,6 +102,7 @@
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
+if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\tier0.dll  
 if exist "$(TargetDir)tier0.map" copy "$(TargetDir)tier0.map" ..\..\bin\tier0.map  
 if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
@@ -160,6 +161,7 @@ if exist "$(TargetDir)tier0.lib" copy "$(TargetDir)tier0.lib" ..\lib\public\tier
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  
+if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\tier0.dll  
 if exist "$(TargetDir)tier0.map" copy "$(TargetDir)tier0.map" ..\..\bin\tier0.map  
 if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
