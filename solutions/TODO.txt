@@ -15,3 +15,5 @@ _CRT_NON_CONFORMING_SWPRINTFS для swprintf в KeyValues.cpp
 	Заменить на ISOшный вариант?
 
 Пофиксить "The intermediate directory (...) contains files shared from another project ..."
+
+miles WINDOWS_IGNORE_PACKING_MISMATCH

@@ -10,7 +10,7 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
-void Con_Printf(char *pMsg, ...)
+void Con_Printf(const char *pMsg, ...)
 {
 }
 
