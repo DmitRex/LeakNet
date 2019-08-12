@@ -114,15 +114,15 @@
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
+if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dbg.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
-copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
-if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -169,15 +169,15 @@ if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
+if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dbg.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
-copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
-if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

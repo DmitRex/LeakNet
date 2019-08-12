@@ -117,15 +117,15 @@
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
+copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
+if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx_ps20.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx_ps20.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
-copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
-if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx_ps20.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -170,15 +170,15 @@ if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" .
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
+copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
+if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx_ps20.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx_ps20.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
-copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
-if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx_ps20.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

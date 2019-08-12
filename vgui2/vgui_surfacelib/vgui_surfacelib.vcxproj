@@ -105,14 +105,14 @@
       <OutputFile>.\Debug\vgui_surfacelib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
 copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
 if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map" ..\..\lib\public\vgui_surfacelib.map </Command>
+      <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -145,14 +145,14 @@ if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map
       <OutputFile>.\Release\vgui_surfacelib.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
 copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
 if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map" ..\..\lib\public\vgui_surfacelib.map </Command>
+      <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

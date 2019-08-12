@@ -116,12 +116,12 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
       <Outputs>..\..\..\..\bin\vaudio_miles.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -165,12 +165,12 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
       <Outputs>..\..\..\..\bin\vaudio_miles.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

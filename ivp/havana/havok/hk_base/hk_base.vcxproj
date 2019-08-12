@@ -148,13 +148,13 @@
       <OutputFile>..\..\hk_library\win32\release\hk_base.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK SingleThreaded|Win32'">
@@ -221,13 +221,13 @@ copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <OutputFile>..\..\hk_library\win32\debug\hk_base.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK MultiThreaded|Win32'">

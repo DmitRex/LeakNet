@@ -114,15 +114,15 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
+copy "$(TargetPath)" "..\..\..\bin\$(TargetName).dll" 
+if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
-copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -168,15 +168,15 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
       <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
+copy "$(TargetPath)" "..\..\..\bin\$(TargetName).dll" 
+if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
-copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

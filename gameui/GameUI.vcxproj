@@ -117,26 +117,26 @@
       <AdditionalDependencies>Shlwapi.lib;odbc32.lib;odbccp32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>$(ProjectDir)..\..\tf2\bin\$(InputName).dll;$(ProjectDir)..\..\hl2\bin\$(InputName).dll;$(ProjectDir)..\..\hl1\bin\$(InputName).dll;$(ProjectDir)..\..\cstrike\bin\$(InputName).dll;%(Outputs)</Outputs>
+      <Command>if exist "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\tf2\bin\" mkdir "$(ProjectDir)..\..\tf2\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\hl2\bin\" mkdir "$(ProjectDir)..\..\hl2\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\hl1\bin\" mkdir "$(ProjectDir)..\..\hl1\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"</Command>
+      <Outputs>$(ProjectDir)..\..\tf2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl1\bin\$(TargetName).dll;$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist "$(ProjectDir)..\..\tf2\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\tf2\bin\" mkdir "$(ProjectDir)..\..\tf2\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\tf2\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\hl2\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\hl2\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\hl2\bin\" mkdir "$(ProjectDir)..\..\hl2\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\hl2\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\hl1\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\hl1\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\hl1\bin\" mkdir "$(ProjectDir)..\..\hl1\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\hl1\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -185,26 +185,26 @@ copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll"</Command>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>$(ProjectDir)..\..\tf2\bin\$(InputName).dll;$(ProjectDir)..\..\hl2\bin\$(InputName).dll;$(ProjectDir)..\..\hl1\bin\$(InputName).dll;$(ProjectDir)..\..\cstrike\bin\$(InputName).dll;%(Outputs)</Outputs>
+      <Command>if exist "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\tf2\bin\" mkdir "$(ProjectDir)..\..\tf2\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\hl2\bin\" mkdir "$(ProjectDir)..\..\hl2\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\hl1\bin\" mkdir "$(ProjectDir)..\..\hl1\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
+
+if exist "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"  
+if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
+copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"</Command>
+      <Outputs>$(ProjectDir)..\..\tf2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl1\bin\$(TargetName).dll;$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist "$(ProjectDir)..\..\tf2\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\tf2\bin\" mkdir "$(ProjectDir)..\..\tf2\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\tf2\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\hl2\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\hl2\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\hl2\bin\" mkdir "$(ProjectDir)..\..\hl2\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\hl2\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\hl1\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\hl1\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\hl1\bin\" mkdir "$(ProjectDir)..\..\hl1\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\hl1\bin\%(Filename).dll"  
-
-if exist "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll" attrib -r "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll"  
-if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\%(Filename).dll"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -119,18 +119,18 @@
       </IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Message>Publishing to target directory (..\..\bin\)...</Message>
-      <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
 if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
 if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
 if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
+      <Message>Publishing to target directory (..\..\bin\)...</Message>
+      <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -177,18 +177,18 @@ if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Message>Publishing to target directory (..\..\bin\)...</Message>
-      <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
 if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
 if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
 if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
+      <Message>Publishing to target directory (..\..\bin\)...</Message>
+      <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

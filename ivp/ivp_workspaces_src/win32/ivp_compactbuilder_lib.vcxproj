@@ -179,13 +179,13 @@
       <OutputFile>.\..\..\obj\win32_release\ivp_compactbuilder\ivp_compactbuilder.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_compactbuilder.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -221,13 +221,13 @@ copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
       <OutputFile>.\..\..\obj\win32_debug\ivp_compactbuilder\ivp_compactbuilder.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_compactbuilder.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK SingleThreaded|Win32'">

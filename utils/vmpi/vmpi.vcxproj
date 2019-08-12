@@ -101,12 +101,12 @@
       <OutputFile>.\Release\vmpi.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\filecopy.bat "$(TargetDir)vmpi.lib" ..\..\lib\vmpi\vmpi.lib</Command>
       <Outputs>..\..\lib\vmpi\vmpi.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\filecopy.bat "$(TargetDir)vmpi.lib" ..\..\lib\vmpi\vmpi.lib</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -140,12 +140,12 @@
       <OutputFile>.\Debug\vmpi.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\filecopy.bat "$(TargetDir)vmpi.lib" ..\..\lib\vmpi\vmpi.lib</Command>
       <Outputs>..\..\lib\vmpi\vmpi.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\filecopy.bat "$(TargetDir)vmpi.lib" ..\..\lib\vmpi\vmpi.lib</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

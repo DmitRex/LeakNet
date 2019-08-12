@@ -119,15 +119,15 @@
       <AdditionalDependencies>vgui_surfacelib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
+copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
+if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
-copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
-if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -176,15 +176,15 @@ if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" 
       <AdditionalDependencies>vgui_surfacelib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
+copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
+if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
-copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
-if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -134,13 +134,13 @@
       <OutputFile>.\..\..\obj\win32_debug\ivp_physics\ivp_physics.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_physics.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -175,13 +175,13 @@ copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
       <OutputFile>.\..\..\obj\win32_release\ivp_physics\ivp_physics.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_physics.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK MultiThreaded|Win32'">

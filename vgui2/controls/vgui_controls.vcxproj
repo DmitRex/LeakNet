@@ -105,12 +105,12 @@
       <OutputFile>.\Debug\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -144,12 +144,12 @@
       <OutputFile>.\Release\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

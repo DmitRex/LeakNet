@@ -116,14 +116,14 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>..\..\..\bin\ServerBrowser.dll;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\..\Platform\Servers\ServerBrowser.dll attrib -r ..\..\..\Platform\Servers\ServerBrowser.dll 
 if not exist ..\..\..\Platform\Servers\ mkdir ..\..\..\Platform\Servers\
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBrowser.dll </Command>
+      <Outputs>..\..\..\Platform\Servers\ServerBrowser.dll;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -172,14 +172,14 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBr
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
-      <Outputs>..\..\..\Platform\Servers\ServerBrowser.dll;%(Outputs)</Outputs>
-    </CustomBuildStep>
-    <PostBuildEvent>
       <Command>if exist ..\..\..\Platform\Servers\ServerBrowser.dll attrib -r ..\..\..\Platform\Servers\ServerBrowser.dll 
 if not exist ..\..\..\Platform\Servers\ mkdir ..\..\..\Platform\Servers\
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBrowser.dll </Command>
+      <Outputs>..\..\..\Platform\Servers\ServerBrowser.dll;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

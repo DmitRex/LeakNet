@@ -209,13 +209,13 @@
       <OutputFile>..\..\hk_library\win32\release\hk_math.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -251,13 +251,13 @@ copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
       <OutputFile>..\..\hk_library\win32\debug\hk_math.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
+copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

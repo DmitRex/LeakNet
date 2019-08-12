@@ -104,15 +104,15 @@
       <OutputFile>.\Release\appframework.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\lib\public\appframework.lib attrib -r ..\lib\public\appframework.lib 
+copy "$(TargetPath)" ..\lib\public\appframework.lib 
+if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\lib\public\appframework.map </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\appframework.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\lib\public\appframework.lib attrib -r ..\lib\public\appframework.lib 
-copy "$(TargetPath)" ..\lib\public\appframework.lib 
-if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\lib\public\appframework.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -146,15 +146,15 @@ if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\l
       <OutputFile>.\Debug\appframework.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\lib\public\appframework.lib attrib -r ..\lib\public\appframework.lib 
+copy "$(TargetPath)" ..\lib\public\appframework.lib 
+if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\lib\public\appframework.map </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\appframework.lib;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\lib\public\appframework.lib attrib -r ..\lib\public\appframework.lib 
-copy "$(TargetPath)" ..\lib\public\appframework.lib 
-if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\lib\public\appframework.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

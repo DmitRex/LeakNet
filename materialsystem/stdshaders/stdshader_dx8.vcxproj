@@ -94,15 +94,15 @@
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
+if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
-copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
-if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,15 +147,15 @@ if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <CustomBuildStep>
-      <Command>
-      </Command>
+      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
+copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
+if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
-copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
-if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
