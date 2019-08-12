@@ -18,5 +18,5 @@ DONE: create a finallightdispface
 DONE: generate luxels for displacement face
 DONE: fix precomplightmapoffsets to take displacement faces into account
 fill in luxel data from sample data
-modify the GetPhongNormal and GatherSampleLight functions to use displacement face normals at "spot"
+modify the GetPhongNormal and GatherSampleLight functions to use displacement face normals at "spot" // VXP: TODO
 make a lightinfo list? -- so we don't regenerate initlightinfo so many times?
