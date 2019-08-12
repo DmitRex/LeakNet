@@ -123,6 +123,7 @@
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>if exist ..\..\bin\unitlib.dll attrib -r ..\..\bin\unitlib.dll  
+if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\unitlib.dll  
 if exist "$(TargetDir)unitlib.map" copy "$(TargetDir)unitlib.map" ..\..\bin\unitlib.map  
 if exist ..\lib\public\unitlib.lib attrib -r ..\lib\public\unitlib.lib  
@@ -179,6 +180,7 @@ if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>if exist ..\..\bin\unitlib.dll attrib -r ..\..\bin\unitlib.dll  
+if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\unitlib.dll  
 if exist "$(TargetDir)unitlib.map" copy "$(TargetDir)unitlib.map" ..\..\bin\unitlib.map  
 if exist ..\lib\public\unitlib.lib attrib -r ..\lib\public\unitlib.lib  

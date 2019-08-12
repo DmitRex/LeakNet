@@ -215,6 +215,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vbspinfo", "..\utils\vbspin
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vbsp", "..\utils\vbsp\vbsp.vcxproj", "{0B48FC0B-9894-4270-8396-A4023BFBDCAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6} = {8510DA71-0C34-423C-AABB-056A5BB26DA6}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
