@@ -427,7 +427,8 @@ static inline bool DoBBoxesTouch( const CDispBox &a, const CDispBox &b )
 void FindNeighboringDispSurfs( CCoreDispInfo *pListBase, int listSize )
 {
 	// First, clear all neighboring data.
-	for ( int i=0; i < listSize; i++ )
+	int i;
+	for ( i=0; i < listSize; i++ )
 	{
 		ClearNeighborData( &pListBase[i] );
 	}
@@ -610,7 +611,8 @@ static void DisableUnallowedVerts_R(
 void SetupAllowedVerts( CCoreDispInfo *pListBase, int listSize )
 {
 	// Set all verts to allowed to start with.
-	for ( int i=0; i < listSize; i++ )
+	int i;
+	for ( i=0; i < listSize; i++ )
 	{
 		pListBase[i].GetAllowedVerts().SetAll();
 	}

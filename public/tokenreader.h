@@ -12,7 +12,7 @@
 #endif
 
 
-#include "fstream.h"
+#include <fstream>
 
 
 typedef enum
@@ -34,7 +34,7 @@ typedef enum
 #define MAX_IDENT 64 + 1
 #define MAX_STRING 128 + 1
 
-class TokenReader : private ifstream
+class TokenReader : private std::ifstream
 {
 public:
 

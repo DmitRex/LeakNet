@@ -1142,7 +1142,7 @@ static void FixupLeafWaterData( CPlaneList &planes, int *leafIDToWaterLeaf,
 	}
 }
 
-static BuildLeafIDToWaterLeafMap( CUtlVector<waterleaf_t> &waterList, int *leafIDToWaterLeaf )
+static void BuildLeafIDToWaterLeafMap( CUtlVector<waterleaf_t> &waterList, int *leafIDToWaterLeaf )
 {
 	int i;
 	for( i = 0; i < numleafs; i++ )

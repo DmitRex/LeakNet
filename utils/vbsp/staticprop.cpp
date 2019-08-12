@@ -262,7 +262,7 @@ static CPhysCollide* GetCollisionModel( char const* pModelName )
 	// Convert to a common string
 	char* pTemp = (char*)_alloca(strlen(pModelName) + 1);
 	strcpy( pTemp, pModelName );
-	__strlwr( pTemp );
+	_strlwr( pTemp );
 
 	char* pSlash = strchr( pTemp, '\\' );
 	while( pSlash )

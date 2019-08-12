@@ -209,6 +209,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vmpi", "..\utils\vmpi\vmpi.vcxproj", "{26A17136-B7EC-443E-906E-6D876A42027E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vbspinfo", "..\utils\vbspinfo\vbspinfo.vcxproj", "{213FCBF4-89C1-4F8B-9A7C-A093E22FB102}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vbsp", "..\utils\vbsp\vbsp.vcxproj", "{0B48FC0B-9894-4270-8396-A4023BFBDCAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -433,6 +439,12 @@ Global
 		{213FCBF4-89C1-4F8B-9A7C-A093E22FB102}.Release|x86.Build.0 = Release|Win32
 		{213FCBF4-89C1-4F8B-9A7C-A093E22FB102}.Template|x86.ActiveCfg = Template|Win32
 		{213FCBF4-89C1-4F8B-9A7C-A093E22FB102}.Template|x86.Build.0 = Template|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Debug|x86.Build.0 = Debug|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Release|x86.ActiveCfg = Release|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Release|x86.Build.0 = Release|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Template|x86.ActiveCfg = Template|Win32
+		{0B48FC0B-9894-4270-8396-A4023BFBDCAB}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

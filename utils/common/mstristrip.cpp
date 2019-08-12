@@ -292,7 +292,7 @@ STRIPLIST::iterator FindBestCachedStrip(STRIPLIST *pstriplist,
     const CVertCache &vertcachestate)
 {
     if(pstriplist->empty())
-        return NULL;
+        return pstriplist->end();
 
     bool fFlipStrip = false;
     int maxcachehits = -1;
