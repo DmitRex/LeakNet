@@ -3592,7 +3592,7 @@ void RealignBones( )
 		}
 	}
 
-	for (i = 0; i < g_numforcedrealign; i++)
+	for (int i = 0; i < g_numforcedrealign; i++)
 	{
 		k = findGlobalBone( g_forcedrealign[i].name );
 		if (k == -1)

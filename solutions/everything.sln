@@ -249,6 +249,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vvis_launcher", "..\utils\v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NVTriStripLib", "..\utils\nvtristriplib\nvtristriplib.vcxproj", "{E6767EC6-9783-4466-8A64-53C4557A009B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "studiomdl", "..\utils\studiomdl\studiomdl.vcxproj", "{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{E6767EC6-9783-4466-8A64-53C4557A009B} = {E6767EC6-9783-4466-8A64-53C4557A009B}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -508,6 +515,12 @@ Global
 		{E6767EC6-9783-4466-8A64-53C4557A009B}.Release|x86.Build.0 = Release|Win32
 		{E6767EC6-9783-4466-8A64-53C4557A009B}.Template|x86.ActiveCfg = Template|Win32
 		{E6767EC6-9783-4466-8A64-53C4557A009B}.Template|x86.Build.0 = Template|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Debug|x86.ActiveCfg = Debug|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Debug|x86.Build.0 = Debug|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Release|x86.ActiveCfg = Release|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Release|x86.Build.0 = Release|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Template|x86.ActiveCfg = Template|Win32
+		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
