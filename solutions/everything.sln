@@ -291,6 +291,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phonemeextractor_ims", "..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "newdat", "..\utils\newdat\newdat.vcxproj", "{873D7293-4BDA-448C-8F32-75A7A8D7F94C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtex", "..\utils\vtex\vtex.vcxproj", "{A61AED2E-7130-493E-A502-6CCE217AB602}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6} = {8510DA71-0C34-423C-AABB-056A5BB26DA6}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -592,6 +599,12 @@ Global
 		{873D7293-4BDA-448C-8F32-75A7A8D7F94C}.Release|x86.Build.0 = Release|Win32
 		{873D7293-4BDA-448C-8F32-75A7A8D7F94C}.Template|x86.ActiveCfg = Template|Win32
 		{873D7293-4BDA-448C-8F32-75A7A8D7F94C}.Template|x86.Build.0 = Template|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Debug|x86.ActiveCfg = Debug|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Debug|x86.Build.0 = Debug|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Release|x86.ActiveCfg = Release|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Release|x86.Build.0 = Release|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Template|x86.ActiveCfg = Template|Win32
+		{A61AED2E-7130-493E-A502-6CCE217AB602}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
