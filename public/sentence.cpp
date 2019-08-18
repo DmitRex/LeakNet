@@ -1093,7 +1093,8 @@ CSentence& CSentence::operator=( const CSentence& src )
 	Reset();
 
 	// Copy everything
-	for ( int i = 0 ; i < src.m_Words.Size(); i++ )
+	int i;
+	for ( i = 0 ; i < src.m_Words.Size(); i++ )
 	{
 		CWordTag *word = src.m_Words[ i ];
 

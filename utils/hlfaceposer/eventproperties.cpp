@@ -201,7 +201,7 @@ int CMapEntities::FindNamedEntity( char const *name )
 {
 	char lowername[ 128 ];
 	strcpy( lowername, name );
-	__strlwr( lowername );
+	_strlwr( lowername );
 
 	int index = m_Entities.Find( lowername );
 	if ( index == m_Entities.InvalidIndex() )
@@ -425,7 +425,8 @@ static void PopulateSoundList( HWND wnd, bool showAll )
 	CUtlRBTree< char const *, int >		m_SortedNames( 0, 0, NameLessFunc );
 
 	int c = soundemitter->GetSoundCount();
-	for ( int i = 0; i < c; i++ )
+	int i;
+	for ( i = 0; i < c; i++ )
 	{
 		char const *name = soundemitter->GetSoundName( i );
 

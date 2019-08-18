@@ -693,7 +693,7 @@ void TimelineItem::Draw( CChoreoWidgetDrawHelper& drawHelper )
 					
 					POINT pt;
 
-					if ( segments.Count == 0 )
+					if ( segments.Count() == 0 )
 					{
 						pt.x = prevx;	
 						pt.y = bottom - prev_value * height;

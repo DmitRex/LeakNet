@@ -263,6 +263,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlmv", "..\utils\hlmviewer\
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlfaceposer", "..\utils\hlfaceposer\hlfaceposer.vcxproj", "{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{2E19DCCB-0857-44A8-B30F-A043BE655897} = {2E19DCCB-0857-44A8-B30F-A043BE655897}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -534,6 +541,12 @@ Global
 		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Release|x86.Build.0 = Release|Win32
 		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Template|x86.ActiveCfg = Release|Win32
 		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Template|x86.Build.0 = Release|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Debug|x86.ActiveCfg = Debug|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Debug|x86.Build.0 = Debug|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Release|x86.ActiveCfg = Release|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Release|x86.Build.0 = Release|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Template|x86.ActiveCfg = Template|Win32
+		{5FCA7BC9-680C-48F8-B272-0C395CB1E0A1}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1414,7 +1414,7 @@ int MDLViewer::handleEvent (mxEvent *event)
 				
 			case IDC_HELP_ABOUT:
 				mxMessageBox (this,
-					"v0.1 (c) 2001, Valve, LLC.  All rights reserved.\r\nBuild Date: "__DATE__"",
+					"v0.1 (c) 2001, Valve, LLC.  All rights reserved.\r\nBuild Date: " __DATE__ "",
 					"Valve Face Poser", 
 					MX_MB_OK | MX_MB_INFORMATION);
 				break;
@@ -1896,7 +1896,7 @@ SpewRetval_t HLFacePoserSpewFunc( SpewType_t spewType, char const *pMsg )
 
 char cmdline[1024] = "";
 
-main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
 	int i;
 	CommandLine()->CreateCmdLine( argc, argv );

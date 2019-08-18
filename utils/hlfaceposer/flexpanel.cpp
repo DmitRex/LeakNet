@@ -289,7 +289,8 @@ void FlexPanel::initFlexes ()
 	studiohdr_t *hdr = models->GetActiveStudioModel()->getStudioHeader ();
 	if (hdr)
 	{
-		for (int j = 0; j < GLOBAL_STUDIO_FLEX_CONTROL_COUNT; j++)
+		int j;
+		for (j = 0; j < GLOBAL_STUDIO_FLEX_CONTROL_COUNT; j++)
 		{
 			slFlexScale[j]->setVisible( false );
 			slFlexScale[j]->setLabel( "" );
