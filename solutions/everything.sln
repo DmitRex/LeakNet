@@ -277,6 +277,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scenemanager", "..\utils\sc
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phonemeextractor", "..\utils\phonemeextractor\phonemeextractor.vcxproj", "{99D70184-5C3D-4393-8E0B-AD92F4443B06}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phonemeextractor_ims", "..\utils\phonemeextractor\phonemeextractor_ims.vcxproj", "{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -560,6 +572,18 @@ Global
 		{C3EDEE89-7FDF-4F99-8FD1-DAA53136659D}.Release|x86.Build.0 = Release|Win32
 		{C3EDEE89-7FDF-4F99-8FD1-DAA53136659D}.Template|x86.ActiveCfg = Template|Win32
 		{C3EDEE89-7FDF-4F99-8FD1-DAA53136659D}.Template|x86.Build.0 = Template|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Debug|x86.ActiveCfg = Debug|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Debug|x86.Build.0 = Debug|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Release|x86.ActiveCfg = Release|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Release|x86.Build.0 = Release|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Template|x86.ActiveCfg = Template|Win32
+		{99D70184-5C3D-4393-8E0B-AD92F4443B06}.Template|x86.Build.0 = Template|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Debug|x86.ActiveCfg = Debug|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Debug|x86.Build.0 = Debug|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Release|x86.ActiveCfg = Release|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Release|x86.Build.0 = Release|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Template|x86.ActiveCfg = Template|Win32
+		{2C5C04CB-FEFC-4D56-B122-76B7BF8596AC}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
