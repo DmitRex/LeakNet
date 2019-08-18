@@ -197,7 +197,8 @@ static void PopulateWaveList( HWND wnd, CSoundEmitterSystemBase::CSoundParameter
 	CUtlRBTree< char const *, int >		m_SortedNames( 0, 0, WaveLessFunc );
 
 	int c = p->soundnames.Count();
-	for ( int i = 0; i < c; i++ )
+	int i;
+	for ( i = 0; i < c; i++ )
 	{
 		char const *name = soundemitter->GetWaveName( p->soundnames[ i ] );
 
@@ -233,7 +234,8 @@ static void PopulateWaveList_Available( HWND wnd )
 	CUtlRBTree< char const *, int >		m_SortedNames( 0, 0, WaveLessFunc );
 
 	int c = wb->GetSoundCount();;
-	for ( int i = 0; i < c; i++ )
+	int i;
+	for ( i = 0; i < c; i++ )
 	{
 		CWaveFile *entry = wb->GetSound( i );
 		if ( !entry )
