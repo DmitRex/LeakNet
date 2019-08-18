@@ -328,6 +328,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "height2normal", "..\utils\h
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtf2tga", "..\utils\vtf2tga\vtf2tga.vcxproj", "{875D2491-4144-4A4F-8B6C-11672EEC3B60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6} = {8510DA71-0C34-423C-AABB-056A5BB26DA6}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -665,6 +672,12 @@ Global
 		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Release|x86.Build.0 = Release|Win32
 		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Template|x86.ActiveCfg = Template|Win32
 		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Template|x86.Build.0 = Template|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Debug|x86.ActiveCfg = Debug|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Debug|x86.Build.0 = Debug|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Release|x86.ActiveCfg = Release|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Release|x86.Build.0 = Release|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Template|x86.ActiveCfg = Template|Win32
+		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
