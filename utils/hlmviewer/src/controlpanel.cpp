@@ -2203,7 +2203,7 @@ ControlPanel::initSequences ()
 		setBlend( i, 0.0 );
 	}
 
-	for (i = 0; i < hdr->numposeparameters; i++)
+	for (int i = 0; i < hdr->numposeparameters; i++)
 	{
 		setBlend( i, 0.0 );
 	}

@@ -256,6 +256,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "studiomdl", "..\utils\studi
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlmv", "..\utils\hlmviewer\src\hlmv.vcxproj", "{D9678A24-402D-4212-8DE4-51E1DD7BC108}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{2E19DCCB-0857-44A8-B30F-A043BE655897} = {2E19DCCB-0857-44A8-B30F-A043BE655897}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -521,6 +528,12 @@ Global
 		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Release|x86.Build.0 = Release|Win32
 		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Template|x86.ActiveCfg = Template|Win32
 		{C43F673B-B8D2-4D87-BB9E-17A09ECD118F}.Template|x86.Build.0 = Template|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Debug|x86.Build.0 = Debug|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Release|x86.ActiveCfg = Release|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Release|x86.Build.0 = Release|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Template|x86.ActiveCfg = Release|Win32
+		{D9678A24-402D-4212-8DE4-51E1DD7BC108}.Template|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

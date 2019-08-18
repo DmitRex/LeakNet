@@ -989,7 +989,7 @@ void StudioModel::DrawBones( )
 
 	if (g_viewerSettings.highlightBone >= 0)
 	{
-		int k, j, n;
+		int i, k, j, n;
 		for (i = 0; i < m_pstudiohdr->numbodyparts; i++)
 		{
 			for (j = 0; j < m_pstudiohdr->pBodypart( i )->nummodels; j++)
