@@ -316,6 +316,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bsppack", "..\utils\bsppack
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bspzip", "..\utils\bspzip\bspzip.vcxproj", "{8BDC7578-E9CF-4518-A347-97DFF4975BDC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -641,6 +647,12 @@ Global
 		{5D0FD3EE-350F-42E0-9EFA-DFC68E3BC62B}.Release|x86.Build.0 = Release|Win32
 		{5D0FD3EE-350F-42E0-9EFA-DFC68E3BC62B}.Template|x86.ActiveCfg = Template|Win32
 		{5D0FD3EE-350F-42E0-9EFA-DFC68E3BC62B}.Template|x86.Build.0 = Template|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Debug|x86.ActiveCfg = Debug|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Debug|x86.Build.0 = Debug|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Release|x86.ActiveCfg = Release|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Release|x86.Build.0 = Release|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Template|x86.ActiveCfg = Template|Win32
+		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
