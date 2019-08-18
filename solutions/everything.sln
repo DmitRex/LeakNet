@@ -305,6 +305,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtex_dll", "..\utils\vtex\v
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unittest", "..\utils\unittest\unittest.vcxproj", "{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -618,6 +623,12 @@ Global
 		{10044D86-9F3F-4557-8F1F-1AF0F1AF33A9}.Release|x86.Build.0 = Release|Win32
 		{10044D86-9F3F-4557-8F1F-1AF0F1AF33A9}.Template|x86.ActiveCfg = Template|Win32
 		{10044D86-9F3F-4557-8F1F-1AF0F1AF33A9}.Template|x86.Build.0 = Template|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Debug|x86.ActiveCfg = Debug|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Debug|x86.Build.0 = Debug|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Release|x86.ActiveCfg = Release|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Release|x86.Build.0 = Release|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Template|x86.ActiveCfg = Template|Win32
+		{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
