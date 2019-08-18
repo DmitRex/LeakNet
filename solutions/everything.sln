@@ -335,6 +335,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtf2tga", "..\utils\vtf2tga
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bugreporter", "..\utils\bugreporter\bugreporter.vcxproj", "{C4653D13-5B5A-45EC-BE66-893AFB431B39}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -678,6 +684,12 @@ Global
 		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Release|x86.Build.0 = Release|Win32
 		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Template|x86.ActiveCfg = Template|Win32
 		{875D2491-4144-4A4F-8B6C-11672EEC3B60}.Template|x86.Build.0 = Template|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Debug|x86.ActiveCfg = Debug|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Debug|x86.Build.0 = Debug|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Release|x86.ActiveCfg = Release|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Release|x86.Build.0 = Release|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Template|x86.ActiveCfg = Template|Win32
+		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
