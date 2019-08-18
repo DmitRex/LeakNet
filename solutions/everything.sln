@@ -322,6 +322,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bspzip", "..\utils\bspzip\b
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "height2normal", "..\utils\height2normal\height2normal.vcxproj", "{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -653,6 +659,12 @@ Global
 		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Release|x86.Build.0 = Release|Win32
 		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Template|x86.ActiveCfg = Template|Win32
 		{8BDC7578-E9CF-4518-A347-97DFF4975BDC}.Template|x86.Build.0 = Template|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Debug|x86.ActiveCfg = Debug|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Debug|x86.Build.0 = Debug|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Release|x86.ActiveCfg = Release|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Release|x86.Build.0 = Release|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Template|x86.ActiveCfg = Template|Win32
+		{E46A93B3-0619-47D2-B8E0-BF6E372FF44E}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
