@@ -547,7 +547,8 @@ bool DispInfo_LoadDisplacements( model_t *pWorld, bool bRestoring )
 	int iCurVert = 0;
 	int iCurTri = 0;
 
-	for ( int iDisp=0; iDisp < nDisplacements; iDisp++ )
+	int iDisp;
+	for ( iDisp=0; iDisp < nDisplacements; iDisp++ )
 	{
 		ddispinfo_t *pMapDisp = &tempDisps[iDisp];
 		
@@ -573,7 +574,7 @@ bool DispInfo_LoadDisplacements( model_t *pWorld, bool bRestoring )
 	// make sure they never change.
 	if ( r_DispEnableLOD.GetInt() == 0 )
 	{
-		for ( int iDisp=0; iDisp < nDisplacements; iDisp++ )
+		for ( iDisp=0; iDisp < nDisplacements; iDisp++ )
 		{
 			CDispInfo *pDisp = GetModelDisp( pWorld, iDisp );
 			

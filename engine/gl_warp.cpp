@@ -93,7 +93,7 @@ bool R_LoadNamedSkys( const char *skyname )
 	}
 
 	// Increment references
-	for ( i = 0; i < 6; i++ )
+	for ( int i = 0; i < 6; i++ )
 	{
 		// Unload any old skybox
 		if ( skyboxMaterials[ i ] )

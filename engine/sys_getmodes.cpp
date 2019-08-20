@@ -274,7 +274,8 @@ bool CVideoMode_Common::Init( void *pvInstance )
 
 	int slot = 0;
 
-	for ( int i = 0; i < m_nNumModes; i++ )
+	int i;
+	for ( i = 0; i < m_nNumModes; i++ )
 	{
 		MaterialVideoMode_t info;
 

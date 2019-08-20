@@ -11,6 +11,8 @@
 // $NoKeywords: $
 //=============================================================================
 
+#include <ctype.h> // VXP: tolower
+
 #include "quakedef.h"
 #include "conprint.h"
 #include <stdlib.h>

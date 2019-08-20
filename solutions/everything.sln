@@ -347,6 +347,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bugreporter", "..\utils\bug
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{A391861F-1AFE-414D-B795-1F8475673BF5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "..\engine\engine.vcxproj", "{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{8510DA71-0C34-423C-AABB-056A5BB26DA6} = {8510DA71-0C34-423C-AABB-056A5BB26DA6}
+		{28900E72-9E3A-47BB-A2B3-361184E8CEF2} = {28900E72-9E3A-47BB-A2B3-361184E8CEF2}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -696,6 +704,12 @@ Global
 		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Release|x86.Build.0 = Release|Win32
 		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Template|x86.ActiveCfg = Template|Win32
 		{C4653D13-5B5A-45EC-BE66-893AFB431B39}.Template|x86.Build.0 = Template|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Debug|x86.ActiveCfg = Debug|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Debug|x86.Build.0 = Debug|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Release|x86.ActiveCfg = Release|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Release|x86.Build.0 = Release|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Template|x86.ActiveCfg = Template|Win32
+		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

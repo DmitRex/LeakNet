@@ -1090,7 +1090,7 @@ void CSaveRestore::RestoreClientState( char const *fileName, bool adjacent )
 
 	char name[256];
 	COM_FileBase( fileName, name );
-	__strlwr( name );
+	_strlwr( name );
 
 	RestoreLookupTable *table = FindOrAddRestoreLookupTable( name );
 
@@ -1483,7 +1483,7 @@ void CSaveRestore::BuildRestoredIndexTranslationTable( char const *mapname, CSav
 {
 	char name[ 256 ];
 	COM_FileBase( mapname, name );
-	__strlwr( name );
+	_strlwr( name );
 
 	// Build Translation Lookup
 	RestoreLookupTable *table = FindOrAddRestoreLookupTable( name );

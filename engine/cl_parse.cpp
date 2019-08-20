@@ -156,7 +156,7 @@ void CL_ParseClassInfo_EndClasses(CClientState *pState )
 	ClientClass *pClasses = g_ClientDLL->GetAllClasses();
 
 	// Match the server classes to the client classes.
-	for ( i=0; i < pState->m_nServerClasses; i++ )
+	for ( int i=0; i < pState->m_nServerClasses; i++ )
 	{
 		C_ServerClassInfo *pServerClass = &pState->m_pServerClasses[i];
 
