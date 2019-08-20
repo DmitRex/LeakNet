@@ -355,6 +355,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "..\engine\engine.
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dedicated", "..\dedicated\dedicated.vcxproj", "{C0738605-C74D-4D89-A711-12E33E06852D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -710,6 +716,12 @@ Global
 		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Release|x86.Build.0 = Release|Win32
 		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Template|x86.ActiveCfg = Template|Win32
 		{4A4AA0FD-5BBF-419A-B7B1-ACD762D3581A}.Template|x86.Build.0 = Template|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Debug|x86.ActiveCfg = Debug|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Debug|x86.Build.0 = Debug|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Release|x86.ActiveCfg = Release|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Release|x86.Build.0 = Release|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Template|x86.ActiveCfg = Release|Win32
+		{C0738605-C74D-4D89-A711-12E33E06852D}.Template|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
