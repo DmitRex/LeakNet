@@ -30,6 +30,7 @@ private:
 
 	COutputEvent m_OnPlayerTouch;
 
+public:
 	DECLARE_DATADESC();
 };
 

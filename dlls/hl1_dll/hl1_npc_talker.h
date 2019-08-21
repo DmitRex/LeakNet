@@ -50,9 +50,9 @@
 
 class CHL1NPCTalker : public CNPCSimpleTalker
 {
+public:
 	DECLARE_CLASS( CHL1NPCTalker, CNPCSimpleTalker );
 	
-public:
 	CHL1NPCTalker( void )
 	{
 	}
@@ -80,7 +80,7 @@ public:
 
 	float			PickRandomLookTarget( bool bExcludePlayers = false, float minTime = 1.5, float maxTime = 2.5 );
 
-protected:
+public: // VXP: FIXME: Why doesn't "protected" work here for hl1_npc_scientist.cpp and hl1_npc_barney.cpp
 	virtual void 	FollowerUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
 
 private:

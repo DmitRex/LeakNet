@@ -7,8 +7,8 @@
 //=========================================================
 class CNPC_Scientist : public CHL1NPCTalker
 {
-	DECLARE_CLASS( CNPC_Scientist, CHL1NPCTalker );
 public:
+	DECLARE_CLASS( CNPC_Scientist, CHL1NPCTalker );
 	
 //	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();

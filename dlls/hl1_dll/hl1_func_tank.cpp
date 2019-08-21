@@ -55,8 +55,9 @@ enum TANKBULLET
 
 class CFuncTank : public CBaseEntity
 {
-	DECLARE_CLASS( CFuncTank, CBaseEntity );
 public:
+	DECLARE_CLASS( CFuncTank, CBaseEntity );
+
 	~CFuncTank( void );
 	void	Spawn( void );
 	void	Activate( void );

@@ -48,8 +48,9 @@ typedef enum
 
 class CNPC_BaseTurret : public CAI_BaseNPC
 {
-	DECLARE_CLASS( CNPC_BaseTurret, CAI_BaseNPC );
 public:
+	DECLARE_CLASS( CNPC_BaseTurret, CAI_BaseNPC );
+
 	void Spawn(void);
 	virtual void Precache(void);
 	void EXPORT TurretUse( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE useType, float value );
@@ -476,7 +477,7 @@ void CNPC_BaseTurret::Initialize(void)
 	}
 	else
 	{
-		SetThink( SUB_DoNothing ); 
+		SetThink( &CBaseEntity::SUB_DoNothing ); 
 	}
 }
 
@@ -945,7 +946,7 @@ void CNPC_BaseTurret::Retire(void)
 			}
 			else
 			{
-				SetThink( SUB_DoNothing );
+				SetThink( &CBaseEntity::SUB_DoNothing );
 			}
 		}
 	}
