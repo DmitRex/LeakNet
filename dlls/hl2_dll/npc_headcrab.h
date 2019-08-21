@@ -15,9 +15,9 @@
 
 class CBaseHeadcrab : public CAI_BaseNPC
 {
+public:
 	DECLARE_CLASS( CBaseHeadcrab, CAI_BaseNPC );
 
-public:
 	void Spawn( void );
 	void Precache( void );
 	void RunTask( const Task_t *pTask );

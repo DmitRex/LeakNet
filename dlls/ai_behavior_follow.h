@@ -29,7 +29,13 @@ struct AI_FollowNavInfo_t
 	DECLARE_SIMPLE_DATADESC();
 };
 
-DECLARE_POINTER_HANDLE(AI_FollowManagerInfoHandle_t);
+struct AI_FollowGroup_t;
+
+struct AI_FollowManagerInfoHandle_t
+{
+	AI_FollowGroup_t *m_pGroup;
+	int m_hFollower;
+};
 
 //-------------------------------------
 
@@ -38,6 +44,7 @@ class CAI_FollowBehavior : public CAI_SimpleBehavior
 	DECLARE_CLASS( CAI_FollowBehavior, CAI_SimpleBehavior );
 public:
 	CAI_FollowBehavior();
+	~CAI_FollowBehavior();
 
 	virtual const char *GetName() {	return "Follow"; }
 

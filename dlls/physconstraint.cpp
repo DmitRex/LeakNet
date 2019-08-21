@@ -164,8 +164,9 @@ void PhysTeleportConstrainedEntity( CBaseEntity *pTeleportSource, IPhysicsObject
 
 class CPhysConstraint : public CLogicalEntity
 {
-	DECLARE_CLASS( CPhysConstraint, CLogicalEntity );
 public:
+	DECLARE_CLASS( CPhysConstraint, CLogicalEntity );
+
 
 	CPhysConstraint();
 	~CPhysConstraint();

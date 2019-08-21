@@ -23,9 +23,9 @@ static void PlatSpawnInsideTrigger(edict_t *pevPlatform);
 
 class CBasePlatTrain : public CBaseToggle
 {
+public:
 	DECLARE_CLASS( CBasePlatTrain, CBaseToggle );
 
-public:
 	~CBasePlatTrain();
 	bool KeyValue( const char *szKeyName, const char *szValue );
 	void Precache( void );
@@ -246,8 +246,9 @@ void CBasePlatTrain::Precache( void )
 
 class CFuncPlat : public CBasePlatTrain
 {
-	DECLARE_CLASS( CFuncPlat, CBasePlatTrain );
 public:
+	DECLARE_CLASS( CFuncPlat, CBasePlatTrain );
+
 	void Spawn( void );
 	void Precache( void );
 	bool CreateVPhysics();
@@ -629,8 +630,9 @@ void CFuncPlat::Blocked( CBaseEntity *pOther )
 
 class CFuncPlatRot : public CFuncPlat
 {
-	DECLARE_CLASS( CFuncPlatRot, CFuncPlat );
 public:
+	DECLARE_CLASS( CFuncPlatRot, CFuncPlat );
+
 	void Spawn( void );
 	void SetupRotation( void );
 
@@ -1506,7 +1508,7 @@ void CFuncTrackTrain::SoundUpdate( void )
 		return;
 	}
 
-	float flpitch = TRAIN_STARTPITCH + (abs(m_flSpeed) * (TRAIN_MAXPITCH - TRAIN_STARTPITCH) / TRAIN_MAXSPEED);
+	float flpitch = TRAIN_STARTPITCH + (fabs(m_flSpeed) * (TRAIN_MAXPITCH - TRAIN_STARTPITCH) / TRAIN_MAXSPEED);
 
 	CPASAttenuationFilter filter( this );
 	CPASAttenuationFilter filterReliable( this );
@@ -2122,8 +2124,9 @@ typedef enum { TRAIN_SAFE, TRAIN_BLOCKING, TRAIN_FOLLOWING } TRAIN_CODE;
 //-----------------------------------------------------------------------------
 class CFuncTrackChange : public CFuncPlatRot
 {
-	DECLARE_CLASS( CFuncTrackChange, CFuncPlatRot );
 public:
+	DECLARE_CLASS( CFuncTrackChange, CFuncPlatRot );
+
 	void Spawn( void );
 	void Precache( void );
 

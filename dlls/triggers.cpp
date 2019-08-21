@@ -640,8 +640,8 @@ void CTriggerMultiple::MultiWaitOver( void )
 // ##################################################################################
 class CTriggerOnce : public CTriggerMultiple
 {
-	DECLARE_CLASS( CTriggerOnce, CTriggerMultiple );
 public:
+	DECLARE_CLASS( CTriggerOnce, CTriggerMultiple );
 
 	void Spawn( void );
 };

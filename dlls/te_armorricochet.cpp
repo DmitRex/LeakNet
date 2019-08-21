@@ -23,9 +23,9 @@
 //-----------------------------------------------------------------------------
 class CTEMetalSparks : public CBaseTempEntity
 {
-DECLARE_CLASS( CTEMetalSparks, CBaseTempEntity );
-
 public:
+	DECLARE_CLASS( CTEMetalSparks, CBaseTempEntity );
+
 					CTEMetalSparks( const char *name );
 	virtual			~CTEMetalSparks( void );
 

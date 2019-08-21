@@ -30,6 +30,7 @@ enum FlexWeight_t { FLEX_END=INT_MAX };
 
 class CAI_BaseActor : public CAI_BaseHumanoid
 {
+public:
 	DECLARE_CLASS( CAI_BaseActor, CAI_BaseHumanoid );
 
 	//friend CPoseParameter;

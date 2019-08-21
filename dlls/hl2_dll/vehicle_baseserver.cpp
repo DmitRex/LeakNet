@@ -132,7 +132,7 @@ void CBaseServerVehicle::Precache( void )
 	}
 
 	// Precache our other sounds
-	for ( i = 0; i < VS_NUM_SOUNDS; i++ )
+	for ( int i = 0; i < VS_NUM_SOUNDS; i++ )
 	{
 		if ( m_vehicleSounds.iszSound[i] != NULL_STRING )
 		{
@@ -797,7 +797,7 @@ void CBaseServerVehicle::SoundShutdown( float flFadeTime )
 	}
 
 	// Stop all gear sounds
-	for ( i = 0; i < VS_NUM_GEAR_SOUNDS; i++ )
+	for ( int i = 0; i < VS_NUM_GEAR_SOUNDS; i++ )
 	{
 		StopSoundForGear( (vehiclesound_gear)i, m_iSoundGear );
 	}

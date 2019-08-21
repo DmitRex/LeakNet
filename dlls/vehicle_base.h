@@ -186,8 +186,9 @@ private:
 //-----------------------------------------------------------------------------
 class CPropVehicle : public CBaseProp
 {
-	DECLARE_CLASS( CPropVehicle, CBaseProp );
 public:
+	DECLARE_CLASS( CPropVehicle, CBaseProp );
+
 	CPropVehicle();
 	virtual ~CPropVehicle();
 
@@ -234,10 +235,11 @@ private:
 //-----------------------------------------------------------------------------
 class CPropVehicleDriveable : public CPropVehicle, public IDrivableVehicle
 {
+public:
 	DECLARE_CLASS( CPropVehicleDriveable, CPropVehicle );
 	DECLARE_SERVERCLASS();
 	DECLARE_DATADESC();
-public:
+
 	CPropVehicleDriveable( void );
 	~CPropVehicleDriveable( void );
 

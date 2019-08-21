@@ -2131,8 +2131,9 @@ inline bool FClassnameIs(CBaseEntity *pEntity, const char *szClassname)
 
 class CPointEntity : public CBaseEntity
 {
-	DECLARE_CLASS( CPointEntity, CBaseEntity );
 public:
+	DECLARE_CLASS( CPointEntity, CBaseEntity );
+
 	void	Spawn( void );
 	virtual int	ObjectCaps( void ) { return BaseClass::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
 private:
@@ -2140,8 +2141,9 @@ private:
 
 class CLogicalEntity : public CBaseEntity
 {
-	DECLARE_CLASS( CLogicalEntity, CBaseEntity );
 public:
+	DECLARE_CLASS( CLogicalEntity, CBaseEntity );
+
 	CLogicalEntity() : CBaseEntity( true ) {}
 	
 	virtual int ObjectCaps( void ) { return (BaseClass::ObjectCaps() & ~FCAP_ACROSS_TRANSITION); }
@@ -2149,9 +2151,9 @@ public:
 
 class CLogicalPointEntity : public CLogicalEntity
 {
+public:
 	DECLARE_CLASS( CLogicalPointEntity, CLogicalEntity );
 
-public:
 	virtual void SetOwnerEntity( CBaseEntity* pOwner );
 
 	// Returns the owner, origin, and angles
