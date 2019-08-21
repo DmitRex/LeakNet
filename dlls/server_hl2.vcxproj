@@ -362,7 +362,7 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\tf2\bin\server
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\hl2\bin\server.dll attrib -r ..\..\hl2\bin\server.dll 
-if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\hl2\bin\server.dll </Command>
+if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\hl2\bin\server.dll </Command>
       <Message>Copying to HL2</Message>
       <Outputs>..\..\hl2\bin\server.dll;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -526,7 +526,7 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\hl1\bin\server
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\hl2\bin\server.dll attrib -r ..\..\hl2\bin\server.dll 
-if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\hl2\bin\server.dll </Command>
+if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\hl2\bin\server.dll </Command>
       <Message>Copying to HL2</Message>
       <Outputs>..\..\hl2\bin\server.dll;%(Outputs)</Outputs>
     </CustomBuildStep>

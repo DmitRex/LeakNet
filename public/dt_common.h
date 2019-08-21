@@ -31,7 +31,8 @@
 #define DT_MAX_STRING_BITS			9
 #define DT_MAX_STRING_BUFFERSIZE	(1<<DT_MAX_STRING_BITS)	// Maximum length of a string that can be sent.
 
-#ifndef offsetof
+#ifdef offsetof
+#undef offsetof
 #define offsetof(s,m)	(size_t)&(((s *)0)->m)
 #endif
 
