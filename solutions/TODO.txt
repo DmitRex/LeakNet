@@ -17,3 +17,7 @@ _CRT_NON_CONFORMING_SWPRINTFS для swprintf в KeyValues.cpp
 Пофиксить "The intermediate directory (...) contains files shared from another project ..."
 
 miles WINDOWS_IGNORE_PACKING_MISMATCH
+
+Worldcraft: include/ignore nafxcwd.lib;Libcmtd.lib for non-Unicode, and uafxcwd.lib;Libcmtd.lib for Unicode
+			for Release: nafxcw.lib;Libcmt.lib and uafxcw.lib;Libcmt.lib
+			https://stackoverflow.com/questions/1146338/error-lnk2005-new-and-delete-already-defined-in-libcmtd-libnew-obj

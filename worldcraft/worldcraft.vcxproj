@@ -55,7 +55,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
@@ -130,7 +130,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\common\shaderdll;..\common\ShaderDLL;..\common\iostream;..\public;..\common;..\engine;..\common\MaterialSystem;..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(UM_IncludePath);..\common\shaderdll;..\common\ShaderDLL;..\common\iostream;..\public;..\common;..\engine;..\common\MaterialSystem;..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;USE_MATERIAL_SYSTEM;_WIN32;_WINDOWS;VALVE;IMAGE_LOADER_NO_DXTC;PROTECTED_THINGS_DISABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Worldcraft___Win32_Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
@@ -159,14 +159,14 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Valve Debug\wc.exe</OutputFile>
+      <OutputFile>.\Worldcraft___Win32_Debug\wc.exe</OutputFile>
       <AdditionalLibraryDirectories>..\lib\common;..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>libc;libcd;libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>winmm.lib;rpcrt4.lib;nafxcwd.lib;Libcmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>nafxcwd.lib;Libcmtd.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\wc.exe attrib -r ..\..\bin\wc.exe 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin </Command>
+if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
       <Outputs>..\..\bin\wc.exe;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -225,7 +225,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin </Command>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\public;..\common;..\engine;..\common\MaterialSystem;..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(UM_IncludePath);..\public;..\common;..\engine;..\common\MaterialSystem;..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;USE_MATERIAL_SYSTEM;_WIN32;_WINDOWS;VALVE;IMAGE_LOADER_NO_DXTC;PROTECTED_THINGS_DISABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Worldcraft___Win32_Release\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Worldcraft___Win32_Release\worldcraft.pch</PrecompiledHeaderOutputFile>
@@ -253,13 +253,14 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin </Command>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Valve Release\wc.exe</OutputFile>
+      <OutputFile>.\Worldcraft___Win32_Release\wc.exe</OutputFile>
       <AdditionalLibraryDirectories>..\lib\common;..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;opengl32.lib;glu32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;opengl32.lib;glu32.lib;rpcrt4.lib;nafxcw.lib;Libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>nafxcw.lib;Libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\wc.exe attrib -r ..\..\bin\wc.exe 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin </Command>
+if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
       <Message>Copying executable...</Message>
       <Outputs>..\..\bin\wc.exe;%(Outputs)</Outputs>
     </CustomBuildStep>

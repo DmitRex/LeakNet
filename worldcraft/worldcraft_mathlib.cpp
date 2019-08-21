@@ -69,6 +69,7 @@ float lineangle(float x1, float y1, float x2, float y2)
 }
 
 
+/*
 float rint(float f)
 {
 	if (f > 0.0f) {
@@ -78,6 +79,7 @@ float rint(float f)
 	} else
 		return 0.0f;
 }
+*/
 
 
 void rotate_coords(float *dx, float *dy, float sx, float sy, double angle)

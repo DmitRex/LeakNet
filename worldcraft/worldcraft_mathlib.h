@@ -60,7 +60,7 @@ float fixang(float a);
 float lineangle(float x1, float y1, float x2, float y2);
 void rotate_coords(float *dx, float *dy, float sx, float sy, double angle);
 void polyMake( float x1, float  y1, float x2, float y2, int npoints, float start_ang, Vector *pmPoints );
-float rint(float);
+//float rint(float);
 
 #define ZeroVector(a) { a[0] = 0; a[1]= 0; a[2] = 0; }
 #define ZeroVector4(a) { a[0] = 0; a[1]= 0; a[2] = 0; a[3] = 0; }
