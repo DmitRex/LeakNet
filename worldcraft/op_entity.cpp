@@ -736,7 +736,7 @@ bool COP_Entity::SaveData(void)
 			// deleting messes up our iteration.
 			//
 			int nKeyValues = pEdit->GetKeyValueCount();
-			for (i = nKeyValues - 1; i >= 0; i--)
+			for (int i = nKeyValues - 1; i >= 0; i--)
 			{
 				//
 				// If this key is in not in our local storage, delete it from the object.

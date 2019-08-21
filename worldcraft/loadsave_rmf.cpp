@@ -27,17 +27,17 @@ static BOOL bCorrupt;
 float GetFileVersion() { return fThisVersion; }
 
 
-static void WriteString(fstream& file, LPCTSTR pszString)
+static void WriteString(std::fstream& file, LPCTSTR pszString)
 {
 	BYTE cLen = strlen(pszString)+1;
-	file.write(&cLen, 1);
+	file.write((char*)&cLen, 1);
 	file.write(pszString, cLen);
 }
 
-static void ReadString(fstream& file, char * pszString)
+static void ReadString(std::fstream& file, char * pszString)
 {
 	BYTE cLen;
-	file.read(&cLen, 1);
+	file.read((char*)&cLen, 1);
 	file.read(pszString, cLen);
 }
 
@@ -45,7 +45,7 @@ static void ReadString(fstream& file, char * pszString)
 //-----------------------------------------------------------------------------
 // Purpose: Loads a solid face from RMF.
 //-----------------------------------------------------------------------------
-int CMapFace::SerializeRMF(fstream& file, BOOL fIsStoring)
+int CMapFace::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	int iSize;
 
@@ -104,7 +104,7 @@ int CMapFace::SerializeRMF(fstream& file, BOOL fIsStoring)
 		// Save plane points. We don't serialize the Vectors directly because the memory
 		// layout changed with SSE optimizations.
 		//
-		for (i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			SavePoints[i][0] = plane.planepts[i].x;
 			SavePoints[i][1] = plane.planepts[i].y;
@@ -360,7 +360,7 @@ int CMapFace::SerializeRMF(fstream& file, BOOL fIsStoring)
 }
 
 
-int MDkeyvalue::SerializeRMF(fstream& file, BOOL fIsStoring)
+int MDkeyvalue::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	// load/save a keyvalue
 	if( fIsStoring )
@@ -380,7 +380,7 @@ int MDkeyvalue::SerializeRMF(fstream& file, BOOL fIsStoring)
 }
 
 
-int CMapSolid::SerializeRMF(fstream& file, BOOL fIsStoring)
+int CMapSolid::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	int iRvl, iSize;
 
@@ -442,7 +442,7 @@ int CMapSolid::SerializeRMF(fstream& file, BOOL fIsStoring)
 //			fIsStoring - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CEditGameClass::SerializeRMF(fstream& file, BOOL fIsStoring)
+int CEditGameClass::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	int iSize, iRvl;
 	int iAngle = 0;
@@ -541,7 +541,7 @@ int CEditGameClass::SerializeRMF(fstream& file, BOOL fIsStoring)
 }
 
 
-int CMapClass::SerializeRMF(fstream& file, BOOL fIsStoring)
+int CMapClass::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	int iSize, iRvl;
 
@@ -605,7 +605,7 @@ int CMapClass::SerializeRMF(fstream& file, BOOL fIsStoring)
 		{
 			// kill group information .. unfortunate
 			file.read((char*) &iSize, sizeof(int));
-			file.seekg(iSize, ios::cur);
+			file.seekg(iSize, std::ios::cur);
 		}
 		else
 		{
@@ -655,7 +655,7 @@ int CMapClass::SerializeRMF(fstream& file, BOOL fIsStoring)
 //			fIsStoring - 
 // Output : 
 //-----------------------------------------------------------------------------
-int CMapEntity::SerializeRMF(fstream &file, BOOL fIsStoring)
+int CMapEntity::SerializeRMF(std::fstream &file, BOOL fIsStoring)
 {
 	int iSize;
 	Vector Origin;
@@ -735,7 +735,7 @@ int CMapEntity::SerializeRMF(fstream &file, BOOL fIsStoring)
 }
 
 
-int CMapWorld::SerializeRMF(fstream &file, BOOL fIsStoring)
+int CMapWorld::SerializeRMF(std::fstream &file, BOOL fIsStoring)
 {
     float fVersion = 3.7f;
 	float fLastCompat = 0.3f;
@@ -856,7 +856,7 @@ int CMapWorld::SerializeRMF(fstream &file, BOOL fIsStoring)
 		{
 			const int old_group_bytes = 134;
 			file.read((char*) &iSize, sizeof(int));
-			file.seekg(old_group_bytes * iSize, ios::cur);
+			file.seekg(old_group_bytes * iSize, std::ios::cur);
 		}
 
 		// load paths

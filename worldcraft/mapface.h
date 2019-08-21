@@ -10,7 +10,7 @@
 #pragma once
 
 
-#include <fstream.h>
+#include <fstream>
 #include "worldcraft_mathlib.h"
 #include "MapAtom.h"
 #include "DispManager.h"
@@ -209,8 +209,8 @@ class CMapFace : public CMapAtom
 		//
 		ChunkFileResult_t LoadVMF(CChunkFile *pFile);
 		ChunkFileResult_t SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInfo);
-		int SerializeRMF(fstream&, BOOL);
-		int SerializeMAP(fstream&, BOOL);
+		int SerializeRMF(std::fstream&, BOOL);
+		int SerializeMAP(std::fstream&, BOOL);
 
 		BOOL CheckFace(CCheckFaceInfo* = NULL);
 		BOOL Fix(void);

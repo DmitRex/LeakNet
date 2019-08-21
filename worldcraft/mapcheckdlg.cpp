@@ -263,7 +263,7 @@ void CMapCheckDlg::Fix(int iSel, UpdateBox &ub)
 
 	pError->Fix = Fixed;
 
-	for(i = 0; i < 2; i++)
+	for(int i = 0; i < 2; i++)
 	{
 		if(!pError->pObjects[i])
 			continue;
@@ -545,7 +545,8 @@ static BOOL FindMixedSolids(CMapSolid *pSolid, CListBox *pList)
 	// run thru faces..
 	int iFaces = pSolid->GetFaceCount();
 	int iSolid = 2;	// start off ambivalent
-	for(int i = 0; i < iFaces; i++)
+	int i;
+	for(i = 0; i < iFaces; i++)
 	{
 		CMapFace *pFace = pSolid->GetFace(i);
 

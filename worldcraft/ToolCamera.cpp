@@ -429,7 +429,7 @@ void Camera3D::Update(const Vector &dir, const Vector &pos)
 
 	camPos = pos;
 
-	for(i = 0; i < 3; i++)
+	for(int i = 0; i < 3; i++)
 		lookPos[i] = camPos[i] + dir[i] * length;
 }
 
@@ -485,7 +485,7 @@ void Camera3D::DeleteActiveCamera()
 // Input  : file - 
 //			fIsStoring - 
 //-----------------------------------------------------------------------------
-void Camera3D::SerializeRMF(fstream& file, BOOL fIsStoring)
+void Camera3D::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	float fVersion = 0.2f, fThisVersion;
 

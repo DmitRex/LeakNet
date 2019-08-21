@@ -390,7 +390,7 @@ void CMapOverlay::HandlesRotate( QAngle const &vecAngles )
 	// Rotate the handles.
 	//
 	Vector vecTmp;
-	for ( iHandle = 0; iHandle < OVERLAY_HANDLES_COUNT; iHandle++ )
+	for ( int iHandle = 0; iHandle < OVERLAY_HANDLES_COUNT; iHandle++ )
 	{
 		MatrixMultiply( vecTmp, vecHandles[iHandle], mat );
 		vecTmp += m_Basis.m_vecOrigin;
@@ -430,7 +430,7 @@ void CMapOverlay::HandlesFlip( Vector const &vecRefPoint )
 		vecTexCoords[4-iHandle-1] = m_Material.m_vecTexCoords[iHandle];
 	}
 
-	for ( iHandle = 0; iHandle < OVERLAY_HANDLES_COUNT; iHandle++ )
+	for ( int iHandle = 0; iHandle < OVERLAY_HANDLES_COUNT; iHandle++ )
 	{
 		m_Handles.m_vecBasisCoords[iHandle] = vecCoords[iHandle];
 		m_Material.m_vecTexCoords[iHandle] = vecTexCoords[iHandle];
@@ -496,7 +496,8 @@ void CMapOverlay::HandlesOverlayPlaneToSurf( CMapFace *pFace, Vector const &vecP
 			//
 			// Check to see if a handle lies behind all of the edge planes.
 			//
-			for ( int iEdge = 0; iEdge < nEdgeCount; iEdge++ )
+			int iEdge;
+			for ( iEdge = 0; iEdge < nEdgeCount; iEdge++ )
 			{
 				float flDist = s_Planes[iEdge].normal.Dot( vecPoint ) - s_Planes[iEdge].dist;
 				if( flDist >= 0.0f )
@@ -620,7 +621,7 @@ CMapOverlay::ClipFace_t *CMapOverlay::ClipFaceCreate( int nSize )
 				pClipFace->m_aPoints[iPoint].Init();
 				pClipFace->m_aDispPointUVs[iPoint].Init();
 				
-				for ( i=0; i < NUM_CLIPFACE_TEXCOORDS; i++ )
+				for ( int i=0; i < NUM_CLIPFACE_TEXCOORDS; i++ )
 					pClipFace->m_aTexCoords[i][iPoint].Init();
 			}
 		}
@@ -717,7 +718,8 @@ void CMapOverlay::ClipFaceClip( ClipFace_t *pClipFace, cplane_t *pClipPlane, flo
 	// Determine "sidedness" of all the polygon points.
 	//
 	nSideCounts[0] = nSideCounts[1] = nSideCounts[2] = 0;
-	for ( int iPoint = 0; iPoint < pClipFace->m_nPointCount; iPoint++ )
+	int iPoint;
+	for ( iPoint = 0; iPoint < pClipFace->m_nPointCount; iPoint++ )
 	{
 		flDists[iPoint] = pClipPlane->normal.Dot( pClipFace->m_aPoints.Element( iPoint ) ) - pClipPlane->dist;
 
@@ -785,7 +787,7 @@ void CMapOverlay::ClipFaceClip( ClipFace_t *pClipFace, cplane_t *pClipPlane, flo
 			pFront->m_nPointCount++;
 
 			pBack->m_aPoints[pBack->m_nPointCount] = pClipFace->m_aPoints[iPoint];
-			for ( iTexCoord=0; iTexCoord < NUM_CLIPFACE_TEXCOORDS; iTexCoord++ )
+			for ( int iTexCoord=0; iTexCoord < NUM_CLIPFACE_TEXCOORDS; iTexCoord++ )
 				pBack->m_aTexCoords[iTexCoord][pBack->m_nPointCount] = pClipFace->m_aTexCoords[iTexCoord][iPoint];
 			pBack->m_nPointCount++;
 
@@ -852,7 +854,8 @@ void CMapOverlay::ClipFaceClipBarycentric( ClipFace_t *pClipFace, cplane_t *pCli
 	// Determine "sidedness" of all the polygon points.
 	//
 	nSideCounts[0] = nSideCounts[1] = nSideCounts[2] = 0;
-	for ( int iPoint = 0; iPoint < pClipFace->m_nPointCount; iPoint++ )
+	int iPoint;
+	for ( iPoint = 0; iPoint < pClipFace->m_nPointCount; iPoint++ )
 	{
 		flDists[iPoint] = pClipPlane->normal.Dot( pClipFace->m_aDispPointUVs.Element( iPoint ) ) - pClipPlane->dist;
 
@@ -924,7 +927,7 @@ void CMapOverlay::ClipFaceClipBarycentric( ClipFace_t *pClipFace, cplane_t *pCli
 			pBack->m_aPoints[pBack->m_nPointCount] = pClipFace->m_aPoints[iPoint];
 			pBack->m_aDispPointUVs[pBack->m_nPointCount] = pClipFace->m_aDispPointUVs[iPoint];
 
-			for ( iTexCoord=0; iTexCoord < NUM_CLIPFACE_TEXCOORDS; iTexCoord++ )
+			for ( int iTexCoord=0; iTexCoord < NUM_CLIPFACE_TEXCOORDS; iTexCoord++ )
 				pBack->m_aTexCoords[iTexCoord][pBack->m_nPointCount] = pClipFace->m_aTexCoords[iTexCoord][iPoint];
 
 			ClipFaceCopyBlendFrom( pBack, &pClipFace->m_aBlends[iPoint] );
@@ -1029,7 +1032,7 @@ void CMapOverlay::ClipFacePreClipDisp( ClipFace_t *pClipFace, CMapDisp *pDisp )
 	}
 
 	// Set initial point barycentric blend types.
-	for ( iPoint = 0; iPoint < pClipFace->m_nPointCount; ++iPoint )
+	for ( int iPoint = 0; iPoint < pClipFace->m_nPointCount; ++iPoint )
 	{
 		Vector2D vecDispUV;
 		vecDispUV.x = pClipFace->m_aDispPointUVs[iPoint].x;
@@ -1136,7 +1139,7 @@ void CMapOverlay::ResolveBarycentricClip( CMapDisp *pDisp, ClipFace_t *pClipFace
 	// Check for points - set to a point.
 	if ( nZeroCount == 2 )
 	{
-		for ( iVert = 0; iVert < 3; ++iVert )
+		for ( int iVert = 0; iVert < 3; ++iVert )
 		{
 			if ( !bZeroPoint[iVert] )
 			{
@@ -1150,7 +1153,7 @@ void CMapOverlay::ResolveBarycentricClip( CMapDisp *pDisp, ClipFace_t *pClipFace
 	// Check for edges - setup edge blend.
 	if ( nZeroCount == 1 )
 	{
-		for ( iVert = 0; iVert < 3; ++iVert )
+		for ( int iVert = 0; iVert < 3; ++iVert )
 		{
 			if ( bZeroPoint[iVert] )
 			{
@@ -1891,7 +1894,7 @@ void CMapOverlay::Render3D( CRender3D *pRender )
 		if ( GetSelectionState() == SELECT_NORMAL )
 		{
 			pRender->SetRenderMode( RENDER_MODE_FLAT );
-			for ( iFace = 0; iFace < nFaceCount; iFace++ )
+			for ( int iFace = 0; iFace < nFaceCount; iFace++ )
 			{
 				ClipFace_t *pRenderFace = m_aRenderFaces.Element( iFace );
 				if( !pRenderFace )
@@ -2072,7 +2075,7 @@ void CMapOverlay::DoClipFace( CMapFace *pFace )
 	if ( !pClippedFace )
 		return;
 
-	for ( iPoint = 0; iPoint < pClippedFace->m_nPointCount; iPoint++ )
+	for ( int iPoint = 0; iPoint < pClippedFace->m_nPointCount; iPoint++ )
 	{
 		Vector2D vecUV;
 		PointInQuadToBarycentric( m_pOverlayFace->m_aPoints[0], m_pOverlayFace->m_aPoints[3], 

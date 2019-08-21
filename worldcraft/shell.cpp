@@ -33,17 +33,17 @@ struct ShellDispatchTable_t
 //-----------------------------------------------------------------------------
 ShellDispatchTable_t CShell::m_DispatchTable[] =
 {
-	{ "session_begin", CShell::BeginSession },
-	{ "session_end", CShell::EndSession },
-	{ "entity_create", CShell::EntityCreate },
-	{ "entity_delete", CShell::EntityDelete },
-	{ "map_check_version", CShell::CheckMapVersion },
-	{ "node_create", CShell::NodeCreate },
-	{ "node_delete", CShell::NodeDelete },
-	{ "nodelink_create", CShell::NodeLinkCreate },
-	{ "nodelink_delete", CShell::NodeLinkDelete },
-	{ "release_video_memory", CShell::ReleaseVideoMemory },
-	{ "grab_video_memory", CShell::GrabVideoMemory },
+	{ "session_begin", &CShell::BeginSession },
+	{ "session_end", &CShell::EndSession },
+	{ "entity_create", &CShell::EntityCreate },
+	{ "entity_delete", &CShell::EntityDelete },
+	{ "map_check_version", &CShell::CheckMapVersion },
+	{ "node_create", &CShell::NodeCreate },
+	{ "node_delete", &CShell::NodeDelete },
+	{ "nodelink_create", &CShell::NodeLinkCreate },
+	{ "nodelink_delete", &CShell::NodeLinkDelete },
+	{ "release_video_memory", &CShell::ReleaseVideoMemory },
+	{ "grab_video_memory", &CShell::GrabVideoMemory },
 };
 
 

@@ -1621,7 +1621,7 @@ void CMapDoc::EditPrefab3D(DWORD dwPrefabID)
 //			bRMF - 
 // Output : Returns TRUE on success, FALSE on failure.
 //-----------------------------------------------------------------------------
-BOOL CMapDoc::Serialize(fstream& file, BOOL fIsStoring, BOOL bRMF)
+BOOL CMapDoc::Serialize(std::fstream& file, BOOL fIsStoring, BOOL bRMF)
 {
 	SetActiveMapDoc(this);
 
@@ -1866,7 +1866,7 @@ BOOL CMapDoc::SaveModified(void)
 		{
 		case IDYES:
 			{
-			fstream file;
+			std::fstream file;
 			Serialize(file, 0, 0);
 			return TRUE;
 			}
@@ -1917,7 +1917,7 @@ BOOL CMapDoc::OnOpenDocument(LPCTSTR lpszPathName)
 
 	if ((bRMF) || (bMAP))
 	{
-		fstream file(lpszPathName, ios::in | ios::binary | ios::nocreate);
+		std::fstream file(lpszPathName, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 		if (!file.is_open())
 		{
 			return(FALSE);
@@ -1988,7 +1988,7 @@ BOOL CMapDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	// UNDONE: prefab serialization must be redone
 	if (m_bEditingPrefab)
 	{
-		fstream file;
+		std::fstream file;
 		Serialize(file, 0, 0);
 		SetModifiedFlag(FALSE);
 		OnCloseDocument();
@@ -2050,7 +2050,7 @@ BOOL CMapDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	//
 	// Half-Life used RMFs and MAPs.
 	//
-	fstream file(lpszPathName, ios::out | ios::binary);
+	std::fstream file(lpszPathName, std::ios::out | std::ios::binary);
 	if (!file.is_open())
 	{
 		char szError[_MAX_PATH];
@@ -3224,7 +3224,7 @@ void CMapDoc::OnEditToWorld(void)
 //-----------------------------------------------------------------------------
 void CMapDoc::OnToolsSubtractselection(void)
 {
-	if (Selection_GetCount == 0)
+	if (Selection_GetCount() == 0)
 	{
 		return;
 	}
@@ -5511,7 +5511,7 @@ void CMapDoc::OnViewHideselectedobjects(void)
 	// Place the selected objects in the new group.
 	//
 	nSelCount = Selection_GetCount();
-	for (i = 0; i < nSelCount; i++)
+	for (int i = 0; i < nSelCount; i++)
 	{
 		CMapClass *pObject = Selection_GetObject(i);
 		if (pObject->GetParent() == m_pWorld)
@@ -7254,7 +7254,7 @@ void CMapDoc::OnMapLoadpointfile(void)
 		return;
 	}
 	
-	ifstream file(m_strLastPointFile);
+	std::ifstream file(m_strLastPointFile);
 	char szLine[256];
 	int nLines = 0;
 

@@ -1027,8 +1027,8 @@ BOOL CWorldcraft::PreTranslateMessage(MSG* pMsg)
 //-----------------------------------------------------------------------------
 void CWorldcraft::LoadSequences(void)
 {
-	ifstream file("CmdSeq.wc", ios::in | ios::binary | 
-		ios::nocreate);
+	std::ifstream file("CmdSeq.wc", std::ios::in | std::ios::binary /*|
+		ios::nocreate*/);
 	
 	if(!file.is_open())
 		return;	// none to load
@@ -1079,7 +1079,7 @@ void CWorldcraft::LoadSequences(void)
 //-----------------------------------------------------------------------------
 void CWorldcraft::SaveSequences(void)
 {
-	ofstream file("CmdSeq.wc", ios::out | ios::binary);
+	std::ofstream file("CmdSeq.wc", std::ios::out | std::ios::binary);
 
 	// write header
 	file.write(pszSequenceHdr, strlen(pszSequenceHdr));
@@ -1223,6 +1223,8 @@ int CWorldcraft::Run(void)
 	bool bIdle = true;
 	long lIdleCount = 0;
 
+	MSG msg;
+
 	//
 	// Acquire and dispatch messages until a WM_QUIT message is received.
 	//
@@ -1243,21 +1245,23 @@ int CWorldcraft::Run(void)
 		//
 		// Pump messages until the message queue is empty.
 		//
-		while (::PeekMessage(&m_msgCur, NULL, NULL, NULL, PM_REMOVE))
+		while (::PeekMessage(&msg, NULL, NULL, NULL, PM_REMOVE))
 		{
-			if (m_msgCur.message == WM_QUIT)
+			if (msg.message == WM_QUIT)
 			{
 				return(ExitInstance());
 			}
 
-			if (!PreTranslateMessage(&m_msgCur))
+			_AFX_THREAD_STATE* pState = AfxGetThreadState();
+			pState->m_msgCur = msg;
+			if (!PreTranslateMessage(&msg))
 			{
-				::TranslateMessage(&m_msgCur);
-				::DispatchMessage(&m_msgCur);
+				::TranslateMessage(&msg);
+				::DispatchMessage(&msg);
 			}
 
 			// Reset idle state after pumping idle message.
-			if (IsIdleMessage(&m_msgCur))
+			if (IsIdleMessage(&msg))
 			{
 				bIdle = true;
 				lIdleCount = 0;

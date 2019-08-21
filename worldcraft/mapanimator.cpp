@@ -393,7 +393,7 @@ void CMapAnimator::UpdateAnimation( float animTime )
 
 	// transform back to our new position
 	IdentityMatrix( mat );
-	for ( i = 0; i < 3; i++ )
+	for ( int i = 0; i < 3; i++ )
 	{
 		mat[i][3] = newOrigin[i];
 	}

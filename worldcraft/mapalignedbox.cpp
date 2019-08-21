@@ -276,7 +276,7 @@ void CMapAlignedBox::Render3D(CRender3D *pRender)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapAlignedBox::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapAlignedBox::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -288,7 +288,7 @@ int CMapAlignedBox::SerializeRMF(fstream &File, BOOL bRMF)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapAlignedBox::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapAlignedBox::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

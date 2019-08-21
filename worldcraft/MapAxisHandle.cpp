@@ -270,7 +270,7 @@ void CMapAxisHandle::Render3D(CRender3D *pRender)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-int CMapAxisHandle::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapAxisHandle::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -279,7 +279,7 @@ int CMapAxisHandle::SerializeRMF(fstream &File, BOOL bRMF)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-int CMapAxisHandle::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapAxisHandle::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

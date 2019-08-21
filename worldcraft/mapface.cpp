@@ -1416,7 +1416,7 @@ BOOL CMapFace::ValidLightmapSize( void )
 	//
 	// check for valid lightmap coord dimensions in u and v
 	//
-	for( i = 0; i < 2; i++ )
+	for( int i = 0; i < 2; i++ )
 	{
 		//
 		// bloat points a little
@@ -1463,7 +1463,7 @@ void CMapFace::AdjustLightmapScale( void )
 	//
 	int nMaxIdx = -1;
 	int nMaxWidth = -9999;
-	for( i = 0; i < 2; i++ )
+	for( int i = 0; i < 2; i++ )
 	{
 		int nWidth = ceil( maxCoord[i] ) - floor( minCoord[i] );
 		if( nWidth > nMaxWidth )
@@ -2809,7 +2809,7 @@ void CMapFaceList::Intersect(CMapFaceList &IntersectWith, CMapFaceList &In, CMap
 	//
 	// Now go the other way.
 	//
-	for (i = 0; i < IntersectWith.Count(); i++)
+	for (int i = 0; i < IntersectWith.Count(); i++)
 	{
 		CMapFace *pFace = IntersectWith.Element(i);
 
@@ -2864,7 +2864,7 @@ void CMapFaceIDList::Intersect(CMapFaceIDList &IntersectWith, CMapFaceIDList &In
 	//
 	// Now go the other way.
 	//
-	for (i = 0; i < IntersectWith.Count(); i++)
+	for (int i = 0; i < IntersectWith.Count(); i++)
 	{
 		int nFaceID = IntersectWith.Element(i);
 

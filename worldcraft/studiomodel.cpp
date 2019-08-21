@@ -945,7 +945,7 @@ void StudioModel::RotateBbox(Vector &Mins, Vector &Maxs, const QAngle &Angles)
 	//
 	// Calculate the new mins and maxes.
 	//
-	for (i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		for (int nDim = 0; nDim < 3; nDim++)
 		{

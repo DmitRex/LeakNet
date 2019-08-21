@@ -656,7 +656,7 @@ void CMainFrame::UpdateAllDocViews(DWORD dwCmd)
 // Input  : bActive - TRUE to activate, FALSE to deactivate.
 //			hTask - task becoming active.
 //-----------------------------------------------------------------------------
-void CMainFrame::OnActivateApp(BOOL bActive, HTASK hTask)
+void CMainFrame::OnActivateApp(BOOL bActive, DWORD hTask)
 {
 	APP()->OnActivateApp(bActive == TRUE);
 }
@@ -887,7 +887,7 @@ BOOL CMainFrame::OnView3dChangeBrightness(UINT nID)
 //			The tool itself is set by the OnSetActive handler for each property
 //			page of the face properties sheet.
 //-----------------------------------------------------------------------------
-void CMainFrame::OnApplicator(UINT nID)
+BOOL CMainFrame::OnApplicator(UINT nID)
 {
 	bool bNewFaceEditMode = !IsInFaceEditMode();
 
@@ -900,6 +900,8 @@ void CMainFrame::OnApplicator(UINT nID)
 	{
 		g_pToolManager->SetTool(TOOL_POINTER);
 	}
+
+	return TRUE;
 }
 
 
@@ -1005,11 +1007,13 @@ static void OpenURL(const char *pszURL, HWND hWnd)
 // Purpose: Opens the URL that corresponds to the given string ID. This is used
 //			to hook menu items to URLs in the string table.
 //-----------------------------------------------------------------------------
-void CMainFrame::OnHelpOpenURL(int nID)
+BOOL CMainFrame::OnHelpOpenURL(UINT nID)
 {
 	CString str;
 	str.LoadString(nID);
 	OpenURL(str, m_hWnd);
+
+	return TRUE;
 }
 
 
@@ -1121,9 +1125,9 @@ BOOL CMainFrame::OnFileNew(UINT)
 // dvs: This really needs to be a text file instead of a binary file!
 // Input  : *pFile - 
 //-----------------------------------------------------------------------------
-void CMainFrame::SaveWindowStates(fstream *pFile)
+void CMainFrame::SaveWindowStates(std::fstream *pFile)
 {
-	fstream file("winstate.wc", ios::out | ios::binary);
+	std::fstream file("winstate.wc", std::ios::out | std::ios::binary);
 
 	CMapDoc *pDoc = CMapDoc::GetActiveMapDoc();
 	if (pDoc == NULL)
@@ -1199,9 +1203,9 @@ void CMainFrame::SaveWindowStates(fstream *pFile)
 // Purpose: 
 // Input  : pFile - 
 //-----------------------------------------------------------------------------
-void CMainFrame::LoadWindowStates(fstream *pFile)
+void CMainFrame::LoadWindowStates(std::fstream *pFile)
 {
-	fstream file("winstate.wc", ios::in | ios::nocreate | ios::binary);
+	std::fstream file("winstate.wc", std::ios::in /*| ios::nocreate*/ | std::ios::binary);
 
 	if (!file.is_open())
 	{
@@ -1385,7 +1389,7 @@ void CMainFrame::OnLoadwindowstate(void)
 // Purpose: Changes the format of the units displayed in the status bar.
 // Input  : nID - Menu ID corresponding to a units format.
 //-----------------------------------------------------------------------------
-void CMainFrame::OnUnits(int nID)
+BOOL CMainFrame::OnUnits(UINT nID)
 {
 	switch (nID)
 	{
@@ -1409,6 +1413,7 @@ void CMainFrame::OnUnits(int nID)
 	}
 
 	CMapDoc::GetActiveMapDoc()->UpdateStatusbar();
+	return TRUE;
 }
 
 

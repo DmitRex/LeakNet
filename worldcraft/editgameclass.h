@@ -9,7 +9,7 @@
 #define EDITGAMECLASS_H
 #pragma once
 
-#include <fstream.h>
+#include <fstream>
 #include "BlockArray.h"
 #include "EntityDefs.h"
 #include "GameData.h"
@@ -96,8 +96,8 @@ class CEditGameClass
 
 		ChunkFileResult_t SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInfo);
 
-		int SerializeRMF(fstream&, BOOL);
-		int SerializeMAP(fstream&, BOOL);
+		int SerializeRMF(std::fstream&, BOOL);
+		int SerializeMAP(std::fstream&, BOOL);
 
 		virtual void SetClass(LPCTSTR pszClassname, bool bLoading = false);
 		CEditGameClass *CopyFrom(CEditGameClass *pFrom);

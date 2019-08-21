@@ -193,7 +193,7 @@ void CPrefab::FreeAllData()
 CPrefab::pfiletype_t CPrefab::CheckFileType(LPCTSTR pszFilename)
 {
 	// first check extensions
-	char *p = strrchr(pszFilename, '.');
+	const char *p = strrchr(pszFilename, '.');
 	if(p)
 	{
 		if(!_strcmpi(p, ".rmf"))
@@ -204,7 +204,7 @@ CPrefab::pfiletype_t CPrefab::CheckFileType(LPCTSTR pszFilename)
 			return pftScript;
 	}
 
-	fstream file(pszFilename, ios::in | ios::binary | ios::nocreate);
+	std::fstream file(pszFilename, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 
 	// read first 16 bytes of file
 	char szBuf[255];
@@ -229,7 +229,7 @@ CPrefab::pfiletype_t CPrefab::CheckFileType(LPCTSTR pszFilename)
 	int i = 500;
 	while(i--)
 	{
-		file.eatwhite();
+		file >> std::ws;
 		file.getline(szBuf, 255);
 		if(szBuf[0] == '{')
 			return pftMAP;
@@ -328,9 +328,9 @@ void CPrefabLibrary::Sort(void)
 //-----------------------------------------------------------------------------
 void CPrefabLibrary::SetNameFromFilename(LPCTSTR pszFilename)
 {
-	char *p = strrchr(pszFilename, '\\');
-	strcpy(m_szName, p ? (p + 1) : pszFilename);
-	p = strchr(m_szName, '.');
+	const char *cp = strrchr(pszFilename, '\\');
+	strcpy(m_szName, cp ? (cp + 1) : pszFilename);
+	char *p = strchr(m_szName, '.');
 	if (p != NULL)
 	{
 		p[0] = '\0';
@@ -558,7 +558,7 @@ int CPrefabLibraryRMF::Load(LPCTSTR pszFilename)
 	m_eType = LibType_HalfLife;
 
 	// open file
-	m_file.open(pszFilename, ios::in | ios::binary | ios::nocreate);
+	m_file.open(pszFilename, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 	m_strOpenFileName = pszFilename;
 	
 	if(!m_file.is_open())
@@ -650,7 +650,7 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 			_close(iHandle);
 		}
 
-		fstream file(m_strOpenFileName, ios::binary | ios::out);
+		std::fstream file(m_strOpenFileName, std::ios::binary | std::ios::out);
 
 		// write string header
 		file << pLibHeader;
@@ -687,7 +687,7 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 		file.close();
 
 		// re-open
-		m_file.open(m_strOpenFileName, ios::in | ios::binary | ios::nocreate);
+		m_file.open(m_strOpenFileName, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 		return 1;
 	}
 
@@ -717,8 +717,8 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 
 	// open temp file to save to.. then delete & rename old one.
 	CString strTempFileName = "Temporary Prefab Library.$$$";
-	fstream file;
-	file.open(strTempFileName, ios::binary | ios::out);
+	std::fstream file;
+	file.open(strTempFileName, std::ios::binary | std::ios::out);
 
 	// write string header
 	file << pLibHeader;
@@ -777,7 +777,7 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 
 		// set size info
 		ph[iCur].dwSize = pPrefab->dwFileSize = 
-			file.tellp() - ph[iCur].dwOffset;
+			file.tellp() - (std::streamoff)ph[iCur].dwOffset;
 
 		++iCur;	// increase current directory entry
 	}
@@ -789,7 +789,7 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 	plh.dwDirOffset = m_dwDirOffset = file.tellp();
 	file.seekp(dwBinaryHeaderOffset);
 	file.write((char*)&plh, sizeof(plh));
-	file.seekp(0, ios::end);
+	file.seekp(0, std::ios::end);
 
 	// write directory
 	file.write((char*)ph, sizeof(*ph) * plh.dwNumEntries);
@@ -803,7 +803,7 @@ int CPrefabLibraryRMF::Save(LPCTSTR pszFilename, BOOL bIndexOnly)
 	int iRvl = rename(strTempFileName, m_strOpenFileName);
 	
 	// reopen original
-	m_file.open(m_strOpenFileName, ios::in | ios::binary | ios::nocreate);
+	m_file.open(m_strOpenFileName, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 
 	return 1;
 }
@@ -841,7 +841,7 @@ int CPrefabLibraryRMF::SetName(LPCTSTR pszName)
 	// rename and reopen
 	rename(m_strOpenFileName, szNewFilename);
 	m_strOpenFileName = szNewFilename;
-	m_file.open(m_strOpenFileName, ios::in | ios::binary | ios::nocreate);
+	m_file.open(m_strOpenFileName, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 
 	return 1;
 }

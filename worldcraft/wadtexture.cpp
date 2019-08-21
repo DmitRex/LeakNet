@@ -264,7 +264,7 @@ int CWADTexture::GetKeywords(char *pszKeywords) const
 	//
 	if (pszKeywords != NULL)
 	{
-		char *pszLastSlash = strrchr(m_szFileName, '\\');
+		const char *pszLastSlash = strrchr(m_szFileName, '\\');
 		if (pszLastSlash != NULL)
 		{
 			pszLastSlash++;

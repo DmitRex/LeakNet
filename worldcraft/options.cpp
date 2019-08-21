@@ -99,7 +99,7 @@ int COptionsConfigs::ImportOldGameConfigs(const char *pszFileName)
 {
 	int nConfigsRead = 0;
 
-	fstream file(pszFileName, ios::in | ios::binary | ios::nocreate);
+	std::fstream file(pszFileName, std::ios::in | std::ios::binary /*| ios::nocreate*/);
 	if (file.is_open())
 	{
 		// Read sig.

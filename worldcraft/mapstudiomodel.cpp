@@ -1,4 +1,4 @@
-F//========= Copyright © 1996-2001, Valve LLC, All rights reserved. ============
+//========= Copyright © 1996-2001, Valve LLC, All rights reserved. ============
 //
 // Purpose: 
 //
@@ -494,7 +494,7 @@ void CMapStudioModel::Render3D(CRender3D *pRender)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapStudioModel::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapStudioModel::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -506,7 +506,7 @@ int CMapStudioModel::SerializeRMF(fstream &File, BOOL bRMF)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapStudioModel::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapStudioModel::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

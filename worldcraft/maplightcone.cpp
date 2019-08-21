@@ -539,7 +539,7 @@ void CMapLightCone::Render3D(CRender3D *pRender)
 		//
 		pRender->SetRenderMode(RENDER_MODE_WIREFRAME);
 
-		for (i = 0; i < m_Faces.Count(); i++)
+		for (int i = 0; i < m_Faces.Count(); i++)
 		{
 			CMapFace *pFace = m_Faces.Element(i);
 
@@ -565,7 +565,7 @@ void CMapLightCone::Render3D(CRender3D *pRender)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapLightCone::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapLightCone::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -577,7 +577,7 @@ int CMapLightCone::SerializeRMF(fstream &File, BOOL bRMF)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapLightCone::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapLightCone::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

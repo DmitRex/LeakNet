@@ -332,7 +332,7 @@ ChunkFileResult_t CEditGameClass::SaveVMF(CChunkFile *pFile, CSaveInfo *pSaveInf
 		// For each variable from the base class...
 		//
 		int nVariableCount = pGameDataClass->GetVariableCount();
-		for (i = 0; i < nVariableCount; i++)
+		for (int i = 0; i < nVariableCount; i++)
 		{
 			GDinputvariable *pVar = pGameDataClass->GetVariableAt(i);
 			ASSERT(pVar != NULL);

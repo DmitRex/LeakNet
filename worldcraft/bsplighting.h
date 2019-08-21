@@ -40,7 +40,7 @@ public:
 	virtual void			Draw();
 
 
-private:
+//private:
 	class CVert
 	{
 	public:

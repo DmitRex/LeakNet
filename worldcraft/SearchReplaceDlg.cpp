@@ -433,7 +433,7 @@ BOOL CSearchReplaceDlg::OnFindReplace(UINT uCmd)
 
 	static FindObject_t FindObject;
 	static CMapClass *pLastFound = NULL;
-	static nReplaceCount = 0;
+	static int nReplaceCount = 0;
 
 	bool bDone = false;
 

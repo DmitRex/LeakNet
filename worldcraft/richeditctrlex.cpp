@@ -76,11 +76,13 @@ CRTFBuilder &doUnderline(CRTFBuilder &r, bool b)
 }
 
 
+/*
 CRTFBuilder &doFont(CRTFBuilder &r, int n)
 {
 	r.font(n);
 	return r;
 }
+*/
 
 
 CRTFBuilder &doColor(CRTFBuilder &r, int n)
@@ -129,10 +131,12 @@ CIntManip size(int n) throw()
 }
 
 
+/*
 CIntManip font(int n) throw()
 {
 	return CIntManip(&doFont, n);
 }
+*/
 
 
 CIntManip color(int n) throw()

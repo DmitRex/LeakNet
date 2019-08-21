@@ -273,7 +273,7 @@ void CMapPointHandle::Render3D(CRender3D *pRender)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-int CMapPointHandle::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapPointHandle::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -282,7 +282,7 @@ int CMapPointHandle::SerializeRMF(fstream &File, BOOL bRMF)
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-int CMapPointHandle::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapPointHandle::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

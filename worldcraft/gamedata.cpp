@@ -583,7 +583,7 @@ CGameConfig::CGameConfig(void)
 //			fVersion - 
 // Output : Returns TRUE on success, FALSE on failure.
 //-----------------------------------------------------------------------------
-BOOL CGameConfig::Import(fstream& file, float fVersion)
+BOOL CGameConfig::Import(std::fstream& file, float fVersion)
 {
 	file.read(szName, sizeof szName);
 	file.read((char*)&nGDFiles, sizeof nGDFiles);
@@ -784,7 +784,7 @@ bool CGameConfig::Save(const char *pszFileName, const char *pszSection)
 
 	char szExcludeDir[MAX_PATH];
 	WritePrivateProfileString(pszSection, "MaterialExcludeCount", itoa( m_MaterialExcludeCount, szKey, 10 ), pszFileName );
-	for( i = 0; i < m_MaterialExcludeCount; i++ )
+	for( int i = 0; i < m_MaterialExcludeCount; i++ )
 	{
 		sprintf( &szExcludeDir[0], "-MaterialExcludeDir%d", i );
 		WritePrivateProfileString(pszSection, szExcludeDir, m_szMaterialExcludeDirs[i], pszFileName ); 
@@ -798,7 +798,7 @@ bool CGameConfig::Save(const char *pszFileName, const char *pszSection)
 // Purpose: 
 // Input  : file - 
 //-----------------------------------------------------------------------------
-void CGameConfig::Save(fstream &file)
+void CGameConfig::Save(std::fstream &file)
 {
 	file.write(szName, sizeof szName);
 	file.write((char*)&nGDFiles, sizeof nGDFiles);

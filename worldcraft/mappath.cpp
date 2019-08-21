@@ -100,7 +100,8 @@ DWORD CMapPath::GetNewNodeID(void)
 	DWORD dwNewID = 1;
 	while(1)
 	{
-		for(int iNode = 0; iNode < m_nNodes; iNode++)
+		int iNode;
+		for(iNode = 0; iNode < m_nNodes; iNode++)
 		{
 			if(m_Nodes[iNode].dwID == dwNewID)
 				break;
@@ -185,7 +186,7 @@ void CMapPath::DeleteNode(DWORD dwID)
 // Input  : file - 
 //			fIsStoring - 
 //-----------------------------------------------------------------------------
-void CMapPath::SerializeRMF(fstream& file, BOOL fIsStoring)
+void CMapPath::SerializeRMF(std::fstream& file, BOOL fIsStoring)
 {
 	int iSize;
 
@@ -289,7 +290,7 @@ void CMapPath::GetNodeName(int iIndex, int iName, CString& str)
 //			fIsStoring - 
 //			*pIntersecting - 
 //-----------------------------------------------------------------------------
-void CMapPath::SerializeMAP(fstream& file, BOOL fIsStoring, BoundBox *pIntersecting)
+void CMapPath::SerializeMAP(std::fstream& file, BOOL fIsStoring, BoundBox *pIntersecting)
 {
 	if(m_nNodes == 0)
 		return;
@@ -413,7 +414,7 @@ SaveAgain:
 		int nKeyValues = kv.GetCount(); 
 		for (int k = 0; k < nKeyValues; k++)
 		{
-			MDkeyvalue &KeyValue = kv.GetKeyValue(i);
+			MDkeyvalue &KeyValue = kv.GetKeyValue(k);
 			if (KeyValue.szKey[0] != '\0')
 			{
 				KeyValue.SerializeMAP(file, TRUE);

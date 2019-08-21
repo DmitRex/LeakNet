@@ -541,7 +541,8 @@ void GDinputvariable::Merge(GDinputvariable &Other)
 	for (int i = 0; i < Other.m_nItems; i++)
 	{
 		GDIVITEM &TheirItem = Other.m_Items[i];
-		for (int j = 0; j < nOurItems; j++)
+		int j;
+		for (j = 0; j < nOurItems; j++)
 		{
 			GDIVITEM &OurItem = m_Items[j];
 			if (TheirItem.iValue == OurItem.iValue)

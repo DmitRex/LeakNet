@@ -375,7 +375,7 @@ void StripOffMaterialDirectory( const char *pszDirectoryName, char *pszName )
 	pszName[0] = '\0';
 
 	// create a lower case version of the string
-	char *pLowerCase = __strlwr( _strdup( pszDirectoryName ) );
+	char *pLowerCase = _strlwr( _strdup( pszDirectoryName ) );
 	char *pAtMat = strstr( pLowerCase, "materials" );
 	if( !pAtMat )
 		return;

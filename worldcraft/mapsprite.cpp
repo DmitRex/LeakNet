@@ -489,7 +489,7 @@ void CMapSprite::Render3D(CRender3D *pRender)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapSprite::SerializeRMF(fstream &File, BOOL bRMF)
+int CMapSprite::SerializeRMF(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }
@@ -501,7 +501,7 @@ int CMapSprite::SerializeRMF(fstream &File, BOOL bRMF)
 //			bRMF - 
 // Output : int
 //-----------------------------------------------------------------------------
-int CMapSprite::SerializeMAP(fstream &File, BOOL bRMF)
+int CMapSprite::SerializeMAP(std::fstream &File, BOOL bRMF)
 {
 	return(0);
 }

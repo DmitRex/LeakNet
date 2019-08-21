@@ -13,7 +13,7 @@
 #include <afxtempl.h>
 
 
-class fstream;
+#include <fstream>
 
 
 #define KEYVALUE_MAX_KEY_LENGTH			80
@@ -40,8 +40,8 @@ class MDkeyvalue
 		//
 		// Serialization functions.
 		//
-		int SerializeRMF(fstream &f, BOOL bRMF);
-		int SerializeMAP(fstream &f, BOOL bRMF);
+		int SerializeRMF(std::fstream &f, BOOL bRMF);
+		int SerializeMAP(std::fstream &f, BOOL bRMF);
 
 		char szKey[KEYVALUE_MAX_KEY_LENGTH];			// The name of this key.
 		char szValue[KEYVALUE_MAX_VALUE_LENGTH];		// The value of this key, stored as a string.
