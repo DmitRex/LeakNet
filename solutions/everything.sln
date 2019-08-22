@@ -403,6 +403,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client_hl2", "..\cl_dll\cli
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_controls", "..\vgui2\game_controls\game_controls.vcxproj", "{3A949797-67AF-402F-9DBB-C040F5B4CAC3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "launcher", "..\launcher\launcher.vcxproj", "{2FCD0FE7-93CC-4497-B14E-F12871D363FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug CounterStrike|x86 = Debug CounterStrike|x86
@@ -1870,6 +1876,28 @@ Global
 		{3A949797-67AF-402F-9DBB-C040F5B4CAC3}.Release|x86.Build.0 = Release|Win32
 		{3A949797-67AF-402F-9DBB-C040F5B4CAC3}.Template|x86.ActiveCfg = Template|Win32
 		{3A949797-67AF-402F-9DBB-C040F5B4CAC3}.Template|x86.Build.0 = Template|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug CounterStrike|x86.ActiveCfg = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug CounterStrike|x86.Build.0 = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug HL1|x86.ActiveCfg = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug HL1|x86.Build.0 = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug HL2|x86.ActiveCfg = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug HL2|x86.Build.0 = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug TF2|x86.ActiveCfg = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug TF2|x86.Build.0 = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug|x86.ActiveCfg = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Debug|x86.Build.0 = Debug|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release CounterStrike|x86.ActiveCfg = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release CounterStrike|x86.Build.0 = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release HL1|x86.ActiveCfg = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release HL1|x86.Build.0 = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release HL2|x86.ActiveCfg = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release HL2|x86.Build.0 = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release TF2|x86.ActiveCfg = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release TF2|x86.Build.0 = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release|x86.ActiveCfg = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release|x86.Build.0 = Release|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Template|x86.ActiveCfg = Template|Win32
+		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
