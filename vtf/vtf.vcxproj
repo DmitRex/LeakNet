@@ -92,6 +92,7 @@ copy "$(TargetPath)" ..\lib\public\vtf.lib
 if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\vtf.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

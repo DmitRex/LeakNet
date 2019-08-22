@@ -103,6 +103,7 @@ copy "$(TargetPath)" ..\..\..\bin
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying to bin</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

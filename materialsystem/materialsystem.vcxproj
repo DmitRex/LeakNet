@@ -183,6 +183,7 @@ if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
 if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" ..\..\bin\MaterialSystem.map </Command>
       <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

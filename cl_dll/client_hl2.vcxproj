@@ -487,6 +487,7 @@ copy $(TargetDir)client.dll .\..\..\hl1\bin </Command>
 copy "$(TargetDir)client.dll" .\..\..\hl2\bin </Command>
       <Message>Copying to hl2\bin</Message>
       <Outputs>.\..\..\hl2\bin\client.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)client.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release HL1|Win32'">

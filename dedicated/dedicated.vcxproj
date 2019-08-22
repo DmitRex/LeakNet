@@ -152,6 +152,7 @@ copy "$(TargetPath)" ..\..\bin\hlds.exe
 if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map 
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

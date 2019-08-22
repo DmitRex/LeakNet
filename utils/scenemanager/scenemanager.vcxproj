@@ -115,6 +115,7 @@
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
       <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

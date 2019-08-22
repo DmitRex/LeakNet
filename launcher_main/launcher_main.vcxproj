@@ -184,6 +184,7 @@ attrib -r ..\..\hl2.dat
 ..\..\bin\newdat ..\..\hl2.exe</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\hl2.exe;..\..\tf2.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

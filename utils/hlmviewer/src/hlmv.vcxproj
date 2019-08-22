@@ -163,6 +163,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
 copy "$(TargetPath)" ..\..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\..\bin\$(TargetName).map" </Command>
       <Outputs>..\..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

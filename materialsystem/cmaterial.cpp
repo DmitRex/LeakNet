@@ -309,7 +309,7 @@ void IMaterialInternal::Destroy( IMaterialInternal* pMaterial )
 CMaterial::CMaterial( char const* materialName, bool bCreatedFromFile )
 {
 	int len = strlen(materialName);
-	char* pTemp = (char*)_alloca( len + 1 );
+	char* pTemp = (char*)_malloca( len + 1 );
 	strcpy( pTemp, materialName );
 	Q_strlower( pTemp );
 

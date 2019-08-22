@@ -228,6 +228,7 @@ copy "$(TargetPath)" ..\..\..\bin\unittest.exe
 if exist "$(TargetDir)unittest.map" copy "$(TargetDir)unittest.map" ..\..\..\bin\unittest.map </Command>
       <Message>Publishing to target directory...</Message>
       <Outputs>..\..\..\bin\unittest.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

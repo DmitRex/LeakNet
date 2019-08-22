@@ -168,6 +168,7 @@
       <Command>if exist ..\..\bin\wc.exe attrib -r ..\..\bin\wc.exe 
 if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
       <Outputs>..\..\bin\wc.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)wc.exe;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK Debug|Win32'">

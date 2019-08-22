@@ -176,6 +176,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBr
 if not exist ..\..\..\Platform\Servers\ mkdir ..\..\..\Platform\Servers\
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBrowser.dll </Command>
       <Outputs>..\..\..\Platform\Servers\ServerBrowser.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

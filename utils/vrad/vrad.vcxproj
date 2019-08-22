@@ -173,6 +173,7 @@ copy "$(TargetPath)" "..\..\..\bin\$(TargetName).dll"
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

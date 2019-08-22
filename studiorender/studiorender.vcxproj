@@ -162,6 +162,7 @@ if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\.
 copy "$(TargetPath)" ..\..\bin\studiorender.dll 
 if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\..\bin\studiorender.map </Command>
       <Outputs>..\..\bin\studiorender.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

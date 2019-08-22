@@ -160,6 +160,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll </Co
       <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll </Command>
       <Outputs>..\..\..\bin\shaderapidx9.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

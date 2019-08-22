@@ -155,6 +155,7 @@ if exist "$(TargetDir)vvis.exe" copy "$(TargetDir)vvis.exe" ..\..\..\bin\vvis.ex
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 
 if exist "$(TargetDir)vvis.exe" copy "$(TargetDir)vvis.exe" ..\..\..\bin\vvis.exe </Command>
       <Outputs>..\..\..\bin\vvis.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)vvis.exe;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

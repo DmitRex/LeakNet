@@ -161,6 +161,7 @@ if exist "$(TargetDir)vrad.exe" copy "$(TargetDir)vrad.exe" ..\..\..\bin\vrad.ex
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 
 if exist "$(TargetDir)vrad.exe" copy "$(TargetDir)vrad.exe" ..\..\..\bin\vrad.exe </Command>
       <Outputs>..\..\..\bin\vrad.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)vrad.exe;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

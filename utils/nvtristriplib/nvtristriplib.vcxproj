@@ -146,6 +146,7 @@ if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\li
       <Command>if exist ..\..\lib\public\nvtristrip.lib attrib -r ..\..\lib\public\nvtristrip.lib 
 if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\lib\public\nvtristrip.lib </Command>
       <Outputs>..\..\lib\public\nvtristrip.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)nvtristrip.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

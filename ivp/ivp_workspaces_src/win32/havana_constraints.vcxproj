@@ -148,6 +148,7 @@
       <Command>if exist ..\..\..\lib\common\havana_constraints.lib attrib -r ..\..\..\lib\common\havana_constraints.lib 
 copy "$(TargetPath)" ..\..\..\lib\common\havana_constraints.lib </Command>
       <Outputs>..\..\..\lib\common\havana_constraints.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

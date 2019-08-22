@@ -224,6 +224,7 @@ copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
 copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
