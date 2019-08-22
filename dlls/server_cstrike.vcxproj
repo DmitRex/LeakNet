@@ -590,13 +590,12 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\tf2\bin\server
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>../game_shared/cstrike;./;../Public;../game_shared;../utils/common;../dlls;../dlls/cstrike;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;fopen=dont_use_fopen;CSTRIKE_DLL;USES_SAVERESTORE;GAME_DLL;sprintf=use_Q_snprintf_instead_of_sprintf;_WINDOWS;VECTOR;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WIN32;PROTECTED_THINGS_ENABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug_CounterStrike\</AssemblerListingLocation>

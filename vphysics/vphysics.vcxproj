@@ -109,12 +109,11 @@ if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vp
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\ivp\IVP_INTERN;..\ivp\IVP_COLLISION;..\ivp\IVP_PHYSICS;..\ivp\IVP_SURFACE_MANAGER;..\ivp\IVP_UTILITY;..\ivp\IVP_CONTROLLER;..\ivp\IVP_COMPACT_BUILDER;..\ivp\havana\havok;..\ivp\havana;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;_DEBUG;_WIN32;WIN32;_USRDLL;VPHYSICS_EXPORTS;ENABLE_IVP_MOPP;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WINDOWS;HAVANA_CONSTRAINTS;HAVOK_MOPP;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>

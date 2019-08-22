@@ -115,12 +115,11 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll </Co
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>$(FrameworkSDKDir)\include;..\..\common;..\..\public;..\..\dx9sdk\include;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;SHADERAPIDX9;_WIN32;IMAGE_LOADER_NO_DXTC;WIN32;_USRDLL;SHADER_DLL_EXPORT;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WINDOWS;PROTECTED_THINGS_ENABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\shaderdx8___Win32_Debug\</AssemblerListingLocation>

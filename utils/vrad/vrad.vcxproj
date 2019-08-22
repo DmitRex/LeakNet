@@ -129,12 +129,11 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\common;..\..\Public;..\..\common;..\vmpi;..\vmpi\mysql\mysqlpp\include;..\vmpi\mysql\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;_WIN32;_USRDLL;WIN32;_WINDOWS;MPI;PROTECTED_THINGS_DISABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\vrad___Win32_Debug\</AssemblerListingLocation>

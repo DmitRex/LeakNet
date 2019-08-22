@@ -133,12 +133,11 @@ if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" 
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\common;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>fopen=dont_use_fopen;_DEBUG;_WIN32;DEFINE_MATERIALSYSTEM_INTERFACE;WIN32;_USRDLL;MATERIALSYSTEM_EXPORTS;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WINDOWS;PROTECTED_THINGS_ENABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>

@@ -480,13 +480,12 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\hl1\bin\server
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>../game_shared/hl2;./;../Public;../game_shared;../utils/common;../dlls;../../dlls;../dlls/hl2_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HL2_DLL;USES_SAVERESTORE;_DEBUG;fopen=dont_use_fopen;GAME_DLL;sprintf=use_Q_snprintf_instead_of_sprintf;_WINDOWS;VECTOR;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WIN32;PROTECTED_THINGS_ENABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug_hl2\</AssemblerListingLocation>

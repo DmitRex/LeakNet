@@ -113,13 +113,12 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <AdditionalIncludeDirectories>..\..\..\statemachine;..\..\mxtk\include;..\..\common;..\..\..\Public;..\..\..\Game_Shared;..\..\..\game_shared\tf2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>VECTOR;WIN32;_WINDOWS;PROTECTED_THINGS_DISABLE;_DEBUG;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>

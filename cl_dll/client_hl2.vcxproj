@@ -437,13 +437,12 @@ copy $(TargetDir)client.dll .\..\..\hl1\bin </Command>
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>.\hl2_dll;.\hl2_hud;.\hl2_hud\elements;.;.\..\Public;.\..\vgui2\include;.\..\vgui2\controls;../game_shared;../game_shared/hl2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HL2_CLIENT_DLL;_DEBUG;fopen=dont_use_fopen;NO_STRING_T;CLIENT_DLL;_WINDOWS;VECTOR;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;_WIN32;PROTECTED_THINGS_ENABLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\cl_dll___Win32_HL2_Debug\</AssemblerListingLocation>
