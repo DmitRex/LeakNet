@@ -254,6 +254,11 @@ void S_Init (void)
 
 	g_pFileSystem->GetLocalCopy( "mss32.dll" ); // vaudio_miles.dll will load this...
 	g_pVAudioModule = FileSystem_LoadModule( "vaudio_miles.dll" );
+	if ( g_pVAudioModule == NULL ) // VXP: If mss32.dll isn't found
+	{
+		Error( "Unable to found mss32.dll" );
+	}
+
 	CreateInterfaceFn vaudioFactory = Sys_GetFactory( g_pVAudioModule );
 	vaudio = (IVAudio *)vaudioFactory( VAUDIO_INTERFACE_VERSION, NULL );
 	
