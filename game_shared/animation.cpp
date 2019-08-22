@@ -19,11 +19,11 @@
 #include "ai_activity.h"
 #include "animation.h"
 #include "bone_setup.h"
-#include "util.h"
 #include "scriptevent.h"
 #include "npcevent.h"
 
 #if !defined( CLIENT_DLL )
+#include "util.h"
 #include "enginecallback.h"
 #endif
 

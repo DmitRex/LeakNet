@@ -498,7 +498,7 @@ void ScorePanel::SortTeams()
 	}
 
 	// recalc the team scores, then draw them
-	for ( i = 1; i < MAX_PLAYERS; i++ )
+	for ( int i = 1; i < MAX_PLAYERS; i++ )
 	{
 		if ( g_PlayerInfoList[i].name == NULL )
 			continue; // empty player slot, skip
@@ -507,7 +507,8 @@ void ScorePanel::SortTeams()
 			continue; // skip over players who are not in a team
 
 		// find what team this player is in
-		for ( int j = 1; j <= m_iNumTeams; j++ )
+		int j;
+		for ( j = 1; j <= m_iNumTeams; j++ )
 		{
 			if ( !_stricmp( g_PlayerExtraInfo[i].teamname, g_TeamInfo[j].name ) )
 				break;
@@ -534,7 +535,7 @@ void ScorePanel::SortTeams()
 	}
 
 	// find team ping/packetloss averages
-	for ( i = 1; i <= m_iNumTeams; i++ )
+	for ( int i = 1; i <= m_iNumTeams; i++ )
 	{
 		g_TeamInfo[i].already_drawn = FALSE;
 
@@ -551,7 +552,7 @@ void ScorePanel::SortTeams()
 		int highest_frags = -99999; int lowest_deaths = 99999;
 		int best_team = 0;
 
-		for ( i = 1; i <= m_iNumTeams; i++ )
+		for ( int i = 1; i <= m_iNumTeams; i++ )
 		{
 			if ( g_TeamInfo[i].players < 1 )
 				continue;
@@ -658,7 +659,7 @@ void ScorePanel::RebuildTeams()
 	GetAllPlayersInfo();
 
 	m_iNumTeams = 0;
-	for ( i = 1; i < MAX_PLAYERS; i++ )
+	for ( int i = 1; i < MAX_PLAYERS; i++ )
 	{
 		if ( g_PlayerInfoList[i].name == NULL )
 			continue;
@@ -667,7 +668,8 @@ void ScorePanel::RebuildTeams()
 			continue; // skip over players who are not in a team
 
 		// is this player in an existing team?
-		for ( int j = 1; j <= m_iNumTeams; j++ )
+		int j;
+		for ( j = 1; j <= m_iNumTeams; j++ )
 		{
 			if ( g_TeamInfo[j].name[0] == '\0' )
 				break;
@@ -694,7 +696,7 @@ void ScorePanel::RebuildTeams()
 	}
 
 	// clear out any empty teams
-	for ( i = 1; i <= m_iNumTeams; i++ )
+	for ( int i = 1; i <= m_iNumTeams; i++ )
 	{
 		if ( g_TeamInfo[i].players < 1 )
 			memset( &g_TeamInfo[i], 0, sizeof(team_info_t) );
@@ -1048,7 +1050,7 @@ void ScorePanel::FillGrid()
 		}
 	}
 
-	for(row=0; row < NUM_ROWS; row++)
+	for(int row=0; row < NUM_ROWS; row++)
 	{
 		CGrid *pGridRow = m_PlayerGrids[row];
 

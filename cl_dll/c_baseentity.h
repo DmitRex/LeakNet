@@ -179,9 +179,11 @@ struct thinkfunc_t
 //-----------------------------------------------------------------------------
 class C_BaseEntity : public IClientEntity
 {
+public:
 // Construction
 	DECLARE_CLASS_NOBASE( C_BaseEntity );
 
+private:
 	friend class CPrediction;
 
 public:

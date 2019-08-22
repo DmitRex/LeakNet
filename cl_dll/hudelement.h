@@ -13,6 +13,7 @@
 #include "hud.h"
 #include "hud_element_helper.h"
 #include "crtdbg.h"
+#include "networkvar.h"
 
 //-----------------------------------------------------------------------------
 // Purpose: Base class for all hud elements

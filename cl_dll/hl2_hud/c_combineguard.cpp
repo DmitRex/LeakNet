@@ -207,8 +207,9 @@ bool CSphereTrails::SimulateAndRender( Particle *pInParticle, ParticleDraw *pDra
 
 class CCombineGuardParticleEffect : public CParticleEffect
 {
-	DECLARE_CLASS( CCombineGuardParticleEffect, CParticleEffect );
 public:
+	DECLARE_CLASS( CCombineGuardParticleEffect, CParticleEffect );
+
 	CCombineGuardParticleEffect( const char *pDebugName, const Vector &origin ) :
 		CParticleEffect( pDebugName )
 	{
