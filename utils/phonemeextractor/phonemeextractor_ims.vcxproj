@@ -113,6 +113,7 @@
       <OutputFile>DebugIMS/phonemeextractor_ims.dll</OutputFile>
       <ImportLibrary>.\DebugIMS\phonemeextractor_ims.lib</ImportLibrary>
       <AdditionalDependencies>talkback_ds.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\phonemeextractors\$(TargetName).dll" attrib -r "..\..\..\bin\phonemeextractors\$(TargetName).dll" 

@@ -92,6 +92,7 @@
       <ImportLibrary>.\Debug\tier0.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\common;..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\tier0.dll attrib -r ..\..\bin\tier0.dll  

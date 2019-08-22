@@ -116,6 +116,7 @@
       <ImportLibrary>.\Debug\launcher.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\public;..\lib\common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;wsock32.lib;odbc32.lib;odbccp32.lib;..\dx8sdk\lib\dinput8.lib;..\dx8sdk\lib\ddraw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>attrib -r ..\..\bin\launcher.dll 

@@ -170,6 +170,7 @@ if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\
       <OutputFile>.\Debug\unitlib.dll</OutputFile>
       <ImportLibrary>.\Debug\unitlib.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\unitlib.dll attrib -r ..\..\bin\unitlib.dll  

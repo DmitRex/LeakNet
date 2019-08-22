@@ -155,6 +155,7 @@ if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\.
       <AdditionalLibraryDirectories>..\lib\public;..\lib\common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <BaseAddress>0x2C000000</BaseAddress>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\studiorender.dll attrib -r ..\..\bin\studiorender.dll 

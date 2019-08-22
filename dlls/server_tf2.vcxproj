@@ -577,6 +577,7 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\hl2\bin\server
       <AdditionalLibraryDirectories>..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <BaseAddress>0x22000000</BaseAddress>
       <AdditionalDependencies>winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\tf2\bin\server.dll attrib -r ..\..\tf2\bin\server.dll 

@@ -159,6 +159,7 @@
       <OutputFile>debug_nvfx/shader_nvfx.dll</OutputFile>
       <ImportLibrary>debug_nvfx/shader_nvfx.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shader_nvfx.dll attrib -r ..\..\..\bin\shader_nvfx.dll 

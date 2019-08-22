@@ -182,6 +182,7 @@ copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"</Command
       <OutputFile>.\Debug\GameUI.dll</OutputFile>
       <ImportLibrary>.\Debug\GameUI.lib</ImportLibrary>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  

@@ -114,6 +114,7 @@
       <OutputFile>.\shader_nvfx___Win32_Debug_ps20\shader_nvfx_ps20.dll</OutputFile>
       <ImportLibrary>.\shader_nvfx___Win32_Debug_ps20\shader_nvfx.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 

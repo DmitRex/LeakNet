@@ -169,6 +169,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBr
       <OutputFile>.\Debug\ServerBrowser.dll</OutputFile>
       <ImportLibrary>.\Debug\ServerBrowser.lib</ImportLibrary>
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\Platform\Servers\ServerBrowser.dll attrib -r ..\..\..\Platform\Servers\ServerBrowser.dll 

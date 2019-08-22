@@ -116,6 +116,7 @@
       </ForceFileOutput>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  

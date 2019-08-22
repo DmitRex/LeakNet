@@ -164,6 +164,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll </
       <OutputFile>Debug/shaderapiempty.dll</OutputFile>
       <ImportLibrary>.\Debug\shaderapiempty.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\..\lib\common;..\..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 

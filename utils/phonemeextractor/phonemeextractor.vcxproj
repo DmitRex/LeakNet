@@ -302,6 +302,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
       <OutputFile>.\Debug\phonemeextractor.dll</OutputFile>
       <ImportLibrary>.\Debug\phonemeextractor.lib</ImportLibrary>
       <AdditionalDependencies>talkback_dd.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\phonemeextractors\$(TargetName).dll" attrib -r "..\..\..\bin\phonemeextractors\$(TargetName).dll" 

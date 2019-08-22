@@ -91,6 +91,7 @@
       <OutputFile>.\Debug_dx6\stdshader_dx6.dll</OutputFile>
       <ImportLibrary>.\Debug_dx6\stdshader_dx6.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dx6.dll attrib -r ..\..\..\bin\stdshader_dx6.dll 

@@ -220,6 +220,7 @@ if exist "$(TargetDir)unittest.map" copy "$(TargetDir)unittest.map" ..\..\..\bin
       <OutputFile>.\Debug\unittest.exe</OutputFile>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>unitlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\unittest.exe attrib -r ..\..\..\bin\unittest.exe 

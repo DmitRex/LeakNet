@@ -97,6 +97,7 @@
       <OutputFile>.\Debug_hdr_dx9\stdshader_hdr_dx9.dll</OutputFile>
       <ImportLibrary>.\Debug_hdr_dx9\stdshader_hdr_dx9.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_hdr_dx9.dll attrib -r ..\..\..\bin\stdshader_hdr_dx9.dll 

@@ -149,6 +149,7 @@ if exist "$(TargetDir)vvis.exe" copy "$(TargetDir)vvis.exe" ..\..\..\bin\vvis.ex
       <SubSystem>Console</SubSystem>
       <OutputFile>Debug/vvis.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 

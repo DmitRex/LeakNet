@@ -143,6 +143,7 @@ if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map
       <OutputFile>.\Debug\dedicated.exe</OutputFile>
       <AdditionalLibraryDirectories>..\lib\common;..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>wsock32.lib;odbc32.lib;odbccp32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\hlds.exe attrib -r ..\..\bin\hlds.exe 

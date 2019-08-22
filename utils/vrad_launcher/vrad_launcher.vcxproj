@@ -155,6 +155,7 @@ if exist "$(TargetDir)vrad.exe" copy "$(TargetDir)vrad.exe" ..\..\..\bin\vrad.ex
       <SubSystem>Console</SubSystem>
       <OutputFile>Debug/vrad.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 

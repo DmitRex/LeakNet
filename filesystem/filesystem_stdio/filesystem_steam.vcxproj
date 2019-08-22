@@ -115,6 +115,7 @@
       <ImportLibrary>.\Debug_STEAM\filesystem_steam.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\public;..\..\lib\common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\FileSystem_Steam.dll attrib -r ..\..\..\bin\FileSystem_Steam.dll 

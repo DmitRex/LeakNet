@@ -258,6 +258,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\FileSystem_Stdio.dll 
       <OutputFile>.\Debug\filesystem_stdio.dll</OutputFile>
       <ImportLibrary>.\Debug\filesystem_stdio.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\public;..\..\lib\common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\FileSystem_Stdio.dll attrib -r ..\..\..\bin\FileSystem_Stdio.dll 

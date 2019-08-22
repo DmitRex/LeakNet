@@ -91,6 +91,7 @@
       <OutputFile>.\Debug_dx8\stdshader_dx8.dll</OutputFile>
       <ImportLibrary>.\Debug_dx8\stdshader_dx8.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 

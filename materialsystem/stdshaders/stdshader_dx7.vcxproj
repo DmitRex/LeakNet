@@ -113,6 +113,7 @@
       <OutputFile>Debug_dx7/stdshader_dx7.dll</OutputFile>
       <ImportLibrary>Debug_dx7/stdshader_dx7.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common\;..\..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dx7.dll attrib -r ..\..\..\bin\stdshader_dx7.dll 

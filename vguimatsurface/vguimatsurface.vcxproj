@@ -116,6 +116,7 @@
       <ImportLibrary>.\Debug\vguimatsurface.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>vgui_surfacelib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
