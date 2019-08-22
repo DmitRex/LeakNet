@@ -387,6 +387,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "server_cstrike", "..\dlls\s
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "server_tf2", "..\dlls\server_tf2.vcxproj", "{A9945F43-482A-4E47-8B7D-1696FAC009B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug CounterStrike|x86 = Debug CounterStrike|x86
@@ -1788,6 +1794,28 @@ Global
 		{098180A5-E4C4-4538-9978-54765EF9136F}.Release|x86.Build.0 = Release CounterStrike|Win32
 		{098180A5-E4C4-4538-9978-54765EF9136F}.Template|x86.ActiveCfg = Template|Win32
 		{098180A5-E4C4-4538-9978-54765EF9136F}.Template|x86.Build.0 = Template|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug CounterStrike|x86.ActiveCfg = Debug CounterStrike|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug CounterStrike|x86.Build.0 = Debug CounterStrike|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug HL1|x86.ActiveCfg = Debug HL1|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug HL1|x86.Build.0 = Debug HL1|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug HL2|x86.ActiveCfg = Debug HL2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug HL2|x86.Build.0 = Debug HL2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug TF2|x86.ActiveCfg = Debug TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug TF2|x86.Build.0 = Debug TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug|x86.ActiveCfg = Debug TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Debug|x86.Build.0 = Debug TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release CounterStrike|x86.ActiveCfg = Release CounterStrike|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release CounterStrike|x86.Build.0 = Release CounterStrike|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release HL1|x86.ActiveCfg = Release HL1|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release HL1|x86.Build.0 = Release HL1|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release HL2|x86.ActiveCfg = Release HL2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release HL2|x86.Build.0 = Release HL2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release TF2|x86.ActiveCfg = Release TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release TF2|x86.Build.0 = Release TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release|x86.ActiveCfg = Release TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Release|x86.Build.0 = Release TF2|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Template|x86.ActiveCfg = Template|Win32
+		{A9945F43-482A-4E47-8B7D-1696FAC009B1}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

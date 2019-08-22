@@ -51,8 +51,9 @@ ConVar	weapon_combat_plasmarifle_ducking_mod( "weapon_combat_plasmarifle_ducking
 //-----------------------------------------------------------------------------
 class CWeaponCombatPlasmaRifle : public CWeaponCombatUsedWithShieldBase
 {
-	DECLARE_CLASS( CWeaponCombatPlasmaRifle, CWeaponCombatUsedWithShieldBase );
 public:
+	DECLARE_CLASS( CWeaponCombatPlasmaRifle, CWeaponCombatUsedWithShieldBase );
+
 	DECLARE_NETWORKCLASS();
 	DECLARE_PREDICTABLE();
 #if !defined( CLIENT_DLL )

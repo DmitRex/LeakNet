@@ -35,8 +35,9 @@ enum target_ranges
 // ------------------------------------------------------------------------ //
 class CObjectSentrygun : public CBaseObject
 {
-	DECLARE_CLASS( CObjectSentrygun, CBaseObject );
 public:
+	DECLARE_CLASS( CObjectSentrygun, CBaseObject );
+
 	DECLARE_DATADESC();
 	DECLARE_SERVERCLASS();
 

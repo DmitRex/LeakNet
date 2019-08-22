@@ -141,7 +141,7 @@ void CFireDamageMgr::FrameUpdatePostEntityThink()
 
 		// Figure out each attacker's contribution.
 		float flContributionPercent[CDamageEnt::MAX_ATTACKERS];
-		for ( i=0; i < pEnt->m_nAttackers; i++ )
+		for ( int i=0; i < pEnt->m_nAttackers; i++ )
 			flContributionPercent[i] = pEnt->m_Attackers[i].m_flVelocity / flTotalVelocity;
 		
 		
@@ -153,7 +153,7 @@ void CFireDamageMgr::FrameUpdatePostEntityThink()
 		if ( flTotalVelocity > m_flMaxDamagePerSecond )
 			flPercentScale = m_flMaxDamagePerSecond / flTotalVelocity;
 
-		for ( i=0; i < pEnt->m_nAttackers; i++ )
+		for ( int i=0; i < pEnt->m_nAttackers; i++ )
 		{
 			CDamageAttacker *pAttacker = &pEnt->m_Attackers[i];
 

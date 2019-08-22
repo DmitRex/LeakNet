@@ -50,8 +50,9 @@ class CBasePlasmaProjectile : public CBaseParticleEntity
 , public IScorer
 #endif
 {
-	DECLARE_CLASS( CBasePlasmaProjectile, CBaseParticleEntity );
 public:
+	DECLARE_CLASS( CBasePlasmaProjectile, CBaseParticleEntity );
+
 	CBasePlasmaProjectile();
 	~CBasePlasmaProjectile();
 
