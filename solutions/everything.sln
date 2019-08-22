@@ -312,6 +312,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unittest", "..\utils\unittest\unittest.vcxproj", "{F0DA9C37-FBC5-4A12-831C-89F70CAA7DDA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{83618132-680F-491F-8DE6-73EECEACC393} = {83618132-680F-491F-8DE6-73EECEACC393}
+		{385EE5AF-9279-4EF9-A098-11BB542AB5F5} = {385EE5AF-9279-4EF9-A098-11BB542AB5F5}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bsppack", "..\utils\bsppack\bsppack.vcxproj", "{5D0FD3EE-350F-42E0-9EFA-DFC68E3BC62B}"
