@@ -15,9 +15,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <SccProjectName>game_controls</SccProjectName>
+    <SccProjectName>"$/Src/launcher_main", COYDAAAA</SccProjectName>
     <SccLocalPath>.</SccLocalPath>
-    <ProjectGuid>{3A949797-67AF-402F-9DBB-C040F5B4CAC3}</ProjectGuid>
+    <ProjectGuid>{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
@@ -25,13 +25,13 @@
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
@@ -76,35 +76,57 @@
     <ClCompile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <Optimization>MaxSpeed</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <WarningLevel>Level3</WarningLevel>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalIncludeDirectories>..\..\public;..\..\common;..\..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <StringPooling>true</StringPooling>
+      <AdditionalIncludeDirectories>..\common;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;fopen=dont_use_fopen;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Release\game_controls.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile>.\Release\launcher_main.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
     </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\launcher_main.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Release\game_controls.bsc</OutputFile>
+      <OutputFile>.\Release\launcher_main.bsc</OutputFile>
     </Bscmake>
-    <Lib>
+    <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Release\game_controls.lib</OutputFile>
-    </Lib>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release\launcher_main.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions> /FIXED:NO</AdditionalOptions>
+      <AdditionalDependencies>user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <CustomBuildStep>
-      <Command>if exist "..\..\lib\public\$(TargetName).lib" attrib -r "..\..\lib\public\$(TargetName).lib" 
-if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public </Command>
-      <Outputs>..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
+      <Command>if exist ..\..\hl2.exe attrib -r ..\..\hl2.exe  
+copy "$(TargetPath)" ..\..\hl2.exe  
+if exist ..\..\tf2.exe attrib -r ..\..\tf2.exe  
+copy "$(TargetPath)" ..\..\tf2.exe  
+if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\tf2.map  
+if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\hl2.map  
+attrib -r ..\..\tf2.dat  
+attrib -r ..\..\hl2.dat  
+..\..\bin\newdat ..\..\tf2.exe  
+..\..\bin\newdat ..\..\hl2.exe</Command>
+      <Message>Publishing to target directory (..\..\bin\)...</Message>
+      <Outputs>..\..\hl2.exe;..\..\tf2.exe;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,67 +138,62 @@ if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>..\..\public;..\..\common;..\..\game_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\common;..\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;fopen=dont_use_fopen;_WIN32;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
-      <PrecompiledHeaderOutputFile>.\Debug\game_controls.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderOutputFile>.\Debug\launcher_main.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\launcher_main.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\game_controls.bsc</OutputFile>
+      <OutputFile>.\Debug\launcher_main.bsc</OutputFile>
     </Bscmake>
-    <Lib>
+    <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\game_controls.lib</OutputFile>
-    </Lib>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Debug\launcher_main.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\lib\common\;..\lib\public\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
     <CustomBuildStep>
-      <Command>if exist "..\..\lib\public\$(TargetName).lib" attrib -r "..\..\lib\public\$(TargetName).lib" 
-if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public </Command>
-      <Outputs>..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
+      <Command>if exist ..\..\hl2.exe attrib -r ..\..\hl2.exe  
+copy "$(TargetPath)" ..\..\hl2.exe  
+if exist ..\..\tf2.exe attrib -r ..\..\tf2.exe  
+copy "$(TargetPath)" ..\..\tf2.exe  
+if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\tf2.map  
+if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\hl2.map  
+attrib -r ..\..\tf2.dat  
+attrib -r ..\..\hl2.dat  
+..\..\bin\newdat ..\..\tf2.exe  
+..\..\bin\newdat ..\..\hl2.exe</Command>
+      <Message>Publishing to target directory (..\..\bin\)...</Message>
+      <Outputs>..\..\hl2.exe;..\..\tf2.exe;%(Outputs)</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="classmenu.cpp" />
-    <ClCompile Include="clientmotd.cpp" />
-    <ClCompile Include="ClientScoreBoardDialog.cpp" />
-    <ClCompile Include="CommandMenu.cpp" />
-    <ClCompile Include="MapOverview.cpp" />
-    <ClCompile Include="SpectatorGUI.cpp" />
-    <ClCompile Include="teammenu.cpp" />
-    <ClCompile Include="vguitextwindow.cpp" />
-    <ClCompile Include="vgui_TeamFortressViewport.cpp" />
-    <ClCompile Include="vgui_TeamFortressViewport_msgs.cpp">
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\cl_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
+    <ResourceCompile Include="launcher_main.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\public\cl_dll\IVGuiClientDll.h" />
-    <ClInclude Include="..\..\public\game_controls\classmenu.h" />
-    <ClInclude Include="..\..\public\game_controls\clientmotd.h" />
-    <ClInclude Include="..\..\public\game_controls\ClientScoreBoardDialog.h" />
-    <ClInclude Include="..\..\public\game_controls\iscoreboardinterface.h" />
-    <ClInclude Include="..\..\public\game_controls\ispectatorinterface.h" />
-    <ClInclude Include="..\..\public\game_controls\iviewport.h" />
-    <ClInclude Include="..\..\public\game_controls\iviewportmsgs.h" />
-    <ClInclude Include="..\..\public\game_controls\MapOverview.h" />
-    <ClInclude Include="..\..\public\game_controls\mouseoverhtmlbutton.h" />
-    <ClInclude Include="..\..\public\game_controls\mouseoverpanelbutton.h" />
-    <ClInclude Include="..\..\public\game_controls\SpectatorGUI.h" />
-    <ClInclude Include="..\..\public\game_controls\teammenu.h" />
-    <ClInclude Include="..\..\public\game_controls\utlqueue.h" />
-    <ClInclude Include="..\..\public\game_controls\vguitextwindow.h" />
-    <ClInclude Include="..\..\public\game_controls\vgui_TeamFortressViewport.h" />
-    <ClInclude Include="MiniMap.h" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\launcher\res\launcher.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

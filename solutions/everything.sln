@@ -409,6 +409,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "launcher", "..\launcher\lau
 		{1A10F3F3-66AD-4897-9268-A7BA41CC3A39} = {1A10F3F3-66AD-4897-9268-A7BA41CC3A39}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "launcher_main", "..\launcher_main\launcher_main.vcxproj", "{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug CounterStrike|x86 = Debug CounterStrike|x86
@@ -1898,6 +1900,28 @@ Global
 		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Release|x86.Build.0 = Release|Win32
 		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Template|x86.ActiveCfg = Template|Win32
 		{2FCD0FE7-93CC-4497-B14E-F12871D363FF}.Template|x86.Build.0 = Template|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug CounterStrike|x86.ActiveCfg = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug CounterStrike|x86.Build.0 = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug HL1|x86.ActiveCfg = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug HL1|x86.Build.0 = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug HL2|x86.ActiveCfg = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug HL2|x86.Build.0 = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug TF2|x86.ActiveCfg = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug TF2|x86.Build.0 = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug|x86.ActiveCfg = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Debug|x86.Build.0 = Debug|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release CounterStrike|x86.ActiveCfg = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release CounterStrike|x86.Build.0 = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release HL1|x86.ActiveCfg = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release HL1|x86.Build.0 = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release HL2|x86.ActiveCfg = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release HL2|x86.Build.0 = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release TF2|x86.ActiveCfg = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release TF2|x86.Build.0 = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release|x86.ActiveCfg = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Release|x86.Build.0 = Release|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Template|x86.ActiveCfg = Template|Win32
+		{50EFFCAA-9FD3-44F5-B50F-14E5BCBF5DA3}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
