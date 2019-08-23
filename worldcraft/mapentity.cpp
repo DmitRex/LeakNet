@@ -796,7 +796,7 @@ void CMapEntity::AssignNodeID(void)
 {
 	char szID[80];
 	CMapDoc *pDoc = CMapDoc::GetActiveMapDoc();
-	itoa(pDoc->GetNextNodeID(), szID, 10);
+	_itoa(pDoc->GetNextNodeID(), szID, 10);
 	SetKeyValue("nodeid", szID);
 }
 

@@ -23,3 +23,5 @@ Worldcraft: include/ignore nafxcwd.lib;Libcmtd.lib for non-Unicode, and uafxcwd.
 			https://stackoverflow.com/questions/1146338/error-lnk2005-new-and-delete-already-defined-in-libcmtd-libnew-obj
 
 ?Переделать shader_nvfx и shader_nvfx_ps20? Не вмешиваясь в проекты с Notepad++
+
+Partial commits: https://stackoverflow.com/questions/32527097/can-you-do-partial-commit-in-tortoisegit/32527098

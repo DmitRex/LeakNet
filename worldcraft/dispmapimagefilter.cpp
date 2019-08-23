@@ -108,7 +108,7 @@ ChunkFileResult_t CDispMapImageFilter::LoadImageKeyCallback( const char *szKey, 
 		bInitMemory = false;
 	}
 
-	if( !strnicmp( szKey, "row", 3 ) )
+	if( !_strnicmp( szKey, "row", 3 ) )
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy( szBuf, szValue );

@@ -29,6 +29,7 @@ materialsystem_fixed_green_shader
 .vs/
 UpgradeLog*.htm
 *.filters
+enc_temp_folder/
 
 
 *.bak

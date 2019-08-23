@@ -122,7 +122,7 @@ void CPickAnglesTarget::OnNotifyPickAngles(const Vector &vecPos)
 			VectorAngles(vecForward, angFace);
 
 			// HACK: lights negate pitch
-			if (pEntity->GetClassName() && (!strnicmp(pEntity->GetClassName(), "light_", 6)))
+			if (pEntity->GetClassName() && (!_strnicmp(pEntity->GetClassName(), "light_", 6)))
 			{
 				angFace[PITCH] *= -1;
 			}
@@ -133,7 +133,7 @@ void CPickAnglesTarget::OnNotifyPickAngles(const Vector &vecPos)
 			pEntity->SetKeyValue("angles", szAngles);
 
 			// HACK: lights have a separate "pitch" key
-			if (pEntity->GetClassName() && (!strnicmp(pEntity->GetClassName(), "light_", 6)))
+			if (pEntity->GetClassName() && (!_strnicmp(pEntity->GetClassName(), "light_", 6)))
 			{
 				char szPitch[20];
 				sprintf(szPitch, "%.0f", angFace[PITCH]);
@@ -2161,7 +2161,7 @@ void COP_Entity::OnBrowse(void)
 			APP()->GetFirstSearchDir(eSearchDir, szStripDir, pos);
 			while ((pos != NULL) && (pszCopy == NULL))
 			{
-				if (!strnicmp(dlg.m_ofn.lpstrFile, szStripDir, strlen(szStripDir)))
+				if (!_strnicmp(dlg.m_ofn.lpstrFile, szStripDir, strlen(szStripDir)))
 				{
 					pszCopy = &dlg.m_ofn.lpstrFile[strlen(szStripDir)];
 				}

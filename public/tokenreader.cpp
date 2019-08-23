@@ -91,6 +91,17 @@ trtoken_t TokenReader::GetString(char *pszStore, int nSize)
 		//
 		get(szBuf, sizeof(szBuf), '\"');
 
+		if (eof())
+		{
+			return TOKENEOF;
+		}
+
+		if (fail()) // VXP: Fixes Worldcraft hang when adding a new .fgd file
+		{
+			// Just means nothing was read (empty string probably "")
+			clear();
+		}
+
 		//
 		// Transfer the text to the destination buffer.
 		//

@@ -365,24 +365,24 @@ ChunkFileResult_t CSmoothingGroupMgr::LoadSmoothingGroupCallback( CChunkFile *pF
 ChunkFileResult_t CSmoothingGroupMgr::LoadSmoothingGroupKeyCallback( const char *szKey, const char *szValue, SmoothingGroup_t *pGroup )
 {
 	int nId;
-	if ( !strnicmp( szKey, "id", 2 ) )
+	if ( !_strnicmp( szKey, "id", 2 ) )
 	{
 		CChunkFile::ReadKeyValueInt( szValue, pGroup->m_nID );
 	}
 
-	if ( !strnicmp( szKey, "angle", 5 ) )
+	if ( !_strnicmp( szKey, "angle", 5 ) )
 	{
 		CChunkFile::ReadKeyValueFloat( szValue, pGroup->m_flSmoothingAngle );
 	}
 
-	if ( !strnicmp( szKey, "number_faces", 12 ) )
+	if ( !_strnicmp( szKey, "number_faces", 12 ) )
 	{
 		int nFaceCount;
 		CChunkFile::ReadKeyValueInt( szValue, nFaceCount );
 		pGroup->m_aFaces.SetSize( nFaceCount );
 	}
 
-	if ( !strnicmp(szKey, "row", 3 ) )
+	if ( !_strnicmp(szKey, "row", 3 ) )
 	{
 		CMapDoc *pDoc = CMapDoc::GetActiveMapDoc();
 

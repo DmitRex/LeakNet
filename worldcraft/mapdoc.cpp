@@ -516,7 +516,7 @@ void CMapDoc::AssignToGroups(void)
 			{
 				int nID = GetNextNodeID();
 				char szID[80];
-				itoa(nID, szID, 10);
+				_itoa(nID, szID, 10);
 				pEntity->SetKeyValue("nodeid", szID);
 			}
 		}
@@ -2002,7 +2002,7 @@ BOOL CMapDoc::OnSaveDocument(LPCTSTR lpszPathName)
 	strcpy(szFile, lpszPathName);
 	szFile[strlen(szFile) - 1] = 'x';
 
-	if (access(lpszPathName, 0) != -1)
+	if (_access(lpszPathName, 0) != -1)
 	{
 		if (!CopyFile(lpszPathName, szFile, FALSE))
 		{
@@ -3866,6 +3866,10 @@ void CMapDoc::OnFileSaveAs(void)
 		}
 	}
 
+	// VXP: NOTE: >VS2015 fails to SetPathName because of _AfxSHCreateItemFromParsingName in CRecentFileList::Add throws ERROR_FILE_NOT_FOUND
+	// https://stackoverflow.com/questions/46951257/cdocumentsetpathname-crash-in-vs2015
+//	SetPathName(str);
+	OnSaveDocument(str);
 	SetPathName(str);
 	OnSaveDocument(str);
 }
@@ -4311,7 +4315,7 @@ void CMapDoc::OnFileRunmap(void)
 		cmd.bUseProcessWnd = FALSE;
 		cmd.bNoWait = TRUE;
 		strcpy(cmd.szRun, m_pGame->szExecutable);
-		sprintf(cmd.szParms, "%s +map $file", dlg.m_strQuakeParms);
+		sprintf(cmd.szParms, "%s +map $file", dlg.m_strQuakeParms.GetString());
 		cmds.Add(cmd);
 	}
 
@@ -4815,7 +4819,7 @@ void CMapDoc::OnToolsHollow(void)
 	//
 	static int iWallWidth = 32;
 	char szBuf[128];
-	itoa(iWallWidth, szBuf, 10);
+	_itoa(iWallWidth, szBuf, 10);
 	CStrDlg dlg(CStrDlg::Spin, szBuf, "How thick do you want the walls? Use a negative number to hollow outward.", "Worldcraft");
 	dlg.SetRange(-1024, 1024, 4);
 	if (dlg.DoModal() == IDCANCEL)
@@ -5342,7 +5346,7 @@ bool CMapDoc::ExpandTargetNameKeywords(char *szNewTargetName, const char *szOldT
 					// If the prefix and the suffix match ours, extract the instance number
 					// from between them and check it against our highest instance number.
 					//
-					if ((strnicmp(szTemp, szPrefix, nPrefixLen) == 0) && (_stricmp(pszTempSuffix, szSuffix) == 0))
+					if ((_strnicmp(szTemp, szPrefix, nPrefixLen) == 0) && (_stricmp(pszTempSuffix, szSuffix) == 0))
 					{
 						*pszTempSuffix = '\0';
 
@@ -6013,7 +6017,7 @@ static char * FindInString(char *pszSub, char *pszMain)
 	{
 		if(ch1 == toupper(p[0]))
 		{
-			if(!strnicmp(pszSub, p, nSub))
+			if(!_strnicmp(pszSub, p, nSub))
 				return p;
 		}
 		++p;
@@ -8096,7 +8100,7 @@ void CMapDoc::InternalEnableLightPreview( bool bCustomFilename )
 	if( !m_pBSPLighting->Load( finalPath ) )
 	{
 		char str[256];
-		_snprintf( str, sizeof(str), "Can't load lighting from '%s'.", finalPath );
+		_snprintf( str, sizeof(str), "Can't load lighting from '%s'.", finalPath.GetString() );
 		AfxMessageBox( str );
 	}
 

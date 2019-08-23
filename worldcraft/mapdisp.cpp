@@ -2540,7 +2540,7 @@ ChunkFileResult_t CMapDisp::LoadDispDistancesKeyCallback(const char *szKey, cons
 {
 	float dispDistance;
 
-	if (!strnicmp(szKey, "row", 3))
+	if (!_strnicmp(szKey, "row", 3))
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy(szBuf, szValue);
@@ -2587,7 +2587,7 @@ ChunkFileResult_t CMapDisp::LoadDispOffsetsKeyCallback(const char *szKey, const 
 {
 	Vector subdivVector;
 
-	if( !strnicmp( szKey, "row", 3 ) )
+	if( !_strnicmp( szKey, "row", 3 ) )
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy( szBuf, szValue );
@@ -2645,7 +2645,7 @@ ChunkFileResult_t CMapDisp::LoadDispOffsetNormalsKeyCallback(const char *szKey, 
 {
 	Vector normalVector;
 
-	if( !strnicmp( szKey, "row", 3 ) )
+	if( !_strnicmp( szKey, "row", 3 ) )
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy( szBuf, szValue );
@@ -2779,7 +2779,7 @@ ChunkFileResult_t CMapDisp::LoadDispAlphasKeyCallback(const char *szKey, const c
 {
 	float alpha;
 
-	if (!strnicmp(szKey, "row", 3))
+	if (!_strnicmp(szKey, "row", 3))
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy(szBuf, szValue);
@@ -2819,7 +2819,7 @@ ChunkFileResult_t CMapDisp::LoadDispTriangleTagsKeyCallback(const char *szKey, c
 {
 	unsigned short nTriTag;
 
-	if ( !strnicmp( szKey, "row", 3 ) )
+	if ( !_strnicmp( szKey, "row", 3 ) )
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy( szBuf, szValue );
@@ -2867,7 +2867,7 @@ ChunkFileResult_t CMapDisp::LoadDispNormalsKeyCallback(const char *szKey, const 
 {
 	Vector vectorFieldVector;
 
-	if (!strnicmp(szKey, "row", 3))
+	if (!_strnicmp(szKey, "row", 3))
 	{
 		char szBuf[MAX_KEYVALUE_LEN];
 		strcpy(szBuf, szValue);

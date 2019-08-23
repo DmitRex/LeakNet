@@ -495,7 +495,7 @@ void CWorldcraft::Help(const char *pszTopic)
 	if (hResult <= (HINSTANCE)32)
 	{
 		char szError[MAX_PATH];
-		sprintf(szError, "The help system could not be launched. The the following error was returned:\n%s (0x%X)", GetErrorString(), hResult);
+		sprintf(szError, "The help system could not be launched. The the following error was returned:\n%s (0x%p)", GetErrorString(), hResult);
 		AfxMessageBox(szError);
 	}
 }

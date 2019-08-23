@@ -50,7 +50,7 @@ CMapClass *CMapSprite::CreateMapSprite(CHelperInfo *pHelperInfo, CMapEntity *pPa
 	// Remove the materials prefix...
 	if (pszSprite)
 	{
-		if (!strnicmp(pszSprite, "materials", 9) && ((pszSprite[9] == '/') || (pszSprite[9] == '\\')) )
+		if (!_strnicmp(pszSprite, "materials", 9) && ((pszSprite[9] == '/') || (pszSprite[9] == '\\')) )
 			pszSprite += 10;
 	}
 

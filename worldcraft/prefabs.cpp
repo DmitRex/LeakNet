@@ -220,7 +220,7 @@ CPrefab::pfiletype_t CPrefab::CheckFileType(LPCTSTR pszFilename)
 	}
 
 	// check 2: script
-	if(!strnicmp(szBuf, "[Script", 7))
+	if(!_strnicmp(szBuf, "[Script", 7))
 	{
 		return pftScript;
 	}

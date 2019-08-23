@@ -553,6 +553,11 @@ void CObjectProperties::RestoreActivePage(void)
 	{
 		if (m_ppPages[i] == m_pLastActivePage)
 		{
+			// VXP: Prevent from crash when changing views
+			// VXP: FIXME: There should be another, more proper way to beat this crash off
+			if ( m_pLastActivePage->m_hWnd == NULL )
+				continue;
+
 			SetActivePage(m_pLastActivePage);
 			bPageSet = true;
 			break;

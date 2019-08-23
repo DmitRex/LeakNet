@@ -584,6 +584,6 @@ void CEditGameClass::SetSpawnFlag(int nFlags, bool bSet)
 void CEditGameClass::SetSpawnFlags(int nSpawnFlags)
 {
 	char szValue[80];
-	itoa(nSpawnFlags, szValue, 10);
+	_itoa(nSpawnFlags, szValue, 10);
 	SetKeyValue("spawnflags", nSpawnFlags);
 }

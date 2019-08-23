@@ -474,7 +474,7 @@ static int __cdecl SortGraphicsProc(const void *elem1, const void *elem2)
 	if (IsSortChr(ch1) && !IsSortChr(ch2))
 	{
 		int iFamilyLen = strlen(pszName1+2);
-		int iFamily = strnicmp(pszName1+2, pszName2, iFamilyLen);
+		int iFamily = _strnicmp(pszName1+2, pszName2, iFamilyLen);
 		if (!iFamily)
 		{
 			return(-1);	// same family - put elem1 before elem2
@@ -484,7 +484,7 @@ static int __cdecl SortGraphicsProc(const void *elem1, const void *elem2)
 	else if (!IsSortChr(ch1) && IsSortChr(ch2))
 	{
 		int iFamilyLen = strlen(pszName2+2);
-		int iFamily = strnicmp(pszName1, pszName2+2, iFamilyLen);
+		int iFamily = _strnicmp(pszName1, pszName2+2, iFamilyLen);
 		if (!iFamily)
 		{
 			return(1);	// same family - put elem2 before elem1

@@ -626,7 +626,7 @@ void GDinputvariable::ToKeyValue(MDkeyvalue *pkv)
 	}
 	else if (eStoreAs == INTEGER)
 	{
-		itoa(m_nValue, pkv->szValue, 10);
+		_itoa(m_nValue, pkv->szValue, 10);
 	}
 }
 

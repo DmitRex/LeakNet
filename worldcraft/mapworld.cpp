@@ -601,7 +601,7 @@ void CMapWorld::CullTree_DumpNode(CCullTreeNode *pNode, int nDepth)
 		for (int nObject = 0; nObject < nObjectCount; nObject++)
 		{
 			CMapClass *pMapClass = pNode->GetCullTreeObject(nObject);
-			sprintf(szText, "%*c %X %s\n", nDepth, ' ', pMapClass, pMapClass->GetType());
+			sprintf(szText, "%*c %p %s\n", nDepth, ' ', pMapClass, pMapClass->GetType());
 			OutputDebugString(szText);
 		}
 	}
@@ -1187,7 +1187,7 @@ bool CMapWorld::FaceID_FaceIDListsToString(char *pszList, int nSize, CMapFaceIDL
 			int nFace = pFullFaceIDList->Element(i);
 
 			char szID[64];
-			itoa(nFace, szID, 10);
+			_itoa(nFace, szID, 10);
 			if (!EnsureTrailingChar(pszList, ' ', nSize) || !AppendString(pszList, szID, nSize))
 			{
 				return(false);
@@ -1214,7 +1214,7 @@ bool CMapWorld::FaceID_FaceIDListsToString(char *pszList, int nSize, CMapFaceIDL
 				int nFace = pPartialFaceIDList->Element(i);
 
 				char szID[64];
-				itoa(nFace, szID, 10);
+				_itoa(nFace, szID, 10);
 				if (!bFirst)
 				{
 					if (!EnsureTrailingChar(pszList, ' ', nSize))
@@ -1266,7 +1266,7 @@ bool CMapWorld::FaceID_FaceListsToString(char *pszList, int nSize, CMapFaceList 
 			CMapFace *pFace = pFullFaceList->Element(i);
 
 			char szID[64];
-			itoa(pFace->GetFaceID(), szID, 10);
+			_itoa(pFace->GetFaceID(), szID, 10);
 			if (!EnsureTrailingChar(pszList, ' ', nSize) || !AppendString(pszList, szID, nSize))
 			{
 				return(false);
@@ -1293,7 +1293,7 @@ bool CMapWorld::FaceID_FaceListsToString(char *pszList, int nSize, CMapFaceList 
 				CMapFace *pFace = pPartialFaceList->Element(i);
 
 				char szID[64];
-				itoa(pFace->GetFaceID(), szID, 10);
+				_itoa(pFace->GetFaceID(), szID, 10);
 				if (!bFirst)
 				{
 					if (!EnsureTrailingChar(pszList, ' ', nSize))

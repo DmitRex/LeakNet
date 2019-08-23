@@ -197,7 +197,7 @@ int COptionsConfigs::LoadGameConfigs(const char *pszFileName)
 void COptionsConfigs::SaveGameConfigs(const char *pszFileName)
 {
 	char szKey[MAX_PATH];
-	WritePrivateProfileString("Configs", "NumConfigs", itoa(nConfigs, szKey, 10), pszFileName);
+	WritePrivateProfileString("Configs", "NumConfigs", _itoa(nConfigs, szKey, 10), pszFileName);
 
 	for (int i = 0; i < nConfigs; i++)
 	{
