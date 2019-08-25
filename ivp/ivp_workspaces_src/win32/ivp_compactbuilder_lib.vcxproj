@@ -182,6 +182,7 @@
       <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
 copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_compactbuilder.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

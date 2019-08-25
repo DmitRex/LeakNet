@@ -102,6 +102,7 @@ if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Message>Copying to root &amp; building .DAT file</Message>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -159,6 +159,7 @@ copy "$(TargetPath)" ..\..\..\bin\stdshader_hdr_dx9.dll
 if exist "$(TargetDir)stdshader_hdr_dx9.map" copy "$(TargetDir)stdshader_hdr_dx9.map" ..\..\..\bin\stdshader_hdr_dx9.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_hdr_dx9.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

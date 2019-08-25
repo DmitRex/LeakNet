@@ -133,6 +133,7 @@ if exist "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll" attrib -r "$(Project
 if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
 copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"</Command>
       <Outputs>$(ProjectDir)..\..\tf2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl1\bin\$(TargetName).dll;$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

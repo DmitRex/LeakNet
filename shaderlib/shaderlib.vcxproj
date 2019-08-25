@@ -109,6 +109,7 @@ copy "$(TargetPath)" ..\lib\public\shaderlib.lib
 if exist "$(TargetDir)shaderlib.map" copy "$(TargetDir)shaderlib.map" ..\lib\public\shaderlib.map </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\shaderlib.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

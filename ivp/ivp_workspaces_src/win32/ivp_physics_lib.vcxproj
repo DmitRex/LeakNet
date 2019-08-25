@@ -178,6 +178,7 @@ copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
       <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
 copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
       <Outputs>..\..\..\lib\common\ivp_physics.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

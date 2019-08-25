@@ -117,6 +117,7 @@
       <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll </Command>
       <Outputs>..\..\..\bin\shaderapiempty.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

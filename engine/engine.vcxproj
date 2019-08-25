@@ -223,6 +223,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\engine.dll
 if exist "$(TargetDir)engine.map" copy "$(TargetDir)engine.map" ..\..\bin\engine.map </Command>
       <Message>Copying to game dir</Message>
       <Outputs>..\..\bin\engine.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

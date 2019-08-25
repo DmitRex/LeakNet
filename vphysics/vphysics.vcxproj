@@ -99,6 +99,7 @@ copy "$(TargetPath)" ..\..\bin\vphysics.dll
 if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vphysics.map </Command>
       <Message>Copying to Game Directory</Message>
       <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

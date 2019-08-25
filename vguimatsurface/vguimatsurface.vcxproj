@@ -182,6 +182,7 @@ copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll
 if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

@@ -264,6 +264,7 @@ if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
 if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
       <Message>Copying executable...</Message>
       <Outputs>..\..\bin\wc.exe;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)wc.exe;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SDK Release|Win32'">

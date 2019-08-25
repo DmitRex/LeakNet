@@ -109,6 +109,7 @@ copy "$(TargetPath)" ..\lib\public\appframework.lib
 if exist "$(TargetDir)appframework.map" copy "$(TargetDir)appframework.map" ..\lib\public\appframework.map </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\appframework.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

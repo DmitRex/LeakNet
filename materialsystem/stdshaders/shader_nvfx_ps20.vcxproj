@@ -176,6 +176,7 @@ copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll
 if exist "$(TargetDir)shader_nvfx_ps20.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx_ps20.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx_ps20.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

@@ -171,6 +171,7 @@ copy "$(TargetPath)" ..\..\bin\launcher.dll </Command>
       <Command>attrib -r ..\..\bin\launcher.dll 
 copy "$(TargetPath)" ..\..\bin\launcher.dll </Command>
       <Outputs>..\..\bin\launcher.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

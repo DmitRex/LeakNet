@@ -173,6 +173,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\FileSystem_Steam.dll 
       <Command>if exist ..\..\..\bin\FileSystem_Steam.dll attrib -r ..\..\..\bin\FileSystem_Steam.dll 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\FileSystem_Steam.dll </Command>
       <Outputs>..\..\..\bin\FileSystem_Steam.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

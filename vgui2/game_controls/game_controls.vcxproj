@@ -105,6 +105,7 @@
       <Command>if exist "..\..\lib\public\$(TargetName).lib" attrib -r "..\..\lib\public\$(TargetName).lib" 
 if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public </Command>
       <Outputs>..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)game_controls.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

@@ -163,6 +163,7 @@ if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib
 if exist "$(TargetDir)tier0.lib" copy "$(TargetDir)tier0.lib" ..\lib\public\tier0.lib</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\tier0.dll;..\lib\public\tier0.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

@@ -146,6 +146,7 @@
     <CustomBuildStep>
       <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

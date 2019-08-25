@@ -257,6 +257,7 @@
 if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\cstrike\bin\server.dll </Command>
       <Message>Copying to HL1</Message>
       <Outputs>..\..\cstrike\bin\server.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)server.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release TF2|Win32'">

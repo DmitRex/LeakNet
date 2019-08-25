@@ -149,6 +149,7 @@ if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map
 copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
 if exist "$(TargetDir)vgui_surfacelib.map" copy "$(TargetDir)vgui_surfacelib.map" ..\..\lib\public\vgui_surfacelib.map </Command>
       <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

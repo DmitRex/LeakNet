@@ -121,6 +121,7 @@
 copy "$(TargetPath)" ..\..\..\bin\vtex.dll 
 if exist "$(TargetDir)vtex.map" copy "$(TargetDir)vtex.map" ..\..\bin\vtex.map </Command>
       <Outputs>..\..\..\bin\vtex.dll;%(Outputs)</Outputs>
+      <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

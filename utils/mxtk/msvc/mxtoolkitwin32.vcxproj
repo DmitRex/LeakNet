@@ -140,6 +140,7 @@ copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
       <Command>if exist ..\..\..\lib\common\mxtk.lib attrib -r ..\..\..\lib\common\mxtk.lib 
 copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib </Command>
       <Outputs>..\..\..\lib\common\mxtk.lib;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)mxtk.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
