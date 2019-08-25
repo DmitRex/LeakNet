@@ -4489,8 +4489,6 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 
 	case 107:
 		{
-			trace_t tr;
-
 			edict_t		*pWorld = engine->PEntityOfEntIndex( 0 );
 
 			Vector start = EyePosition();
@@ -5742,7 +5740,8 @@ void CBasePlayer::SetupVPhysicsShadow( CPhysCollide *pStandModel, const char *pS
 	solid_t solid;
 	solid.params = g_PhysDefaultObjectParams;
 	solid.params.mass = 85.0f;
-	solid.params.inertia = 1e24f;
+//	solid.params.inertia = 1e24f;
+	solid.params.inertia = 0;
 	solid.params.enableCollisions = false;
 	//disable drag
 	solid.params.dragCoefficient = 0;

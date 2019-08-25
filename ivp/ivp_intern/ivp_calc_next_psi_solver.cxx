@@ -85,8 +85,16 @@ inline void IVP_Calc_Next_PSI_Solver::calc_rotation_matrix(IVP_FLOAT delta_sim_t
 
   q_core_f_core->set_very_fast_multiple( &pc->rot_speed,dt);
 
+  // VXP: TODO: get_rot_inertia() is returning infs for some reason
+  // That's because of "player_stand" inertia physics shadow in SetupVPhysicsShadow
+  // Calculation of it is done in IVP_Real_Object::init_object_core()
+  // The "temporary"(?) solution is setting player physics shadow inertia not to 1e24f
+  // but to some other value (I've set that to 0 just in case, and it's working fine for now)
+  // The proper solution - is to determine what causes those wrong calculations
   const IVP_U_Float_Point *ri = pc->get_rot_inertia();
-  const IVP_U_Float_Point *iri = pc->get_inv_rot_inertia();
+  const IVP_U_Float_Point *iri = pc->get_inv_rot_inertia(); // VXP: NOTE: Looks like get_inv_rot_inertia() is fine
+
+  //ri->set(0, 0, 0); // VXP: Put *ri into variable to set ri to zeros
 
   IVP_U_Point diff_other_rot_inertia_div_this(
 	(ri->k[1] - ri->k[2]) * iri->k[0],

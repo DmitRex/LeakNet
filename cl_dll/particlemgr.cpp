@@ -193,8 +193,8 @@ inline void CParticleEffectBinding::StartDrawMaterialParticles(
 	{
 		if( bWireframe )
 		{
-			IMaterial *pMaterial = m_pParticleMgr->m_pMaterialSystem->FindMaterial( "debug/debugparticlewireframe", NULL );
-			m_pParticleMgr->m_pMaterialSystem->Bind( pMaterial, NULL );
+			IMaterial *pParticleWireframeMaterial = m_pParticleMgr->m_pMaterialSystem->FindMaterial( "debug/debugparticlewireframe", NULL );
+			m_pParticleMgr->m_pMaterialSystem->Bind( pParticleWireframeMaterial, NULL );
 		}
 		else
 		{
@@ -633,7 +633,11 @@ void CParticleEffectBinding::DoBucketSort( CEffectMaterial *pMaterial, float *zC
 		UnlinkParticle( pCur );
 
 		// Add it to the appropriate bucket.
-		float flPercent = (zCoords[iCurParticle] - minZ) / (maxZ - minZ);
+		float flPercent;
+		if (maxZ == minZ)
+			flPercent = 0;
+		else
+			flPercent = (zCoords[iCurParticle] - minZ) / (maxZ - minZ);
 		int iAddBucket = (int)( flPercent * (NUM_BUCKETS - 0.0001f) );
 		iAddBucket = NUM_BUCKETS - iAddBucket - 1;
 		Assert( iAddBucket >= 0 && iAddBucket < NUM_BUCKETS );

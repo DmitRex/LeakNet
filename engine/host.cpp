@@ -1441,7 +1441,7 @@ void _Host_RunFrame (float time)
 		//
 		//-------------------
 		// Only send updates to clients on final tick so we don't reencode network data multiple times per frame unnecessarily
-		bool finaltick = ( tick == numticks - 1 ) ? true : false;
+		bool finaltick = ( tick == (numticks - 1) ) ? true : false;
 		_Host_RunFrame_Server( finaltick );
 
 		//-------------------
