@@ -106,7 +106,15 @@ inline void BREAKPOINT()
 		{ \
 			if(!(cond)) \
 			{ \
-				::fprintf(stderr, "\nASSERTION FAILURE: %s\nFILE: %s\nLINE: %d\n\n", cond, __FILE__, __LINE__); \
+				::fprintf(stderr, "\nASSERTION FAILURE\nFILE: %s\nLINE: %d\n\n", __FILE__, __LINE__); \
+				CORE; \
+			} \
+		}
+#		define IVP_ASSERT2(cond, msg) \
+		{ \
+			if(!(cond)) \
+			{ \
+				::fprintf(stderr, "\nASSERTION FAILURE: %s\nFILE: %s\nLINE: %d\n\n", msg, __FILE__, __LINE__); \
 				CORE; \
 			} \
 		}

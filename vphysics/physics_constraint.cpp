@@ -513,8 +513,8 @@ void CPhysicsConstraint::InitRagdoll( IVP_Environment *pEnvironment, CPhysicsCon
 	hk_Environment *hkEnvironment = static_cast<hk_Environment *>(pEnvironment);
 	if ( !lcs )
 	{
-		hk_Local_Constraint_System_BP bp;
-		lcs = new hk_Local_Constraint_System( hkEnvironment, &bp );
+		hk_Local_Constraint_System_BP hkLCSbp;
+		lcs = new hk_Local_Constraint_System( hkEnvironment, &hkLCSbp );
 		m_HkLCS = lcs;
 	}
 
@@ -722,8 +722,8 @@ void CPhysicsConstraint::InitSliding( IVP_Environment *pEnvironment, CPhysicsCon
 	hk_Local_Constraint_System *lcs = constraint_group ? constraint_group->GetLCS() : NULL;
 	if ( !lcs )
 	{
-		hk_Local_Constraint_System_BP bp;
-		lcs = new hk_Local_Constraint_System( hkEnvironment, &bp );
+		hk_Local_Constraint_System_BP hkLCSbp;
+		lcs = new hk_Local_Constraint_System( hkEnvironment, &hkLCSbp );
 		m_HkLCS = lcs;
 	}
 
