@@ -5741,7 +5741,11 @@ void CBasePlayer::SetupVPhysicsShadow( CPhysCollide *pStandModel, const char *pS
 	solid.params = g_PhysDefaultObjectParams;
 	solid.params.mass = 85.0f;
 //	solid.params.inertia = 1e24f;
-	solid.params.inertia = 0;
+//	solid.params.inertia = 0;
+
+	// VXP: 1e17f is a number that makes it works, but I leave 1e16f instead so it has a little overhead I guess
+	// But why? It shouldn't change very much anyway.
+	solid.params.inertia = 1e16f;
 	solid.params.enableCollisions = false;
 	//disable drag
 	solid.params.dragCoefficient = 0;
