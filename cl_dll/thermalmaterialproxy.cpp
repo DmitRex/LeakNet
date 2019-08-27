@@ -9,7 +9,55 @@
 #include "materialsystem/IMaterial.h"
 #include "materialsystem/IMaterialVar.h"
 
-void HueToRGB( float frac, Vector& color );
+#include <cmath>
+
+// VXP: Based on this: https://gist.github.com/kuathadianto/200148f53616cbd226d993b400214a7f
+void HueToRGB(float frac, Vector& color)
+{
+	// VXP: Just pretend that saturation and value are 1.0f
+	float S, V;
+	S = V = 1.0f;
+
+	float C = S * V;
+	float X = C * (1 - abs(fmod(frac / 60.0, 2) - 1));
+	float m = V - C;
+	float Rs, Gs, Bs;
+
+	if(frac >= 0 && frac < 60) {
+		Rs = C;
+		Gs = X;
+		Bs = 0;	
+	}
+	else if(frac >= 60 && frac < 120) {	
+		Rs = X;
+		Gs = C;
+		Bs = 0;	
+	}
+	else if(frac >= 120 && frac < 180) {
+		Rs = 0;
+		Gs = C;
+		Bs = X;	
+	}
+	else if(frac >= 180 && frac < 240) {
+		Rs = 0;
+		Gs = X;
+		Bs = C;	
+	}
+	else if(frac >= 240 && frac < 300) {
+		Rs = X;
+		Gs = 0;
+		Bs = C;	
+	}
+	else {
+		Rs = C;
+		Gs = 0;
+		Bs = X;	
+	}
+
+	color[0] = (Rs + m) * 255;
+	color[1] = (Gs + m) * 255;
+	color[2] = (Bs + m) * 255;
+}
 
 // $ThermalVar : name of variable to run Thermal wave on (can either be a color or a float)
 // $ThermalPeriod: time that it takes to go through whole Thermal wave in seconds (default: 1.0f)

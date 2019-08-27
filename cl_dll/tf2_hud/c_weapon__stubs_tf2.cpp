@@ -9,7 +9,7 @@
 
 
 STUB_WEAPON_CLASS( foo_weapon_machinegun, MachineGun, C_BaseCombatWeapon );
-STUB_WEAPON_CLASS( foo_weapon_select_fire_machinegun, SelectFireMachineGun, C_MachineGun );
+//STUB_WEAPON_CLASS( foo_weapon_select_fire_machinegun, SelectFireMachineGun, C_MachineGun ); // VXP: NOTE: C_MachineGun is not present
 STUB_WEAPON_CLASS( foo_weapon_basebludgeonweapon, BaseBludgeonWeapon, C_BaseCombatWeapon );
 
 STUB_WEAPON_CLASS( cycler_weapon, WeaponCycler, C_BaseCombatWeapon );
@@ -21,5 +21,5 @@ STUB_WEAPON_CLASS( weapon_obj_empgenerator, WeaponObjEMPGenerator, C_WeaponBaseC
 STUB_WEAPON_CLASS( weapon_placedcharge, WeaponPlacedCharge, C_BaseTFCombatWeapon );
 STUB_WEAPON_CLASS( weapon_plasmarifle, WeaponPlasmaRifle, C_TFMachineGun );
 STUB_WEAPON_CLASS( weapon_shotgun, WeaponShotgun, C_TFMachineGun );
-STUB_WEAPON_CLASS( weapon_sapper_shotgun, WeaponSapperShotgun, C_WeaponShotgun );
+//STUB_WEAPON_CLASS( weapon_sapper_shotgun, WeaponSapperShotgun, C_WeaponShotgun ); // VXP: NOTE: C_WeaponShotgun is not present
 STUB_WEAPON_CLASS( weapon_cubemap, WeaponCubemap, C_BaseCombatWeapon );

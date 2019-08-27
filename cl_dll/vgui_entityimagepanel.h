@@ -31,9 +31,9 @@ class BitmapImage;
 
 class CEntityImagePanel : public CEntityPanel
 {
+public:
 	DECLARE_CLASS( CEntityImagePanel, CEntityPanel );
 
-public:
 	// constructor
 	CEntityImagePanel( vgui::Panel* pParent, const char *panelName );
 	~CEntityImagePanel();

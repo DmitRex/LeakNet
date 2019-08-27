@@ -17,9 +17,9 @@
 //-----------------------------------------------------------------------------
 class C_ObjectShieldWallBase : public C_BaseObject
 {
+public:
 	DECLARE_CLASS( C_ObjectShieldWallBase, C_BaseObject );
 
-public:
 	C_ObjectShieldWallBase() {}
 
 public:

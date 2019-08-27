@@ -511,8 +511,8 @@ void CFlashBorderPanelEffect::doPaint( vgui::Panel *panel )
 //-----------------------------------------------------------------------------
 class CArrowPanelEffect : public CPanelEffect
 {
-	DECLARE_CLASS( CArrowPanelEffect, CPanelEffect );
 public:
+	DECLARE_CLASS( CArrowPanelEffect, CPanelEffect );
 
 	CArrowPanelEffect( ITFHintItem *owner );
 

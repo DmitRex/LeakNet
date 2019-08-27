@@ -409,7 +409,7 @@ bool C_EnvMeteorTail::SimulateAndRender( Particle *pParticle, ParticleDraw* pPar
 // Meteor Functions
 //
 
-static g_MeteorCounter = 0;
+//static g_MeteorCounter = 0; // VXP: Unused
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------

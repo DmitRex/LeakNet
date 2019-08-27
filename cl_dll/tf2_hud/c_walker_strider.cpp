@@ -141,7 +141,7 @@ void C_WalkerStrider::OnDataChanged( DataUpdateType_t type )
 			m_hRopes[4] = C_RopeKeyframe::Create( this, this, indices[3], indices[5] );
 			m_hRopes[5] = C_RopeKeyframe::Create( this, this, indices[3], indices[6] );
 
-			for ( i=3; i < 6; i++ )
+			for ( int i=3; i < 6; i++ )
 			{
 				if ( m_hRopes[i].Get() )
 					m_hRopes[i]->SetSlack( flTestSlack2 );
