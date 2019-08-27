@@ -5,7 +5,6 @@
 //=============================================================================
 
 #include "cbase.h"
-#include "util.h"
 #include "weapon_knife.h"
 
 #if defined( CLIENT_DLL )

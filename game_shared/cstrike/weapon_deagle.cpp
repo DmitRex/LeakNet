@@ -6,7 +6,6 @@
 
 #include "cbase.h" 
 #include "decals.h" 
-#include "util.h" 
 #include "cbase.h" 
 #include "shake.h" 
 #include "weapon_csbase.h"

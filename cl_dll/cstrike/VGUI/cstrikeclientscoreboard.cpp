@@ -103,7 +103,7 @@ void CCSClientScoreBoardDialog::UpdateTeamInfo()
 	}
 
 	// recalc the team scores, then draw them
-	for ( i = 1; i < MAX_PLAYERS; i++ )
+	for ( int i = 1; i < MAX_PLAYERS; i++ )
 	{
 		VGuiLibraryPlayer_t playerInfo = gViewPortInterface->GetClientDllInterface()->GetPlayerInfo( i );
 
@@ -128,7 +128,7 @@ void CCSClientScoreBoardDialog::UpdateTeamInfo()
 	}
 
 	// find team ping/packetloss averages
-	for ( i = 1; i <= m_iNumTeams; i++ )
+	for ( int i = 1; i <= m_iNumTeams; i++ )
 	{
 		m_TeamInfo[i].already_drawn = false;
 
@@ -140,7 +140,7 @@ void CCSClientScoreBoardDialog::UpdateTeamInfo()
 	}
 
 	// update the team sections in the scoreboard
-	for ( i = 1; i <= m_iNumTeams; i++ )
+	for ( int i = 1; i <= m_iNumTeams; i++ )
 	{
 		wchar_t *teamName = NULL;;
 		int sectionID = 0;
