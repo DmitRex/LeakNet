@@ -920,18 +920,30 @@ void LoadEntityDLLs( char *szBaseDir )
 		free(pszInputStream);		            // Clean up
 		g_pFileSystem->Close(hLibListFile);
 	}
-	
-	// Load the game .dll
+
+	char dirs[2][MAX_PATH];
+	Q_snprintf( dirs[0], MAX_PATH, "%s", szGameDir );
+	Q_snprintf( dirs[1], MAX_PATH, "hl2" );
+
+	for ( int i = 0; i < 2; i++ )
+	{
+		char *testdirectory = dirs[i];
+		// Load the game .dll
 #ifdef _WIN32
-	Q_snprintf( szDllFilename, sizeof( szDllFilename ), "%s\\%s\\bin\\server.dll", szBaseDir, szGameDir );
+		Q_snprintf( szDllFilename, sizeof( szDllFilename ), "%s\\%s\\bin\\server.dll", szBaseDir, testdirectory );
 #elif _LINUX
-	Q_snprintf( szDllFilename, sizeof( szDllFilename ), "%s/%s/bin/server_i486.so", szBaseDir, szGameDir );
+		Q_snprintf( szDllFilename, sizeof( szDllFilename ), "%s/%s/bin/server_i486.so", szBaseDir, testdirectory );
 #else
 #error "define server.dll type"
 #endif
 
-	Con_DPrintf( "Adding:  %s\n",szDllFilename );
-	LoadThisDll( szDllFilename );
+		bool isloaded = LoadThisDll( szDllFilename );
+		if ( isloaded )
+		{
+			Con_DPrintf( "Adding:  %s\n",szDllFilename );
+			break;
+		}
+	}
 
 	if ( serverGameDLL && gmodinfo.bIsMod )
 	{
