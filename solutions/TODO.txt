@@ -9,7 +9,9 @@ stricmp, strcmpi, strupr, strlwr
 
 devtools\bin\fxc.exe и другие возможно заменить на современные версии
 shaderapidx8 (shaderdx8) адаптировать под Platform Toolset v142 (VS2019)
-	¬ременный workaround - выставил Platform Toolset в v100 (VS2010). —корее всего, дл€ компил€ции будет требовать установки VS2010 (дл€ мен€ не проблема)
+	-¬ременный workaround - выставил Platform Toolset в v100 (VS2010). —корее всего, дл€ компил€ции будет требовать установки VS2010 или SDK
+		https://stackoverflow.com/questions/34885286/how-to-install-visual-studio-build-tools-2010-on-visual-studio-2015-community
+	+Install C++ Windows XP Support for VS2017 (v141) tools [Deprecated] and add legacy_stdio_definitions.lib to Additional Dependencies
 
 _CRT_NON_CONFORMING_SWPRINTFS дл€ swprintf в KeyValues.cpp
 	«аменить на ISOшный вариант?
