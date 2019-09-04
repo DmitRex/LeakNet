@@ -855,6 +855,80 @@ void Grab_Animation( s_source_t *psource )
 		{
 			Error( "Error(%d) : %s", g_iLinecount, g_szLine );
 		}
+	/* VXP: TODO: Do something with the code above
+		if (sscanf(g_szLine, "%d %f %f %f %f %f %f", &index, &pos[0], &pos[1], &pos[2], &rot[0], &rot[1], &rot[2]) == 7)
+		{
+			if (psource->startframe < 0)
+			{
+				Error("Missing frame start(%d) : %s", g_iLinecount, g_szLine);
+			}
+
+			scale_vertex(pos);
+			VectorCopy(pos, psource->rawanim[t][index].pos);
+			VectorCopy(rot, psource->rawanim[t][index].rot);
+
+			clip_rotations(rot); // !!!
+			continue;
+		}
+
+		if (sscanf(g_szLine, "%1023s %d", cmd, &index) == 0)
+		{
+			Error("MdlError(%d) : %s", g_iLinecount, g_szLine);
+			continue;
+		}
+
+		if (!Q_stricmp(cmd, "time"))
+		{
+			t = index;
+			if (psource->startframe == -1)
+			{
+				psource->startframe = t;
+			}
+			if (t < psource->startframe)
+			{
+				Error("Frame MdlError(%d) : %s", g_iLinecount, g_szLine);
+			}
+			if (t > psource->endframe)
+			{
+				psource->endframe = t;
+			}
+			t -= psource->startframe;
+
+			if (psource->rawanim[t] != NULL)
+			{
+				continue;
+			}
+
+			psource->rawanim[t] = (s_bone_t*)kalloc(1, size);
+
+			// duplicate previous frames keys
+			if (t > 0 && psource->rawanim[t - 1])
+			{
+				for (int j = 0; j < psource->numbones; j++)
+				{
+					VectorCopy(psource->rawanim[t - 1][j].pos, psource->rawanim[t][j].pos);
+					VectorCopy(psource->rawanim[t - 1][j].rot, psource->rawanim[t][j].rot);
+				}
+			}
+			continue;
+		}
+
+		if (!Q_stricmp(cmd, "end"))
+		{
+			psource->numframes = psource->endframe - psource->startframe + 1;
+
+			for (t = 0; t < psource->numframes; t++)
+			{
+				if (psource->rawanim[t] == NULL)
+				{
+					Error("%s is missing frame %d\n", psource->filename, t + psource->startframe);
+				}
+			}
+
+			Build_Reference(psource);
+			return;
+		}
+	*/
 	}
 	Error( "unexpected EOF: %s\n", psource->filename );
 }
@@ -2276,6 +2350,7 @@ int Cmd_Sequence( )
 				else
 				{
 					UnGetToken();
+					printf("unknown blendlayer token %s\n", token);
 					break;
 				}
 			}
@@ -4826,69 +4901,85 @@ void Grab_QuatInterpBones( )
 			g_numquatinterpbones++;
 			pBone = &g_quatinterpbones[g_numquatinterpbones];
 		}
-		else if (_stricmp( cmd, "<display>" ) == 0)
+		else if ( i > 0 )
 		{
-			// skip all display info
-			Vector size;
-			float distance;
-
-			i = sscanf( g_szLine, "<display> %f %f %f %f", 
-				&size[0], &size[1], &size[2],
-				&distance );
-
-			if (i == 4)
+			if (_stricmp(cmd, "<display>") == 0)
 			{
-				pAxis->percentage = distance / 100.0;
-				pAxis->size = size;
+				// skip all display info
+				Vector size;
+				float distance;
+
+				i = sscanf( g_szLine, "<display> %f %f %f %f",
+					&size[0], &size[1], &size[2],
+					&distance );
+
+				if (i == 4)
+				{
+					pAxis->percentage = distance / 100.0;
+					pAxis->size = size;
+				}
+				else
+				{
+					Error("unable to parse procedual bones\n");
+				}
+			}
+			else if (_stricmp( cmd, "<basepos>" ) == 0)
+			{
+				i = sscanf( g_szLine, "<basepos> %f %f %f", &basepos.x, &basepos.y, &basepos.z );
+				// skip all type info
+			}
+			else if (_stricmp( cmd, "<trigger>" ) == 0)
+			{
+				float tolerance;
+				RadianEuler trigger;
+				Vector pos;
+				RadianEuler ang;
+
+				QAngle rot;
+				int j;
+				i = sscanf( g_szLine, "<trigger> %f %f %f %f %f %f %f %f %f %f",
+					&tolerance,
+					&trigger.x, &trigger.y, &trigger.z,
+					&ang.x, &ang.y, &ang.z,
+					&pos.x, &pos.y, &pos.z );
+
+				if (i == 10)
+				{
+					trigger.x = DEG2RAD( trigger.x );
+					trigger.y = DEG2RAD( trigger.y );
+					trigger.z = DEG2RAD( trigger.z );
+					ang.x = DEG2RAD( ang.x );
+					ang.y = DEG2RAD( ang.y );
+					ang.z = DEG2RAD( ang.z );
+
+					j = pAxis->numtriggers++;
+					pAxis->tolerance[j] = DEG2RAD( tolerance );
+					AngleQuaternion( trigger, pAxis->trigger[j] );
+					VectorAdd( basepos, pos, pAxis->pos[j] );
+					AngleQuaternion( ang, pAxis->quat[j] );
+				}
+				else
+				{
+					Error("unable to parse procedual <trigger> bone\n");
+				}
 			}
 			else
 			{
-				Error("unable to parse procedual bones\n");
-			}
-		}
-		else if (_stricmp( cmd, "<basepos>" ) == 0)
-		{
-			i = sscanf( g_szLine, "<basepos> %f %f %f", &basepos.x, &basepos.y, &basepos.z );
-			// skip all type info
-		}
-		else if (_stricmp( cmd, "<trigger>" ) == 0)
-		{
-			float tolerance;
-			RadianEuler trigger;
-			Vector pos;
-			RadianEuler ang;
-
-			QAngle rot;
-			int j;
-			i = sscanf( g_szLine, "<trigger> %f %f %f %f %f %f %f %f %f %f", 
-				&tolerance,
-				&trigger.x, &trigger.y, &trigger.z,
-				&ang.x, &ang.y, &ang.z,
-				&pos.x, &pos.y, &pos.z );
-
-			if (i == 10)
-			{
-				trigger.x = DEG2RAD( trigger.x );
-				trigger.y = DEG2RAD( trigger.y );
-				trigger.z = DEG2RAD( trigger.z );
-				ang.x = DEG2RAD( ang.x );
-				ang.y = DEG2RAD( ang.y );
-				ang.z = DEG2RAD( ang.z );
-
-				j = pAxis->numtriggers++;
-				pAxis->tolerance[j] = DEG2RAD( tolerance );
-				AngleQuaternion( trigger, pAxis->trigger[j] );
-				VectorAdd( basepos, pos, pAxis->pos[j] );
-				AngleQuaternion( ang, pAxis->quat[j] );
-			}
-			else
-			{
-				Error("unable to parse procedual bones\n");
+				Error("unknown procedual bone data\n");
 			}
 		}
 		else
 		{
-			Error("unknown procedual bone data\n");
+			// VXP: Allow blank lines to be skipped without error
+			bool bIsSpace = false;
+			for ( char *ch = g_szLine; *ch != '\0'; ch++ )
+			{
+				if (!isspace(*ch))
+				{
+					Error("unknown procedual bone data\n");
+					break;
+				}
+			}
 		}
 	}
 }

@@ -2366,7 +2366,10 @@ void limitIKChainLength( void )
 				float l3 = (worldFoot-worldThigh).Length();
 
 				Vector ikKnee = worldKnee - worldThigh;
-				Vector ikHalf = (worldFoot-worldThigh) * (l1 / l3);
+				float ikHalfMultiplier = 0.5f;
+				if ( l3 != 0.0f )
+					ikHalfMultiplier = (l1 / l3);
+				Vector ikHalf = (worldFoot-worldThigh) * ikHalfMultiplier;
 
 				// FIXME: what to do when the knee completely straight?
 				Vector ikKneeDir = ikKnee - ikHalf;
