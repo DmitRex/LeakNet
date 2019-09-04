@@ -872,8 +872,8 @@ struct s_weightlist_t
 {
 	char			name[MAXSTUDIONAME];
 	int				numbones;
-	char			bonename[16][MAXSTUDIONAME];
-	float			boneweight[16];
+	char			bonename[MAXSTUDIOBONES][MAXSTUDIONAME];
+	float			boneweight[MAXSTUDIOBONES];
 	float			weight[MAXSTUDIOBONES]; // unified weightlist
 };
 
