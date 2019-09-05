@@ -367,7 +367,7 @@ void CPanelMetaClassMgrImp::LoadMetaClassDefinitionFile( const char *pFileName )
 		}
 	}
 
-	pKeyValues->deleteThis();
+//	pKeyValues->deleteThis();
 }
 
 

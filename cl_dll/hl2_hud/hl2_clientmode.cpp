@@ -12,12 +12,15 @@
 #include "cbase.h"
 #include "ivmodemanager.h"
 #include "clientmode_hlnormal.h"
+#include "panelmetaclassmgr.h"
 
 // default FOV for HL2
 ConVar default_fov( "default_fov", "75", 0 );
 
 // The current client mode. Always ClientModeNormal in HL.
 IClientMode *g_pClientMode = NULL;
+
+#define SCREEN_FILE		"scripts/vgui_screens.txt"
 
 class CHLModeManager : public IVModeManager
 {
@@ -44,6 +47,8 @@ CHLModeManager::~CHLModeManager( void )
 void CHLModeManager::Init( void )
 {
 	g_pClientMode = GetClientModeNormal();
+
+	PanelMetaClassMgr()->LoadMetaClassDefinitionFile( SCREEN_FILE );
 }
 
 void CHLModeManager::SwitchMode( bool commander, bool force )
