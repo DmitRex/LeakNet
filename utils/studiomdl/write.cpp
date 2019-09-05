@@ -1387,11 +1387,28 @@ void WriteSeqKeyValues( mstudioseqdesc_t *pseqdesc, CUtlVector< char > *pKeyValu
 	ALIGN4( pData );
 }
 
+void StudioMdl_FixSlashes( char *pname )
+{
+#ifdef _WIN32
+	while ( *pname ) {
+		if ( *pname == '/' )
+			*pname = '\\';
+		pname++;
+	}
+#else 
+	while ( *pname ) {
+		if ( *pname == '\\' )
+			*pname = '/';
+		pname++;
+	}
+#endif
+}
+
 void EnsureFileDirectoryExists( const char *pFilename )
 {
 	char dirName[MAX_PATH];
 	Q_strncpy( dirName, pFilename, sizeof( dirName ) );
-	COM_FixSlashes( dirName );
+	StudioMdl_FixSlashes( dirName );
 	char *pLastSlash = strrchr( dirName, CORRECT_PATH_SEPARATOR );
 	if ( pLastSlash )
 	{

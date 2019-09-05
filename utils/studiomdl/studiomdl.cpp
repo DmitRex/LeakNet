@@ -4901,20 +4901,21 @@ void Grab_QuatInterpBones( )
 			}
 			else
 			{
-				Error("unknown procedual bone data\n");
+				Error("Line %d: unknown procedual bone data: %s\n", g_iLinecount, g_szLine);
 			}
 		}
 		else
 		{
 			// VXP: Allow blank lines to be skipped without error
-			bool bIsSpace = false;
-			for ( char *ch = g_szLine; *ch != '\0'; ch++ )
+			char *ch = g_szLine;
+			while ( *ch )
 			{
 				if (!isspace(*ch))
 				{
 					Error("unknown procedual bone data\n");
 					break;
 				}
+				ch++;
 			}
 		}
 	}

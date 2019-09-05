@@ -495,22 +495,15 @@ char qproject[1024] = {0};
 
 
 
+// VXP: FIXME: Changing this to more appropriate engine.dll version
+// breaks the launch of hlmv.exe (and maybe something else too)
 void COM_FixSlashes( char *pname )
 {
-#ifdef _WIN32
-	while ( *pname ) {
-		if ( *pname == '/' )
-			*pname = '\\';
-		pname++;
-	}
-// VXP: NOTE: Originally this method was exactly the code below. Hopefully this will not break something
-#else 
 	while ( *pname ) {
 		if ( *pname == '\\' )
 			*pname = '/';
 		pname++;
 	}
-#endif
 }
 
 
