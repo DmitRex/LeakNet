@@ -800,6 +800,37 @@ void Grab_Animation( s_source_t *psource )
 				Error( "Missing frame start(%d) : %s", g_iLinecount, g_szLine );
 			}
 
+			scale_vertex( pos );
+			VectorCopy( pos, psource->rawanim[t][index].pos );
+			VectorCopy( rot, psource->rawanim[t][index].rot );
+
+			clip_rotations( rot ); // !!!
+			continue;
+		}
+		if (sscanf( g_szLine, "%s %d", cmd, &index ) <= 0)
+		{
+			Error( "Error(%d) : %s", g_iLinecount, g_szLine );
+			continue;
+		}
+
+		if (strcmp( cmd, "time" ) == 0) 
+		{
+			t = index;
+			if (psource->startframe == -1)
+			{
+				psource->startframe = t;
+			}
+			if (t < psource->startframe)
+			{
+				Error( "Frame Error(%d) : %s", g_iLinecount, g_szLine );
+			}
+			if (t > psource->endframe)
+			{
+				psource->endframe = t;
+			}
+			t -= psource->startframe;
+
+
 			if (psource->rawanim[t] == NULL)
 			{
 				psource->rawanim[t] = (s_bone_t *)kalloc( 1, size );
@@ -814,106 +845,8 @@ void Grab_Animation( s_source_t *psource )
 					}
 				}
 			}
-
-			scale_vertex( pos );
-			VectorCopy( pos, psource->rawanim[t][index].pos );
-			VectorCopy( rot, psource->rawanim[t][index].rot );
-
-			clip_rotations( rot ); // !!!
 		}
-		else if (sscanf( g_szLine, "%s %d", cmd, &index ))
-		{
-			if (strcmp( cmd, "time" ) == 0) 
-			{
-				t = index;
-				if (psource->startframe == -1)
-				{
-					psource->startframe = t;
-				}
-				if (t < psource->startframe)
-				{
-					Error( "Frame Error(%d) : %s", g_iLinecount, g_szLine );
-				}
-				if (t > psource->endframe)
-				{
-					psource->endframe = t;
-				}
-				t -= psource->startframe;
-			}
-			else if (strcmp( cmd, "end") == 0) 
-			{
-				psource->numframes = psource->endframe - psource->startframe + 1;
-				Build_Reference( psource );
-				return;
-			}
-			else
-			{
-				Error( "Error(%d) : %s", g_iLinecount, g_szLine );
-			}
-		}
-		else
-		{
-			Error( "Error(%d) : %s", g_iLinecount, g_szLine );
-		}
-	/* VXP: TODO: Do something with the code above
-		if (sscanf(g_szLine, "%d %f %f %f %f %f %f", &index, &pos[0], &pos[1], &pos[2], &rot[0], &rot[1], &rot[2]) == 7)
-		{
-			if (psource->startframe < 0)
-			{
-				Error("Missing frame start(%d) : %s", g_iLinecount, g_szLine);
-			}
-
-			scale_vertex(pos);
-			VectorCopy(pos, psource->rawanim[t][index].pos);
-			VectorCopy(rot, psource->rawanim[t][index].rot);
-
-			clip_rotations(rot); // !!!
-			continue;
-		}
-
-		if (sscanf(g_szLine, "%1023s %d", cmd, &index) == 0)
-		{
-			Error("MdlError(%d) : %s", g_iLinecount, g_szLine);
-			continue;
-		}
-
-		if (!Q_stricmp(cmd, "time"))
-		{
-			t = index;
-			if (psource->startframe == -1)
-			{
-				psource->startframe = t;
-			}
-			if (t < psource->startframe)
-			{
-				Error("Frame MdlError(%d) : %s", g_iLinecount, g_szLine);
-			}
-			if (t > psource->endframe)
-			{
-				psource->endframe = t;
-			}
-			t -= psource->startframe;
-
-			if (psource->rawanim[t] != NULL)
-			{
-				continue;
-			}
-
-			psource->rawanim[t] = (s_bone_t*)kalloc(1, size);
-
-			// duplicate previous frames keys
-			if (t > 0 && psource->rawanim[t - 1])
-			{
-				for (int j = 0; j < psource->numbones; j++)
-				{
-					VectorCopy(psource->rawanim[t - 1][j].pos, psource->rawanim[t][j].pos);
-					VectorCopy(psource->rawanim[t - 1][j].rot, psource->rawanim[t][j].rot);
-				}
-			}
-			continue;
-		}
-
-		if (!Q_stricmp(cmd, "end"))
+		else if (strcmp( cmd, "end") == 0) 
 		{
 			psource->numframes = psource->endframe - psource->startframe + 1;
 
@@ -925,10 +858,13 @@ void Grab_Animation( s_source_t *psource )
 				}
 			}
 
-			Build_Reference(psource);
+			Build_Reference( psource );
 			return;
 		}
-	*/
+		else
+		{
+			Error( "Error(%d) : %s", g_iLinecount, g_szLine );
+		}
 	}
 	Error( "unexpected EOF: %s\n", psource->filename );
 }
