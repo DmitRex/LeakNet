@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <io.h>
 
 #include "cmdlib.h"
 #include "scriplib.h"
@@ -1386,6 +1387,24 @@ void WriteSeqKeyValues( mstudioseqdesc_t *pseqdesc, CUtlVector< char > *pKeyValu
 	ALIGN4( pData );
 }
 
+void EnsureFileDirectoryExists( const char *pFilename )
+{
+	char dirName[MAX_PATH];
+	Q_strncpy( dirName, pFilename, sizeof( dirName ) );
+	COM_FixSlashes( dirName );
+	char *pLastSlash = strrchr( dirName, CORRECT_PATH_SEPARATOR );
+	if ( pLastSlash )
+	{
+		*pLastSlash = 0;
+
+		if ( _access( dirName, 0 ) != 0 )
+		{
+			char cmdLine[512];
+			Q_snprintf( cmdLine, sizeof( cmdLine ), "md \"%s\"", dirName );
+			system( cmdLine );
+		}
+	}
+}
 
 void WriteFile (void)
 {
@@ -1406,6 +1425,8 @@ void WriteFile (void)
 		char groupname[260], localname[260];
 
 		sprintf( groupname, "%s%02d.mdl", outname, i );
+
+		EnsureFileDirectoryExists( filename );
 
 		printf ("writing %s:\n", groupname);
 		modelouthandle = SafeOpenWrite (groupname);
@@ -1457,6 +1478,8 @@ void WriteFile (void)
 	}
 	strcat( filename, "models/" );	
 	strcat( filename, outname );	
+
+	EnsureFileDirectoryExists( filename );
 
 	if( !g_quiet )
 	{

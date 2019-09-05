@@ -129,4 +129,12 @@ VSTDLIB_INTERFACE int Q_vsnprintf( char *pDest, int maxLen, char const *pFormat,
 
 VSTDLIB_INTERFACE char *Q_pretifymem( float value, int digitsafterdecimal = 2, bool usebinaryonek = false );
 
+#ifdef _WIN32
+#define CORRECT_PATH_SEPARATOR '\\'
+#define INCORRECT_PATH_SEPARATOR '/'
+#elif _LINUX
+#define CORRECT_PATH_SEPARATOR '/'
+#define INCORRECT_PATH_SEPARATOR '\\'
+#endif
+
 #endif	// VSTDLIB_STRTOOLS_H
