@@ -338,7 +338,7 @@ bool Voice_Init(const char *pCodecName)
 	g_pVoiceRecord = CreateVoiceRecord_DSound( rate );
 	if( !g_pVoiceRecord )
 	{
-		Msg( "Unable to initialize DirectSoundCapture. You won't be able to speak to other players." );
+		Msg( "Unable to initialize DirectSoundCapture. You won't be able to speak to other players.\n" );
 	}
 
 	// Get the codec.

@@ -394,8 +394,8 @@ END_NETWORK_TABLE()
 		if ( addDefault )
 		{
 			pPlayer->GiveNamedItem( "weapon_crowbar" );
-			pPlayer->GiveNamedItem( "weapon_9mmhandgun" );
-			pPlayer->GiveAmmo( 68, "SmallRound");// 4 full reloads
+			pPlayer->GiveNamedItem( "weapon_pistol" );
+			pPlayer->GiveAmmo( 72, "MediumRound");// 4 full reloads
 		}
 	}
 

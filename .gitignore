@@ -28,7 +28,7 @@ materialsystem_fixed_green_shader
 # VS2019
 .vs/
 UpgradeLog*.htm
-*.filters
+#*.filters # VXP: .filters actually needed for folder structure of projects
 enc_temp_folder/
 
 
