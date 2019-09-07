@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lcp">
+      <UniqueIdentifier>{f0c94aed-511b-48c1-9bad-4cf4034bfb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="incr_lu">
+      <UniqueIdentifier>{5649fbbb-8a8e-4aa5-a7d6-10638c721fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gauss_elimination">
+      <UniqueIdentifier>{8881a380-98d4-42b8-92d9-8273af49712d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="quaternion">
+      <UniqueIdentifier>{931129e4-69f3-4359-a30d-8f716413dcfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vector3">
+      <UniqueIdentifier>{3d330c4a-a5de-4a77-9dfe-7fb75eac781d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="matrix">
+      <UniqueIdentifier>{0cecdc52-7cc6-49f4-a646-c488ac2dd32f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vector_fpu">
+      <UniqueIdentifier>{0009c457-de63-4534-b887-279568351567}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lcp\lcp_solver.cpp">
+      <Filter>lcp</Filter>
+    </ClCompile>
+    <ClCompile Include="incr_lu\incr_lu.cpp">
+      <Filter>incr_lu</Filter>
+    </ClCompile>
+    <ClCompile Include="gauss_elimination\gauss_elimination.cpp">
+      <Filter>gauss_elimination</Filter>
+    </ClCompile>
+    <ClCompile Include="quaternion\quaternion.cpp">
+      <Filter>quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="quaternion\quaternion_util.cpp">
+      <Filter>quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="vector3\vector3.cpp">
+      <Filter>vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="vector3\vector3_util.cpp">
+      <Filter>vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="densematrix.cpp" />
+    <ClCompile Include="densematrix_util.cpp" />
+    <ClCompile Include="eulerangles.cpp" />
+    <ClCompile Include="math.cpp" />
+    <ClCompile Include="matrix3.cpp" />
+    <ClCompile Include="odesolve.cpp" />
+    <ClCompile Include="plane.cpp" />
+    <ClCompile Include="rotation.cpp" />
+    <ClCompile Include="spatial_matrix.cpp" />
+    <ClCompile Include="spatial_vector.cpp" />
+    <ClCompile Include="transform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lcp\lcp_solver.h">
+      <Filter>lcp</Filter>
+    </ClInclude>
+    <ClInclude Include="incr_lu\incr_lu.h">
+      <Filter>incr_lu</Filter>
+    </ClInclude>
+    <ClInclude Include="gauss_elimination\gauss_elimination.h">
+      <Filter>gauss_elimination</Filter>
+    </ClInclude>
+    <ClInclude Include="quaternion\quaternion.h">
+      <Filter>quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="quaternion\quaternion_util.h">
+      <Filter>quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3\vector3.h">
+      <Filter>vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3\vector3_util.h">
+      <Filter>vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix\matrix_inverter.h">
+      <Filter>matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_fpu\vector_fpu.h">
+      <Filter>vector_fpu</Filter>
+    </ClInclude>
+    <ClInclude Include="dense_vector.h" />
+    <ClInclude Include="densematrix.h" />
+    <ClInclude Include="densematrix_util.h" />
+    <ClInclude Include="eulerangles.h" />
+    <ClInclude Include="interval.h" />
+    <ClInclude Include="math.h" />
+    <ClInclude Include="matrix3.h" />
+    <ClInclude Include="odesolve.h" />
+    <ClInclude Include="plane.h" />
+    <ClInclude Include="qtransform.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="rotation.h" />
+    <ClInclude Include="spatial_matrix.h" />
+    <ClInclude Include="spatial_vector.h" />
+    <ClInclude Include="transform.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="vecmath.h" />
+    <ClInclude Include="vector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="quaternion\quaternion.inl">
+      <Filter>quaternion</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vector3\vector3.inl">
+      <Filter>vector3</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vector3\vector3_util.inl">
+      <Filter>vector3</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vector_fpu\vector_fpu.inl">
+      <Filter>vector_fpu</Filter>
+    </CustomBuild>
+    <CustomBuild Include="dense_vector.inl" />
+    <CustomBuild Include="densematrix.inl" />
+    <CustomBuild Include="densematrix_util.inl" />
+    <CustomBuild Include="math.inl" />
+    <CustomBuild Include="matrix3.inl" />
+    <CustomBuild Include="plane.inl" />
+    <CustomBuild Include="qtransform.inl" />
+    <CustomBuild Include="ray.inl" />
+    <CustomBuild Include="rotation.inl" />
+    <CustomBuild Include="spatial_matrix.inl" />
+    <CustomBuild Include="spatial_vector.inl" />
+    <CustomBuild Include="transform.inl" />
+    <CustomBuild Include="vector4.inl" />
+  </ItemGroup>
+</Project>

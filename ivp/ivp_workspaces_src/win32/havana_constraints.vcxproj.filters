@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="hk_physics %28havana%29">
+      <UniqueIdentifier>{83c54e11-4dd4-4386-a469-122598cef299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\core">
+      <UniqueIdentifier>{b2ff00e8-786b-4342-9817-964c93b9b52d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\core\vm_query_builder">
+      <UniqueIdentifier>{e1f30e84-80b6-4472-acd2-6891529fcf2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint">
+      <UniqueIdentifier>{9eed15bf-402f-4dfe-acbd-a66135496e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\ball_socket">
+      <UniqueIdentifier>{7751e981-5ae1-4ff2-a75d-aa32ccdd4c19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\limited_ball_socket">
+      <UniqueIdentifier>{89186fe1-d9f4-442b-a208-eaf610b39b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\ragdoll">
+      <UniqueIdentifier>{254507ab-6f0b-4ead-b5a5-3df82f46701c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\local_constraint_system">
+      <UniqueIdentifier>{308d4c78-2519-4e3c-bbe3-00bbf0353204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\util">
+      <UniqueIdentifier>{b7121730-a02b-4b57-9b79-945ad1c90b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\hinge">
+      <UniqueIdentifier>{fd376b23-4c6a-4f0e-82d9-8aa56febf0c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\breakable_constraint">
+      <UniqueIdentifier>{c8ddab3b-f01c-4c44-81bb-6cd7f963efcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\fixed">
+      <UniqueIdentifier>{f6bba3c7-6f6d-492a-8389-4be327c811dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\prismatic">
+      <UniqueIdentifier>{882b0169-96f6-4567-92cc-a9f29c431e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\pulley">
+      <UniqueIdentifier>{63ac5507-de83-4fae-bd92-36cb598075ee}</UniqueIdentifier>
+      <Extensions>*.h;*.cpp;*.cxx</Extensions>
+    </Filter>
+    <Filter Include="hk_physics %28havana%29\constraint\stiff_spring">
+      <UniqueIdentifier>{4c7354f6-0a8c-4b48-b408-0359e4aac39f}</UniqueIdentifier>
+      <Extensions>cpp,h</Extensions>
+    </Filter>
+    <Filter Include="hk_physics %28ipion%29">
+      <UniqueIdentifier>{c287dee6-91a9-4172-b3ce-b7d01b0c58a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28ipion%29\simunit">
+      <UniqueIdentifier>{f2b8a7bb-03da-497c-b979-cde990e647f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28ipion%29\constraint No. 1">
+      <UniqueIdentifier>{501debe4-c2b6-4714-b344-a565b3fa9ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28ipion%29\core No. 1">
+      <UniqueIdentifier>{85af21b3-39ef-4ca0-ac3e-cacdc8c956d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hk_physics %28ipion%29\effector">
+      <UniqueIdentifier>{085200de-6f0f-4342-a065-5d17776aeac8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\havana\havok\hk_physics\core\vm_query_builder\mass_relative_vector3.h">
+      <Filter>hk_physics %28havana%29\core\vm_query_builder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\core\vm_query_builder\vm_query_builder.h">
+      <Filter>hk_physics %28havana%29\core\vm_query_builder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\ball_socket\ball_socket_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\ball_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\ball_socket\ball_socket_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\ball_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\limited_ball_socket\limited_ball_socket_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\limited_ball_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\limited_ball_socket\limited_ball_socket_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\limited_ball_socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\ragdoll\ragdoll_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\ragdoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\ragdoll\ragdoll_constraint_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\ragdoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\ragdoll\ragdoll_constraint_bp_builder.h">
+      <Filter>hk_physics %28havana%29\constraint\ragdoll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\local_constraint_system\local_constraint_system.h">
+      <Filter>hk_physics %28havana%29\constraint\local_constraint_system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\local_constraint_system\local_constraint_system_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\local_constraint_system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\util\constraint_limit_util.h">
+      <Filter>hk_physics %28havana%29\constraint\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\hinge\hinge_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\hinge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\hinge\hinge_bp_builder.h">
+      <Filter>hk_physics %28havana%29\constraint\hinge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\hinge\hinge_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\hinge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\breakable_constraint\breakable_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\breakable_constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\breakable_constraint\breakable_constraint_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\breakable_constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\fixed\fixed_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\fixed\fixed_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\prismatic\prismatic_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\prismatic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\prismatic\prismatic_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\prismatic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\pulley\pulley_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\pulley</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\pulley\pulley_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\pulley</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\stiff_spring\stiff_spring_bp.h">
+      <Filter>hk_physics %28havana%29\constraint\stiff_spring</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\stiff_spring\stiff_spring_constraint.h">
+      <Filter>hk_physics %28havana%29\constraint\stiff_spring</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\constraint.h">
+      <Filter>hk_physics %28havana%29\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\constraint_bp.h">
+      <Filter>hk_physics %28havana%29\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\havana\havok\hk_physics\constraint\constraint_limit.h">
+      <Filter>hk_physics %28havana%29\constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IVP_PHYSICS\hk_physics\simunit\psi_info.h">
+      <Filter>hk_physics %28ipion%29\simunit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IVP_PHYSICS\hk_physics\constraint\local_constraint_system\local_constraint_system.h">
+      <Filter>hk_physics %28ipion%29\constraint No. 1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\IVP_PHYSICS\hk_physics\physics.h">
+      <Filter>hk_physics %28ipion%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\ball_socket\ball_socket_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\ball_socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\limited_ball_socket\limited_ball_socket_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\limited_ball_socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\ragdoll\ragdoll_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\ragdoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\ragdoll\ragdoll_constraint_bp_builder.cpp">
+      <Filter>hk_physics %28havana%29\constraint\ragdoll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\hinge\hinge_bp_builder.cpp">
+      <Filter>hk_physics %28havana%29\constraint\hinge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\hinge\hinge_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\hinge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\breakable_constraint\breakable_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\breakable_constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\fixed\fixed_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\prismatic\prismatic_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\prismatic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\pulley\pulley_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\pulley</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\stiff_spring\stiff_spring_constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint\stiff_spring</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\havana\havok\hk_physics\constraint\constraint.cpp">
+      <Filter>hk_physics %28havana%29\constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IVP_PHYSICS\hk_physics\constraint\local_constraint_system\local_constraint_system.cpp">
+      <Filter>hk_physics %28ipion%29\constraint No. 1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IVP_PHYSICS\hk_physics\core\rigid_body_core.cpp">
+      <Filter>hk_physics %28ipion%29\core No. 1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\IVP_PHYSICS\hk_physics\effector\rigid_body_binary_effector.cpp">
+      <Filter>hk_physics %28ipion%29\effector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\havana\havok\hk_physics\constraint\local_constraint_system\local_constraint_system.inl">
+      <Filter>hk_physics %28havana%29\constraint\local_constraint_system</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

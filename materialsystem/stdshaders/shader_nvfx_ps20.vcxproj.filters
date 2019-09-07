@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="BaseVSShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\bumpvects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hsv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lightmappedgeneric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\mathlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\tier0\memoverride.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="refract.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader_nvfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shadow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shatteredglass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sky.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="teeth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unlitgeneric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vertexlitgeneric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\vmatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="water.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="worldvertexalpha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="worldvertextransition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common_fxc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common_hlsl_cpp_consts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common_ps_fxc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common_vs_fxc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseVSShader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\lib\public\shaderlib.lib" />
+    <Library Include="..\..\lib\public\tier0.lib" />
+    <Library Include="..\..\lib\public\vstdlib.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\devtools\bin\fxc_prep.pl" />
+    <CustomBuild Include="..\..\devtools\bin\updateshaders.pl" />
+    <CustomBuild Include="hsv_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lightmappedgeneric_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lightmappedgeneric_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Refract_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Refract_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="screenspaceeffect_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="shadow_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="shadow_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ShatteredGlass_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ShatteredGlass_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="teeth_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vertexlit_and_unlit_generic_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vertexlit_and_unlit_generic_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Water_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Water_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_ps20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WaterCheap_vs20.fxc">
+      <Filter>Shaders</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="shader_nvfx.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a2e5b7d5-6025-4b2e-bdc8-8598fd6751aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{a7ea6ad0-9c82-41c2-8bd9-75ef9a2d85d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{467733f8-9fa8-4c71-9547-a52ad89b6a00}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
