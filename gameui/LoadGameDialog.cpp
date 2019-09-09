@@ -21,15 +21,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "FileSystem.h"
+#include "savegame_version.h"
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include <tier0/memdbgon.h>
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
-
-// Note, this must match engine version from host_cmd.h
-#define	SAVEGAME_VERSION	0x0071		// Version 0.71
 
 using namespace vgui;
 
