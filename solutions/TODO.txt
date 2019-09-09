@@ -27,3 +27,8 @@ Worldcraft: include/ignore nafxcwd.lib;Libcmtd.lib for non-Unicode, and uafxcwd.
 ?Переделать shader_nvfx и shader_nvfx_ps20? Не вмешиваясь в проекты с Notepad++
 
 Partial commits: https://stackoverflow.com/questions/32527097/can-you-do-partial-commit-in-tortoisegit/32527098
+
+https://docs.microsoft.com/en-us/cpp/build/reference/z7-zi-zi-debug-information-format?view=vs-2019
+	The Edit and Continue feature can cause issues in code size, performance, and compiler conformance.
+	Because most optimizations are incompatible with Edit and Continue, using /ZI disables any #pragma optimize statements in your code.
+	The /ZI option is also incompatible with use of the __LINE__ predefined macro; code compiled with /ZI cannot use __LINE__ as a non-type template argument, although __LINE__ can be used in macro expansions.
