@@ -3382,7 +3382,7 @@ int MapSourcesToGlobalBonetable( )
 		for (k = 0; k < MAXSTUDIOSRCBONES; k++)
 		{
 			g_source[i]->boneGlobalToLocal[k] = -1;
-			g_source[i]->boneLocalToGlobal[j] = -1;
+			g_source[i]->boneLocalToGlobal[k] = -1;
 		}
 		for (j = 0; j < g_source[i]->numbones; j++)
 		{
@@ -3700,12 +3700,12 @@ void RemapBones( )
 		CollapseBones( );
 	}
 
-	/*
-	for (i = 0; i < g_numbones; i++)
+	///*
+	for (int i = 0; i < g_numbones; i++)
 	{
 		printf("%2d %s %d\n", i, g_bonetable[i].name, g_bonetable[i].parent );
 	}
-	*/
+	//*/
 
 	EnforceHeirarchy( );
 
