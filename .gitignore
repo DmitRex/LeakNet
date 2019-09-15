@@ -44,6 +44,8 @@ materialsystem/stdshaders/fxctmp9/
 materialsystem/stdshaders/fxctmp9_nv3x/
 materialsystem/stdshaders/fxctmp9_nv3x_ps20/
 materialsystem/stdshaders/pshtmp9/
+materialsystem/stdshaders/vshtmp/
+materialsystem/stdshaders/vshtmp8/
 materialsystem/stdshaders/vshtmp9/
 materialsystem/stdshaders/shit.txt
 utils/hlmviewer/src/hlmv.exe
