@@ -1356,6 +1356,8 @@ inline int flexsetting_t::psetting( byte *base, int i, flexweight_t **weights ) 
 // If we only support the current version, this function should be empty.
 inline void Studio_ConvertStudioHdrToNewVersion( studiohdr_t *pStudioHdr )
 {
+	return; // VXP: TODO
+
 	COMPILE_TIME_ASSERT( STUDIO_VERSION == 37 ); //  put this to make sure this code is updated upon changing version.
 	int version = pStudioHdr->version;
 

@@ -536,7 +536,7 @@ void InitPose(
 
 		pos[i] = Vector( pbone->value[0], pbone->value[1], pbone->value[2] );
 
-		AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36), "Remove the code after this line" );
+	//	AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36), "Remove the code after this line" );
 		// FIXME!!!
 		if ( pbone->quat.w == 0.0)
 		{
