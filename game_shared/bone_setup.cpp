@@ -604,13 +604,13 @@ bool CalcPoseSingle(
 	{
 		if (pseqdesc->groupsize[0] == 1)
 		{
-			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim[0][0]);
+			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim(0, 0));
 			CalcRotations( pStudioHdr, pos, q, pseqdesc, panim0, cycle, boneMask);
 		}
 		else
 		{
-			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0  ][i1  ]);
-			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0+1][i1  ]);
+			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0  , i1  ));
+			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0+1, i1  ));
 
 			// remove "zero" positional blends
 			if ((panim0->flags & STUDIO_ALLZEROS) && (s0 < 0.001))
@@ -632,8 +632,8 @@ bool CalcPoseSingle(
 	{
 		if (pseqdesc->groupsize[0] == 1)
 		{
-			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0  ][i1  ]);
-			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0  ][i1+1]);
+			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0  , i1  ));
+			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0  , i1+1));
 
 			CalcRotations( pStudioHdr, pos,  q,  pseqdesc, panim0, cycle, boneMask );
 			CalcRotations( pStudioHdr, pos2, q2, pseqdesc, panim1, cycle, boneMask );
@@ -642,16 +642,16 @@ bool CalcPoseSingle(
 		}
 		else
 		{
-			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0  ][i1]);
-			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0+1][i1]);
+			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0  , i1));
+			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0+1, i1));
 
 			CalcRotations( pStudioHdr, pos,  q,  pseqdesc, panim0, cycle, boneMask );
 			CalcRotations( pStudioHdr, pos2, q2, pseqdesc, panim1, cycle, boneMask );
 
 			BlendBones( pStudioHdr, q, pos, pseqdesc, q2, pos2, s0, boneMask );
 			
-			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0  ][i1+1]);
-			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim[i0+1][i1+1]);
+			panim0 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0  , i1+1));
+			panim1 = pStudioHdr->pAnimdesc(pseqdesc->anim(i0+1, i1+1));
 
 			CalcRotations( pStudioHdr, pos2, q2, pseqdesc, panim0, cycle, boneMask );
 			CalcRotations( pStudioHdr, pos3, q3, pseqdesc, panim1, cycle, boneMask );
@@ -2887,16 +2887,16 @@ void Studio_SeqAnims( const studiohdr_t *pStudioHdr, int iSequence, const float 
 	Studio_LocalPoseParameter( pStudioHdr, poseParameter, pseqdesc, 0, s0, i0 );
 	Studio_LocalPoseParameter( pStudioHdr, poseParameter, pseqdesc, 1, s1, i1 );
 
-	panim[0] = pStudioHdr->pAnimdesc( pseqdesc->anim[i0  ][i1  ] );
+	panim[0] = pStudioHdr->pAnimdesc( pseqdesc->anim(i0  , i1  ) );
 	weight[0] = (1 - s0) * (1 - s1);
 
-	panim[1] = pStudioHdr->pAnimdesc( pseqdesc->anim[i0+1][i1  ] );
+	panim[1] = pStudioHdr->pAnimdesc( pseqdesc->anim(i0+1, i1  ) );
 	weight[1] = (s0) * (1 - s1);
 
-	panim[2] = pStudioHdr->pAnimdesc( pseqdesc->anim[i0  ][i1+1] );
+	panim[2] = pStudioHdr->pAnimdesc( pseqdesc->anim(i0  , i1+1) );
 	weight[2] = (1 - s0) * (s1);
 
-	panim[3] = pStudioHdr->pAnimdesc( pseqdesc->anim[i0+1][i1+1] );
+	panim[3] = pStudioHdr->pAnimdesc( pseqdesc->anim(i0+1, i1+1) );
 	weight[3] = (s0) * (s1);
 
 	Assert( weight[0] >= 0.0f && weight[1] >= 0.0f && weight[2] >= 0.0f && weight[3] >= 0.0f );

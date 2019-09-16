@@ -404,6 +404,7 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 		pseqdesc->numblends		= g_sequence[i].numblends;
 		pseqdesc->groupsize[0]	= g_sequence[i].groupsize[0];
 		pseqdesc->groupsize[1]	= g_sequence[i].groupsize[1];
+#if STUDIO_VERSION != 37
 		for (j = 0; j < MAXSTUDIOBLENDS; j++)
 		{
 			for (k = 0; k < MAXSTUDIOBLENDS; k++)
@@ -414,6 +415,7 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 					pseqdesc->anim[j][k] = 0; // !!! bad
 			}
 		}
+#endif
 
 		pseqdesc->paramindex[0]	= g_sequence[i].paramindex[0];
 		pseqdesc->paramstart[0] = g_sequence[i].paramstart[0];

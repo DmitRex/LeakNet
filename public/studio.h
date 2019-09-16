@@ -63,7 +63,7 @@ Studio models are position independent, so the cache manager can move them.
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 #include "bspflags.h"
 
-#define STUDIO_VERSION		36		// READ ABOVE!!!
+#define STUDIO_VERSION		37		// READ ABOVE!!!
 
 #define MAXSTUDIOTRIANGLES	25000	// TODO: tune this
 #define MAXSTUDIOVERTS		25000	// TODO: tune this
@@ -402,7 +402,26 @@ struct mstudioseqdesc_t
 
 	int					numblends;
 
-	int					anim[MAXSTUDIOBLENDS][MAXSTUDIOBLENDS];	// animation number
+	// Index into array of shorts which is groupsize[0] x groupsize[1] in length
+	int					animindexindex;
+
+	inline int			anim( int x, int y ) const
+	{
+		if ( x >= groupsize[0] )
+		{
+			x = groupsize[0] - 1;
+		}
+
+		if ( y >= groupsize[1] )
+		{
+			y = groupsize[ 1 ] - 1;
+		}
+
+		int offset = y * groupsize[0] + x;
+		short *blends = (short *)(((byte *)this) + animindexindex);
+		int value = (int)blends[ offset ];
+		return value;
+	}
 
 	int					movementindex;	// [blend] float array for blended movement
 	int					groupsize[2];
@@ -411,7 +430,7 @@ struct mstudioseqdesc_t
 	float				paramend[2];	// local (0..1) ending value
 	int					paramparent;
 
-	int					seqgroup;		// sequence group for demand loading
+//	int					seqgroup;		// VXP: TODO: sequence group for demand loading
 
 	float				fadeintime;		// ideal cross fate in time (0.2 default)
 	float				fadeouttime;	// ideal cross fade out time (0.2 default)
@@ -883,6 +902,29 @@ struct mstudiohitboxset_t
 // instead of overriding them with the default one (necessary for translucent shadows)
 #define STUDIOHDR_FLAGS_USE_SHADOWLOD_MATERIALS	( 1 << 8 )
 
+#if STUDIO_VERSION == 37
+struct mstudiodummy1_t
+{
+	int					dummy1;
+	int					dummy2;
+	float				dummy3[6];
+	float				dummy4[6];
+};
+
+struct mstudiodummy2_t
+{
+	int					someindex;
+	int					dummy1;
+
+	float				value[6];	// default DoF values
+	float				scale[6];   // scale for delta DoF values
+	matrix3x4_t			poseToBone;
+	Quaternion			qAlignment;
+
+	int					dummy2;
+};
+#endif
+
 struct studiohdr_t
 {
 	int					id;
@@ -954,6 +996,16 @@ struct studiohdr_t
 	int					numanim;			// animations/poses
 	int					animdescindex;		// animation descriptions
 	inline mstudioanimdesc_t *pAnimdesc( int i ) const { return (mstudioanimdesc_t *)(((byte *)this) + animdescindex) + i; };
+
+#if STUDIO_VERSION == 37
+	int					numdummy1;
+	int					dummy1index;
+	inline mstudiodummy1_t *pDummy1( int i ) const { return (mstudiodummy1_t *)(((byte *)this) + dummy1index) + i; };
+
+	int					numdummy2;
+	int					dummy2index;
+	inline mstudiodummy2_t *pDummy2( int i ) const { return (mstudiodummy2_t *)(((byte *)this) + dummy2index) + i; };
+#endif
 
 	int					numseq;				// sequences
 	int					seqindex;
@@ -1304,7 +1356,7 @@ inline int flexsetting_t::psetting( byte *base, int i, flexweight_t **weights ) 
 // If we only support the current version, this function should be empty.
 inline void Studio_ConvertStudioHdrToNewVersion( studiohdr_t *pStudioHdr )
 {
-	COMPILE_TIME_ASSERT( STUDIO_VERSION == 36 ); //  put this to make sure this code is updated upon changing version.
+	COMPILE_TIME_ASSERT( STUDIO_VERSION == 37 ); //  put this to make sure this code is updated upon changing version.
 	int version = pStudioHdr->version;
 
 	if( version == STUDIO_VERSION )
@@ -1328,7 +1380,7 @@ inline void Studio_ConvertStudioHdrToNewVersion( studiohdr_t *pStudioHdr )
 	if( version >= 35 )
 	{
 		// Don't remove this!!!!  This code has to be inspected everytime the studio format changes.
-		COMPILE_TIME_ASSERT( STUDIO_VERSION == 36 ); //  put this to make sure this code is updated upon changing version.
+		COMPILE_TIME_ASSERT( STUDIO_VERSION == 37 ); //  put this to make sure this code is updated upon changing version.
 		pStudioHdr->version = STUDIO_VERSION;
 	}
 }
