@@ -402,6 +402,9 @@ struct mstudioseqdesc_t
 
 	int					numblends;
 
+#if STUDIO_VERSION != 37
+	int					anim[MAXSTUDIOBLENDS][MAXSTUDIOBLENDS];	// animation number
+#else
 	// Index into array of shorts which is groupsize[0] x groupsize[1] in length
 	int					animindexindex;
 
@@ -422,6 +425,7 @@ struct mstudioseqdesc_t
 		int value = (int)blends[ offset ];
 		return value;
 	}
+#endif
 
 	int					movementindex;	// [blend] float array for blended movement
 	int					groupsize[2];
@@ -430,7 +434,9 @@ struct mstudioseqdesc_t
 	float				paramend[2];	// local (0..1) ending value
 	int					paramparent;
 
-//	int					seqgroup;		// VXP: TODO: sequence group for demand loading
+#if STUDIO_VERSION != 37
+	int					seqgroup;		// sequence group for demand loading
+#endif
 
 	float				fadeintime;		// ideal cross fate in time (0.2 default)
 	float				fadeouttime;	// ideal cross fade out time (0.2 default)
