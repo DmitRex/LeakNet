@@ -189,7 +189,7 @@ static void WriteBoneInfo( studiohdr_t *phdr )
 		pbone[i].qAlignment		= g_bonetable[i].qAlignment;
 
 		// TODO: rewrite on version change!!  see studio.h for what to do.
-		Assert( STUDIO_VERSION == 36 );
+		Assert( STUDIO_VERSION == 37 );
 		AngleQuaternion( RadianEuler( g_bonetable[i].rot[0], g_bonetable[i].rot[1], g_bonetable[i].rot[2] ), pbone[i].quat );
 		QuaternionAlign( pbone[i].qAlignment, pbone[i].quat, pbone[i].quat );
 
@@ -529,6 +529,36 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 			piklock->flLocalQWeight	= g_sequence[i].iklock[j].flLocalQWeight;
 			piklock++;
 		}
+
+#if STUDIO_VERSION == 37
+		// Write animation blend parameters
+		short *blends = ( short * )pData;
+		pseqdesc->animindexindex = ( pData - pSequenceStart );
+		pData += ( g_sequence[i].groupsize[0] * g_sequence[i].groupsize[1] ) * sizeof( short );
+		ALIGN4( pData );
+
+		for ( j = 0; j < g_sequence[i].groupsize[0] ; j++ )
+		{
+			for ( k = 0; k < g_sequence[i].groupsize[1]; k++ )
+			{
+				// height value * width of row + width value
+				int offset = k * g_sequence[i].groupsize[0] + j;
+
+				if ( g_sequence[i].panim[j][k] )
+				{
+					int animindex = g_sequence[i].panim[j][k]->index;
+
+					Assert( animindex >= 0 && animindex < SHRT_MAX );
+
+					blends[ offset ] = (short)animindex;
+				}
+				else
+				{
+					blends[ offset ] = 0;
+				}
+			}
+		}
+#endif
 
 		WriteSeqKeyValues( pseqdesc, &g_sequence[i].KeyValue );
 	}
