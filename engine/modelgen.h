@@ -43,5 +43,6 @@ typedef enum {ST_SYNC=0, ST_RAND } synctype_t;
 														// little-endian "IDST"
 
 #define IDSTUDIOSEQHEADER	(('Q'<<24)+('S'<<16)+('D'<<8)+'I')
+														// little-endian "IDSQ"
 
 #endif // !MODELGEN_H

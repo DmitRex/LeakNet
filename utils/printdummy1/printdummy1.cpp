@@ -2,7 +2,9 @@
 
 #include <stdio.h>
 #include <string.h>
+
 #include "studio.h"
+#include "modelgen.h"
 
 int main( int argc, char **argv )
 {
@@ -47,9 +49,25 @@ int main( int argc, char **argv )
 	//if ( dummy1->dummy1 != 0 )
 	//	printf( "%s has %d\r\n", pStudioHdr->name, dummy1->dummy1 );
 
-	mstudiodummy2_t *dummy2 = pStudioHdr->pDummy2( 0 );
-	if ( dummy2->dummy1 != -1 )
-		printf( "%s has %d\r\n", pStudioHdr->name, dummy2->dummy1 );
+	//mstudiodummy2_t *dummy2 = pStudioHdr->pDummy2( 0 );
+	//if ( dummy2->dummy1 != -1 )
+	//	printf( "%s has %d\r\n", pStudioHdr->name, dummy2->dummy1 );
+
+	switch( pStudioHdr->id )
+	{
+	case IDSTUDIOHEADER:
+	//	printf( "%s is IDSTUDIOHEADER\r\n", pStudioHdr->name );
+		break;
+	case IDSTUDIOSEQHEADER:
+		printf( "%s is IDSTUDIOSEQHEADER\r\n", pStudioHdr->name );
+		break;
+	case (('G'<<24)+('A'<<16)+('D'<<8)+'I'): // IDAG
+		printf( "%s is IDSTUDIOANIMGROUPHEADER\r\n", pStudioHdr->name );
+		break;
+	default:
+		printf( "%s has unknown model ID (%i)\r\n", pStudioHdr->name, pStudioHdr->id );
+		break;
+	}
 
 	fclose( fp );
 	return 0;

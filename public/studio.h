@@ -929,6 +929,26 @@ struct mstudiodummy2_t
 
 	int					dummy2;
 };
+
+// header for demand loaded animation group data
+struct studioanimgrouphdr_t
+{
+	int					id;
+	int					version;
+
+	char				name[64];
+	int					length;
+
+	int					spacing1; // 41
+
+	int					numdummy1; // 65
+	int					dummy1index;
+
+	int					spacing2; // 202
+
+	int					numdummy2; // 96
+	int					dummy2index;
+};
 #endif
 
 struct studiohdr_t
@@ -1020,6 +1040,7 @@ struct studiohdr_t
 
 	int					numseqgroups;		// demand loaded sequences
 	int					seqgroupindex;
+	inline mstudioseqgroup_t *pSeqgroup( int i ) const { return (mstudioseqgroup_t *)(((byte *)this) + seqgroupindex) + i; };
 
 	int					numtextures;		// raw textures
 	int					textureindex;
