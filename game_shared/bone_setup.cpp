@@ -18,15 +18,27 @@ void BuildBoneChain(
 
 mstudioanimdesc_t *GetAnimDescriptions( const studiohdr_t *pStudioHdr, mstudioseqdesc_t *pseqdesc, int x, int y )
 {
-	mstudioanimdesc_t *pAnimDesc = NULL;
-
 #if STUDIO_VERSION == 37
-	pAnimDesc = pStudioHdr->pAnimdesc( pseqdesc->anim( x, y ) );
-#else
-	pAnimDesc = pStudioHdr->pAnimdesc( pseqdesc->anim[x][y] );
-#endif
+	int iAnimGroup = pseqdesc->anim( x, y );
+	mstudiodummy1_t *pAnimGroup = pStudioHdr->pDummy1( iAnimGroup );
+	int iSeqGroup = pAnimGroup->group;
+	if ( iSeqGroup == 0 )
+		return pStudioHdr->pAnimdesc( pseqdesc->anim( x, y ) );
 
-	return pAnimDesc;
+	int iAnimIndex = pAnimGroup->dummy2;
+
+	mstudioseqgroup_t *pSeqGroup = pStudioHdr->pSeqgroup( iSeqGroup );
+//	Msg( "%s, %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName() );
+
+	if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) )
+	{
+		// 
+	}
+
+	return pStudioHdr->pAnimdesc( pseqdesc->anim( x, y ) );
+#else
+	return pStudioHdr->pAnimdesc( pseqdesc->anim[x][y] );
+#endif
 }
 
 //-----------------------------------------------------------------------------

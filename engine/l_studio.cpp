@@ -112,6 +112,10 @@ bool Mod_LoadStudioModel (model_t *mod, void *buffer, bool zerostructure )
 
 	phdr = (studiohdr_t *)pin;
 
+	// VXP: For debugger
+	phdr->pSeqgroup(0)->pszLabel();
+	phdr->pSeqgroup(0)->pszName();
+
 	Studio_ConvertStudioHdrToNewVersion( phdr );
 	
 	version = LittleLong (phdr->version);

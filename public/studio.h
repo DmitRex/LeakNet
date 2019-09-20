@@ -911,10 +911,8 @@ struct mstudiohitboxset_t
 #if STUDIO_VERSION == 37
 struct mstudiodummy1_t
 {
-	int					dummy1;
+	int					group;
 	int					dummy2;
-	float				dummy3[6];
-	float				dummy4[6];
 };
 
 struct mstudiodummy2_t
@@ -948,6 +946,7 @@ struct studioanimgrouphdr_t
 
 	int					numdummy2; // 96
 	int					dummy2index;
+	inline mstudioanimdesc_t *pAnimdesc( int i ) const { return (mstudioanimdesc_t *)(((byte *)this) + dummy2index) + i; };
 };
 #endif
 
