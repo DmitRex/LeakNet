@@ -7,7 +7,7 @@
 #endif
 
 #include "engine/ISharedModelLoader.h"
-#include "utlrbtree.h"
+//#include "utlrbtree.h"
 
 class CSharedModelLoader : public ISharedModelLoader
 {
@@ -19,7 +19,7 @@ public:
 
 private:
 	IBaseFileSystem			*m_pFilesystem;
-	CUtlRBTree< const char *, int >		m_SharedModels;
+	studioanimgrouphdr_t	*header;
 };
 
 

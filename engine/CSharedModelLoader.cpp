@@ -5,10 +5,10 @@
 
 EXPOSE_SINGLE_INTERFACE( CSharedModelLoader, ISharedModelLoader, ISHAREDMODELLOADER_INTERFACE_VERSION );
 
-CSharedModelLoader::CSharedModelLoader() :
-	m_SharedModels( 0, 0, 0 ) // TODO
+CSharedModelLoader::CSharedModelLoader()
 {
-	
+	header = (studioanimgrouphdr_t *)malloc( 512 );
+	memset( header, 0, 512 );
 }
 
 void CSharedModelLoader::InitFilesystem( IBaseFileSystem *filesystem )
@@ -18,6 +18,9 @@ void CSharedModelLoader::InitFilesystem( IBaseFileSystem *filesystem )
 
 studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 {
+	if ( header->id != NULL )
+		return header;
+
 	FileHandle_t pFileHandle = m_pFilesystem->Open( path, "rb" );
 	if ( pFileHandle == NULL )
 	{
@@ -49,6 +52,9 @@ studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 		Warning( "CSharedModelLoader: %s is not a valid animgroup file\n", path );
 		return NULL;
 	}
-	sharedModelMemory->pAnimdesc(0);
-	return sharedModelMemory;
+
+	sharedModelMemory->pAnimdesc(0); // For debugger
+
+	header = sharedModelMemory;
+	return header;
 }
