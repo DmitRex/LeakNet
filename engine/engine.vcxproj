@@ -1013,6 +1013,7 @@ if exist $(TargetDir)engine.map copy $(TargetDir)swds.map ..\..\bin\swds.map </C
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /GM   /GM </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Dedicated Debug|Win32'"> /GM   /GM </AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="CSharedModelLoader.cpp" />
     <ClCompile Include="CSpatialPartition.cpp">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Dedicated Release|Win32'"> /GM   /GM </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"> /GM   /GM </AdditionalOptions>
@@ -2327,6 +2328,7 @@ if exist $(TargetDir)engine.map copy $(TargetDir)swds.map ..\..\bin\swds.map </C
     <ClInclude Include="conprint.h" />
     <ClInclude Include="conproc.h" />
     <ClInclude Include="CONSOLE.H" />
+    <ClInclude Include="CSharedModelLoader.h" />
     <ClInclude Include="CVAR.H" />
     <ClInclude Include="DebugOverlay.h" />
     <ClInclude Include="debug_leafvis.h" />

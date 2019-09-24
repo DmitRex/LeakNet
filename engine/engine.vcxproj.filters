@@ -675,6 +675,9 @@
     <ClCompile Include="audio\private\vox.cpp">
       <Filter>.%255cAudio%255cPrivate\.%255cAudio%255cPrivate: Source</Filter>
     </ClCompile>
+    <ClCompile Include="CSharedModelLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseautocompletefilelist.h">
@@ -1888,6 +1891,9 @@
     </ClInclude>
     <ClInclude Include="audio\private\vox_private.h">
       <Filter>.%255cAudio%255cPrivate\.%255cAudio%255cPrivate: Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CSharedModelLoader.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

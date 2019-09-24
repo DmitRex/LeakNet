@@ -21,6 +21,8 @@ struct LodScriptData_t;
 														// little-endian "IDST"
 #define IDSTUDIOSEQHEADER	(('Q'<<24)+('S'<<16)+('D'<<8)+'I')
 														// little-endian "IDSQ"
+#define IDSTUDIOANIMGROUPHEADER	(('G'<<24)+('A'<<16)+('D'<<8)+'I')
+														// little-endian "IDAG"
 
 #define MAXSTUDIOANIMATIONS	2000	// max frames per animation
 #define MAXSTUDIOSEQUENCES	512		// total animation sequences

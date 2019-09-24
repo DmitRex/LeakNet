@@ -61,7 +61,7 @@ int main( int argc, char **argv )
 	case IDSTUDIOSEQHEADER:
 		printf( "%s is IDSTUDIOSEQHEADER\r\n", pStudioHdr->name );
 		break;
-	case (('G'<<24)+('A'<<16)+('D'<<8)+'I'): // IDAG
+	case IDSTUDIOANIMGROUPHEADER:
 		printf( "%s is IDSTUDIOANIMGROUPHEADER\r\n", pStudioHdr->name );
 		break;
 	default:

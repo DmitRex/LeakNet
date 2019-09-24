@@ -7,6 +7,7 @@
 #include "collisionutils.h"
 #include "vstdlib/random.h"
 #include "tier0/vprof.h"
+#include "engine/ISharedModelLoader.h"
 
 void BuildBoneChain(
 	const studiohdr_t *pStudioHdr,
@@ -34,16 +35,20 @@ mstudioanimdesc_t *GetAnimDescriptions( const studiohdr_t *pStudioHdr, mstudiose
 	//	Msg( "%s\n", pStudioHdr->pBonedesc(i)->pszName() );
 	//}
 
-	if ( pSeqGroup->szlabelindex < pStudioHdr->length && pSeqGroup->sznameindex < pStudioHdr->length )
+//	if ( pSeqGroup->szlabelindex < pStudioHdr->length && pSeqGroup->sznameindex < pStudioHdr->length )
 	{
 	//	Msg("seq group label: %s; name: %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName());
-		//if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) == 0 )
-		//{
-		//	// 
-		//}
+		if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) == 0 )
+		{
+			studioanimgrouphdr_t *pAnimGroupShared = sharedmodelloader->LoadSharedModel( pSeqGroup->pszName() );
+			if ( pAnimGroupShared == NULL )
+				return pStudioHdr->pAnimdesc( 0 );
+
+			return pAnimGroupShared->pAnimdesc( iAnimIndex );
+		}
 	}
 
-	return pStudioHdr->pAnimdesc( iAnimGroup );
+	return pStudioHdr->pAnimdesc( 0 );
 #else
 	return pStudioHdr->pAnimdesc( pseqdesc->anim[x][y] );
 #endif

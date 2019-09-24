@@ -949,7 +949,7 @@ struct studioanimgrouphdr_t
 	int					numdummy1; // 65
 	int					dummy1index;
 
-	int					spacing2; // 202
+//	int					spacing2; // 202
 
 	int					numdummy2; // 96
 	int					dummy2index;
