@@ -217,7 +217,10 @@ struct mstudioseqgroup_t
 	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
 	/* cache_user_t */	void *cache;	// cache index pointer
 	int					data;			// hack for group 0
+
+#if STUDIO_VERSION != 37
 	char				padding[32];	// future expansion.
+#endif
 };
 
 
@@ -909,15 +912,17 @@ struct mstudiohitboxset_t
 #define STUDIOHDR_FLAGS_USE_SHADOWLOD_MATERIALS	( 1 << 8 )
 
 #if STUDIO_VERSION == 37
-struct mstudiodummy1_t
+struct mstudioanimgroup_t
 {
 	int					group;
-	int					dummy2;
+	int					index; // VXP: mstudioseqdesc_t anim index stuff
 };
 
-struct mstudiodummy2_t
+struct mstudiobonedesc_t
 {
 	int					someindex;
+	inline char * const pszName( void ) const { return ((char *)this) + someindex; }
+
 	int					dummy1;
 
 	float				value[6];	// default DoF values
@@ -926,6 +931,8 @@ struct mstudiodummy2_t
 	Quaternion			qAlignment;
 
 	int					dummy2;
+
+//	float				fivefloat[5];
 };
 
 // header for demand loaded animation group data
@@ -1023,13 +1030,13 @@ struct studiohdr_t
 	inline mstudioanimdesc_t *pAnimdesc( int i ) const { return (mstudioanimdesc_t *)(((byte *)this) + animdescindex) + i; };
 
 #if STUDIO_VERSION == 37
-	int					numdummy1;
-	int					dummy1index;
-	inline mstudiodummy1_t *pDummy1( int i ) const { return (mstudiodummy1_t *)(((byte *)this) + dummy1index) + i; };
+	int					numanimgroups;
+	int					animgroupindex;
+	inline mstudioanimgroup_t *pAnimgroup( int i ) const { return (mstudioanimgroup_t *)(((byte *)this) + animgroupindex) + i; };
 
-	int					numdummy2;
-	int					dummy2index;
-	inline mstudiodummy2_t *pDummy2( int i ) const { return (mstudiodummy2_t *)(((byte *)this) + dummy2index) + i; };
+	int					numbonedescs;
+	int					bonedescindex;
+	inline mstudiobonedesc_t *pBonedesc( int i ) const { return (mstudiobonedesc_t *)(((byte *)this) + bonedescindex) + i; };
 #endif
 
 	int					numseq;				// sequences
@@ -1039,7 +1046,7 @@ struct studiohdr_t
 
 	int					numseqgroups;		// demand loaded sequences
 	int					seqgroupindex;
-	inline mstudioseqgroup_t *pSeqgroup( int i ) const { return (mstudioseqgroup_t *)(((byte *)this) + seqgroupindex) + i; };
+	inline mstudioseqgroup_t *pSeqgroup( int i ) const { if (i < 0 || i >= numseqgroups) i = 0; return (mstudioseqgroup_t *)(((byte *)this) + seqgroupindex) + i; };
 
 	int					numtextures;		// raw textures
 	int					textureindex;

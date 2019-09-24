@@ -45,11 +45,11 @@ int main( int argc, char **argv )
 		return -1;
 	}
 
-	//mstudiodummy1_t *dummy1 = pStudioHdr->pDummy1( 0 );
+	//mstudioanimgroup_t *dummy1 = pStudioHdr->pAnimgroup( 0 );
 	//if ( dummy1->group != 0 )
 	//	printf( "%s has %d\r\n", pStudioHdr->name, dummy1->group );
 
-	//mstudiodummy2_t *dummy2 = pStudioHdr->pDummy2( 0 );
+	//mstudiobonedesc_t *dummy2 = pStudioHdr->pBonedesc( 0 );
 	//if ( dummy2->dummy1 != -1 )
 	//	printf( "%s has %d\r\n", pStudioHdr->name, dummy2->dummy1 );
 

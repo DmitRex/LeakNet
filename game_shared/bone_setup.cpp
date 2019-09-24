@@ -20,22 +20,30 @@ mstudioanimdesc_t *GetAnimDescriptions( const studiohdr_t *pStudioHdr, mstudiose
 {
 #if STUDIO_VERSION == 37
 	int iAnimGroup = pseqdesc->anim( x, y );
-	mstudiodummy1_t *pAnimGroup = pStudioHdr->pDummy1( iAnimGroup );
+	mstudioanimgroup_t *pAnimGroup = pStudioHdr->pAnimgroup( iAnimGroup );
 	int iSeqGroup = pAnimGroup->group;
 	if ( iSeqGroup == 0 )
-		return pStudioHdr->pAnimdesc( pseqdesc->anim( x, y ) );
+		return pStudioHdr->pAnimdesc( iAnimGroup );
 
-	int iAnimIndex = pAnimGroup->dummy2;
+	int iAnimIndex = pAnimGroup->index;
 
 	mstudioseqgroup_t *pSeqGroup = pStudioHdr->pSeqgroup( iSeqGroup );
-//	Msg( "%s, %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName() );
+	//Msg( "%s, %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName() );
+	//for ( int i = 0; i < pStudioHdr->numbonedescs; i++ )
+	//{
+	//	Msg( "%s\n", pStudioHdr->pBonedesc(i)->pszName() );
+	//}
 
-	if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) )
+	if ( pSeqGroup->szlabelindex < pStudioHdr->length && pSeqGroup->sznameindex < pStudioHdr->length )
 	{
-		// 
+	//	Msg("seq group label: %s; name: %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName());
+		//if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) == 0 )
+		//{
+		//	// 
+		//}
 	}
 
-	return pStudioHdr->pAnimdesc( pseqdesc->anim( x, y ) );
+	return pStudioHdr->pAnimdesc( iAnimGroup );
 #else
 	return pStudioHdr->pAnimdesc( pseqdesc->anim[x][y] );
 #endif
