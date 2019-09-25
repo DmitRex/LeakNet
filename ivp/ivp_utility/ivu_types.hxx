@@ -69,6 +69,7 @@ inline void BREAKPOINT()
 
 #ifdef	NDEBUG
 #	define IVP_ASSERT(cond)	
+#	define IVP_ASSERT2(cond, msg)	
 #	define IVP_USE(a) 
 #	define IVP_IF(flag)	if (0==1)
 #else
