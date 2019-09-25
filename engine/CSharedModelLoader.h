@@ -9,6 +9,12 @@
 #include "engine/ISharedModelLoader.h"
 //#include "utlrbtree.h"
 
+struct sharedmodelloader_t
+{
+	char					path[MAX_PATH];
+	studioanimgrouphdr_t	*header;
+};
+
 class CSharedModelLoader : public ISharedModelLoader
 {
 public:
@@ -19,7 +25,7 @@ public:
 
 private:
 	IBaseFileSystem			*m_pFilesystem;
-	studioanimgrouphdr_t	*header;
+	sharedmodelloader_t		cachedata;
 };
 
 

@@ -2,13 +2,18 @@
 
 #include "CSharedModelLoader.h"
 #include "modelgen.h"
+#include <vstdlib\strtools.h>
+
+#define TYPICAL_SHAREDANIMGROUP_FILESIZE 14 * 1024 * 1024 // Just about 1384588 bytes
 
 EXPOSE_SINGLE_INTERFACE( CSharedModelLoader, ISharedModelLoader, ISHAREDMODELLOADER_INTERFACE_VERSION );
 
 CSharedModelLoader::CSharedModelLoader()
 {
-	header = (studioanimgrouphdr_t *)malloc( 512 );
-	memset( header, 0, 512 );
+	cachedata.header = (studioanimgrouphdr_t *)malloc( TYPICAL_SHAREDANIMGROUP_FILESIZE );
+	*cachedata.path = NULL;
+
+	memset( cachedata.header, 0, TYPICAL_SHAREDANIMGROUP_FILESIZE );
 }
 
 void CSharedModelLoader::InitFilesystem( IBaseFileSystem *filesystem )
@@ -18,8 +23,8 @@ void CSharedModelLoader::InitFilesystem( IBaseFileSystem *filesystem )
 
 studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 {
-	if ( header->id != NULL )
-		return header;
+	if ( Q_strcmp( cachedata.path, path ) == 0 )
+		return cachedata.header;
 
 	FileHandle_t pFileHandle = m_pFilesystem->Open( path, "rb" );
 	if ( pFileHandle == NULL )
@@ -36,16 +41,21 @@ studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 		return NULL;
 	}
 
-	studioanimgrouphdr_t *sharedModelMemory = (studioanimgrouphdr_t *)malloc( nSize );
-	int readSize = m_pFilesystem->Read( sharedModelMemory, nSize, pFileHandle );
-	if ( readSize != nSize )
+	if ( nSize > TYPICAL_SHAREDANIMGROUP_FILESIZE )
 	{
-		Warning( "CSharedModelLoader: %s is corrupted\n", path );
+		Warning( "CSharedModelLoader: %s is bigger than original file. Tell a programmer\n", path );
 		m_pFilesystem->Close( pFileHandle );
 		return NULL;
 	}
 
+	studioanimgrouphdr_t *sharedModelMemory = (studioanimgrouphdr_t *)malloc( nSize );
+	int readSize = m_pFilesystem->Read( sharedModelMemory, nSize, pFileHandle );
 	m_pFilesystem->Close( pFileHandle );
+	if ( readSize != nSize )
+	{
+		Warning( "CSharedModelLoader: %s is corrupted\n", path );
+		return NULL;
+	}
 
 	if ( sharedModelMemory->id != IDSTUDIOANIMGROUPHEADER )
 	{
@@ -53,8 +63,16 @@ studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 		return NULL;
 	}
 
+	if ( sharedModelMemory->length != nSize )
+	{
+		Warning( "CSharedModelLoader: %s has wrong header file\n", path );
+		return NULL;
+	}
+
 	sharedModelMemory->pAnimdesc(0); // For debugger
 
-	header = sharedModelMemory;
-	return header;
+	cachedata.header = sharedModelMemory;
+	Q_strcpy( cachedata.path, path );
+
+	return cachedata.header;
 }
