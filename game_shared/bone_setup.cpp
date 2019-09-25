@@ -21,14 +21,25 @@ mstudioanimdesc_t *GetAnimDescriptions( const studiohdr_t *pStudioHdr, mstudiose
 {
 #if STUDIO_VERSION == 37
 	int iAnimGroup = pseqdesc->anim( x, y );
+	if ( iAnimGroup < 0 && iAnimGroup >= pStudioHdr->numanimgroups )
+		return pStudioHdr->pAnimdesc( 0 );
+
 	mstudioanimgroup_t *pAnimGroup = pStudioHdr->pAnimgroup( iAnimGroup );
+	if ( pAnimGroup == NULL )
+		return pStudioHdr->pAnimdesc( 0 );
+
 	int iSeqGroup = pAnimGroup->group;
-	if ( iSeqGroup == 0 )
-		return pStudioHdr->pAnimdesc( iAnimGroup );
+	if ( iSeqGroup < 0 && iSeqGroup >= pStudioHdr->numseqgroups )
+		return pStudioHdr->pAnimdesc( 0 );
 
 	int iAnimIndex = pAnimGroup->index;
+	if ( iSeqGroup == 0 )
+		return pStudioHdr->pAnimdesc( iAnimIndex );
 
 	mstudioseqgroup_t *pSeqGroup = pStudioHdr->pSeqgroup( iSeqGroup );
+	if ( pSeqGroup == NULL )
+		return pStudioHdr->pAnimdesc( 0 );
+
 	//Msg( "%s, %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName() );
 	//for ( int i = 0; i < pStudioHdr->numbonedescs; i++ )
 	//{
@@ -38,7 +49,7 @@ mstudioanimdesc_t *GetAnimDescriptions( const studiohdr_t *pStudioHdr, mstudiose
 //	if ( pSeqGroup->szlabelindex < pStudioHdr->length && pSeqGroup->sznameindex < pStudioHdr->length )
 	{
 	//	Msg("seq group label: %s; name: %s\n", pSeqGroup->pszLabel(), pSeqGroup->pszName());
-		if ( Q_strcmp( pSeqGroup->pszLabel(), "shared_animation" ) == 0 )
+		if ( Q_strncmp( pSeqGroup->pszLabel(), "shared_animation", 17 ) == 0 )
 		{
 			studioanimgrouphdr_t *pAnimGroupShared = sharedmodelloader->LoadSharedModel( pSeqGroup->pszName() );
 			if ( pAnimGroupShared == NULL )

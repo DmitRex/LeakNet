@@ -27,6 +27,8 @@
 #include "IStudioRender.h"
 #include "materialsystem/IMaterialSystemHardwareConfig.h"
 #include "MDLViewer.h"
+#include "filesystem.h"
+#include "engine/ISharedModelLoader.h"
 
 extern IMaterialSystem *g_pMaterialSystem;
 extern IMaterialSystemHardwareConfig *g_pMaterialSystemHardwareConfig;
@@ -34,6 +36,9 @@ extern char g_appTitle[];
 IStudioRender	*StudioModel::m_pStudioRender;
 Vector		    *StudioModel::m_AmbientLightColors;
 Vector		    *StudioModel::m_TotalLightColors;
+
+IBaseFileSystem *filesystem = NULL;
+ISharedModelLoader *sharedmodelloader = NULL;
 
 #pragma warning( disable : 4244 ) // double to float
 
@@ -53,6 +58,8 @@ void StudioModel::Init()
 	extern CreateInterfaceFn g_MaterialSystemFactory;
 
 	CSysModule *studioRenderDLL = NULL;
+	CSysModule *filesystemDLL = NULL;
+	CSysModule *engineDLL = NULL;
 	char workingdir[ 256 ];
 	workingdir[0] = 0;
 	Q_getwd( workingdir );
@@ -94,6 +101,55 @@ void StudioModel::Init()
 			g_viewerSettings.renderMode == RM_SMOOTHSHADED, 
 			g_viewerSettings.renderMode == RM_WIREFRAME, 
 			g_viewerSettings.showNormals ); // garymcthack - should really only do this once a frame and at init time.
+
+	// VXP: Shared anim group routine
+	// VXP: TODO: Refactor a little bit
+	filesystemDLL = Sys_LoadModule( "filesystem_stdio.dll" );
+	if( !filesystemDLL )
+	{
+//		Msg( mwWarning, "Can't load filesystem_stdio.dll\n" );
+		assert( 0 ); // garymcthack
+		return;
+	}
+	engineDLL = Sys_LoadModule( "engine.dll" );
+	if( !engineDLL )
+	{
+//		Msg( mwWarning, "Can't load engine.dll\n" );
+		assert( 0 ); // garymcthack
+		return;
+	}
+
+	CreateInterfaceFn filesystemFactory = Sys_GetFactory( "filesystem_stdio.dll" );
+	if ( !filesystemFactory )
+	{
+//		Msg( mwWarning, "Can't get filesystem factory\n" );
+		assert( 0 ); // garymcthack
+		return;
+	}
+	CreateInterfaceFn engineFactory = Sys_GetFactory( "engine.dll" );
+	if ( !engineFactory )
+	{
+//		Msg( mwWarning, "Can't get engine factory\n" );
+		assert( 0 ); // garymcthack
+		return;
+	}
+
+	filesystem = ( IBaseFileSystem * )filesystemFactory( BASEFILESYSTEM_INTERFACE_VERSION, NULL );
+	if ( !filesystem )
+	{
+//		Msg( mwWarning, "Can't get version %s of filesystem_stdio.dll\n", BASEFILESYSTEM_INTERFACE_VERSION );
+		assert( 0 ); // garymcthack
+		return;
+	}
+	sharedmodelloader = ( ISharedModelLoader * )engineFactory( ISHAREDMODELLOADER_INTERFACE_VERSION, NULL );
+	if ( !sharedmodelloader )
+	{
+//		Msg( mwWarning, "Can't get shared model loader to work\n", ISHAREDMODELLOADER_INTERFACE_VERSION );
+		assert( 0 ); // garymcthack
+		return;
+	}
+
+	sharedmodelloader->InitFilesystem( filesystem );
 }
 
 void StudioModel::Shutdown( void )
