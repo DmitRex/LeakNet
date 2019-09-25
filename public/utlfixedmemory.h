@@ -105,7 +105,7 @@ private:
 //-----------------------------------------------------------------------------
 template< class T >
 CUtlFixedMemory<T>::CUtlFixedMemory( int nGrowSize, int nInitAllocationCount ) : m_pMemory(0), 
-	m_nAllocationCount( nInitAllocationCount ), m_nGrowSize( nGrowSize )
+	m_nAllocationCount( nInitAllocationCount ), m_nGrowSize( nGrowSize ), m_pFirstFree(0)
 {
 	// T must be at least as big as a pointer or the free list fails
 	COMPILE_TIME_ASSERT( sizeof(T) >= 4 );

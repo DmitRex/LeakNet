@@ -1545,14 +1545,15 @@ bool CIKContext::Estimate(
 
 					deltaPos.Init();
 
-					AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36), "Remove the code after this line" );
+					// VXP: TODO: Test this
+					AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36) || (STUDIO_VERSION == 37), "Remove the code after this line" );
 					// hack in the contact point if the model hasn't been rebuilt
 					float contact = pRule->contact;
 					if (contact == 0.0 && pRule->peak != 0.0)
 					{
 						contact = pRule->peak;
 					}
-					AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36), "Remove the code before this line" );
+					AssertMsg( (STUDIO_VERSION == 35) || (STUDIO_VERSION == 36) || (STUDIO_VERSION == 37), "Remove the code before this line" );
 
 					float flCheck = flCycle;
 					if (flCheck < pRule->start)
