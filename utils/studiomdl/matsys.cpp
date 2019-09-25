@@ -12,10 +12,14 @@
 #include <windows.h>
 #include "FileSystem.h"
 #include "FileSystem_Tools.h"
+#include "filesystem.h"
+#include "engine/ISharedModelLoader.h"
 
 IMaterialSystem *g_pMaterialSystem = NULL;
 CreateInterfaceFn g_MatSysFactory = NULL;
 CreateInterfaceFn g_ShaderAPIFactory = NULL;
+IBaseFileSystem *filesystem = NULL;
+ISharedModelLoader *sharedmodelloader = NULL;
 
 static void LoadMaterialSystem( void )
 {
@@ -49,6 +53,32 @@ static void LoadMaterialSystem( void )
 	{
 		Error( "Could not start the empty shader (shaderapiempty.dll)!" );
 	}
+
+	// VXP: Shared anim group routine
+	HINSTANCE engineDLLHInst = LoadLibrary( "engine.dll" );
+	if( !engineDLLHInst )
+	{
+		Error( "Can't load engine.dll\n" );
+	}
+
+	CreateInterfaceFn g_EngineFactory = Sys_GetFactory( "engine.dll" );
+	if (!g_EngineFactory)
+	{
+		Error( "Could not find factory interface in library engine.dll" );
+	}
+
+	filesystem = ( IBaseFileSystem * )FileSystem_GetFactory()( BASEFILESYSTEM_INTERFACE_VERSION, NULL );
+	if ( !filesystem )
+	{
+		Error( "Could not get filesystem interface in library filesystem_stdio.dll" );
+	}
+	sharedmodelloader = (ISharedModelLoader *)g_EngineFactory( ISHAREDMODELLOADER_INTERFACE_VERSION, NULL );
+	if ( !sharedmodelloader )
+	{
+		Error( "Could not get the shared model loader interface from engine.dll" );
+	}
+
+	sharedmodelloader->InitFilesystem( filesystem );
 }
 
 void InitMaterialSystem( const char *materialBaseDirPath )

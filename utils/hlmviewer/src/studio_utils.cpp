@@ -144,7 +144,7 @@ void StudioModel::Init()
 	sharedmodelloader = ( ISharedModelLoader * )engineFactory( ISHAREDMODELLOADER_INTERFACE_VERSION, NULL );
 	if ( !sharedmodelloader )
 	{
-//		Msg( mwWarning, "Can't get shared model loader to work\n", ISHAREDMODELLOADER_INTERFACE_VERSION );
+//		Msg( mwWarning, "Can't get %s shared model loader to work\n", ISHAREDMODELLOADER_INTERFACE_VERSION );
 		assert( 0 ); // garymcthack
 		return;
 	}

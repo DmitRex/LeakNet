@@ -24,6 +24,8 @@
 #include "GlobalFunctions.h"
 #include "UtlMemory.h"
 #include "materialsystem/IMaterialSystemHardwareConfig.h"
+#include "filesystem.h"
+#include "engine/ISharedModelLoader.h"
 
 #pragma warning(disable : 4244) // double to float
 
@@ -34,6 +36,8 @@ float			g_shadelight;					// direct world light
 Vector			g_lightcolor;
 
 IStudioRender	*StudioModel::m_pStudioRender = NULL;
+IBaseFileSystem *filesystem = NULL;
+ISharedModelLoader	*sharedmodelloader = NULL;
 
 //-----------------------------------------------------------------------------
 // Model meshes themselves are cached to avoid redundancy. There should never be
@@ -274,6 +278,48 @@ bool StudioModel::Initialize()
 		m_pStudioRender = NULL;
 	}
 	UpdateStudioRenderConfig( false, false );
+
+	// VXP: Shared anim group routine
+	CSysModule *filesystemDLL = Sys_LoadModule( "filesystem_stdio.dll" );
+	if( !filesystemDLL )
+	{
+		Msg( mwWarning, "Can't load filesystem_stdio.dll" );
+		return false;
+	}
+	CSysModule *engineDLL = Sys_LoadModule( "engine.dll" );
+	if( !engineDLL )
+	{
+		Msg( mwWarning, "Can't load engine.dll" );
+		return false;
+	}
+
+	CreateInterfaceFn filesystemFactory = Sys_GetFactory( "filesystem_stdio.dll" );
+	if ( !filesystemFactory )
+	{
+		Msg( mwWarning, "Can't get filesystem factory" );
+		return false;
+	}
+	CreateInterfaceFn engineFactory = Sys_GetFactory( "engine.dll" );
+	if ( !engineFactory )
+	{
+		Msg( mwWarning, "Can't get engine factory" );
+		return false;
+	}
+
+	filesystem = ( IBaseFileSystem * )filesystemFactory( BASEFILESYSTEM_INTERFACE_VERSION, NULL );
+	if ( !filesystem )
+	{
+		Msg( mwWarning, "Can't get version %s of filesystem_stdio.dll", BASEFILESYSTEM_INTERFACE_VERSION );
+		return false;
+	}
+	sharedmodelloader = ( ISharedModelLoader * )engineFactory( ISHAREDMODELLOADER_INTERFACE_VERSION, NULL );
+	if ( !sharedmodelloader )
+	{
+		Msg( mwWarning, "Can't get version %s of shared model loader to work", ISHAREDMODELLOADER_INTERFACE_VERSION );
+		return false;
+	}
+
+	sharedmodelloader->InitFilesystem( filesystem );
 
 	return true;
 }
