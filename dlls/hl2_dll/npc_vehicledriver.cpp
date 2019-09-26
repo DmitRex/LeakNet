@@ -897,8 +897,11 @@ void CNPC_VehicleDriver::CheckForTeleport( void )
 		SETBITS( m_fEffects, EF_NOINTERP );
 
 		// Teleport the vehicle to the pathcorner
-		Vector vecTarget = pTrack->GetAbsOrigin() - (m_hVehicleEntity->WorldAlignMins() + m_hVehicleEntity->WorldAlignMaxs()) * 0.5;
-		vecTarget.z += (m_hVehicleEntity->WorldAlignSize().z * 0.5) + 8;	// Safety buffer
+		Vector vecMins, vecMaxs;
+		vecMins = m_hVehicleEntity->EntitySpaceSurroundingMins(); // VXP: WorldAlignMins() but without entityspace bounds check
+		vecMaxs = m_hVehicleEntity->EntitySpaceSurroundingMaxs(); // VXP: WorldAlignMaxs() but without entityspace bounds check
+		Vector vecTarget = pTrack->GetAbsOrigin() - (vecMins + vecMaxs) * 0.5;
+		vecTarget.z += ((vecMaxs.z - vecMins.z) * 0.5) + 8;	// Safety buffer
 
 		// Orient it to face the next point
 		QAngle vecAngles = pTrack->GetAbsAngles();
