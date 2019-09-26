@@ -196,7 +196,7 @@ struct mstudiobbox_t
 	char* pszHitboxName(void* pHeader)
 	{
 		if( szhitboxnameindex == 0 )
-			return "";
+			return (char *)"";
 
 // NJS: Just a cosmetic change, next time the model format is rebuilt, please use the NEXT_MODEL_FORMAT_REVISION.
 // also, do a grep to find the corresponding #ifdefs.

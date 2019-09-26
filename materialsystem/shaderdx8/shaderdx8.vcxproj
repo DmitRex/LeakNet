@@ -100,6 +100,7 @@
       <AdditionalLibraryDirectories>..\..\..\lib\common;..\..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <BaseAddress>0x2A000000</BaseAddress>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 

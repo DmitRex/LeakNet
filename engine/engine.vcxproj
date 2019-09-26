@@ -209,7 +209,7 @@ if exist $(TargetDir)engine.map copy $(TargetDir)swds.map ..\..\bin\swds.map </C
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <IgnoreSpecificDefaultLibraries>LIBCD;libcmt;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCD;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>.\GLRelease\engine.dll</OutputFile>
       <ImportLibrary>.\GLRelease\engine.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\public;..\lib\common;..\dx8sdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

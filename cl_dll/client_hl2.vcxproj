@@ -582,7 +582,7 @@ copy $(TargetDir)client.dll .\..\..\hl1\bin </Command>
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <IgnoreSpecificDefaultLibraries>libcd.lib;LIBCD;LIBCMT;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcd.lib;LIBCD;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>.\cl_dll___Win32_HL2_Release\client.dll</OutputFile>
       <ImportLibrary>.\cl_dll___Win32_HL2_Release\client.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

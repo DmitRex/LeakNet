@@ -364,7 +364,7 @@ copy "$(TargetDir)client.dll" .\..\..\tf2\bin </Command>
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <IgnoreSpecificDefaultLibraries>LIBCD;LIBCMT;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCD;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>.\cl_dll___Win32_TF2_Release\client.dll</OutputFile>
       <ImportLibrary>.\cl_dll___Win32_TF2_Release\client.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
