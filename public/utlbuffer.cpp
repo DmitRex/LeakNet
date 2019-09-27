@@ -141,7 +141,7 @@ void CUtlBuffer::GetString( char* pString, int nMaxLen )
 		while ( m_Get < nLastPos )
 		{
 			char c = *(char*)&m_Memory[m_Get];
-			if (isspace( c ) || (!c) )
+			if (isspace( (unsigned char)c ) || (!c) )
 				break;
 
 			if ( nCount < nMaxLen - 1 )

@@ -12,6 +12,7 @@
 #include "solidsetdefaults.h"
 #include "model_types.h"
 #include "bone_setup.h"
+#include "coordsize.h"
 
 #ifndef CLIENT_DLL
 #include "physics_saverestore.h"
@@ -66,8 +67,12 @@ ConVar phys_rolling_drag( "phys_rolling_drag", "1", FCVAR_REPLICATED );
 //			&maxs - 
 // Output : CPhysCollide
 //-----------------------------------------------------------------------------
-CPhysCollide *PhysCreateBbox( const Vector &mins, const Vector &maxs )
+CPhysCollide *PhysCreateBbox( const Vector &minsIn, const Vector &maxsIn )
 {
+	float radius = 0.5 - DIST_EPSILON;
+	Vector mins = minsIn + Vector(radius, radius, radius);
+	Vector maxs = maxsIn - Vector(radius, radius, radius);
+
 	// VPHYSICS caches/cleans up these
 	CPhysCollide *pResult = physcollision->BBoxToCollide( mins, maxs );
 
