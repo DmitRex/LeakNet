@@ -167,8 +167,20 @@ public:
 	IVP_DOUBLE hesse_val;
     };
 #	endif    
-    inline IVP_DOUBLE dot_product(const IVP_U_Point *v2) const   {    return( k[0]*v2->k[0] + k[1]*v2->k[1] + k[2]*v2->k[2] );   };
-    inline IVP_DOUBLE dot_product(const IVP_U_Float_Point *v2) const   {    return( k[0]*v2->k[0] + k[1]*v2->k[1] + k[2]*v2->k[2] );   };
+    inline IVP_DOUBLE dot_product(const IVP_U_Point *v2) const
+	{
+		IVP_DOUBLE result = k[0]*v2->k[0] + k[1]*v2->k[1] + k[2]*v2->k[2];
+		if ( result == 0.0 ) // VXP: Watch GH#219
+			result = 0;
+		return( result );
+	};
+    inline IVP_DOUBLE dot_product(const IVP_U_Float_Point *v2) const
+	{
+		IVP_DOUBLE result = k[0]*v2->k[0] + k[1]*v2->k[1] + k[2]*v2->k[2];
+		if ( result == 0.0 ) // VXP: Watch GH#219
+			result = 0;
+		return( result );
+	};
     
     inline void inline_calc_cross_product(const IVP_U_Point *v1, const IVP_U_Point *v2); // this = v1 x v2
     inline void inline_calc_cross_product_and_normize(const IVP_U_Point *v1, const IVP_U_Point *v2); // this = v1 x v2
