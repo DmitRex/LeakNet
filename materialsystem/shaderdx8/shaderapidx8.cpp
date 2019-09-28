@@ -527,7 +527,7 @@ public:
 	int  MaxTextureWidth() const;
 	int  MaxTextureHeight() const;
 	int	 MaxTextureAspectRatio() const;
-	int	 TextureMemorySize() const;
+	unsigned int TextureMemorySize() const;
 	bool SupportsOverbright() const;
 	bool SupportsMipmapping() const;
 	bool SupportsCubeMaps() const;
@@ -820,7 +820,7 @@ private:
 		bool m_SupportsCubeMaps;
 		int  m_NumPixelShaderConstants;
 		int  m_NumVertexShaderConstants;
-		int  m_TextureMemorySize;
+		unsigned int m_TextureMemorySize;
 		int  m_MaxNumLights;
 		bool m_SupportsHardwareLighting;
 		int  m_MaxBlendMatrices;
@@ -2931,7 +2931,7 @@ void CShaderAPIDX8::SpewDriverInfo() const
 		(caps.RasterCaps & D3DPRASTERCAPS_DEPTHBIAS) ? " Y " : " N ",
 		(caps.RasterCaps & D3DPRASTERCAPS_ZTEST) ? " Y " : "*N*" );
 
-	Warning("Size of Texture Memory : %d kb\n", m_Caps.m_TextureMemorySize / 1024 );
+	Warning("Size of Texture Memory : %u kb\n", m_Caps.m_TextureMemorySize / 1024 );
 	Warning("Max Texture Dimensions : %d x %d\n", 
 		caps.MaxTextureWidth, caps.MaxTextureHeight );
 	if (caps.MaxTextureAspectRatio != 0)
@@ -3097,7 +3097,7 @@ int	 CShaderAPIDX8::MaxTextureAspectRatio() const
 	return m_Caps.m_MaxTextureAspectRatio;
 }
 
-int	 CShaderAPIDX8::TextureMemorySize() const
+unsigned int CShaderAPIDX8::TextureMemorySize() const
 {
 	return m_Caps.m_TextureMemorySize;
 }

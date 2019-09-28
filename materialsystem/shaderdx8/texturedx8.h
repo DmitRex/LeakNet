@@ -23,7 +23,7 @@ class CPixelWriter;
 //-----------------------------------------------------------------------------
 // Returns the size of texture memory
 //-----------------------------------------------------------------------------
-int ComputeTextureMemorySize( const GUID &nDeviceId, D3DDEVTYPE deviceType );
+unsigned int ComputeTextureMemorySize( const GUID &nDeviceId, D3DDEVTYPE deviceType );
 
 
 //-----------------------------------------------------------------------------

@@ -69,7 +69,8 @@ ConVar phys_rolling_drag( "phys_rolling_drag", "1", FCVAR_REPLICATED );
 //-----------------------------------------------------------------------------
 CPhysCollide *PhysCreateBbox( const Vector &minsIn, const Vector &maxsIn )
 {
-	float radius = 0.5 - DIST_EPSILON;
+	// VXP: FIXME: This is definitely a hack, but it works
+	float radius = 2.0 - DIST_EPSILON;
 	Vector mins = minsIn + Vector(radius, radius, radius);
 	Vector maxs = maxsIn - Vector(radius, radius, radius);
 

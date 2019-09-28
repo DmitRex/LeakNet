@@ -567,13 +567,17 @@ void LoadSubTexture( int bindId, int copy, IDirect3DBaseTexture* pTexture,
 #endif
 
 
-int ComputeTextureMemorySize( const GUID &nDeviceGUID, D3DDEVTYPE deviceType )
+// VXP: FIXME: What if VRAM would be bigger than UINT_MAX (~4 GB)?
+// If it would be i.e. 8 GB - this should just overflow and be 4 GB
+unsigned int ComputeTextureMemorySize( const GUID &nDeviceGUID, D3DDEVTYPE deviceType )
 {
+//	return D3DDevice()->GetAvailableTextureMem(); // VXP: NOTE: This returns the shared texture memory (video mem + part of RAM)
+
 	FileHandle_t file = FileSystem()->Open( "vidcfg.bin", "rb", "EXECUTABLE_PATH" );
 	if ( file )
 	{
 		GUID deviceId;
-		int texSize;
+		unsigned int texSize;
 		FileSystem()->Read( &deviceId, sizeof(deviceId), file );
 		FileSystem()->Read( &texSize, sizeof(texSize), file );
 		FileSystem()->Close( file );
