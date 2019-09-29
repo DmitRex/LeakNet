@@ -920,10 +920,10 @@ struct mstudioanimgroup_t
 
 struct mstudiobonedesc_t
 {
-	int					someindex;
-	inline char * const pszName( void ) const { return ((char *)this) + someindex; }
+	int					sznameindex;
+	inline char * const pszName( void ) const { return ((char *)this) + sznameindex; }
 
-	int					dummy1;
+	int					parent;
 
 	float				value[6];	// default DoF values
 	float				scale[6];   // scale for delta DoF values
@@ -1389,8 +1389,9 @@ inline int flexsetting_t::psetting( byte *base, int i, flexweight_t **weights ) 
 // If we only support the current version, this function should be empty.
 inline void Studio_ConvertStudioHdrToNewVersion( studiohdr_t *pStudioHdr )
 {
+#if 1
 	return; // VXP: TODO
-
+#else
 	COMPILE_TIME_ASSERT( STUDIO_VERSION == 37 ); //  put this to make sure this code is updated upon changing version.
 	int version = pStudioHdr->version;
 
@@ -1418,6 +1419,7 @@ inline void Studio_ConvertStudioHdrToNewVersion( studiohdr_t *pStudioHdr )
 		COMPILE_TIME_ASSERT( STUDIO_VERSION == 37 ); //  put this to make sure this code is updated upon changing version.
 		pStudioHdr->version = STUDIO_VERSION;
 	}
+#endif
 }
 
 #endif // STUDIO_H

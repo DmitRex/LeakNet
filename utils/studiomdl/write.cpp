@@ -157,6 +157,10 @@ static void WriteBoneInfo( studiohdr_t *phdr )
 	mstudioattachment_t *pattachment;
 	mstudiobbox_t *pbbox;
 
+#if STUDIO_VERSION == 37
+	mstudiobonedesc_t *pbonedesc;
+#endif
+
 	// save bone info
 	pbone = (mstudiobone_t *)pData;
 	phdr->numbones = g_numbones;
@@ -189,7 +193,7 @@ static void WriteBoneInfo( studiohdr_t *phdr )
 		pbone[i].qAlignment		= g_bonetable[i].qAlignment;
 
 		// TODO: rewrite on version change!!  see studio.h for what to do.
-		Assert( STUDIO_VERSION == 37 );
+	//	Assert( STUDIO_VERSION == 36 );
 		AngleQuaternion( RadianEuler( g_bonetable[i].rot[0], g_bonetable[i].rot[1], g_bonetable[i].rot[2] ), pbone[i].quat );
 		QuaternionAlign( pbone[i].qAlignment, pbone[i].quat, pbone[i].quat );
 
@@ -292,6 +296,39 @@ static void WriteBoneInfo( studiohdr_t *phdr )
 		}
 	}
 
+#if STUDIO_VERSION == 37
+	// save bonedesc info
+	pbonedesc = (mstudiobonedesc_t *)pData;
+	phdr->numbonedescs = g_numbones;
+	phdr->bonedescindex = (pData - pStart);
+
+	for (i = 0; i < g_numbones; i++) 
+	{
+		AddToStringTable( &pbonedesc[i], &pbonedesc[i].sznameindex, g_bonetable[i].name );
+		pbonedesc[i].parent			= g_bonetable[i].parent;
+		pbonedesc[i].value[0]		= g_bonetable[i].pos[0];
+		pbonedesc[i].value[1]		= g_bonetable[i].pos[1];
+		pbonedesc[i].value[2]		= g_bonetable[i].pos[2];
+		pbonedesc[i].value[3]		= g_bonetable[i].rot[0];
+		pbonedesc[i].value[4]		= g_bonetable[i].rot[1];
+		pbonedesc[i].value[5]		= g_bonetable[i].rot[2];
+		pbonedesc[i].scale[0]		= g_bonetable[i].posscale[0];
+		pbonedesc[i].scale[1]		= g_bonetable[i].posscale[1];
+		pbonedesc[i].scale[2]		= g_bonetable[i].posscale[2];
+		pbonedesc[i].scale[3]		= g_bonetable[i].rotscale[0];
+		pbonedesc[i].scale[4]		= g_bonetable[i].rotscale[1];
+		pbonedesc[i].scale[5]		= g_bonetable[i].rotscale[2];
+		MatrixInvert( g_bonetable[i].boneToPose, pbonedesc[i].poseToBone );
+		pbonedesc[i].qAlignment		= g_bonetable[i].qAlignment;
+
+	//	QuaternionAlign( pbonedesc[i].qAlignment, pbonedesc[i].quat, pbonedesc[i].quat ); // VXP: Don't need actually
+
+		pbonedesc[i].dummy2			= 0; // VXP: What's this supposed to be even?
+	}
+
+	pData += g_numbones * sizeof( mstudiobonedesc_t );
+	ALIGN4( pData );
+#endif
 
 	// save g_bonecontroller info
 	pbonecontroller = (mstudiobonecontroller_t *)pData;
@@ -377,11 +414,24 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 	mstudioevent_t		*pevent;
 	byte				*ptransition;
 
+#if STUDIO_VERSION == 37
+	mstudioanimgroup_t	*panimgroup;
+#endif
 	
 	// write models to disk with this flag set false. This will force
 	// the sequences to be indexed by activity whenever the g_model is loaded
 	// from disk.
 	phdr->sequencesindexed = false;
+
+	// VXP: Save animgroups
+	panimgroup = (mstudioanimgroup_t *)pData;
+	if( phdr )
+	{
+		phdr->numanimgroups = g_numani;
+		phdr->animgroupindex = (pData - pStart);
+	}
+	pData += g_numani * sizeof( *panimgroup );
+	ALIGN4( pData );
 
 	// save g_sequence info
 	pseqdesc = (mstudioseqdesc_t *)pData;
@@ -415,7 +465,7 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 					pseqdesc->anim[j][k] = 0; // !!! bad
 			}
 		}
-#endif
+#endif // STUDIO_VERSION != 37
 
 		pseqdesc->paramindex[0]	= g_sequence[i].paramindex[0];
 		pseqdesc->paramstart[0] = g_sequence[i].paramstart[0];
@@ -543,6 +593,7 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 			{
 				// height value * width of row + width value
 				int offset = k * g_sequence[i].groupsize[0] + j;
+			//	blends[ offset ] = (short)i;
 
 				if ( g_sequence[i].panim[j][k] )
 				{
@@ -550,11 +601,21 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 
 					Assert( animindex >= 0 && animindex < SHRT_MAX );
 
+					// VXP: Worked for some of the anims
+					// VXP: TODO: Need to research what's up with those on original models
 					blends[ offset ] = (short)animindex;
+					panimgroup[i].group = 0;
+					panimgroup[i].index = i;
+
+					//blends[ offset ] = (short)i;
+					//panimgroup[i].group = 0;
+					//panimgroup[i].index = i;
 				}
 				else
 				{
-					blends[ offset ] = 0;
+					//blends[ offset ] = 0;
+					//panimgroup[i].group = 0;
+					//panimgroup[i].index = 0;
 				}
 			}
 		}

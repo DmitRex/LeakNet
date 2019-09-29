@@ -8,6 +8,7 @@
 
 EXPOSE_SINGLE_INTERFACE( CSharedModelLoader, ISharedModelLoader, ISHAREDMODELLOADER_INTERFACE_VERSION );
 
+#if STUDIO_VERSION == 37
 CSharedModelLoader::CSharedModelLoader()
 {
 	cachedata.header = (studioanimgrouphdr_t *)malloc( TYPICAL_SHAREDANIMGROUP_FILESIZE );
@@ -76,3 +77,17 @@ studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 
 	return cachedata.header;
 }
+#else
+CSharedModelLoader::CSharedModelLoader()
+{
+}
+
+void CSharedModelLoader::InitFilesystem( IBaseFileSystem *filesystem )
+{
+}
+
+void *CSharedModelLoader::LoadSharedModel( const char *path )
+{
+	return NULL;
+}
+#endif

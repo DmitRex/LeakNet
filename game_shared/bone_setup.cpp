@@ -7,7 +7,10 @@
 #include "collisionutils.h"
 #include "vstdlib/random.h"
 #include "tier0/vprof.h"
+
+#if STUDIO_VERSION == 37
 #include "engine/ISharedModelLoader.h"
+#endif
 
 void BuildBoneChain(
 	const studiohdr_t *pStudioHdr,

@@ -166,8 +166,6 @@ void CSys::UpdateStatus( int force )
 
 	tCurrent = Sys_FloatTime();
 
-	engine->UpdateStatus( &fps, &n, &nMax, szMap );
-
 	if ( !force )
 	{
 		if ( ( tCurrent - tLast ) < 0.5f )
@@ -175,6 +173,8 @@ void CSys::UpdateStatus( int force )
 	}
 
 	tLast = tCurrent;
+
+	engine->UpdateStatus( &fps, &n, &nMax, szMap );
 
 	sprintf( szPrompt, "%.1f fps %2i/%2i on map %16s", (float)fps, n, nMax, szMap);
 
@@ -254,49 +254,53 @@ char *CSys::ConsoleInput (void)
 			exit( -1 );
 		}
 
-		if (numread != 1)
+		if (numread == 0)
 		{
 			exit( -1 );
 		}
 
-		if ( recs[0].EventType == KEY_EVENT )
+		for ( int i = 0; i < numread; i++ )
 		{
-			if ( !recs[0].Event.KeyEvent.bKeyDown )
+			INPUT_RECORD *rec = &recs[i];
+			if ( rec->EventType == KEY_EVENT )
 			{
-				ch = recs[0].Event.KeyEvent.uChar.AsciiChar;
-				switch (ch)
+				if ( rec->Event.KeyEvent.bKeyDown )
 				{
-					case '\r':
-						WriteFile(houtput, "\r\n", 2, &dummy, NULL);	
-						if (console_textlen)
-						{
-							console_text[console_textlen] = 0;
-							console_textlen = 0;
-							return console_text;
-						}
-						break;
-
-					case '\b':
-						if (console_textlen)
-						{
-							console_textlen--;
-							WriteFile(houtput, "\b \b", 3, &dummy, NULL);	
-						}
-						break;
-
-					default:
-						if (ch >= ' ')
-						{
-							if (console_textlen < sizeof(console_text)-2)
+					ch = rec->Event.KeyEvent.uChar.AsciiChar;
+					switch (ch)
+					{
+						case '\r':
+							WriteFile(houtput, "\r\n", 2, &dummy, NULL);	
+							if (console_textlen)
 							{
-								WriteFile(houtput, &ch, 1, &dummy, NULL);	
-								console_text[console_textlen] = ch;
-								console_textlen++;
+								console_text[console_textlen] = 0;
+								console_textlen = 0;
+								return console_text;
 							}
-						}
+							break;
 
-						break;
+						case '\b':
+							if (console_textlen)
+							{
+								console_textlen--;
+								WriteFile(houtput, "\b \b", 3, &dummy, NULL);	
+							}
+							break;
 
+						default:
+							if (ch >= ' ')
+							{
+								if (console_textlen < sizeof(console_text)-2)
+								{
+									WriteFile(houtput, &ch, 1, &dummy, NULL);	
+									console_text[console_textlen] = ch;
+									console_textlen++;
+								}
+							}
+
+							break;
+
+					}
 				}
 			}
 		}
