@@ -270,6 +270,7 @@ bool CFourWheelVehiclePhysics::ParseVehicleScript( const char *pScriptName, soli
 
 void CFourWheelVehiclePhysics::CalcWheelData( vehicleparams_t &vehicle )
 {
+	const char *pWheelAttachments[4] = { "wheel_fl", "wheel_fr", "wheel_rl", "wheel_rr" };
 	Vector left, right;
 	QAngle dummy;
 	SetPoseParameter( m_poseParameters[VEH_FL_WHEEL_HEIGHT], 0 );
@@ -324,6 +325,19 @@ void CFourWheelVehiclePhysics::CalcWheelData( vehicleparams_t &vehicle )
 		m_wheelTotalHeight[3] = m_wheelBaseHeight[1] - right.z;
 		vehicle.axles[1].wheels.springAdditionalLength = m_wheelTotalHeight[2];
 	}
+
+	// VXP: FIXME: Prevents from dividing by zero at VPhysicsUpdate()
+	// Actually, this message would be just handy for model maker,
+	// so I probably can't do now something better, because it's his job
+	for ( int i = 0; i < 4; i++ )
+	{
+		if ( m_wheelTotalHeight[i] == 0.0f )
+		{
+			DevWarning( "Vehicle %s has invalid wheel attachment for %s - no movement\n", STRING( m_pOuter->GetModelName() ), pWheelAttachments[i] );
+			m_wheelTotalHeight[i] = 1.0f;
+		}
+	}
+
 	SetPoseParameter( m_poseParameters[VEH_FL_WHEEL_HEIGHT], 0 );
 	SetPoseParameter( m_poseParameters[VEH_FR_WHEEL_HEIGHT], 0 );
 	SetPoseParameter( m_poseParameters[VEH_RL_WHEEL_HEIGHT], 0 );
