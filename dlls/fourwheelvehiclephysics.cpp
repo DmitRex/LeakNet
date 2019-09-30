@@ -326,9 +326,9 @@ void CFourWheelVehiclePhysics::CalcWheelData( vehicleparams_t &vehicle )
 		vehicle.axles[1].wheels.springAdditionalLength = m_wheelTotalHeight[2];
 	}
 
-	// VXP: FIXME: Prevents from dividing by zero at VPhysicsUpdate()
+	// VXP: Prevents from dividing by zero at VPhysicsUpdate()
 	// Actually, this message would be just handy for model maker,
-	// so I probably can't do now something better, because it's his job
+	// so I probably can't do something better now, because it's his job
 	for ( int i = 0; i < 4; i++ )
 	{
 		if ( m_wheelTotalHeight[i] == 0.0f )

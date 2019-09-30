@@ -112,8 +112,8 @@ bool Mod_LoadStudioModel (model_t *mod, void *buffer, bool zerostructure )
 
 	phdr = (studiohdr_t *)pin;
 
-#ifdef _DEBUG
 	// VXP: For debugger
+#ifdef _DEBUG
 	phdr->pSeqgroup(0)->pszLabel();
 	phdr->pSeqgroup(0)->pszName();
 
