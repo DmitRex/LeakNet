@@ -424,10 +424,12 @@ struct mstudioseqdesc_t
 		}
 
 		int offset = y * groupsize[0] + x;
-		short *blends = (short *)(((byte *)this) + animindexindex);
+		short *blends = pBlends();
 		int value = (int)blends[ offset ];
 		return value;
 	}
+
+	inline short * const pBlends( void ) const { return (short *)(((byte *)this) + animindexindex); }
 #endif
 
 	int					movementindex;	// [blend] float array for blended movement

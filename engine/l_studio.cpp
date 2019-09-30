@@ -112,9 +112,17 @@ bool Mod_LoadStudioModel (model_t *mod, void *buffer, bool zerostructure )
 
 	phdr = (studiohdr_t *)pin;
 
+#ifdef _DEBUG
 	// VXP: For debugger
 	phdr->pSeqgroup(0)->pszLabel();
 	phdr->pSeqgroup(0)->pszName();
+
+#if STUDIO_VERSION == 37
+	phdr->pSeqdesc(0)->anim(0, 0);
+	phdr->pSeqdesc(0)->pBlends();
+	phdr->pAnimgroup(0);
+#endif // STUDIO_VERSION == 37
+#endif // _DEBUG
 
 	Studio_ConvertStudioHdrToNewVersion( phdr );
 	

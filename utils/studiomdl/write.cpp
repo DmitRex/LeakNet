@@ -414,24 +414,10 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 	mstudioevent_t		*pevent;
 	byte				*ptransition;
 
-#if STUDIO_VERSION == 37
-	mstudioanimgroup_t	*panimgroup;
-#endif
-	
 	// write models to disk with this flag set false. This will force
 	// the sequences to be indexed by activity whenever the g_model is loaded
 	// from disk.
 	phdr->sequencesindexed = false;
-
-	// VXP: Save animgroups
-	panimgroup = (mstudioanimgroup_t *)pData;
-	if( phdr )
-	{
-		phdr->numanimgroups = g_numani;
-		phdr->animgroupindex = (pData - pStart);
-	}
-	pData += g_numani * sizeof( *panimgroup );
-	ALIGN4( pData );
 
 	// save g_sequence info
 	pseqdesc = (mstudioseqdesc_t *)pData;
@@ -532,6 +518,7 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 				bErrors = true;
 			}
 
+			// VXP: TODO: Not correlated with mstudioevent_t
 			pevent[j].event		= g_sequence[i].event[j].event;
 			// printf("%4d : %d %f\n", pevent[j].event, g_sequence[i].event[j].frame, pevent[j].cycle );
 			memcpy( pevent[j].options, g_sequence[i].event[j].options, sizeof( pevent[j].options ) );
@@ -550,10 +537,21 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 		{
 			pautolayer[j].iSequence = g_sequence[i].autolayer[j].sequence;
 			pautolayer[j].flags		= g_sequence[i].autolayer[j].flags;
-			pautolayer[j].start		= g_sequence[i].autolayer[j].start / (g_sequence[i].panim[0][0]->numframes - 1);
-			pautolayer[j].peak		= g_sequence[i].autolayer[j].peak / (g_sequence[i].panim[0][0]->numframes - 1);
-			pautolayer[j].tail		= g_sequence[i].autolayer[j].tail / (g_sequence[i].panim[0][0]->numframes - 1);
-			pautolayer[j].end		= g_sequence[i].autolayer[j].end / (g_sequence[i].panim[0][0]->numframes - 1);
+
+			if ( g_sequence[i].panim[0][0]->numframes > 1 )
+			{
+				pautolayer[j].start		= g_sequence[i].autolayer[j].start / (g_sequence[i].panim[0][0]->numframes - 1);
+				pautolayer[j].peak		= g_sequence[i].autolayer[j].peak / (g_sequence[i].panim[0][0]->numframes - 1);
+				pautolayer[j].tail		= g_sequence[i].autolayer[j].tail / (g_sequence[i].panim[0][0]->numframes - 1);
+				pautolayer[j].end		= g_sequence[i].autolayer[j].end / (g_sequence[i].panim[0][0]->numframes - 1);
+			}
+			else
+			{
+				pautolayer[j].start		= 0.0f;
+				pautolayer[j].peak		= 0.0f;
+				pautolayer[j].tail		= 1.0f;
+				pautolayer[j].end		= 1.0f;
+			}
 		}
 
 		// save boneweights
@@ -593,7 +591,6 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 			{
 				// height value * width of row + width value
 				int offset = k * g_sequence[i].groupsize[0] + j;
-			//	blends[ offset ] = (short)i;
 
 				if ( g_sequence[i].panim[j][k] )
 				{
@@ -601,21 +598,11 @@ static void WriteSequenceInfo( studiohdr_t *phdr )
 
 					Assert( animindex >= 0 && animindex < SHRT_MAX );
 
-					// VXP: Worked for some of the anims
-					// VXP: TODO: Need to research what's up with those on original models
 					blends[ offset ] = (short)animindex;
-					panimgroup[i].group = 0;
-					panimgroup[i].index = i;
-
-					//blends[ offset ] = (short)i;
-					//panimgroup[i].group = 0;
-					//panimgroup[i].index = i;
 				}
 				else
 				{
-					//blends[ offset ] = 0;
-					//panimgroup[i].group = 0;
-					//panimgroup[i].index = 0;
+					blends[ offset ] = 0;
 				}
 			}
 		}
@@ -669,8 +656,30 @@ static byte *WriteAnimations( byte *pData, byte *pStart, int group, studiohdr_t 
 	mstudioanim_t		*panim;
 	mstudioanimvalue_t	*panimvalue;
 
+#if STUDIO_VERSION == 37
+	mstudioanimgroup_t	*panimgroup;
+#endif
+
 	// hack for seqgroup 0
 	// pseqgroup->data = (pData - pStart);
+
+#if STUDIO_VERSION == 37
+	// VXP: Save animgroups
+	panimgroup = (mstudioanimgroup_t *)pData;
+	if( phdr )
+	{
+		phdr->numanimgroups = g_numani;
+		phdr->animgroupindex = (pData - pStart);
+	}
+	pData += g_numani * sizeof( *panimgroup );
+	ALIGN4( pData );
+
+	for ( i = 0; i < g_numani; i++ )
+	{
+		panimgroup[i].group = 0;
+		panimgroup[i].index = i;
+	}
+#endif
 
 	// save animations
 	panimdesc = (mstudioanimdesc_t *)pData;
@@ -842,10 +851,20 @@ static byte *WriteAnimations( byte *pData, byte *pStart, int group, studiohdr_t 
 				pikrule->floor	= g_panimation[i]->ikrule[j].floor;
 				pikrule->radius = g_panimation[i]->ikrule[j].radius;
 
-				pikrule->start	= g_panimation[i]->ikrule[j].start / (g_panimation[i]->numframes - 1.0f);
-				pikrule->peak	= g_panimation[i]->ikrule[j].peak / (g_panimation[i]->numframes - 1.0f);
-				pikrule->tail	= g_panimation[i]->ikrule[j].tail / (g_panimation[i]->numframes - 1.0f);
-				pikrule->end	= g_panimation[i]->ikrule[j].end / (g_panimation[i]->numframes - 1.0f);
+				if (g_panimation[i]->numframes > 1.0)
+				{
+					pikrule->start	= g_panimation[i]->ikrule[j].start / (g_panimation[i]->numframes - 1.0f);
+					pikrule->peak	= g_panimation[i]->ikrule[j].peak / (g_panimation[i]->numframes - 1.0f);
+					pikrule->tail	= g_panimation[i]->ikrule[j].tail / (g_panimation[i]->numframes - 1.0f);
+					pikrule->end	= g_panimation[i]->ikrule[j].end / (g_panimation[i]->numframes - 1.0f);
+				}
+				else
+				{
+					pikrule->start	= 0.0f;
+					pikrule->peak	= 0.0f;
+					pikrule->tail	= 1.0f;
+					pikrule->end	= 1.0f;
+				}
 
 				pikrule->contact= g_panimation[i]->ikrule[j].contact / (g_panimation[i]->numframes - 1.0f);
 
