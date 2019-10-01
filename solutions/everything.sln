@@ -469,6 +469,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glview", "..\utils\glview\g
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "classcheck", "..\utils\classcheck\classcheck.vcxproj", "{27C09D0E-159A-4AB8-AC76-612F0849DD40}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtfdiff", "..\utils\vtfdiff\vtfdiff.vcxproj", "{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1539,6 +1541,19 @@ Global
 		{27C09D0E-159A-4AB8-AC76-612F0849DD40}.Template|x64.ActiveCfg = Template|Win32
 		{27C09D0E-159A-4AB8-AC76-612F0849DD40}.Template|x86.ActiveCfg = Template|Win32
 		{27C09D0E-159A-4AB8-AC76-612F0849DD40}.Template|x86.Build.0 = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Debug|x64.ActiveCfg = Debug|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Debug|x86.Build.0 = Debug|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Profile|x64.ActiveCfg = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Profile|x64.Build.0 = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Profile|x86.ActiveCfg = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Profile|x86.Build.0 = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Release|x64.ActiveCfg = Release|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Release|x86.ActiveCfg = Release|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Release|x86.Build.0 = Release|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Template|x64.ActiveCfg = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Template|x86.ActiveCfg = Template|Win32
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1626,6 +1641,7 @@ Global
 		{DB3D4AB3-C0EB-4B39-85C6-18C3563F656E} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 		{22230F4E-4623-4F59-AC46-FA15CE4B6FD3} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 		{27C09D0E-159A-4AB8-AC76-612F0849DD40} = {A391861F-1AFE-414D-B795-1F8475673BF5}
+		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3E439E4-484A-4007-8E67-B055586B4261}
