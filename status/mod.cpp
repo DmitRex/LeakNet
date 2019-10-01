@@ -240,7 +240,8 @@ void CModList::CheckGrow( int newcount )
 	CMod **pNew = new CMod *[ m_nMaxcount ];
 	if ( oldmaxcount != 0 )
 	{
-		for ( int i = 0; i < oldmaxcount; i++ )
+		int i;
+		for ( i = 0; i < oldmaxcount; i++ )
 		{
 			pNew[ i ] = m_ppMods[ i ];
 		}

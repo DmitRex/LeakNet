@@ -48,7 +48,7 @@ static bool continueIdle = true;
 
 char *gpszCmdLine = NULL;
 
-static char const *attachment = "c:\\status_email.txt";
+static char const *attachment = "status_email.txt";
 
 CStatusDlg *g_pDlg = NULL;
 
@@ -164,7 +164,8 @@ char *CheckParm(const char *psz, char **ppszValue = NULL )
 		{
 			char *p2 = ++p1;
 
-			for (int i = 0; i < 128; i++)
+			int i;
+			for (i = 0; i < 128; i++)
 			{
 				if ( !*p2 || (*p2 == 32))
 					break;
@@ -1862,7 +1863,8 @@ void CStatusDlg::GenerateFakeData( bool fulldataset )
 	for ( int n = 0; n < MODCOUNT; n++ )
 	{
 		int len = rand() % 10 + 2;
-		for ( int c = 0 ; c < len; c++ )
+		int c;
+		for ( c = 0 ; c < len; c++ )
 		{
 			modnames[ n ][ c ] = 'a' + rand() % 26;
 		}
@@ -2930,7 +2932,8 @@ void CStatusDlg::SortUpdates( CModStats *list )
 	CModUpdate **temp = new CModUpdate *[ list->count ];
 	CModUpdate *p = list->list;
 
-	for ( int i = 0; i < list->count; i++, p = p->next )
+	int i;
+	for ( i = 0; i < list->count; i++, p = p->next )
 	{
 		temp[ i ] = p;
 	}
