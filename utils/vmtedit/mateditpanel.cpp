@@ -490,6 +490,7 @@ CMaterialEditorPanel::CMaterialEditorPanel(vgui::Panel *pParent) :
 //-----------------------------------------------------------------------------
 void CMaterialEditorPanel::PopulateShaderList()
 {
+#if 0
 	int iShaderCount = g_pMaterialSystem->GetNumShaders();
 	m_pShaderList = new vgui::ComboBox( this, "Shader List", 12, false );
 
@@ -500,6 +501,7 @@ void CMaterialEditorPanel::PopulateShaderList()
 
 	m_pShaderList->SortItems();
 	m_nShaderIndex = 0;
+#endif
 }
 
 
@@ -508,6 +510,7 @@ void CMaterialEditorPanel::PopulateShaderList()
 //-----------------------------------------------------------------------------
 void CMaterialEditorPanel::PopulateShaderParameters()
 {
+#if 0
 	Assert( m_nShaderIndex >= 0 );
 	m_pEditorPanel->RemoveAll();
 	int nCount = g_pMaterialSystem->GetNumShaderParams(m_nShaderIndex);
@@ -579,6 +582,7 @@ void CMaterialEditorPanel::PopulateShaderParameters()
 //		pEditPanel->SetContentAlignment( Label::a_east );
 		m_pEditorPanel->AddItem( pLabel, pEditPanel );
 	}
+#endif
 }
 
 
@@ -650,6 +654,7 @@ void CMaterialEditorPanel::OnShaderSelected( const char *pShaderName )
 
 	// Compute the shader number
 	m_nShaderIndex = -1;
+#if 0
 	for (int i = g_pMaterialSystem->GetNumShaders(); --i >= 0; )
 	{
 		if (!Q_strnicmp( pShaderName, g_pMaterialSystem->GetShaderName(i), 128 ))
@@ -659,7 +664,7 @@ void CMaterialEditorPanel::OnShaderSelected( const char *pShaderName )
 		}
 	}
 	Assert( m_nShaderIndex >= 0 );
-
+#endif
 	PopulateShaderParameters();
 
 	InvalidateLayout();

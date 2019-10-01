@@ -189,7 +189,7 @@ bool CVMTEditApp::PreInit( IAppSystemGroup *pAppSystemGroup )
 
 	g_pMatSystemSurface = (IMatSystemSurface *)pAppSystemGroup->FindSystem(MAT_SYSTEM_SURFACE_INTERFACE_VERSION);
 
-	char *pArg;
+	const char *pArg;
 	int iWidth = 1024;
 	int iHeight = 768;
 	bool bWindowed = (CommandLine()->CheckParm( "-fullscreen" ) == NULL);
@@ -225,7 +225,7 @@ bool CVMTEditApp::SetVideoMode( )
 {
 	int modeFlags = 0;
 	if ( CommandLine()->CheckParm( "-ref" ) )
-		modeFlags |= MATERIAL_VIDEO_MODE_REFERENCE_RASTERIZER;
+		modeFlags |= MATERIAL_INIT_REFERENCE_RASTERIZER;
 	if ( !CommandLine()->CheckParm( "-fullscreen" ) )
 		modeFlags |= MATERIAL_VIDEO_MODE_WINDOWED;
 	if ( CommandLine()->CheckParm( "-resizing" ) )
@@ -238,7 +238,7 @@ bool CVMTEditApp::SetVideoMode( )
 		modeFlags |= MATERIAL_VIDEO_MODE_ANTIALIAS;
 
 	// Get the adapter from the command line....
-	char *pAdapterString;
+	const char *pAdapterString;
 	int adapter = 0;
 	if (CommandLine()->CheckParm( "-adapter", &pAdapterString ))
 	{
@@ -250,9 +250,13 @@ bool CVMTEditApp::SetVideoMode( )
 		adapter = 0;
 	}
 
+	// VXP: I'm not sure if this is going to work
+	// because it need to be called before materialsystem Init()
+	g_pMaterialSystem->SetAdapter( adapter, modeFlags );
+
 	MaterialVideoMode_t mode;
 	mode.m_Width = mode.m_Height = 0;
-	bool modeSet = g_pMaterialSystem->SetMode( m_HWnd, adapter, mode, modeFlags );
+	bool modeSet = g_pMaterialSystem->SetMode( m_HWnd, mode, modeFlags );
 	if (!modeSet)
 	{
 		Error( "Unable to set mode\n" );
