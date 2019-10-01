@@ -1,6 +1,6 @@
 #include "glos.h"
 #include <gl/gl.h>
-#include <gl/glaux.h>
+//#include <gl/glaux.h>
 #include <gl/glu.h>
 #include <stdarg.h>
 #include <string.h>
@@ -1077,10 +1077,15 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance
 		// and open the portal file.
 		strcpy(szTempCmd, pStart);
 		pStart = szTempCmd;
-		while (pStart && *pStart && *pStart != '.')
-			pStart++;
 
-		*pStart = '\0';
+		// VXP: What if the path is relative? Then this stops immediately on the first dot.
+		// And this dot isn't even an extension dot
+	//	while (pStart && *pStart && *pStart != '.')
+	//		pStart++;
+
+	//	*pStart = '\0';
+
+		StripExtension( szTempCmd );
 		strcat(szTempCmd, ".prt");
 
 		ReadPortalFile(szTempCmd);
