@@ -120,7 +120,8 @@ int main( int argc, char* argv[] )
 	vprint( 0, "--- Game Code Static Analysis ---\n" );
 	char *pSpecificFile = NULL;
 
-	for ( int i=1 ; i<argc ; i++)
+	int i;
+	for ( i=1 ; i<argc ; i++)
 	{
 		if ( argv[ i ][ 0 ] == '-' )
 		{

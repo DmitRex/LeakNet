@@ -4,11 +4,11 @@
 //
 // $NoKeywords: $
 //=============================================================================
-#include <assert.h>
-#include <time.h>
 #include "stdafx.h"
 #include <stdio.h>
 #include <windows.h>
+#include <assert.h>
+#include <time.h>
 #include "classcheck_util.h"
 #include "codeprocessor.h"
 
