@@ -109,10 +109,10 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <IgnoreSpecificDefaultLibraries>MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>DebugIMS/phonemeextractor_ims.dll</OutputFile>
       <ImportLibrary>.\DebugIMS\phonemeextractor_ims.lib</ImportLibrary>
-      <AdditionalDependencies>talkback_ds.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msvcrt.lib;msvcmrt.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
@@ -159,10 +159,10 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LinkDLL>true</LinkDLL>
       <SubSystem>Console</SubSystem>
-      <IgnoreSpecificDefaultLibraries>MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>ReleaseIMS/phonemeextractor_ims.dll</OutputFile>
       <ImportLibrary>.\ReleaseIMS\phonemeextractor_ims.lib</ImportLibrary>
-      <AdditionalDependencies>talkback_rs.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msvcrt.lib;msvcmrt.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\phonemeextractors\$(TargetName).dll" attrib -r "..\..\..\bin\phonemeextractors\$(TargetName).dll" 
@@ -206,8 +206,12 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
     <ClInclude Include="..\sapi51\Include\spdebug.h" />
     <ClInclude Include="..\sapi51\Include\sperror.h" />
     <ClInclude Include="..\sapi51\Include\sphelper.h" />
+    <ClInclude Include="ims_helper.h" />
     <ClInclude Include="phonemeextractor.h" />
-    <ClInclude Include="talkback.h" />
+    <ClInclude Include="talkback.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\public\characterset.cpp" />
@@ -225,6 +229,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="phonemeextractor_ims.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\tier0.lib" />

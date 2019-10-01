@@ -77,11 +77,11 @@ CWordTag::CWordTag( const char *word )
 //-----------------------------------------------------------------------------
 CWordTag::~CWordTag( void )
 {
-	delete[] m_pszWord;
+	m_pszWord = NULL;
 
 	while ( m_Phonemes.Size() > 0 )
 	{
-		delete m_Phonemes[ 0 ];
+		m_Phonemes[ 0 ] = NULL;
 		m_Phonemes.Remove( 0 );
 	}
 }
@@ -947,7 +947,7 @@ void CSentence::Reset( void )
 
 	while ( m_Words.Size() > 0 )
 	{
-		delete m_Words[ 0 ];
+		m_Words[ 0 ] = NULL;
 		m_Words.Remove( 0 );
 	}
 

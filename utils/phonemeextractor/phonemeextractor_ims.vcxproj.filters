@@ -37,6 +37,9 @@
     <ClCompile Include="..\..\public\utlbuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="phonemeextractor_ims.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Public\amd3dx.h">
@@ -117,9 +120,6 @@
     <ClInclude Include="..\..\public\vstdlib\strtools.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="talkback.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Public\UtlBuffer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -141,6 +141,12 @@
     <ClInclude Include="..\..\public\vstdlib\vstdlib.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="talkback.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ims_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\lib\public\tier0.lib" />
@@ -150,6 +156,9 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{e011f6e7-7296-4b11-9fa9-d18e72d2eb6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9d98f269-97cb-429c-a6dd-f00eaade5c56}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
