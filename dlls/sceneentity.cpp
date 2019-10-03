@@ -598,6 +598,8 @@ void CSceneEntity::Precache( void )
 
 void CSceneEntity::OnRestore()
 {
+	BaseClass::OnRestore();
+
 	if ( !m_pScene )
 		return;
 
@@ -1261,7 +1263,7 @@ void CSceneEntity::StartEvent( float currenttime, CChoreoScene *scene, CChoreoEv
 		pActor = FindNamedActor( actor->GetName() );
 		if (pActor == NULL)
 		{
-			Warning( "CSceneEntity unable find actor \"%s\"\n", actor->GetName() );
+			Warning( "CSceneEntity::StartEvent(): %s unable find actor \"%s\"\n", STRING( GetEntityName() ), actor->GetName() );
 			return;
 		}
 	}
@@ -1605,7 +1607,7 @@ void CSceneEntity::ProcessEvent( float currenttime, CChoreoScene *scene, CChoreo
 		pActor = FindNamedActor( actor->GetName() );
 		if (pActor == NULL)
 		{
-			Warning( "CSceneEntity unable find actor \"%s\"\n", actor->GetName() );
+			Warning( "CSceneEntity::ProcessEvent(): %s unable find actor \"%s\"\n", STRING( GetEntityName() ), actor->GetName() );
 			return;
 		}
 	}
@@ -1665,7 +1667,7 @@ bool CSceneEntity::CheckEvent( float currenttime, CChoreoScene *scene, CChoreoEv
 		pActor = FindNamedActor( actor->GetName() );
 		if (pActor == NULL)
 		{
-			Warning( "CSceneEntity unable find actor \"%s\"\n", actor->GetName() );
+			Warning( "CSceneEntity::CheckEvent(): %s unable find actor \"%s\"\n", STRING( GetEntityName() ), actor->GetName() );
 			return true;
 		}
 	}
@@ -2060,6 +2062,7 @@ class CInstancedSceneEntity : public CSceneEntity
 	DECLARE_CLASS( CInstancedSceneEntity, CSceneEntity ); 
 public:
 	EHANDLE					m_hOwner;
+	bool					m_bHadOwner;
 
 	virtual void			DoThink( float frametime );
 	virtual CBaseFlex		*FindNamedActor( const char *name );
@@ -2081,6 +2084,7 @@ LINK_ENTITY_TO_CLASS( instanced_scripted_scene, CInstancedSceneEntity );
 BEGIN_DATADESC( CInstancedSceneEntity )
 
 	DEFINE_FIELD( CInstancedSceneEntity, m_hOwner,		FIELD_EHANDLE ),
+	DEFINE_FIELD( CInstancedSceneEntity, m_bHadOwner,	FIELD_BOOLEAN ),
 
 END_DATADESC()
 
@@ -2103,6 +2107,7 @@ float InstancedScriptedScene( CBaseFlex *pActor, const char *pszScene, EHANDLE *
 
 	// FIXME: add a proper initialization function
 	pScene->m_hOwner = pActor;
+	pScene->m_bHadOwner = pActor != NULL;
 	pScene->Spawn();
 	pScene->Activate();
 	pScene->StartPlayback();
@@ -2151,7 +2156,7 @@ void CInstancedSceneEntity::DoThink( float frametime )
 {
 	CheckInterruptCompletion();
 
-	if ( !m_pScene || !m_bIsPlayingBack || m_hOwner == NULL)
+	if ( !m_pScene || !m_bIsPlayingBack || ( m_bHadOwner && m_hOwner == NULL ) )
 	{
 		UTIL_Remove( this );
 		return;

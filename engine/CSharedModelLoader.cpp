@@ -27,6 +27,9 @@ studioanimgrouphdr_t *CSharedModelLoader::LoadSharedModel( const char *path )
 	if ( Q_strcmp( cachedata.path, path ) == 0 )
 		return cachedata.header;
 
+	if ( m_pFilesystem == NULL )
+		return NULL;
+
 	FileHandle_t pFileHandle = m_pFilesystem->Open( path, "rb" );
 	if ( pFileHandle == NULL )
 	{
