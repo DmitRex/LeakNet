@@ -747,13 +747,13 @@ void CPhysExplosion::Explode( CBaseEntity *pActivator )
 				adjustedDamage =  flDist * falloff;
 				adjustedDamage = m_damage - adjustedDamage;
 		
-				if ( adjustedDamage < 0 )
+				if ( adjustedDamage < 1 )
 				{
-					adjustedDamage = 0;
+					adjustedDamage = 1;
 				}
 
 				CTakeDamageInfo info( this, this, adjustedDamage, DMG_BLAST );
-				CalculateExplosiveDamageForce( &info, (vecSpot - GetAbsOrigin()), GetAbsOrigin() );
+ 				CalculateExplosiveDamageForce( &info, (vecSpot - GetAbsOrigin()), GetAbsOrigin() );
 
 				if ( HasSpawnFlags( SF_PHYSEXPLOSION_NODAMAGE ) )
 				{

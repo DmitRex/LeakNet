@@ -1016,7 +1016,7 @@ static bool R_StudioCheckBBox( DrawModelState_t& state, const Vector& origin,
 			{
 				invalid = true;
 			}
-			if ( fabs( delta1[1] ) >= .1f )
+			if ( fabs( delta1[2] ) >= .1f )
 			{
 				invalid = true;
 			}

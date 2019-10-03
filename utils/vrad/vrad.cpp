@@ -1738,7 +1738,7 @@ void VRAD_LoadBSP( char const *pFilename )
 	if ( !g_pFileSystem->FileExists( global_lights ) )
 	{
 		// Otherwise, try looking in the BIN directory from which we were run from
-		Msg( "Could not find lights.rad in %s.\nTrying VRAD BIN directory instead...\n", 
+		Msg( "Could not find lights.rad in %s.\nTrying VRAD BIN directory instead...\n", // VXP: FIXME
 			    global_lights );
 		GetModuleFileName( NULL, global_lights, sizeof( global_lights ) );
 		ExtractFilePath( global_lights, global_lights );

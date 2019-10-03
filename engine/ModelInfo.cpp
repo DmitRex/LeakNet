@@ -138,11 +138,12 @@ void CModelInfo::GetModelRenderBounds( const model_t *model, int sequence, Vecto
 			Assert( pStudioHdr );
 
 			// NOTE: We're not looking at the sequence box here, although we could
-			if (!VectorCompare( vec3_origin, pStudioHdr->view_bbmin ))
+			if (!VectorCompare( vec3_origin, pStudioHdr->view_bbmin ) ||
+				!VectorCompare( vec3_origin, pStudioHdr->view_bbmax ) )
 			{
 				// clipping bounding box
 				VectorCopy ( pStudioHdr->view_bbmin, mins);
-				VectorCopy ( pStudioHdr->view_bbmin, maxs);
+				VectorCopy ( pStudioHdr->view_bbmax, maxs);
 			}
 			else
 			{
