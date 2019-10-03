@@ -23,7 +23,7 @@ CUtlLinkedList<CFuncAreaPortalBase*, unsigned short> g_AreaPortals;
 BEGIN_DATADESC( CFuncAreaPortalBase )
 
 	DEFINE_FIELD( CFuncAreaPortalBase, m_portalNumber,			FIELD_INTEGER ),
-	DEFINE_FIELD( CFuncAreaPortalBase, m_AreaPortalsElement,	FIELD_SHORT ),
+//	DEFINE_FIELD( CFuncAreaPortalBase, m_AreaPortalsElement,	FIELD_SHORT ),
 
 END_DATADESC()
 
