@@ -324,8 +324,8 @@ void COptionsSubVideo::ApplyVidSettings(bool bForceRefresh)
 	engine->ClientCmd( szCmd );
 
 	// Set renderer
-	sprintf( szCmd, "_setrenderer %s %s\n", p->renderer, p->windowed ? "windowed" : "fullscreen" ); // GoldSrc string
-	//sprintf( szCmd, "_setrenderer %s\n", /*p->renderer, */p->windowed ? "windowed" : "fullscreen" ); // SRC string
+	//sprintf( szCmd, "_setrenderer %s %s\n", p->renderer, p->windowed ? "windowed" : "fullscreen" ); // GoldSrc string
+	sprintf( szCmd, "_setrenderer %s\n", /*p->renderer, */p->windowed ? "windowed" : "fullscreen" ); // SRC string
 
 	engine->ClientCmd( szCmd );
 
