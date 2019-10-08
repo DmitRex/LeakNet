@@ -221,7 +221,16 @@ void CWin32Font::GetCharRGBA(int ch, int rgbaX, int rgbaY, int rgbaWide, int rgb
 	MAT2 mat2 = { { 0, 1}, { 0, 0}, { 0, 0}, { 0, 1}};
 	int bytesNeeded = 0;
 
-	if (m_bAntiAliased)
+	bool bShouldAntialias = m_bAntiAliased;
+
+	// VXP: Only antialias latin characters (first 255 characters)
+	// since it essentially always fails for asian/cyrillic characters
+	if ( ch > 0x00FF )
+	{
+		bShouldAntialias = false;
+	}
+
+	if ( bShouldAntialias )
 	{
 		// try and get the glyph directly
 		::SelectObject(m_hDC, m_hFont);
