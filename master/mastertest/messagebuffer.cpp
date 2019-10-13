@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "MasterTest.h"
 #include "MessageBuffer.h"
+#include "archtypes.h"
 
 // For handling endian issues:
 extern BOOL  bigendien;

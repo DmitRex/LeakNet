@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "MasterTest.h"
+#include "archtypes.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

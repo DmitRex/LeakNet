@@ -477,6 +477,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlmodmaster", "..\master\hl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Master", "Master", "{F2FBFE3C-D9A0-4564-B511-B947F4E406E7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mastertest", "..\master\mastertest\mastertest.vcxproj", "{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Steam Master|x64 = Debug Steam Master|x64
@@ -2245,6 +2247,27 @@ Global
 		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x64.ActiveCfg = Template|Win32
 		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x86.ActiveCfg = Template|Win32
 		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x86.Build.0 = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug Steam Master|x64.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug Steam Master|x64.Build.0 = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug Steam Master|x86.ActiveCfg = Debug|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug Steam Master|x86.Build.0 = Debug|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug|x64.ActiveCfg = Debug|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug|x86.ActiveCfg = Debug|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Debug|x86.Build.0 = Debug|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Profile|x64.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Profile|x64.Build.0 = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Profile|x86.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Profile|x86.Build.0 = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release Steam Master|x64.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release Steam Master|x64.Build.0 = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release Steam Master|x86.ActiveCfg = Release|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release Steam Master|x86.Build.0 = Release|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release|x64.ActiveCfg = Release|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release|x86.ActiveCfg = Release|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Release|x86.Build.0 = Release|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Template|x64.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Template|x86.ActiveCfg = Template|Win32
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2335,6 +2358,7 @@ Global
 		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 		{CD6187F1-1292-4832-B21C-D5C720A042AE} = {F2FBFE3C-D9A0-4564-B511-B947F4E406E7}
 		{A251DEE2-DBBA-479F-B89E-126FFA0078EB} = {F2FBFE3C-D9A0-4564-B511-B947F4E406E7}
+		{CE65D3F8-28B5-411B-9FE5-BC3736F3DFD7} = {F2FBFE3C-D9A0-4564-B511-B947F4E406E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3E439E4-484A-4007-8E67-B055586B4261}
