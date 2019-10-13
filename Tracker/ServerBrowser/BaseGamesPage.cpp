@@ -206,7 +206,7 @@ void CBaseGamesPage::PerformLayout()
 	m_pNoPasswordFilterCheck->SetPos(x5, yl3);
 	m_pGameFilter->SetVisible(m_bFiltersVisible);
 	m_pGameFilter->SetPos(x2, ystart);
-	m_pLocationFilter->SetVisible(false);
+	m_pLocationFilter->SetVisible(m_bFiltersVisible);
 	m_pLocationFilter->SetPos(x3, y2);
 	m_pMapFilter->SetVisible(m_bFiltersVisible);
 	m_pMapFilter->SetPos(x2, y2);
@@ -271,7 +271,7 @@ void CBaseGamesPage::CreateFilters()
 	m_pGameFilter->AddItem("#ServerBrowser_All", NULL);
 
 	m_pLocationFilter = new ComboBox(this, "LocationFilter", 6, false);
-	m_pLocationFilter->AddItem("", NULL);
+	m_pLocationFilter->AddItem("#ServerBrowser_All", NULL);
 	m_pLocationFilter->AddItem("#ServerBrowser_US_East", NULL);
 	m_pLocationFilter->AddItem("#ServerBrowser_US_West", NULL);
 	m_pLocationFilter->AddItem("#ServerBrowser_SouthAmerica", NULL);
