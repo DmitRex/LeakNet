@@ -271,7 +271,7 @@ int CHLModMasterDlg::RunModalLoop(DWORD dwFlags)
 	BOOL bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
 	HWND hWndParent = ::GetParent(m_hWnd);
 	m_nFlags |= (WF_MODALLOOP|WF_CONTINUEMODAL);
-	MSG* pMsg = &AfxGetThread()->m_msgCur;
+	MSG* pMsg = &AfxGetThreadState()->m_msgCur;
 
 	static clock_t tLast = 0;
 	clock_t tCurrent;
@@ -582,7 +582,7 @@ BOOL CHLModMasterDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	char szText[256];
-	sprintf(szText, "Half-Life Mod Master:  %s / ("__DATE__")", AdrToString(net_local_adr ) );
+	sprintf(szText, "Half-Life Mod Master:  %s / (" __DATE__ ")", AdrToString(net_local_adr ) );
 	SetWindowText(szText);
 
 	m_tStartTime = Sys_FloatTime();

@@ -185,7 +185,7 @@
     </Link>
     <CustomBuildStep>
       <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\bin\$(TargetName).exe"</Command>
-      <Outputs>$(ProjectDir)..\..\$(InputName).exe;%(Outputs)</Outputs>
+      <Outputs>$(ProjectDir)..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

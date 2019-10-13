@@ -473,6 +473,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtfdiff", "..\utils\vtfdiff
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HLMaster", "..\master\hlmaster.vcxproj", "{CD6187F1-1292-4832-B21C-D5C720A042AE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hlmodmaster", "..\master\hlmodmaster\hlmodmaster.vcxproj", "{A251DEE2-DBBA-479F-B89E-126FFA0078EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Master", "Master", "{F2FBFE3C-D9A0-4564-B511-B947F4E406E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Steam Master|x64 = Debug Steam Master|x64
@@ -2220,6 +2224,27 @@ Global
 		{CD6187F1-1292-4832-B21C-D5C720A042AE}.Template|x64.Build.0 = Release Steam Master|Win32
 		{CD6187F1-1292-4832-B21C-D5C720A042AE}.Template|x86.ActiveCfg = Release Steam Master|Win32
 		{CD6187F1-1292-4832-B21C-D5C720A042AE}.Template|x86.Build.0 = Release Steam Master|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug Steam Master|x64.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug Steam Master|x64.Build.0 = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug Steam Master|x86.ActiveCfg = Debug|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug Steam Master|x86.Build.0 = Debug|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug|x64.ActiveCfg = Debug|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Debug|x86.Build.0 = Debug|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Profile|x64.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Profile|x64.Build.0 = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Profile|x86.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Profile|x86.Build.0 = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release Steam Master|x64.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release Steam Master|x64.Build.0 = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release Steam Master|x86.ActiveCfg = Release|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release Steam Master|x86.Build.0 = Release|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release|x64.ActiveCfg = Release|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release|x86.ActiveCfg = Release|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Release|x86.Build.0 = Release|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x64.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x86.ActiveCfg = Template|Win32
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB}.Template|x86.Build.0 = Template|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2308,6 +2333,8 @@ Global
 		{22230F4E-4623-4F59-AC46-FA15CE4B6FD3} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 		{27C09D0E-159A-4AB8-AC76-612F0849DD40} = {A391861F-1AFE-414D-B795-1F8475673BF5}
 		{1CACE779-ED57-4A41-A3B3-4ACFE2ACACB1} = {A391861F-1AFE-414D-B795-1F8475673BF5}
+		{CD6187F1-1292-4832-B21C-D5C720A042AE} = {F2FBFE3C-D9A0-4564-B511-B947F4E406E7}
+		{A251DEE2-DBBA-479F-B89E-126FFA0078EB} = {F2FBFE3C-D9A0-4564-B511-B947F4E406E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3E439E4-484A-4007-8E67-B055586B4261}
