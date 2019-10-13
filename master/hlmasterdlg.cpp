@@ -24,7 +24,7 @@ static double		curtime = 0.0;
 static double		lastcurtime = 0.0;
 static int			lowshift;
 
-int CURRENT_PROTOCOL = PROTOCOL_VERSION;
+int CURRENT_MASTER_PROTOCOL = PROTOCOL_VERSION;
 
 #define LOAD_MIN		2000
 #define SV_PER_PKT ( 1500 / 6 )
@@ -95,7 +95,8 @@ char *CheckParm(const char *psz, char **ppszValue)
 		{
 			char *p2 = ++p1;
 
-			for (int i = 0; i < 128; i++)
+			int i;
+			for (i = 0; i < 128; i++)
 			{
 				if ( !*p2 || (*p2 == 32))
 					break;
@@ -440,7 +441,7 @@ void CHLMasterDlg::Peer_GetHeartbeat2( void )
 	_strlwr( os );
 
 	// protocol != 1 for Sony stand-alone game support...1.1.1.0 engine license (EricS)
-	if ( !islan && !m_bAllowOldProtocols && ( protocol != CURRENT_PROTOCOL ) && ( protocol != 1 ) ) 
+	if ( !islan && !m_bAllowOldProtocols && ( protocol != CURRENT_MASTER_PROTOCOL ) && ( protocol != 1 ) ) 
 	{
 		return;
 	}
@@ -806,7 +807,7 @@ int CHLMasterDlg::RunModalLoop(DWORD dwFlags)
 	BOOL bShowIdle = (dwFlags & MLF_SHOWONIDLE) && !(GetStyle() & WS_VISIBLE);
 	HWND hWndParent = ::GetParent(m_hWnd);
 	m_nFlags |= (WF_MODALLOOP|WF_CONTINUEMODAL);
-	MSG* pMsg = &AfxGetThread()->m_msgCur;
+	MSG* pMsg = &AfxGetThreadState()->m_msgCur;
 
 	static clock_t tLast = 0;
 	clock_t tCurrent;
@@ -1168,9 +1169,9 @@ BOOL CHLMasterDlg::OnInitDialog()
 	char szText[256];
 
 #if defined( _STEAM_HLMASTER )
-	sprintf(szText, "Steam HLMaster %i/HL:%s/CS:%s/TFC:%s/DMC:%s/DOD:%s/Ricochet:%s/OpFor:%s", CURRENT_PROTOCOL, m_szHLVersion, m_szCSVersion, m_szTFCVersion, m_szDMCVersion, m_szDODVersion, m_szRicochetVersion, m_szOpForVersion );
+	sprintf(szText, "Steam HLMaster %i/HL:%s/CS:%s/TFC:%s/DMC:%s/DOD:%s/Ricochet:%s/OpFor:%s", CURRENT_MASTER_PROTOCOL, m_szHLVersion, m_szCSVersion, m_szTFCVersion, m_szDMCVersion, m_szDODVersion, m_szRicochetVersion, m_szOpForVersion );
 #else
-	sprintf(szText, "HL Master %s - %i/HL:%s/CS:%s ("__DATE__")", AdrToString(net_local_adr ), CURRENT_PROTOCOL, m_szHLVersion, m_szCSVersion );	
+	sprintf(szText, "HL Master %s - %i/HL:%s/CS:%s (" __DATE__ ")", AdrToString(net_local_adr ), CURRENT_MASTER_PROTOCOL, m_szHLVersion, m_szCSVersion );	
 #endif
 
 	SetWindowText(szText);
@@ -1634,7 +1635,7 @@ void CHLMasterDlg::Packet_Heartbeat (void)
 
 	info = MSG_ReadString();
 
-	if ( !m_bAllowOldProtocols && ( nprotocol != CURRENT_PROTOCOL ) )
+	if ( !m_bAllowOldProtocols && ( nprotocol != CURRENT_MASTER_PROTOCOL ) )
 	{
 		RejectConnection(&packet_from, "Outdated protocol.");
 		return;
@@ -1802,7 +1803,7 @@ void CHLMasterDlg::Packet_Heartbeat2 (void)
 	_strlwr( os );
 
 	// protocol != 1 for Sony stand-alone game support...1.1.1.0 engine license (EricS)
-	if ( !m_bAllowOldProtocols && ( protocol != CURRENT_PROTOCOL ) && ( protocol != 1 ) )
+	if ( !m_bAllowOldProtocols && ( protocol != CURRENT_MASTER_PROTOCOL ) && ( protocol != 1 ) )
 	{
 		RejectConnection(&packet_from, "Outdated protocol.");
 
@@ -3876,10 +3877,10 @@ void CHLMasterDlg::ParseVersion( void )
 	// Get the protocol version
 	if ( strlen(token.token) > 0 )
 	{
-		CURRENT_PROTOCOL = atoi( token.token );
-		if ( CURRENT_PROTOCOL <= 0 )
+		CURRENT_MASTER_PROTOCOL = atoi( token.token );
+		if ( CURRENT_MASTER_PROTOCOL <= 0 )
 		{
-			CURRENT_PROTOCOL = PROTOCOL_VERSION;
+			CURRENT_MASTER_PROTOCOL = PROTOCOL_VERSION;
 		}
 	}
 

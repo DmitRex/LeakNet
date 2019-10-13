@@ -4,6 +4,7 @@
 // MD5 Hash
 
 #include "HashList.h"
+#include "archtypes.h"
 
 typedef struct
 {
