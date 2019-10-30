@@ -20,26 +20,11 @@ using namespace vgui;
 
 COptionsSubAudio::COptionsSubAudio(vgui::Panel *parent) : PropertyPage(parent, NULL)
 {
-	m_pEAXCheckButton = new CCvarToggleCheckButton( 
-		this, 
-		"EAX",
-		"#GameUI_EnableEAX",
-		"s_eax" );
-
-	m_pA3DCheckButton = new CCvarToggleCheckButton( 
-		this, 
-		"A3D",
-		"#GameUI_EnableA3D",
-		"s_a3d" );
-
 	m_pSFXSlider = new CCvarSlider( this, "SFX Slider", "#GameUI_SoundEffectVolume",
 		0.0f, 1.0f, "volume");
 
 	m_pHEVSlider = new CCvarSlider( this, "Suit Slider", "#GameUI_HEVSuitVolume",
 		0.0f, 1.0f, "suitvolume");
-
-	m_pMP3Slider = new CCvarSlider( this, "MP3 Volume", "#GameUI_MP3Volume",
-		0.0f, 1.0f, "mp3volume" );
 
 	m_pSoundQualityCombo = new CLabeledCommandComboBox( this, "Sound Quality" );
 
@@ -79,21 +64,15 @@ COptionsSubAudio::~COptionsSubAudio()
 
 void COptionsSubAudio::OnResetData()
 {
-	m_pEAXCheckButton->Reset();
-	m_pA3DCheckButton->Reset();
 	m_pSFXSlider->Reset();
 	m_pHEVSlider->Reset();
-	m_pMP3Slider->Reset();
 	m_pSoundQualityCombo->Reset();
 }
 
 void COptionsSubAudio::OnApplyChanges()
 {
-	m_pEAXCheckButton->ApplyChanges();
-	m_pA3DCheckButton->ApplyChanges();
 	m_pSFXSlider->ApplyChanges();
 	m_pHEVSlider->ApplyChanges();
-	m_pMP3Slider->ApplyChanges();
 	m_pSoundQualityCombo->ApplyChanges();
 }
 

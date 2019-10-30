@@ -32,12 +32,8 @@ private:
 
 	void OnControlModified();
 
-	CCvarToggleCheckButton		*m_pEAXCheckButton;
-	CCvarToggleCheckButton		*m_pA3DCheckButton;
-
 	CCvarSlider					*m_pSFXSlider;
 	CCvarSlider					*m_pHEVSlider;
-	CCvarSlider					*m_pMP3Slider;
 	CLabeledCommandComboBox		*m_pSoundQualityCombo;
 
 	typedef vgui::PropertyPage BaseClass;
