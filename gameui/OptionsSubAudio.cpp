@@ -35,7 +35,7 @@ COptionsSubAudio::COptionsSubAudio(vgui::Panel *parent) : PropertyPage(parent, N
 	ConVar *var = (ConVar *)cvar->FindVar( "hisound" );
 	if ( var )
 	{
-		m_pSoundQualityCombo->SetInitialItem( var->GetBool() != 0 ? 0: 1 );
+		m_pSoundQualityCombo->SetInitialItem( var->GetBool() == true ? 0 : 1 );
 	}
 		
 
