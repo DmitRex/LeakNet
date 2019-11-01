@@ -175,18 +175,22 @@ HALF4 main( PS_INPUT i ) : COLOR
 	HALF3 specularLighting = HALF3( 0.0f, 0.0f, 0.0f );
 	if( bCubemap )
 	{
+		// VXP: Guide: https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul
 #ifdef NV3X
 		HALF3 worldSpaceNormal;
 		if ( bBumpmap ) 
 		{
-			worldSpaceNormal = mul(tangentSpaceNormal, i.tangentSpaceTranspose );
+			worldSpaceNormal = mul(tangentSpaceNormal, i.tangentSpaceTranspose ); // VXP: Guide: vector x matrix (Version 6)
 		}
 		else
 		{
-			worldSpaceNormal = mul( i.tangentSpaceTranspose, tangentSpaceNormal );
+			worldSpaceNormal = mul( i.tangentSpaceTranspose, tangentSpaceNormal ); // VXP: Guide: matrix x vector (Version 8)
 		}
 #else
-		float3 worldSpaceNormal = mul( tangentSpaceNormal, i.tangentSpaceTranspose );
+		//float3 worldSpaceNormal = mul( tangentSpaceNormal, i.tangentSpaceTranspose ); // VXP: Guide: vector x matrix (Version 6)
+
+		// VXP: Should be exactly like that, as seen at the vertex shader part in tangentSpaceTranspose assignment
+		float3 worldSpaceNormal = mul( i.tangentSpaceTranspose, tangentSpaceNormal );
 #endif
 		HALF3 reflectVect = CalcReflectionVectorUnnormalized( worldSpaceNormal, i.worldVertToEyeVector );
 		specularLighting = texCUBE( EnvmapSampler, reflectVect );

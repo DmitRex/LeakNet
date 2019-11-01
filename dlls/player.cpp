@@ -4431,6 +4431,81 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 
 		break;
 
+	case 111:
+		gEvilImpulse101 = true;
+
+		EquipSuit();
+
+		// Give the player everything!
+		GiveAmmo( 255, "SmallRound" );
+		GiveAmmo( 255, "MediumRound" );
+		GiveAmmo( 255, "LargeRound" );
+		GiveAmmo( 255, "FlareRound" );
+		GiveAmmo( 255, "Buckshot" );
+		GiveAmmo( 3, "ML_Grenade" );
+		GiveAmmo( 3, "AR2_Grenade" );
+		GiveAmmo( 255, "SniperRound" );
+		GiveAmmo( 255, "SniperPenetratedRound" );
+		GiveAmmo( 5, "Slam" );
+		GiveAmmo( 5, "Tripwire" );
+		GiveAmmo( 5, "Molotov" );
+		GiveAmmo( 5, "Grenade" );
+		GiveAmmo( 5, "Brickbat" );
+		GiveAmmo( 5, "Rock" );
+		GiveAmmo( 3, "Thumper" );
+		GiveAmmo( 30, "Gravity" ); // VXP: For secondary_ammo of weapon_physgun
+		GiveAmmo( 255, "Extinguisher" );
+		GiveAmmo( 100, "Battery" );
+		GiveAmmo( 150, "GaussEnergy" );
+		GiveAmmo( 10, "Hopwire" );
+		//GiveAmmo( 10, "CombineCannon" ); // VXP: Only used by npc_combiedropship, npc_combinegunship and npc_strider
+
+		GiveNamedItem( "weapon_ar1" );
+		GiveNamedItem( "weapon_ar2" );
+		GiveNamedItem( "weapon_beerbottle" );
+		GiveNamedItem( "weapon_beerbottle2" );
+		GiveNamedItem( "weapon_binoculars" );
+		GiveNamedItem( "weapon_brickbat" );
+		GiveNamedItem( "weapon_bugbait" );
+		GiveNamedItem( "weapon_cguard" );
+		GiveNamedItem( "weapon_crowbar" );
+		GiveNamedItem( "weapon_cubemap" );
+		GiveNamedItem( "weapon_extinguisher" );
+		GiveNamedItem( "weapon_flaregun" );
+		GiveNamedItem( "weapon_frag" );
+		GiveNamedItem( "weapon_gauss" );
+		GiveNamedItem( "weapon_hmg1" );
+		GiveNamedItem( "weapon_hopwire" );
+		GiveNamedItem( "weapon_iceaxe" );
+		GiveNamedItem( "weapon_immolator" );
+		GiveNamedItem( "weapon_irifle" );
+		GiveNamedItem( "weapon_manhack" );
+		GiveNamedItem( "weapon_ml" );
+		GiveNamedItem( "weapon_molotov" );
+		GiveNamedItem( "weapon_physcannon" );
+		GiveNamedItem( "weapon_physgun" );
+		GiveNamedItem( "weapon_pistol" );
+		GiveNamedItem( "weapon_rollerwand" );
+		GiveNamedItem( "weapon_rpg" );
+		GiveNamedItem( "weapon_shotgun" );
+		GiveNamedItem( "weapon_slam" );
+		GiveNamedItem( "weapon_smg1" );
+		GiveNamedItem( "weapon_smg2" );
+		GiveNamedItem( "weapon_sniperrifle" );
+		GiveNamedItem( "weapon_stickylauncher" );
+		GiveNamedItem( "weapon_stunstick" );
+		GiveNamedItem( "weapon_thumper" );
+		GiveNamedItem( "weapon_tripwire" );
+
+		if ( GetHealth() < 100 )
+		{
+			TakeHealth( 100, DMG_GENERIC );
+		}
+
+		gEvilImpulse101 = false;
+
+		break;
+
 	case 102:
 		// Gibbage!!!
 		CGib::SpawnRandomGibs( this, 1, GIB_HUMAN );
