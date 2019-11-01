@@ -15,6 +15,8 @@
 #include <vgui_controls/ListPanel.h>
 #include <KeyValues.h>
 
+#include "vstdlib/icommandline.h"
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include <tier0/memdbgon.h>
 
@@ -74,7 +76,7 @@ void CChangeGameDialog::LoadModList()
 			{
 				// Check for dlls\*.dll
 				char szDllDirectory[MAX_PATH + 16];
-				sprintf(szDllDirectory, "%s\\liblist.gam", wfd.cFileName);
+				sprintf(szDllDirectory, "%s\\scripts\\liblist.gam", wfd.cFileName);
 
 				FILE *f = fopen(szDllDirectory, "rb");
 				if (f)
@@ -127,9 +129,15 @@ void CChangeGameDialog::OnCommand(const char *command)
 			if (kv)
 			{
 				// change the game dir and restart the engine
-				char szCmd[256];
-				sprintf(szCmd, "_setgamedir %s\n", kv->GetString("ModDir"));
-				engine->ClientCmd(szCmd);
+				//char szCmd[256];
+				//sprintf(szCmd, "_setgamedir %s\n", kv->GetString("ModDir"));
+				//engine->ClientCmd(szCmd);
+
+				if (CommandLine()->CheckParm("-game"))
+				{
+					CommandLine()->RemoveParm("-game");
+				}
+				CommandLine()->AppendParm("-game", kv->GetString("ModDir"));
 
 				// Force restart of entire engine
 				engine->ClientCmd("_restart\n");

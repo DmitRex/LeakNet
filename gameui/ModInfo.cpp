@@ -66,7 +66,8 @@ const char *CModInfo::GetStartMap()
 //-----------------------------------------------------------------------------
 const char *CModInfo::GetTrainMap()
 {
-	return m_pModData->GetString("trainmap", "t0a0");
+	// VXP: Check for trainmap, then trainingmap, and then put the default one
+	return m_pModData->GetString("trainmap", m_pModData->GetString( "trainingmap", "t0a0" ) );
 }
 
 //-----------------------------------------------------------------------------
