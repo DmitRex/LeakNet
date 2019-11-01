@@ -313,7 +313,7 @@ void CMapAnimator::GetAnimationAtTime( CMapKeyFrame *currentKey, CMapKeyFrame *p
 		animTime = partialTime / currentKey->MoveTime();
 	}
 
-	ASSERT( animTime >= 0.0f && animTime <= 1.0f );
+	ASSERT( animTime >= 0.0f && animTime <= 1.0f ); // VXP: Hit on e3_lab when looking at the ropes
 
 	IPositionInterpolator *pInterp = currentKey->SetupPositionInterpolator( posInterpolator );
 
