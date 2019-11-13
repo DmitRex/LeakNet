@@ -1156,10 +1156,10 @@ BOOL CWorldcraft::OnIdle(LONG lCount)
 			}
 
 			// Redraw the views when new lightmaps are ready.
-			if( pLighting->CheckForNewLightmaps() )
+			//if( pLighting->CheckForNewLightmaps() )
 			{
 				SetForceRenderNextFrame();
-				pDoc->UpdateAllViews( NULL, MAPVIEW_UPDATE_DISPLAY );
+				pDoc->UpdateAllViews( NULL, MAPVIEW_UPDATE_3D );
 			}
 		}
 	}

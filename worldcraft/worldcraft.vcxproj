@@ -163,6 +163,7 @@
       <AdditionalDependencies>winmm.lib;rpcrt4.lib;nafxcwd.lib;Libcmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>nafxcwd.lib;Libcmtd.lib</IgnoreSpecificDefaultLibraries>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <StackReserveSize>10485760</StackReserveSize>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\wc.exe attrib -r ..\..\bin\wc.exe 
@@ -258,6 +259,7 @@ if exist "$(TargetDir)wc.exe" copy "$(TargetDir)wc.exe" ..\..\bin </Command>
       <AdditionalLibraryDirectories>..\lib\common;..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>winmm.lib;opengl32.lib;glu32.lib;rpcrt4.lib;nafxcw.lib;Libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>nafxcw.lib;Libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <StackReserveSize>10485760</StackReserveSize>
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\wc.exe attrib -r ..\..\bin\wc.exe 

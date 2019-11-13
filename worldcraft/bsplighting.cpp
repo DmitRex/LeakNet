@@ -842,17 +842,18 @@ bool CBSPLighting::LoadVRADDLL( char const *pFilename )
 }
 
 
+// VXP: FIXME: I'm doing horribly wrong here, but at least displacements are loading now
 void CBSPLighting::CreateDisplacements( CBSPInfo &file, CUtlVector<CFace> &faces, CUtlVector<CDispInfoFaces> &dispInfos )
 {
 	IMaterialSystem *pMatSys = MaterialSystemInterface();
 
-/*
 	dispInfos.SetSize( file.g_numdispinfo );
 	for( int iFace=0; iFace < faces.Size(); iFace++ )
 	{
 		CFace *pFace = &faces[iFace];
 		CStoredFace *pStoredFace = &m_StoredFaces[iFace];
 		dface_t *pInFace = pFace->m_pDFace;
+		texinfo_t *pTexInfo = &file.texinfo[pFace->m_pDFace->texinfo];
 
 		if( pInFace->dispinfo == -1 )
 			continue;
@@ -863,20 +864,24 @@ void CBSPLighting::CreateDisplacements( CBSPInfo &file, CUtlVector<CFace> &faces
 		pOutDisp->m_Power = pInDisp->power;
 		int nVertsPerSide = (1 << pInDisp->power) + 1;
 
-		pOutDisp->m_Verts.SetSize( pInDisp->m_LODs[0].m_nVerts );
+		pOutDisp->m_Verts.SetSize( pFace->m_nVerts );
 
 		int lightmapPageSize[2];
 		pMatSys->GetLightmapPageSize( pFace->m_pStoredFace->m_LightmapPageID, &lightmapPageSize[0], &lightmapPageSize[1] );
-		
-		for( int iVert=0; iVert < pInDisp->m_LODs[0].m_nVerts; iVert++ )
+
+		for( int iVert=0; iVert < pFace->m_nVerts; iVert++ )
 		{
-			ddisp_lod_vert_t *pInVert = &file.ddispverts[ pInDisp->m_LODs[0].m_iVertStart + iVert ];
+			//ddisp_lod_vert_t *pInVert = &file.ddispverts[ pInDisp->m_LODs[0].m_iVertStart + iVert ];
+			//ddisp_lod_vert_t *pInVert = &file.dvertexes[pFace->m_iVertStart + iVert];
+			//CCoreDispSurface *pInVert = &file.dvertexes[pFace->m_iVertStart + iVert];
 			CVert *pOutVert = &pOutDisp->m_Verts[iVert];
 
-			pOutVert->m_vPos = pInVert->m_vPos;
+			pOutVert->m_vPos = pInDisp->startPosition; // pInVert->m_vPos;
+			Vector &vPos = pOutVert->m_vPos;
 			for( int iCoord=0; iCoord < 2; iCoord++ )
 			{
-				float flVal = pInVert->m_LightCoords[iCoord];
+				float *lmVec = pFace->m_LightmapVecs[iCoord];
+				float flVal = lmVec[0] * vPos[0] + lmVec[1] * vPos[1] + lmVec[2] * vPos[2] + lmVec[3] - pFace->m_LightmapTextureMinsInLuxels[iCoord];// pInVert->m_LightCoords[iCoord];
 
 				flVal += pFace->m_pStoredFace->m_OffsetIntoLightmapPage[iCoord];
 				flVal += 0.5f;
@@ -884,8 +889,9 @@ void CBSPLighting::CreateDisplacements( CBSPInfo &file, CUtlVector<CFace> &faces
 				assert( _finite(flVal) );
 				pOutVert->m_vLightCoords[iCoord] = flVal;
 
-				pOutVert->m_vTexCoords[iCoord] = pInVert->m_TexCoords[iCoord];
-				
+				pOutVert->m_vTexCoords[iCoord] = DotProduct( vPos, *((Vector *)pTexInfo->textureVecsTexelsPerWorldUnits[iCoord]) ) +
+					pTexInfo->textureVecsTexelsPerWorldUnits[iCoord][3]; // pInVert->m_TexCoords[iCoord];
+
 				if( iCoord == 0 )
 					pOutVert->m_vTexCoords[iCoord] /= pStoredFace->m_pMaterial->m_pMaterial->GetMappingWidth();
 				else
@@ -893,7 +899,6 @@ void CBSPLighting::CreateDisplacements( CBSPInfo &file, CUtlVector<CFace> &faces
 			}
 		}
 	}
-*/
 }
 
 
