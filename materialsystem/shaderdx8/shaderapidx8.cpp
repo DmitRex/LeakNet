@@ -9048,8 +9048,8 @@ void CShaderAPIDX8::WriteHitRecord( )
 	{
 		Assert( m_pCurrSelectionRecord + m_SelectionNames.Count() + 3 <	m_pSelectionBufferEnd );
 		*m_pCurrSelectionRecord++ = m_SelectionNames.Count();
-	    *m_pCurrSelectionRecord++ = (int)((double)m_SelectionMinZ * (double)0xFFFFFFFF);
-	    *m_pCurrSelectionRecord++ = (int)((double)m_SelectionMaxZ * (double)0xFFFFFFFF);
+	    *m_pCurrSelectionRecord++ = (unsigned int)((double)m_SelectionMinZ * (double)0xFFFFFFFF);
+	    *m_pCurrSelectionRecord++ = (unsigned int)((double)m_SelectionMaxZ * (double)0xFFFFFFFF);
 		for (int i = 0; i < m_SelectionNames.Count(); ++i)
 		{
 			*m_pCurrSelectionRecord++ = m_SelectionNames[i];
