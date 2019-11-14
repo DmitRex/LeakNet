@@ -151,23 +151,36 @@ void  _SpewInfo( SpewType_t type, char const* pFile, int line )
 SpewRetval_t  _SpewMessage( SpewType_t spewType, char const* pMsgFormat, va_list args )
 {
 	char pTempBuffer[1024];
+	int len = 0;
+	int tempLen = 0;
 
 	/* Printf the file and line for warning + assert only... */
-	int len = 0;
 	if ((spewType == SPEW_ASSERT) )
 	{
-		len = sprintf( pTempBuffer, "%s (%d) : ", s_pFileName, s_Line );
+		tempLen = sprintf( pTempBuffer, "%s (%d) : ", s_pFileName, s_Line );
+		if ( tempLen < 0 )
+			return SPEW_ABORT;
+
+		len += tempLen;
 	}
 	
 	/* Create the message.... */
-	len += vsprintf( &pTempBuffer[len], pMsgFormat, args );
+	 tempLen = vsprintf( &pTempBuffer[len], pMsgFormat, args );
+	 if ( tempLen < 0 )
+		return SPEW_ABORT;
+
+	 len += tempLen;
 
 	// Add \n for warning and assert
 	if ((spewType == SPEW_ASSERT) )
 	{
-		len += sprintf( &pTempBuffer[len], "\n" ); 
+		tempLen = sprintf( &pTempBuffer[len], "\n" );
+		if ( tempLen < 0 )
+			return SPEW_ABORT;
+
+		len += tempLen;
 	}
-	
+
 	assert( len < 1024 ); /* use normal assert here; to avoid recursion. */
 	assert( s_SpewOutputFunc );
 	
