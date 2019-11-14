@@ -471,7 +471,7 @@ public:
 	void SelectionBuffer( unsigned int* pBuffer, int size );
 	void ClearSelectionNames( );
 	void LoadSelectionName( int name );
-	void PushSelectionName( int name );
+	void PushSelectionName( unsigned int name );
 	void PopSelectionName();
 
 	void FlushHardware();
@@ -1955,7 +1955,7 @@ void CShaderAPIEmpty::LoadSelectionName( int name )
 {
 }
 
-void CShaderAPIEmpty::PushSelectionName( int name )
+void CShaderAPIEmpty::PushSelectionName( unsigned int name )
 {
 }
 

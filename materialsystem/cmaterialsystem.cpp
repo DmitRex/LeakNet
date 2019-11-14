@@ -277,7 +277,7 @@ public:
 	void SelectionBuffer( unsigned int* pBuffer, int size );
 	void ClearSelectionNames( );
 	void LoadSelectionName( int name );
-	void PushSelectionName( int name );
+	void PushSelectionName( unsigned int name );
 	void PopSelectionName();
 
 	int					GetNumShaders( void ) const;
@@ -3970,7 +3970,7 @@ void CMaterialSystem::LoadSelectionName( int name )
 	g_pShaderAPI->LoadSelectionName( name );
 }
 
-void CMaterialSystem::PushSelectionName( int name )
+void CMaterialSystem::PushSelectionName( unsigned int name )
 {
 	g_pShaderAPI->PushSelectionName( name );
 }

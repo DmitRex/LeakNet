@@ -717,7 +717,7 @@ public:
 	virtual void LoadSelectionName( int name )
 	{
 	}
-	virtual void PushSelectionName( int name )
+	virtual void PushSelectionName( unsigned int name )
 	{
 	}
 	virtual void PopSelectionName()

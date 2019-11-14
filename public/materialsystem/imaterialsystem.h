@@ -609,7 +609,7 @@ public:
 	virtual void SelectionBuffer( unsigned int* pBuffer, int size ) = 0;
 	virtual void ClearSelectionNames( ) = 0;
 	virtual void LoadSelectionName( int name ) = 0;
-	virtual void PushSelectionName( int name ) = 0;
+	virtual void PushSelectionName( unsigned int name ) = 0;
 	virtual void PopSelectionName() = 0;
 	
 	// Installs a function to be called when we need to release vertex buffers + textures

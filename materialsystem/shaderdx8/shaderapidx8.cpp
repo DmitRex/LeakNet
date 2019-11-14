@@ -589,7 +589,7 @@ public:
 	void SelectionBuffer( unsigned int* pBuffer, int size );
 	void ClearSelectionNames( );
 	void LoadSelectionName( int name );
-	void PushSelectionName( int name );
+	void PushSelectionName( unsigned int name );
 	void PopSelectionName();
 	bool IsInSelectionMode() const;
 	void RegisterSelectionHit( float minz, float maxz );
@@ -1220,7 +1220,7 @@ private:
 	bool 	m_bIgnoreZValue;
 
 	// Selection name stack
-	CUtlStack< int >	m_SelectionNames;
+	CUtlStack< unsigned int >	m_SelectionNames;
 	bool	m_InSelectionMode;
 	unsigned int*	m_pSelectionBufferEnd;
 	unsigned int*	m_pSelectionBuffer;
@@ -9021,7 +9021,7 @@ void CShaderAPIDX8::LoadSelectionName( int name )
 	}
 }
 
-void CShaderAPIDX8::PushSelectionName( int name )
+void CShaderAPIDX8::PushSelectionName( unsigned int name )
 {
 	if (m_InSelectionMode)
 	{
