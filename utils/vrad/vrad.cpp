@@ -1745,16 +1745,6 @@ void VRAD_LoadBSP( char const *pFilename )
 	strcpy( dirs[3], exePath );
 
 	// Set the required global lights filename and try looking in qproject
-	//strcat( strcpy( global_lights, gamedir ), "lights.rad" );
-	//if ( !g_pFileSystem->FileExists( global_lights ) )
-	//{
-	//	// Otherwise, try looking in the BIN directory from which we were run from
-	//	Msg( "Could not find lights.rad in %s.\nTrying VRAD BIN directory instead...\n",
-	//		    global_lights );
-	//	GetModuleFileName( NULL, global_lights, sizeof( global_lights ) );
-	//	ExtractFilePath( global_lights, global_lights );
-	//	strcat( global_lights, "lights.rad" );
-	//}
 	bool bLightsRadFound = false;
 	for ( int i = 0; i < (sizeof( dirs ) / sizeof( dirs[0] )); i++ )
 	{
