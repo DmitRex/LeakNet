@@ -925,7 +925,7 @@ void LoadEntityDLLs( char *szBaseDir )
 	Q_snprintf( dirs[0], MAX_PATH, "%s", szGameDir );
 	Q_snprintf( dirs[1], MAX_PATH, "hl2" );
 
-	for ( int i = 0; i < 2; i++ )
+	for ( int i = 0; i < (sizeof( dirs ) / sizeof( dirs[0] )); i++ )
 	{
 		char *testdirectory = dirs[i];
 		// Load the game .dll

@@ -1733,16 +1733,46 @@ void VRAD_LoadBSP( char const *pFilename )
 
 	LoadPhysicsDLL();
 
+
+	char dirs[4][1024];
+	Q_snprintf( dirs[0], 1024, "%s", gamedir );  // VXP: Looking at mod's directory
+	Q_snprintf( dirs[1], 1024, "%s", basegamedir ); // VXP: Looking at hl2 directory
+	Q_snprintf( dirs[2], 1024, "%sbin/", basedir ); // VXP: Looking at bin directory
+
+	char exePath[MAX_PATH];
+	GetModuleFileName( NULL, exePath, MAX_PATH );  // VXP: Looking at .exe directory
+	ExtractFilePath( exePath, exePath );
+	strcpy( dirs[3], exePath );
+
 	// Set the required global lights filename and try looking in qproject
-	strcat( strcpy( global_lights, gamedir ), "lights.rad" );
-	if ( !g_pFileSystem->FileExists( global_lights ) )
+	//strcat( strcpy( global_lights, gamedir ), "lights.rad" );
+	//if ( !g_pFileSystem->FileExists( global_lights ) )
+	//{
+	//	// Otherwise, try looking in the BIN directory from which we were run from
+	//	Msg( "Could not find lights.rad in %s.\nTrying VRAD BIN directory instead...\n",
+	//		    global_lights );
+	//	GetModuleFileName( NULL, global_lights, sizeof( global_lights ) );
+	//	ExtractFilePath( global_lights, global_lights );
+	//	strcat( global_lights, "lights.rad" );
+	//}
+	bool bLightsRadFound = false;
+	for ( int i = 0; i < (sizeof( dirs ) / sizeof( dirs[0] )); i++ )
 	{
-		// Otherwise, try looking in the BIN directory from which we were run from
-		Msg( "Could not find lights.rad in %s.\nTrying VRAD BIN directory instead...\n", // VXP: FIXME
-			    global_lights );
-		GetModuleFileName( NULL, global_lights, sizeof( global_lights ) );
-		ExtractFilePath( global_lights, global_lights );
-		strcat( global_lights, "lights.rad" );
+		char *testdirectory = dirs[i];
+		char szLightsFilename[MAX_PATH];
+		Q_snprintf( szLightsFilename, sizeof( szLightsFilename ), "%slights.rad", testdirectory );
+
+		if ( g_pFileSystem->FileExists( szLightsFilename ) )
+		{
+			strcpy( global_lights, szLightsFilename );
+			bLightsRadFound = true;
+			break;
+		}
+	}
+
+	if ( !bLightsRadFound )
+	{
+		Msg( "Could not find lights.rad in any of the defined game directories.\n\t(game mod, game base, bin and .exe directory)" );
 	}
 
 	// Set the optional level specific lights filename
