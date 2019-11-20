@@ -118,6 +118,7 @@ int CVRadDLL::main( int argc, char **argv )
 
 bool CVRadDLL::Init( char const *pFilename )
 {
+	m_SaveSpewOutput = GetSpewOutputFunc();
 	VRAD_Init();
 	
 	// Set options and run vrad startup code.
@@ -132,6 +133,7 @@ bool CVRadDLL::Init( char const *pFilename )
 
 void CVRadDLL::Release()
 {
+	SpewOutputFunc( m_SaveSpewOutput );
 }
 
 

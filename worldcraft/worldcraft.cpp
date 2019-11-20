@@ -725,7 +725,7 @@ int CWorldcraft::ExitInstance()
 	//
 	CToolManager::Shutdown();
 
-	//if ( GetSpewOutputFunc() == WorldcraftDbgOutput ) // VXP: FIXME: Let's just hope this wouldn't fuck up something
+	if ( GetSpewOutputFunc() == WorldcraftDbgOutput ) // VXP: FIXME: Let's just hope this wouldn't fuck up something
 	{
 		SpewOutputFunc( NULL ); // VXP: Will prevent MaterialSystem to spew into the void after quitting from BSP lighting preview enabled
 	}

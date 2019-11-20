@@ -27,6 +27,9 @@ public:
 	virtual bool		Serialize();
 	virtual float		GetPercentComplete();
 	virtual void		Interrupt();
+
+private:
+	SpewOutputFunc_t	m_SaveSpewOutput;
 };
 
 
