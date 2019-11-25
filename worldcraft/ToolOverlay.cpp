@@ -171,7 +171,7 @@ bool CToolOverlay::CreateOverlay( CMapSolid *pSolid, ULONG iFace, CMapView3D *pV
 		AddInitialFaceToSideList( pEntity, pFace );
 
 		// Add to selection list.
-		m_pDoc->SelectObject( pEntity, CMapDoc::scSelect | CMapDoc::scUpdateDisplay );
+		m_pDoc->SelectObject( pEntity, CMapDoc::scClear | CMapDoc::scSelect | CMapDoc::scUpdateDisplay );
 		m_bEmpty = false;
 
 		// Set modified and update views.
