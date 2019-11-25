@@ -343,7 +343,7 @@ bool CSaveGameDialog::ParseSaveData( char const *pszFileName, char const* pszSho
 		pszType = "#GameUI_AutoSave";
 	}
 
-	kv->SetString( "Type", pszType );
+	kv->SetWString( "Type", localize()->Find( pszType ) );
 	kv->SetString( "Game", szComment );
 
 	kv->SetString( "Elapsed Time", szElapsedTime );
