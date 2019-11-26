@@ -65,15 +65,29 @@ static bool LoadSrcVTFFiles( IVTFTexture *pSrcVTFTextures[6], const char *pSkybo
 	int i;
 	for( i = 0; i < 6; i++ )
 	{
-		char srcVTFFileName[1024];
-		sprintf( srcVTFFileName, "%smaterials/skybox/%s%s.vtf", gamedir, pSkyboxBaseName, facingName[i] );
-
 		FILE *fp;
-		fp = fopen( srcVTFFileName, "rb" );
-		if( !fp )
+
+		char dirs[2][1024];
+		Q_snprintf( dirs[0], 1024, "%s", gamedir );
+		Q_snprintf( dirs[1], 1024, "%s", basegamedir );
+
+		for ( int i = 0; i < (sizeof( dirs ) / sizeof( dirs[0] )); i++ )
+		{
+			char srcVTFFileName[1024];
+			sprintf( srcVTFFileName, "%smaterials/skybox/%s%s.vtf", dirs[i], pSkyboxBaseName, facingName[i] );
+
+			fp = fopen( srcVTFFileName, "rb" );
+			if ( fp )
+			{
+				break;
+			}
+		}
+
+		if ( !fp )
 		{
 			return false;
 		}
+
 		fseek( fp, 0, SEEK_END );
 		int srcVTFLength = ftell( fp );
 		fseek( fp, 0, SEEK_SET );
