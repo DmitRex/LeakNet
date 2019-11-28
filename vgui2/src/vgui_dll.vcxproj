@@ -119,7 +119,7 @@
 copy "$(TargetPath)" ..\..\..\bin\vgui2.dll 
 if exist "$(TargetDir)vgui2.map" copy "$(TargetDir)vgui2.map" ..\..\..\bin\vgui2.map </Command>
       <Outputs>..\..\..\bin\vgui2.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -175,7 +175,7 @@ if exist "$(TargetDir)vgui2.map" copy "$(TargetDir)vgui2.map" ..\..\..\bin\vgui2
 copy "$(TargetPath)" ..\..\..\bin\vgui2.dll 
 if exist "$(TargetDir)vgui2.map" copy "$(TargetDir)vgui2.map" ..\..\..\bin\vgui2.map </Command>
       <Outputs>..\..\..\bin\vgui2.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

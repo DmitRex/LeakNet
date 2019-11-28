@@ -119,7 +119,7 @@
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -167,7 +167,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

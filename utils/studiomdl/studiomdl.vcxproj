@@ -112,7 +112,7 @@ copy "$(TargetPath)" ..\..\..\bin\studiomdl.exe
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>copy to ..\..\..\bin\studiomdl.exe</Message>
       <Outputs>..\..\..\bin\studiomdl.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -160,7 +160,7 @@ copy "$(TargetPath)" ..\..\..\bin\studiomdl.exe
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>copy to ..\..\..\bin\studiomdl.exe</Message>
       <Outputs>..\..\..\bin\studiomdl.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

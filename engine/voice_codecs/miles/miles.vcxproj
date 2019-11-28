@@ -117,7 +117,7 @@
     <CustomBuildStep>
       <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
       <Outputs>..\..\..\..\bin\vaudio_miles.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -167,7 +167,7 @@
     <CustomBuildStep>
       <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
       <Outputs>..\..\..\..\bin\vaudio_miles.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

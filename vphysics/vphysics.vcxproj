@@ -99,7 +99,7 @@ copy "$(TargetPath)" ..\..\bin\vphysics.dll
 if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vphysics.map </Command>
       <Message>Copying to Game Directory</Message>
       <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -157,7 +157,7 @@ copy "$(TargetPath)" ..\..\bin\vphysics.dll
 if exist "$(TargetDir)vphysics.map" copy "$(TargetDir)vphysics.map" ..\..\bin\vphysics.map </Command>
       <Message>Copying to Game Directory</Message>
       <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

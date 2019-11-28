@@ -142,7 +142,7 @@
     <CustomBuildStep>
       <Command>call ..\..\filecopy.bat "$(TargetDir)vmpi.lib" ..\..\lib\vmpi\vmpi.lib</Command>
       <Outputs>..\..\lib\vmpi\vmpi.lib;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

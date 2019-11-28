@@ -111,7 +111,7 @@
       <Command>attrib -r ..\..\..\bin\makevmt.exe 
 copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
       <Outputs>..\..\..\bin\makevmt.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +151,7 @@ copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
       <Command>attrib -r ..\..\..\bin\makevmt.exe 
 copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
       <Outputs>..\..\..\bin\makevmt.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

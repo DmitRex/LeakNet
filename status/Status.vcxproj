@@ -138,7 +138,7 @@
     <CustomBuildStep>
       <Command>copy "$(TargetPath)" ..\..\bin</Command>
       <Outputs>..\..\bin\status.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
@@ -230,7 +230,7 @@
     <CustomBuildStep>
       <Command>copy "$(TargetPath)" ..\..\bin</Command>
       <Outputs>..\..\bin\status.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

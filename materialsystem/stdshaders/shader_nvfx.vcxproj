@@ -167,7 +167,7 @@ copy "$(TargetPath)" ..\..\..\bin\shader_nvfx.dll
 if exist "$(TargetDir)shader_nvfx.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -321,7 +321,7 @@ copy "$(TargetPath)" ..\..\..\bin\shader_nvfx.dll
 if exist "$(TargetDir)shader_nvfx.map" copy "$(TargetDir)shader_nvfx.map" ..\..\..\bin\shader_nvfx.map </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

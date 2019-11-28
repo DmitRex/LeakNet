@@ -121,7 +121,7 @@
 copy "$(TargetPath)" ..\..\..\bin\vtex.dll 
 if exist "$(TargetDir)vtex.map" copy "$(TargetDir)vtex.map" ..\..\bin\vtex.map </Command>
       <Outputs>..\..\..\bin\vtex.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -174,7 +174,7 @@ if exist "$(TargetDir)vtex.map" copy "$(TargetDir)vtex.map" ..\..\bin\vtex.map <
 copy "$(TargetPath)" ..\..\..\bin\vtex.dll 
 if exist "$(TargetDir)vtex.map" copy "$(TargetDir)vtex.map" ..\..\bin\vtex.map </Command>
       <Outputs>..\..\..\bin\vtex.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

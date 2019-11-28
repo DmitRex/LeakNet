@@ -102,7 +102,7 @@ if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Message>Copying to root &amp; building .DAT file</Message>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -153,7 +153,7 @@ copy "$(TargetPath)" ..\..\bin\hlds.exe
 if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map 
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

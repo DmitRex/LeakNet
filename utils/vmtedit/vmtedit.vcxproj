@@ -94,7 +94,7 @@
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\vmtedit.map </Command>
       <Outputs>..\..\..\bin\vmtedit.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -144,7 +144,7 @@ if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\v
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\vmtedit.map </Command>
       <Outputs>..\..\..\bin\vmtedit.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

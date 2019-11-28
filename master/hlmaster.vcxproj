@@ -186,7 +186,7 @@
     <CustomBuildStep>
       <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\bin\$(TargetName).exe"</Command>
       <Outputs>$(ProjectDir)..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -229,7 +229,7 @@
     <CustomBuildStep>
       <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\hlmaster.exe"</Command>
       <Outputs>$(ProjectDir)..\..\hlmaster.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Steam Master|Win32'">

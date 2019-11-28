@@ -112,7 +112,7 @@
       <Command>if exist  ..\..\..\bin\classcheck.exe attrib -r ..\..\..\bin\classcheck.exe 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\classcheck.exe </Command>
       <Outputs>..\..\..\bin\classcheck.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -158,7 +158,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\classcheck.exe </Comm
       <Command>if exist  ..\..\..\bin\classcheck.exe attrib -r ..\..\..\bin\classcheck.exe 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\classcheck.exe </Command>
       <Outputs>..\..\..\bin\classcheck.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

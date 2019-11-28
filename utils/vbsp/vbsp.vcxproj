@@ -117,7 +117,7 @@ copy "$(TargetPath)"  "..\..\..\bin\$(TargetName).exe"
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -167,7 +167,7 @@ copy "$(TargetPath)"  "..\..\..\bin\$(TargetName).exe"
 if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

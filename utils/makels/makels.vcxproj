@@ -107,7 +107,7 @@
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
       <Message>Copy to ..\..\..\bin</Message>
       <Outputs>..\..\..\bin\makels.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -149,7 +149,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
       <Message>Copy to ..\..\..\bin</Message>
       <Outputs>..\..\..\bin\makels.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
