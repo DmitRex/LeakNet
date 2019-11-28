@@ -116,7 +116,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
 copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
-if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
+if exist "$(TargetDir)stdshader_dbg.pdb" copy "$(TargetDir)stdshader_dbg.pdb" ..\..\..\bin\stdshader_dbg.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dbg.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -172,7 +172,7 @@ if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dbg.dll attrib -r ..\..\..\bin\stdshader_dbg.dll 
 copy "$(TargetPath)" ..\..\..\bin\stdshader_dbg.dll 
-if exist "$(TargetDir)stdshader_dbg.map" copy "$(TargetDir)stdshader_dbg.map" ..\..\..\bin\stdshader_dbg.map </Command>
+if exist "$(TargetDir)stdshader_dbg.pdb" copy "$(TargetDir)stdshader_dbg.pdb" ..\..\..\bin\stdshader_dbg.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dbg.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

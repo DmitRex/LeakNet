@@ -109,7 +109,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\studiomdl.exe attrib -r ..\..\..\bin\studiomdl.exe 
 copy "$(TargetPath)" ..\..\..\bin\studiomdl.exe 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>copy to ..\..\..\bin\studiomdl.exe</Message>
       <Outputs>..\..\..\bin\studiomdl.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -157,7 +157,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\studiomdl.exe attrib -r ..\..\..\bin\studiomdl.exe 
 copy "$(TargetPath)" ..\..\..\bin\studiomdl.exe 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>copy to ..\..\..\bin\studiomdl.exe</Message>
       <Outputs>..\..\..\bin\studiomdl.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

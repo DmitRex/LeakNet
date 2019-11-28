@@ -122,7 +122,7 @@
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
-if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
+if exist "$(TargetDir)vstdlib.pdb" copy "$(TargetDir)vstdlib.pdb" ..\..\bin\vstdlib.pdb  
 if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
 if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
@@ -181,7 +181,7 @@ if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\
       <Command>if exist ..\..\bin\vstdlib.dll attrib -r ..\..\bin\vstdlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\vstdlib.dll  
-if exist "$(TargetDir)vstdlib.map" copy "$(TargetDir)vstdlib.map" ..\..\bin\vstdlib.map  
+if exist "$(TargetDir)vstdlib.pdb" copy "$(TargetDir)vstdlib.pdb" ..\..\bin\vstdlib.pdb  
 if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
 if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>

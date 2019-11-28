@@ -119,7 +119,7 @@
       <Command>if exist "..\..\..\bin\phonemeextractors\$(TargetName).dll" attrib -r "..\..\..\bin\phonemeextractors\$(TargetName).dll" 
 if not exist ..\..\..\bin\phonemeextractors\ mkdir ..\..\..\bin\phonemeextractors\
 copy "$(TargetPath)" ..\..\..\bin\phonemeextractors 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\phonemeextractors\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\phonemeextractors\$(TargetName).pdb" </Command>
       <Outputs>..\..\..\bin\phonemeextractors\$(TargetName).dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -168,7 +168,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
       <Command>if exist "..\..\..\bin\phonemeextractors\$(TargetName).dll" attrib -r "..\..\..\bin\phonemeextractors\$(TargetName).dll" 
 if not exist ..\..\..\bin\phonemeextractors\ mkdir ..\..\..\bin\phonemeextractors\
 copy "$(TargetPath)" ..\..\..\bin\phonemeextractors 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\phonemeextractors\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\phonemeextractors\$(TargetName).pdb" </Command>
       <Outputs>..\..\..\bin\phonemeextractors\$(TargetName).dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

@@ -92,7 +92,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\vmtedit.exe attrib -r ..\..\..\bin\vmtedit.exe 
 copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\vmtedit.map </Command>
+if exist "$(TargetDir)vmtedit.pdb" copy "$(TargetDir)vmtedit.pdb" ..\..\..\bin\vmtedit.pdb </Command>
       <Outputs>..\..\..\bin\vmtedit.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -142,7 +142,7 @@ if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\v
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\vmtedit.exe attrib -r ..\..\..\bin\vmtedit.exe 
 copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)vmtedit.map" copy "$(TargetDir)vmtedit.map" ..\..\..\bin\vmtedit.map </Command>
+if exist "$(TargetDir)vmtedit.pdb" copy "$(TargetDir)vmtedit.pdb" ..\..\..\bin\vmtedit.pdb </Command>
       <Outputs>..\..\..\bin\vmtedit.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

@@ -96,7 +96,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
 copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
-if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
+if exist "$(TargetDir)stdshader_dx8.pdb" copy "$(TargetDir)stdshader_dx8.pdb" ..\..\..\bin\stdshader_dx8.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -150,7 +150,7 @@ if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\stdshader_dx8.dll attrib -r ..\..\..\bin\stdshader_dx8.dll 
 copy "$(TargetPath)" ..\..\..\bin\stdshader_dx8.dll 
-if exist "$(TargetDir)stdshader_dx8.map" copy "$(TargetDir)stdshader_dx8.map" ..\..\..\bin\stdshader_dx8.map </Command>
+if exist "$(TargetDir)stdshader_dx8.pdb" copy "$(TargetDir)stdshader_dx8.pdb" ..\..\..\bin\stdshader_dx8.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\stdshader_dx8.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

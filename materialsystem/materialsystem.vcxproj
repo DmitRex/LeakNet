@@ -119,9 +119,9 @@
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
-if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
+if exist ..\..\bin\MaterialSystem.pdb attrib -r ..\..\bin\MaterialSystem.pdb 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
-if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" ..\..\bin\MaterialSystem.map </Command>
+if exist "$(TargetDir)MaterialSystem.pdb" copy "$(TargetDir)MaterialSystem.pdb" ..\..\bin\MaterialSystem.pdb </Command>
       <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -179,9 +179,9 @@ if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" 
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\bin\MaterialSystem.dll attrib -r ..\..\bin\MaterialSystem.dll 
-if exist ..\..\bin\MaterialSystem.map attrib -r ..\..\bin\MaterialSystem.map 
+if exist ..\..\bin\MaterialSystem.pdb attrib -r ..\..\bin\MaterialSystem.pdb 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
-if exist "$(TargetDir)MaterialSystem.map" copy "$(TargetDir)MaterialSystem.map" ..\..\bin\MaterialSystem.map </Command>
+if exist "$(TargetDir)MaterialSystem.pdb" copy "$(TargetDir)MaterialSystem.pdb" ..\..\bin\MaterialSystem.pdb </Command>
       <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

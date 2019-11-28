@@ -121,7 +121,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
 copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
-if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
+if exist "$(TargetDir)vguimatsurface.pdb" copy "$(TargetDir)vguimatsurface.pdb" ..\..\bin\vguimatsurface.pdb </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -179,7 +179,7 @@ if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" 
     <CustomBuildStep>
       <Command>if exist ..\..\bin\vguimatsurface.dll attrib -r ..\..\bin\vguimatsurface.dll 
 copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
-if exist "$(TargetDir)vguimatsurface.map" copy "$(TargetDir)vguimatsurface.map" ..\..\bin\vguimatsurface.map </Command>
+if exist "$(TargetDir)vguimatsurface.pdb" copy "$(TargetDir)vguimatsurface.pdb" ..\..\bin\vguimatsurface.pdb </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
       <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

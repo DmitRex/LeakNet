@@ -99,7 +99,7 @@
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
 copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>Copying to bin</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -147,7 +147,7 @@ if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" ".
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
 copy "$(TargetPath)" ..\..\..\bin 
-if exist "$(TargetDir)$(TargetName).map" copy "$(TargetDir)$(TargetName).map" "..\..\..\bin\$(TargetName).map" </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>Copying</Message>
       <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

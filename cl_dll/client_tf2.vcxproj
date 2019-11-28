@@ -375,7 +375,7 @@ copy "$(TargetDir)client.dll" .\..\..\tf2\bin </Command>
     <CustomBuildStep>
       <Command>if exist .\..\..\tf2\bin\client.dll attrib -r .\..\..\tf2\bin\client.dll 
 copy "$(TargetDir)client.dll" .\..\..\tf2\bin 
-if exist "$(TargetDir)client.map" copy "$(TargetDir)client.map" .\..\..\tf2\bin\client.map </Command>
+if exist "$(TargetDir)client.pdb" copy "$(TargetDir)client.pdb" .\..\..\tf2\bin\client.pdb </Command>
       <Message>Copying to tf2\bin</Message>
       <Outputs>.\..\..\tf2\bin\client.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)client.dll;%(Inputs)</Inputs>

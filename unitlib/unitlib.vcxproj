@@ -119,7 +119,7 @@
       <Command>if exist ..\..\bin\unitlib.dll attrib -r ..\..\bin\unitlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\unitlib.dll  
-if exist "$(TargetDir)unitlib.map" copy "$(TargetDir)unitlib.map" ..\..\bin\unitlib.map  
+if exist "$(TargetDir)unitlib.pdb" copy "$(TargetDir)unitlib.pdb" ..\..\bin\unitlib.pdb  
 if exist ..\lib\public\unitlib.lib attrib -r ..\lib\public\unitlib.lib  
 if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\unitlib.lib</Command>
       <Message>Publishing to target directory (..\..\bin) ...</Message>
@@ -177,7 +177,7 @@ if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\
       <Command>if exist ..\..\bin\unitlib.dll attrib -r ..\..\bin\unitlib.dll  
 if not exist ..\..\bin\ mkdir ..\..\bin\
 copy "$(TargetPath)" ..\..\bin\unitlib.dll  
-if exist "$(TargetDir)unitlib.map" copy "$(TargetDir)unitlib.map" ..\..\bin\unitlib.map  
+if exist "$(TargetDir)unitlib.pdb" copy "$(TargetDir)unitlib.pdb" ..\..\bin\unitlib.pdb  
 if exist ..\lib\public\unitlib.lib attrib -r ..\lib\public\unitlib.lib  
 if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\unitlib.lib</Command>
       <Message>Publishing to target directory...</Message>

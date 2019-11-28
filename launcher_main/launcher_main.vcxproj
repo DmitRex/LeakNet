@@ -119,8 +119,8 @@
 copy "$(TargetPath)" ..\..\hl2.exe  
 if exist ..\..\tf2.exe attrib -r ..\..\tf2.exe  
 copy "$(TargetPath)" ..\..\tf2.exe  
-if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\tf2.map  
-if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\hl2.map  
+if exist "$(TargetDir)launcher_main.pdb" copy "$(TargetDir)launcher_main.pdb" ..\..\tf2.pdb  
+if exist "$(TargetDir)launcher_main.pdb" copy "$(TargetDir)launcher_main.pdb" ..\..\hl2.pdb  
 attrib -r ..\..\tf2.dat  
 attrib -r ..\..\hl2.dat  
 ..\..\bin\newdat ..\..\tf2.exe  
@@ -177,8 +177,8 @@ attrib -r ..\..\hl2.dat
 copy "$(TargetPath)" ..\..\hl2.exe  
 if exist ..\..\tf2.exe attrib -r ..\..\tf2.exe  
 copy "$(TargetPath)" ..\..\tf2.exe  
-if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\tf2.map  
-if exist "$(TargetDir)launcher_main.map" copy "$(TargetDir)launcher_main.map" ..\..\hl2.map  
+if exist "$(TargetDir)launcher_main.pdb" copy "$(TargetDir)launcher_main.pdb" ..\..\tf2.pdb  
+if exist "$(TargetDir)launcher_main.pdb" copy "$(TargetDir)launcher_main.pdb" ..\..\hl2.pdb  
 attrib -r ..\..\tf2.dat  
 attrib -r ..\..\hl2.dat  
 ..\..\bin\newdat ..\..\tf2.exe  

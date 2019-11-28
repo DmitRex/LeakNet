@@ -104,7 +104,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\bin\studiorender.dll attrib -r ..\..\bin\studiorender.dll 
 copy "$(TargetPath)" ..\..\bin\studiorender.dll 
-if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\..\bin\studiorender.map </Command>
+if exist "$(TargetDir)studiorender.pdb" copy "$(TargetDir)studiorender.pdb" ..\..\bin\studiorender.pdb </Command>
       <Outputs>..\..\bin\studiorender.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -161,7 +161,7 @@ if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\.
     <CustomBuildStep>
       <Command>if exist ..\..\bin\studiorender.dll attrib -r ..\..\bin\studiorender.dll 
 copy "$(TargetPath)" ..\..\bin\studiorender.dll 
-if exist "$(TargetDir)studiorender.map" copy "$(TargetDir)studiorender.map" ..\..\bin\studiorender.map </Command>
+if exist "$(TargetDir)studiorender.pdb" copy "$(TargetDir)studiorender.pdb" ..\..\bin\studiorender.pdb </Command>
       <Outputs>..\..\bin\studiorender.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

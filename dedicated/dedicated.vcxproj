@@ -98,7 +98,7 @@
       <Command>if exist ..\..\bin\hlds.exe attrib -r ..\..\bin\hlds.exe 
 if exist ..\..\bin\hlds.dat attrib -r ..\..\bin\hlds.dat 
 copy "$(TargetPath)" ..\..\bin\hlds.exe 
-if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map 
+if exist "$(TargetDir)hlds.pdb" copy "$(TargetDir)hlds.pdb" ..\..\bin\hlds.pdb 
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Message>Copying to root &amp; building .DAT file</Message>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
@@ -150,7 +150,7 @@ if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map
       <Command>if exist ..\..\bin\hlds.exe attrib -r ..\..\bin\hlds.exe 
 if exist ..\..\bin\hlds.dat attrib -r ..\..\bin\hlds.dat 
 copy "$(TargetPath)" ..\..\bin\hlds.exe 
-if exist "$(TargetDir)hlds.map" copy "$(TargetDir)hlds.map" ..\..\bin\hlds.map 
+if exist "$(TargetDir)hlds.pdb" copy "$(TargetDir)hlds.pdb" ..\..\bin\hlds.pdb 
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

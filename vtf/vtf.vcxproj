@@ -88,7 +88,7 @@
     <CustomBuildStep>
       <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
 copy "$(TargetPath)" ..\lib\public\vtf.lib 
-if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map </Command>
+if exist "$(TargetDir)vtf.pdb" copy "$(TargetDir)vtf.pdb" ..\lib\public\vtf.pdb </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\vtf.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
@@ -132,7 +132,7 @@ if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map 
     <CustomBuildStep>
       <Command>if exist ..\lib\public\vtf.lib attrib -r ..\lib\public\vtf.lib 
 copy "$(TargetPath)" ..\lib\public\vtf.lib 
-if exist "$(TargetDir)vtf.map" copy "$(TargetDir)vtf.map" ..\lib\public\vtf.map </Command>
+if exist "$(TargetDir)vtf.pdb" copy "$(TargetDir)vtf.pdb" ..\lib\public\vtf.pdb </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\vtf.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>

@@ -135,7 +135,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\unittest.exe attrib -r ..\..\..\bin\unittest.exe 
 copy $(TargetPath) ..\..\..\bin\unittest.exe 
-if exist $(TargetDir)unittest.map copy $(TargetDir)unittest.map ..\..\..\bin\unittest.map </Command>
+if exist $(TargetDir)unittest.pdb copy $(TargetDir)unittest.pdb ..\..\..\bin\unittest.pdb </Command>
       <Message>Publishing to target directory...</Message>
       <Outputs>..\..\..\bin\unittest.exe;%(Outputs)</Outputs>
     </CustomBuildStep>
@@ -179,7 +179,7 @@ if exist $(TargetDir)unittest.map copy $(TargetDir)unittest.map ..\..\..\bin\uni
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\unittest.exe attrib -r ..\..\..\bin\unittest.exe 
 copy "$(TargetPath)" ..\..\..\bin\unittest.exe 
-if exist "$(TargetDir)unittest.map" copy "$(TargetDir)unittest.map" ..\..\..\bin\unittest.map </Command>
+if exist "$(TargetDir)unittest.pdb" copy "$(TargetDir)unittest.pdb" ..\..\..\bin\unittest.pdb </Command>
       <Message>Publishing to target directory...</Message>
       <Outputs>..\..\..\bin\unittest.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -226,7 +226,7 @@ if exist "$(TargetDir)unittest.map" copy "$(TargetDir)unittest.map" ..\..\..\bin
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\unittest.exe attrib -r ..\..\..\bin\unittest.exe 
 copy "$(TargetPath)" ..\..\..\bin\unittest.exe 
-if exist "$(TargetDir)unittest.map" copy "$(TargetDir)unittest.map" ..\..\..\bin\unittest.map </Command>
+if exist "$(TargetDir)unittest.pdb" copy "$(TargetDir)unittest.pdb" ..\..\..\bin\unittest.pdb </Command>
       <Message>Publishing to target directory...</Message>
       <Outputs>..\..\..\bin\unittest.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
