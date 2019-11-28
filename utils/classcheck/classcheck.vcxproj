@@ -110,7 +110,8 @@
     </Link>
     <CustomBuildStep>
       <Command>if exist  ..\..\..\bin\classcheck.exe attrib -r ..\..\..\bin\classcheck.exe 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\classcheck.exe </Command>
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\classcheck.exe 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
       <Outputs>..\..\..\bin\classcheck.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

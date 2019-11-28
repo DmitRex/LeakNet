@@ -136,7 +136,8 @@
       <AdditionalDependencies>nafxcw.lib;Libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\bin</Command>
+      <Command>copy "$(TargetPath)" ..\..\bin
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\bin\$(TargetName).pdb"</Command>
       <Outputs>..\..\bin\status.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

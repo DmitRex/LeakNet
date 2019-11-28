@@ -165,7 +165,8 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll</Command>
+      <Command>call ..\..\..\filecopy.bat "$(TargetPath)" ..\..\..\..\bin\vaudio_miles.dll
+call ..\..\..\filecopy.bat "$(TargetDir)$(TargetName).pdb" ..\..\..\..\bin\vaudio_miles.pdb</Command>
       <Outputs>..\..\..\..\bin\vaudio_miles.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

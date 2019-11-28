@@ -227,7 +227,8 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\hlmaster.exe"</Command>
+      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\hlmaster.exe"
+call ..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\hlmaster.pdb"</Command>
       <Outputs>$(ProjectDir)..\..\hlmaster.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

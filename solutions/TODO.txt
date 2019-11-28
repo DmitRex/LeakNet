@@ -32,3 +32,8 @@ https://docs.microsoft.com/en-us/cpp/build/reference/z7-zi-zi-debug-information-
 	The Edit and Continue feature can cause issues in code size, performance, and compiler conformance.
 	Because most optimizations are incompatible with Edit and Continue, using /ZI disables any #pragma optimize statements in your code.
 	The /ZI option is also incompatible with use of the __LINE__ predefined macro; code compiled with /ZI cannot use __LINE__ as a non-type template argument, although __LINE__ can be used in macro expansions.
+
+pdbs:
+	vrad/vvis/vtex need to be renamed as vrad_dll, vvis_dll and vtex_dll for convenience
+	Static libs needs .pdb-s too. Add them to Additional Dependencies and Outputs just like dlls
+	Don't forget about Debug!

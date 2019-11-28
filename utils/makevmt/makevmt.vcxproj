@@ -149,7 +149,8 @@ copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
     </Link>
     <CustomBuildStep>
       <Command>attrib -r ..\..\..\bin\makevmt.exe 
-copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
+copy "$(TargetPath)" ..\..\..\bin\makevmt.exe 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
       <Outputs>..\..\..\bin\makevmt.exe;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

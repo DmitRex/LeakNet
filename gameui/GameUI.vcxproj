@@ -120,18 +120,22 @@
       <Command>if exist "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
 if not exist "$(ProjectDir)..\..\tf2\bin\" mkdir "$(ProjectDir)..\..\tf2\bin\"
 copy "$(TargetPath)" "$(ProjectDir)..\..\tf2\bin\$(TargetName).dll"  
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\tf2\bin\$(TargetName).pdb"
 
 if exist "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
 if not exist "$(ProjectDir)..\..\hl2\bin\" mkdir "$(ProjectDir)..\..\hl2\bin\"
 copy "$(TargetPath)" "$(ProjectDir)..\..\hl2\bin\$(TargetName).dll"  
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\hl2\bin\$(TargetName).pdb"
 
 if exist "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
 if not exist "$(ProjectDir)..\..\hl1\bin\" mkdir "$(ProjectDir)..\..\hl1\bin\"
 copy "$(TargetPath)" "$(ProjectDir)..\..\hl1\bin\$(TargetName).dll"  
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\hl1\bin\$(TargetName).pdb"
 
 if exist "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll" attrib -r "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"  
 if not exist "$(ProjectDir)..\..\cstrike\bin\" mkdir "$(ProjectDir)..\..\cstrike\bin\"
-copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"</Command>
+copy "$(TargetPath)" "$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll"
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\cstrike\bin\$(TargetName).pdb"</Command>
       <Outputs>$(ProjectDir)..\..\tf2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl2\bin\$(TargetName).dll;$(ProjectDir)..\..\hl1\bin\$(TargetName).dll;$(ProjectDir)..\..\cstrike\bin\$(TargetName).dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

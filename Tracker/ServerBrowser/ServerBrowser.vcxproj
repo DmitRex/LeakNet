@@ -118,7 +118,8 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\Platform\Servers\ServerBrowser.dll attrib -r ..\..\..\Platform\Servers\ServerBrowser.dll 
 if not exist ..\..\..\Platform\Servers\ mkdir ..\..\..\Platform\Servers\
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBrowser.dll </Command>
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\Platform\Servers\ServerBrowser.dll 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\Platform\Servers\$(TargetName).pdb"</Command>
       <Outputs>..\..\..\Platform\Servers\ServerBrowser.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

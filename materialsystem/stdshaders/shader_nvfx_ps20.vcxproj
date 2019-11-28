@@ -119,7 +119,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
 copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
-if exist "$(TargetDir)shader_nvfx_ps20.pdb" copy "$(TargetDir)shader_nvfx.pdb" ..\..\..\bin\shader_nvfx_ps20.pdb </Command>
+if exist "$(TargetDir)shader_nvfx_ps20.pdb" copy "$(TargetDir)shader_nvfx_ps20.pdb" ..\..\..\bin\shader_nvfx_ps20.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx_ps20.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
@@ -173,7 +173,7 @@ if exist "$(TargetDir)shader_nvfx_ps20.pdb" copy "$(TargetDir)shader_nvfx.pdb" .
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shader_nvfx_ps20.dll attrib -r ..\..\..\bin\shader_nvfx_ps20.dll 
 copy "$(TargetPath)" ..\..\..\bin\shader_nvfx_ps20.dll 
-if exist "$(TargetDir)shader_nvfx_ps20.pdb" copy "$(TargetDir)shader_nvfx.pdb" ..\..\..\bin\shader_nvfx_ps20.pdb </Command>
+if exist "$(TargetDir)shader_nvfx_ps20.pdb" copy "$(TargetDir)shader_nvfx_ps20.pdb" ..\..\..\bin\shader_nvfx_ps20.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
       <Outputs>..\..\..\bin\shader_nvfx_ps20.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>

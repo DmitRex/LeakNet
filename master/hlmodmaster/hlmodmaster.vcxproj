@@ -155,7 +155,8 @@
     <CustomBuildStep>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
       <Outputs>$(ProjectDir)..\..\..\$(TargetName).exe;%(Outputs)</Outputs>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\$(TargetName).exe"</Command>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\$(TargetName).exe"
+call ..\..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\..\$(TargetName).pdb"</Command>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

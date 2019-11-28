@@ -119,7 +119,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\vtex.dll attrib -r ..\..\..\bin\vtex.dll 
 copy "$(TargetPath)" ..\..\..\bin\vtex.dll 
-if exist "$(TargetDir)vtex.pdb" copy "$(TargetDir)vtex.pdb" ..\..\bin\vtex.pdb </Command>
+if exist "$(TargetDir)vtex.pdb" copy "$(TargetDir)vtex.pdb" ..\..\..\bin\vtex.pdb </Command>
       <Outputs>..\..\..\bin\vtex.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
