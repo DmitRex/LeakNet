@@ -117,9 +117,9 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>if exist ..\..\..\bin\vtex.dll attrib -r ..\..\..\bin\vtex.dll 
-copy "$(TargetPath)" ..\..\..\bin\vtex.dll 
-if exist "$(TargetDir)vtex.pdb" copy "$(TargetDir)vtex.pdb" ..\..\..\bin\vtex.pdb </Command>
+      <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
+copy "$(TargetPath)" "..\..\..\bin\$(TargetName).dll" 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Outputs>..\..\..\bin\vtex.dll;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>

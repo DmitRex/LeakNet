@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 	// If it didn't load the module above, then use the 
 	if ( !pModule )
 	{
-		strcpy( dllName, "vrad.dll" );
+		strcpy( dllName, "vrad_dll.dll" );
 		pModule = Sys_LoadModule( dllName );
 	}
 
@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
 	CreateInterfaceFn fn = Sys_GetFactory( pModule );
 	if( !fn )
 	{
-		printf( "vrad_launcher error: can't get factory from vrad.dll\n" );
+		printf( "vrad_launcher error: can't get factory from vrad_dll.dll\n" );
 		Sys_UnloadModule( pModule );
 		return 2;
 	}
@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
 	IVRadDLL *pDLL = (IVRadDLL*)fn( VRAD_INTERFACE_VERSION, &retCode );
 	if( !pDLL )
 	{
-		printf( "vrad_launcher error: can't get IVRadDLL interface from vrad.dll\n" );
+		printf( "vrad_launcher error: can't get IVRadDLL interface from vrad_dll.dll\n" );
 		Sys_UnloadModule( pModule );
 		return 3;
 	}

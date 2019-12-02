@@ -18,6 +18,7 @@
     <SccProjectName>"$/Src/utils/vrad", TEVBAAAA</SccProjectName>
     <SccLocalPath>.</SccLocalPath>
     <ProjectGuid>{FF276D97-D73F-4FEA-97BE-32B064E49A4D}</ProjectGuid>
+    <ProjectName>vrad_dll</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
@@ -107,7 +108,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <OutputFile>.\vrad___Win32_Release\vrad.dll</OutputFile>
+      <OutputFile>.\vrad___Win32_Release\vrad_dll.dll</OutputFile>
       <ImportLibrary>.\vrad___Win32_Release\vrad.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>

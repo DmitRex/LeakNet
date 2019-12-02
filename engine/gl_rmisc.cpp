@@ -457,7 +457,7 @@ void R_BuildCubemapSamples( int numIterations )
 
 		// load the vtex dll
 		IVTex *ivt = NULL;
-		CSysModule *pmodule = FileSystem_LoadModule( "vtex.dll" );
+		CSysModule *pmodule = FileSystem_LoadModule( "vtex_dll.dll" );
 		if ( pmodule )
 		{
 			CreateInterfaceFn factory = Sys_GetFactory( pmodule );
@@ -468,7 +468,7 @@ void R_BuildCubemapSamples( int numIterations )
 		}
 		if( !ivt )
 		{
-			Con_Printf( "Can't load vtex.dll\n" );
+			Con_Printf( "Can't load vtex_dll.dll\n" );
 			return;
 		}
 		

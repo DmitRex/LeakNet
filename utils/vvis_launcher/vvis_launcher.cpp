@@ -34,7 +34,7 @@ char* GetLastErrorString()
 
 int main(int argc, char* argv[])
 {
-	const char *pDLLName = "vvis.dll";
+	const char *pDLLName = "vvis_dll.dll";
 	
 	CSysModule *pModule = Sys_LoadModule( pDLLName );
 	if ( !pModule )
