@@ -146,8 +146,7 @@ if exist "$(TargetDir)vgui_surfacelib.pdb" copy "$(TargetDir)vgui_surfacelib.pdb
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\lib\public\vgui_surfacelib.lib attrib -r ..\..\lib\public\vgui_surfacelib.lib 
-copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib 
-if exist "$(TargetDir)vgui_surfacelib.pdb" copy "$(TargetDir)vgui_surfacelib.pdb" ..\..\lib\public\vgui_surfacelib.pdb </Command>
+copy "$(TargetPath)" ..\..\lib\public\vgui_surfacelib.lib </Command>
       <Outputs>..\..\lib\public\vgui_surfacelib.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

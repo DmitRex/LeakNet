@@ -39,7 +39,7 @@ pdbs:
 		+Release
 	Remove all pdb copying stuff from static libs
 		Debug
-		Release
+		+Release
 	Need to update all Outputs too
 		Debug
 		+Release

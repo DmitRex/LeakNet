@@ -105,8 +105,7 @@
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\lib\public\shaderlib.lib attrib -r ..\lib\public\shaderlib.lib 
-copy "$(TargetPath)" ..\lib\public\shaderlib.lib 
-if exist "$(TargetDir)shaderlib.pdb" copy "$(TargetDir)shaderlib.pdb" ..\lib\public\shaderlib.pdb </Command>
+copy "$(TargetPath)" ..\lib\public\shaderlib.lib </Command>
       <Message>Publishing to target directory (..\lib\public\)...</Message>
       <Outputs>..\lib\public\shaderlib.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
