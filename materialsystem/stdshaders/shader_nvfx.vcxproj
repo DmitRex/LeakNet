@@ -320,7 +320,7 @@ if exist $(TargetDir)shader_nvfx_ps20.pdb copy $(TargetDir)shader_nvfx.pdb ..\..
 copy "$(TargetPath)" ..\..\..\bin\shader_nvfx.dll 
 if exist "$(TargetDir)shader_nvfx.pdb" copy "$(TargetDir)shader_nvfx.pdb" ..\..\..\bin\shader_nvfx.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
-      <Outputs>..\..\..\bin\shader_nvfx.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\shader_nvfx.dll;..\..\..\bin\shader_nvfx.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

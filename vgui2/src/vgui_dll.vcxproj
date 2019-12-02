@@ -118,7 +118,7 @@
       <Command>if exist ..\..\..\bin\vgui2.dll attrib -r ..\..\..\bin\vgui2.dll 
 copy "$(TargetPath)" ..\..\..\bin\vgui2.dll 
 if exist "$(TargetDir)vgui2.pdb" copy "$(TargetDir)vgui2.pdb" ..\..\..\bin\vgui2.pdb </Command>
-      <Outputs>..\..\..\bin\vgui2.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\vgui2.dll;..\..\..\bin\vgui2.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

@@ -166,7 +166,7 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
       <Command>if exist "..\..\..\bin\$(TargetName).dll" attrib -r "..\..\..\bin\$(TargetName).dll" 
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
-      <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\$(TargetName).dll;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

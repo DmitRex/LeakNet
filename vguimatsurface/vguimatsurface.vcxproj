@@ -181,7 +181,7 @@ if exist "$(TargetDir)vguimatsurface.pdb" copy "$(TargetDir)vguimatsurface.pdb" 
 copy "$(TargetPath)" ..\..\bin\vguimatsurface.dll 
 if exist "$(TargetDir)vguimatsurface.pdb" copy "$(TargetDir)vguimatsurface.pdb" ..\..\bin\vguimatsurface.pdb </Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
-      <Outputs>..\..\bin\vguimatsurface.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\vguimatsurface.dll;..\..\bin\vguimatsurface.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

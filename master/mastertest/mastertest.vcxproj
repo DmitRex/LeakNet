@@ -162,7 +162,7 @@
     <CustomBuildStep>
       <Command>copy "$(TargetPath)" "..\..\..\$(TargetName).exe"
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\$(TargetName).pdb"</Command>
-      <Outputs>..\..\..\$(TargetName).exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\$(TargetName).exe;..\..\..\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

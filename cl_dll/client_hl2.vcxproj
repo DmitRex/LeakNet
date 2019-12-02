@@ -595,7 +595,7 @@ copy $(TargetDir)client.dll .\..\..\hl1\bin </Command>
 copy "$(TargetDir)client.dll" .\..\..\hl2\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\hl2\bin\client.pdb"</Command>
       <Message>Copying to hl2\bin</Message>
-      <Outputs>.\..\..\hl2\bin\client.dll;%(Outputs)</Outputs>
+      <Outputs>.\..\..\hl2\bin\client.dll;.\..\..\hl2\bin\client.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)client.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

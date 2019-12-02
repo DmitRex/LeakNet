@@ -222,7 +222,7 @@ if exist $(TargetDir)engine.pdb copy $(TargetDir)swds.pdb ..\..\bin\swds.pdb </C
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\engine.dll 
 if exist "$(TargetDir)engine.pdb" copy "$(TargetDir)engine.pdb" ..\..\bin\engine.pdb </Command>
       <Message>Copying to game dir</Message>
-      <Outputs>..\..\bin\engine.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\engine.dll;..\..\bin\engine.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

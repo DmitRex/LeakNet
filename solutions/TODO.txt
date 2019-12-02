@@ -34,6 +34,18 @@ https://docs.microsoft.com/en-us/cpp/build/reference/z7-zi-zi-debug-information-
 	The /ZI option is also incompatible with use of the __LINE__ predefined macro; code compiled with /ZI cannot use __LINE__ as a non-type template argument, although __LINE__ can be used in macro expansions.
 
 pdbs:
-	vrad/vvis/vtex need to be renamed as vrad_dll, vvis_dll and vtex_dll for convenience
-	Static libs needs .pdb-s too. Add them to Additional Dependencies and Outputs just like dlls
-	Don't forget about Debug!
+	+vrad/vvis/vtex need to be renamed as vrad_dll, vvis_dll and vtex_dll (and properties updated) for convenience
+		Debug
+		+Release
+	Remove all pdb copying stuff from static libs
+		Debug
+		Release
+	Need to update all Outputs too
+		Debug
+		+Release
+
+Unify all the paths in the project names, linker outputs, build tools and such
+	The same output files as project names(?)
+	"warning MSB8012: TargetPath/TargetName(...) does not match the Linker's OutputFile property value (...). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile)."
+
+Send classcheck and scenemanager to Microsoft for exclusion from Windows Defender's base

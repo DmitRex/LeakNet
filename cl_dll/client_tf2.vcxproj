@@ -377,7 +377,7 @@ copy "$(TargetDir)client.dll" .\..\..\tf2\bin </Command>
 copy "$(TargetDir)client.dll" .\..\..\tf2\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\tf2\bin\client.pdb"</Command>
       <Message>Copying to tf2\bin</Message>
-      <Outputs>.\..\..\tf2\bin\client.dll;%(Outputs)</Outputs>
+      <Outputs>.\..\..\tf2\bin\client.dll;.\..\..\tf2\bin\client.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)client.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

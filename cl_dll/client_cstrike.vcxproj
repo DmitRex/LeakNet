@@ -648,7 +648,7 @@ copy $(TargetDir)client.dll .\..\..\hl2\bin </Command>
 copy "$(TargetDir)client.dll" .\..\..\cstrike\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\cstrike\bin\client.pdb"</Command>
       <Message>Copying to cstrike\bin</Message>
-      <Outputs>.\..\..\cstrike\bin\client.dll;%(Outputs)</Outputs>
+      <Outputs>.\..\..\cstrike\bin\client.dll;.\..\..\cstrike\bin\client.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)client.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

@@ -158,7 +158,7 @@ if exist "$(TargetDir)stdshader_hdr_dx9.pdb" copy "$(TargetDir)stdshader_hdr_dx9
 copy "$(TargetPath)" ..\..\..\bin\stdshader_hdr_dx9.dll 
 if exist "$(TargetDir)stdshader_hdr_dx9.pdb" copy "$(TargetDir)stdshader_hdr_dx9.pdb" ..\..\..\bin\stdshader_hdr_dx9.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
-      <Outputs>..\..\..\bin\stdshader_hdr_dx9.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\stdshader_hdr_dx9.dll;..\..\..\bin\stdshader_hdr_dx9.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

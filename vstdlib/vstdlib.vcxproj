@@ -185,7 +185,7 @@ if exist "$(TargetDir)vstdlib.pdb" copy "$(TargetDir)vstdlib.pdb" ..\..\bin\vstd
 if exist ..\lib\public\vstdlib.lib attrib -r ..\lib\public\vstdlib.lib  
 if exist "$(TargetDir)vstdlib.lib" copy "$(TargetDir)vstdlib.lib" ..\lib\public\vstdlib.lib</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
-      <Outputs>..\..\bin\vstdlib.dll;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\vstdlib.dll;..\..\bin\vstdlib.pdb;..\lib\public\vstdlib.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

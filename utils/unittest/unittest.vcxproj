@@ -181,7 +181,7 @@ if exist $(TargetDir)unittest.pdb copy $(TargetDir)unittest.pdb ..\..\..\bin\uni
 copy "$(TargetPath)" ..\..\..\bin\unittest.exe 
 if exist "$(TargetDir)unittest.pdb" copy "$(TargetDir)unittest.pdb" ..\..\..\bin\unittest.pdb </Command>
       <Message>Publishing to target directory...</Message>
-      <Outputs>..\..\..\bin\unittest.exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\unittest.exe;..\..\..\bin\unittest.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

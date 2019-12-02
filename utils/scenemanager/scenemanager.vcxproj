@@ -159,7 +159,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
-      <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\$(TargetName).exe;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

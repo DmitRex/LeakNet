@@ -257,7 +257,7 @@
 if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\cstrike\bin\server.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\cstrike\bin\server.pdb"</Command>
       <Message>Copying to HL1</Message>
-      <Outputs>..\..\cstrike\bin\server.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\cstrike\bin\server.dll;..\..\cstrike\bin\server.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)server.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

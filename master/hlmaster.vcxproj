@@ -229,7 +229,7 @@
     <CustomBuildStep>
       <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\hlmaster.exe"
 call ..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\hlmaster.pdb"</Command>
-      <Outputs>$(ProjectDir)..\..\hlmaster.exe;%(Outputs)</Outputs>
+      <Outputs>$(ProjectDir)..\..\hlmaster.exe;$(ProjectDir)..\..\hlmaster.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

@@ -171,7 +171,7 @@ copy "$(TargetPath)" ..\..\bin\launcher.dll </Command>
       <Command>attrib -r ..\..\bin\launcher.dll 
 copy "$(TargetPath)" ..\..\bin\launcher.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\bin\$(TargetName).pdb"</Command>
-      <Outputs>..\..\bin\launcher.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\launcher.dll;..\..\bin\launcher.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

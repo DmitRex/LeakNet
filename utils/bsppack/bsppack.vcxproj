@@ -168,7 +168,7 @@ if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\bsppack.dll </Command
       <Command>if exist ..\..\..\bin\bsppack.dll attrib -r ..\..\..\bin\bsppack.dll 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\bsppack.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
-      <Outputs>..\..\..\bin\bsppack.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\bsppack.dll;..\..\..\bin\bsppack.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

@@ -311,7 +311,7 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\cstrike\bin\se
 if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\tf2\bin\server.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\tf2\bin\server.pdb"</Command>
       <Message>Copying to tf2</Message>
-      <Outputs>..\..\tf2\bin\server.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\tf2\bin\server.dll;..\..\tf2\bin\server.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)server.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

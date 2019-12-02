@@ -365,7 +365,7 @@ if exist $(TargetDir)server.dll copy $(TargetDir)server.dll ..\..\tf2\bin\server
 if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\hl2\bin\server.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\hl2\bin\server.pdb"</Command>
       <Message>Copying to HL2</Message>
-      <Outputs>..\..\hl2\bin\server.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\hl2\bin\server.dll;..\..\hl2\bin\server.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)server.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

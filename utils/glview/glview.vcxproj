@@ -112,7 +112,7 @@
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
       <Message>Copy to ..\..\..\bin</Message>
-      <Outputs>..\..\..\bin\glview.exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\glview.exe;..\..\..\bin\glview.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

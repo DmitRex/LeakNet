@@ -101,7 +101,7 @@ copy "$(TargetPath)" ..\..\bin\hlds.exe
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\bin\hlds.pdb"
 ..\..\bin\newdat ..\..\bin\hlds.exe </Command>
       <Message>Copying to root &amp; building .DAT file</Message>
-      <Outputs>..\..\bin\hlds.exe;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\hlds.exe;..\..\bin\hlds.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
