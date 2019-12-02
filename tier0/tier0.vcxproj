@@ -102,7 +102,7 @@ if exist "$(TargetDir)tier0.pdb" copy "$(TargetDir)tier0.pdb" ..\..\bin\tier0.pd
 if exist ..\lib\public\tier0.lib attrib -r ..\lib\public\tier0.lib  
 if exist "$(TargetDir)tier0.lib" copy "$(TargetDir)tier0.lib" ..\lib\public\tier0.lib</Command>
       <Message>Publishing to target directory (..\..\bin\)...</Message>
-      <Outputs>..\..\bin\tier0.dll;..\lib\public\tier0.lib;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\tier0.dll;..\..\bin\tier0.pdb;..\lib\public\tier0.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

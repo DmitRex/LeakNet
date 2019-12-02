@@ -104,7 +104,8 @@
       <OutputFile>.\Debug\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"
+call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).pdb"</Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -144,7 +145,8 @@
       <OutputFile>.\Release\vgui_controls.lib</OutputFile>
     </Lib>
     <CustomBuildStep>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"</Command>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).lib"
+call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\lib\public\$(TargetName).pdb"</Command>
       <Outputs>$(ProjectDir)..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

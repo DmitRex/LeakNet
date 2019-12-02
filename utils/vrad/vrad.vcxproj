@@ -161,7 +161,7 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <OutputFile>.\vrad___Win32_Debug\vrad.dll</OutputFile>
+      <OutputFile>.\vrad___Win32_Debug\vrad_dll.dll</OutputFile>
       <ImportLibrary>.\vrad___Win32_Debug\vrad.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\public;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -173,7 +173,7 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
 copy "$(TargetPath)" "..\..\..\bin\$(TargetName).dll" 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>Copying</Message>
-      <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\$(TargetName).dll;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

@@ -229,8 +229,9 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
       <IgnoreSpecificDefaultLibraries>nafxcwd.lib;Libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" ..\..\bin</Command>
-      <Outputs>..\..\bin\status.exe;%(Outputs)</Outputs>
+      <Command>copy "$(TargetPath)" ..\..\bin
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\bin\status.exe;..\..\bin\status.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

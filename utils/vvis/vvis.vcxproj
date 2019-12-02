@@ -91,7 +91,7 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <OutputFile>.\Debug\vvis.dll</OutputFile>
+      <OutputFile>.\Debug\vvis_dll.dll</OutputFile>
       <ImportLibrary>.\Debug\vvis.lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\..\lib\public;..\..\lib\common;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -102,7 +102,7 @@
 copy "$(TargetPath)" ..\..\..\bin 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>Copying to bin</Message>
-      <Outputs>..\..\..\bin\$(TargetName).dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\$(TargetName).dll;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

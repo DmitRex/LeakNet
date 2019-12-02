@@ -105,7 +105,8 @@
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\lib\public\nvtristrip.lib attrib -r ..\..\lib\public\nvtristrip.lib 
-if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\lib\public\nvtristrip.lib </Command>
+if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\lib\public\nvtristrip.lib 
+if exist "$(TargetDir)nvtristriplib.pdb" copy "$(TargetDir)nvtristriplib.pdb" "..\..\lib\public\nvtristrip.pdb"</Command>
       <Outputs>..\..\lib\public\nvtristrip.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)nvtristrip.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -144,7 +145,8 @@ if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\li
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\lib\public\nvtristrip.lib attrib -r ..\..\lib\public\nvtristrip.lib 
-if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\lib\public\nvtristrip.lib </Command>
+if exist "$(TargetDir)nvtristrip.lib" copy "$(TargetDir)nvtristrip.lib" ..\..\lib\public\nvtristrip.lib 
+if exist "$(TargetDir)nvtristriplib.pdb" copy "$(TargetDir)nvtristriplib.pdb" "..\..\lib\public\nvtristrip.pdb"</Command>
       <Outputs>..\..\lib\public\nvtristrip.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)nvtristrip.lib;%(Inputs)</Inputs>
     </CustomBuildStep>

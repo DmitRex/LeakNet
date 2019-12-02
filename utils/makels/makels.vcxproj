@@ -147,9 +147,10 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\makels.exe attrib -r ..\..\..\bin\makels.exe 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin </Command>
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
       <Message>Copy to ..\..\..\bin</Message>
-      <Outputs>..\..\..\bin\makels.exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\makels.exe;..\..\..\bin\makels.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

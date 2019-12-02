@@ -103,7 +103,8 @@
     </Lib>
     <CustomBuildStep>
       <Command>if exist "..\..\lib\public\$(TargetName).lib" attrib -r "..\..\lib\public\$(TargetName).lib" 
-if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public </Command>
+if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\lib\public\$(TargetName).pdb"</Command>
       <Outputs>..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)game_controls.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -141,9 +142,10 @@ if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..
     </Lib>
     <CustomBuildStep>
       <Command>if exist "..\..\lib\public\$(TargetName).lib" attrib -r "..\..\lib\public\$(TargetName).lib" 
-if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public </Command>
+if exist "$(TargetDir)game_controls.lib" copy "$(TargetDir)game_controls.lib" ..\..\lib\public 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\lib\public\$(TargetName).pdb"</Command>
       <Outputs>..\..\lib\public\$(TargetName).lib;%(Outputs)</Outputs>
-      <Inputs>$(TargetPath);%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)game_controls.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

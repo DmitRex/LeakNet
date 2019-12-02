@@ -162,8 +162,8 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
       <Command>if exist ..\..\..\bin\shaderapidx9.dll attrib -r ..\..\..\bin\shaderapidx9.dll 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapidx9.dll 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\shaderapidx9.pdb"</Command>
-      <Outputs>..\..\..\bin\shaderapidx9.dll;%(Outputs)</Outputs>
-      <Inputs>$(TargetDir)shaderapidx9$(TargetExt);$(TargetDir)shaderapidx9.pdb;%(Inputs)</Inputs>
+      <Outputs>..\..\..\bin\shaderapidx9.dll;..\..\..\bin\shaderapidx9.pdb;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

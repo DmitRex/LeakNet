@@ -109,8 +109,9 @@
     </Link>
     <CustomBuildStep>
       <Command>attrib -r ..\..\..\bin\makevmt.exe 
-copy "$(TargetPath)" ..\..\..\bin\makevmt.exe </Command>
-      <Outputs>..\..\..\bin\makevmt.exe;%(Outputs)</Outputs>
+copy "$(TargetPath)" ..\..\..\bin\makevmt.exe 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\..\bin\makevmt.exe;..\..\..\bin\makevmt.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

@@ -115,8 +115,9 @@
       <AdditionalDependencies>nafxcwd.lib;Libcmtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" "..\..\..\bin\$(TargetName).exe"</Command>
-      <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Command>copy "$(TargetPath)" "..\..\..\bin\$(TargetName).exe"
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\..\bin\$(TargetName).exe;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -160,9 +161,9 @@
       <IgnoreSpecificDefaultLibraries>nafxcw.lib;Libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <CustomBuildStep>
-      <Command>copy "$(TargetPath)" "..\..\..\$(TargetName).exe"
-if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\$(TargetName).pdb"</Command>
-      <Outputs>..\..\..\$(TargetName).exe;..\..\..\$(TargetName).pdb;%(Outputs)</Outputs>
+      <Command>copy "$(TargetPath)" "..\..\..\bin\$(TargetName).exe"
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\..\bin\$(TargetName).exe;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

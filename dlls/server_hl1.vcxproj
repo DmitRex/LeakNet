@@ -473,9 +473,10 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\hl1\bin\server.dll attrib -r ..\..\hl1\bin\server.dll 
-if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\hl1\bin\server.dll </Command>
+if exist "$(TargetDir)server.dll" copy "$(TargetDir)server.dll" ..\..\hl1\bin\server.dll 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\hl1\bin\server.pdb"</Command>
       <Message>Copying to HL1</Message>
-      <Outputs>..\..\hl1\bin\server.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\hl1\bin\server.dll;..\..\hl1\bin\server.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)server.dll;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>

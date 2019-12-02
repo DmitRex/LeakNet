@@ -98,7 +98,7 @@
 copy "$(TargetPath)" ..\..\..\bin\stdshader_dx6.dll 
 if exist "$(TargetDir)stdshader_dx6.pdb" copy "$(TargetDir)stdshader_dx6.pdb" ..\..\..\bin\stdshader_dx6.pdb </Command>
       <Message>Publishing to target directory (..\..\..\bin\)...</Message>
-      <Outputs>..\..\..\bin\stdshader_dx6.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\stdshader_dx6.dll;..\..\..\bin\stdshader_dx6.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

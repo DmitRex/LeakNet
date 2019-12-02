@@ -156,7 +156,7 @@ if exist "$(TargetDir)vphysics.pdb" copy "$(TargetDir)vphysics.pdb" ..\..\bin\vp
 copy "$(TargetPath)" ..\..\bin\vphysics.dll 
 if exist "$(TargetDir)vphysics.pdb" copy "$(TargetDir)vphysics.pdb" ..\..\bin\vphysics.pdb </Command>
       <Message>Copying to Game Directory</Message>
-      <Outputs>..\..\bin\vphysics.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\vphysics.dll;..\..\bin\vphysics.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

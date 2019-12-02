@@ -170,8 +170,9 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\shaderapiempty.dll attrib -r ..\..\..\bin\shaderapiempty.dll 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll </Command>
-      <Outputs>..\..\..\bin\shaderapiempty.dll;%(Outputs)</Outputs>
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\shaderapiempty.dll 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\..\bin\shaderapiempty.dll;..\..\..\bin\shaderapiempty.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

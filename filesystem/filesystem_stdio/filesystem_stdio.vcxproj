@@ -264,8 +264,9 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
     </Link>
     <CustomBuildStep>
       <Command>if exist ..\..\..\bin\FileSystem_Stdio.dll attrib -r ..\..\..\bin\FileSystem_Stdio.dll 
-if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\FileSystem_Stdio.dll </Command>
-      <Outputs>..\..\..\bin\FileSystem_Stdio.dll;%(Outputs)</Outputs>
+if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\..\bin\FileSystem_Stdio.dll 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
+      <Outputs>..\..\..\bin\FileSystem_Stdio.dll;..\..\..\bin\FileSystem_Stdio.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

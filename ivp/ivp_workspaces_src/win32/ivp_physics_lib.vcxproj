@@ -134,7 +134,8 @@
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib 
+copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_physics.pdb </Command>
       <Outputs>..\..\..\lib\common\ivp_physics.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -176,7 +177,8 @@ copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
     </Lib>
     <CustomBuildStep>
       <Command>if exist ..\..\..\lib\common\ivp_physics.lib attrib -r ..\..\..\lib\common\ivp_physics.lib 
-copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib </Command>
+copy "$(TargetPath)" ..\..\..\lib\common\ivp_physics.lib 
+copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_physics.pdb </Command>
       <Outputs>..\..\..\lib\common\ivp_physics.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

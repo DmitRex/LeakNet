@@ -116,7 +116,7 @@
 copy "$(TargetPath)"  "..\..\..\bin\$(TargetName).exe" 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb" </Command>
       <Message>Copying</Message>
-      <Outputs>..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Outputs>..\..\..\bin\$(TargetName).exe;..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

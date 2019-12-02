@@ -155,9 +155,10 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ".
     </Link>
     <CustomBuildStep>
       <Command>if exist "..\..\..\bin\$(TargetName).exe" attrib -r "..\..\..\bin\$(TargetName).exe" 
-if exist "$(TargetDir)vvis.exe" copy "$(TargetDir)vvis.exe" ..\..\..\bin\vvis.exe </Command>
-      <Outputs>..\..\..\bin\vvis.exe;%(Outputs)</Outputs>
-      <Inputs>$(TargetDir)vvis.exe;%(Inputs)</Inputs>
+if exist "$(TargetDir)vvis.exe" copy "$(TargetDir)vvis.exe" ..\..\..\bin\vvis.exe 
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\vvis.pdb"</Command>
+      <Outputs>..\..\..\bin\vvis.exe;..\..\..\bin\vvis.pdb;%(Outputs)</Outputs>
+      <Inputs>$(TargetDir)vvis.exe;$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

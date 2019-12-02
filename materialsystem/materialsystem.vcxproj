@@ -182,7 +182,7 @@ if exist "$(TargetDir)MaterialSystem.pdb" copy "$(TargetDir)MaterialSystem.pdb" 
 if exist ..\..\bin\MaterialSystem.pdb attrib -r ..\..\bin\MaterialSystem.pdb 
 if exist "$(TargetPath)" copy "$(TargetPath)" ..\..\bin\MaterialSystem.dll 
 if exist "$(TargetDir)MaterialSystem.pdb" copy "$(TargetDir)MaterialSystem.pdb" ..\..\bin\MaterialSystem.pdb </Command>
-      <Outputs>..\..\bin\MaterialSystem.dll;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\MaterialSystem.dll;..\..\bin\MaterialSystem.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

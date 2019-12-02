@@ -112,8 +112,9 @@
     </Link>
     <CustomBuildStep>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
-      <Outputs>$(ProjectDir)..\..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\bin\$(TargetName).exe"</Command>
+      <Outputs>$(ProjectDir)..\..\..\bin\$(TargetName).exe;$(ProjectDir)..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\bin\$(TargetName).exe"
+call ..\..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,9 +155,9 @@
     </Link>
     <CustomBuildStep>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
-      <Outputs>$(ProjectDir)..\..\..\$(TargetName).exe;$(ProjectDir)..\..\..\$(TargetName).pdb;%(Outputs)</Outputs>
-      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\$(TargetName).exe"
-call ..\..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\..\$(TargetName).pdb"</Command>
+      <Outputs>$(ProjectDir)..\..\..\bin\$(TargetName).exe;$(ProjectDir)..\..\..\bin\$(TargetName).pdb;%(Outputs)</Outputs>
+      <Command>call ..\..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\..\bin\$(TargetName).exe"
+call ..\..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\..\bin\$(TargetName).pdb"</Command>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>

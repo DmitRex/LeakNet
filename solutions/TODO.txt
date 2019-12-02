@@ -35,13 +35,16 @@ https://docs.microsoft.com/en-us/cpp/build/reference/z7-zi-zi-debug-information-
 
 pdbs:
 	+vrad/vvis/vtex need to be renamed as vrad_dll, vvis_dll and vtex_dll (and properties updated) for convenience
-		Debug
+		+Debug
 		+Release
-	Remove all pdb copying stuff from static libs
-		Debug
+	-Remove all pdb copying stuff from static libs
+		-Debug
+			I guess not needed, because pdb's for static libs being generated only in Debug mode.
+			Or else I need to put every static library into the right Debug Information Format
+			I think I'll leave copying stuff anyway, even in Release
 		+Release
 	Need to update all Outputs too
-		Debug
+		+Debug
 		+Release
 
 Unify all the paths in the project names, linker outputs, build tools and such

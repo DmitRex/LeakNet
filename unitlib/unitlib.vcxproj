@@ -181,7 +181,7 @@ if exist "$(TargetDir)unitlib.pdb" copy "$(TargetDir)unitlib.pdb" ..\..\bin\unit
 if exist ..\lib\public\unitlib.lib attrib -r ..\lib\public\unitlib.lib  
 if exist "$(TargetDir)unitlib.lib" copy "$(TargetDir)unitlib.lib" ..\lib\public\unitlib.lib</Command>
       <Message>Publishing to target directory...</Message>
-      <Outputs>..\..\bin\unitlib.dll;..\lib\public\unitlib.lib;%(Outputs)</Outputs>
+      <Outputs>..\..\bin\unitlib.dll;..\..\bin\unitlib.pdb;..\lib\public\unitlib.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>

@@ -184,8 +184,9 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\bin\$(TargetName).exe"</Command>
-      <Outputs>$(ProjectDir)..\..\bin\$(TargetName).exe;%(Outputs)</Outputs>
+      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\bin\$(TargetName).exe"
+call ..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\bin\hlmaster.pdb"</Command>
+      <Outputs>$(ProjectDir)..\..\bin\$(TargetName).exe;$(ProjectDir)..\..\bin\hlmaster.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -227,9 +228,9 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\hlmaster.exe"
-call ..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\hlmaster.pdb"</Command>
-      <Outputs>$(ProjectDir)..\..\hlmaster.exe;$(ProjectDir)..\..\hlmaster.pdb;%(Outputs)</Outputs>
+      <Command>call ..\filecopy.bat "$(TargetPath)" "$(ProjectDir)..\..\bin\hlmaster.exe"
+call ..\filecopy.bat "$(TargetDir)$(TargetName).pdb" "..\..\bin\hlmaster.pdb"</Command>
+      <Outputs>$(ProjectDir)..\..\bin\hlmaster.exe;$(ProjectDir)..\..\bin\hlmaster.pdb;%(Outputs)</Outputs>
       <Inputs>$(TargetDir)$(TargetName)$(TargetExt);$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
