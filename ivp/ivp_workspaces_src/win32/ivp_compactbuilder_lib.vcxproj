@@ -181,7 +181,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
 copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_compactbuilder.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_compactbuilder.pdb </Command>
       <Outputs>..\..\..\lib\common\ivp_compactbuilder.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -224,7 +224,7 @@ copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_compactbuilder.pdb 
     <CustomBuildStep>
       <Command>if exist ..\..\..\lib\common\ivp_compactbuilder.lib attrib -r ..\..\..\lib\common\ivp_compactbuilder.lib 
 copy "$(TargetPath)" ..\..\..\lib\common\ivp_compactbuilder.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_compactbuilder.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\ivp_compactbuilder.pdb </Command>
       <Outputs>..\..\..\lib\common\ivp_compactbuilder.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

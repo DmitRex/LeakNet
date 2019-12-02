@@ -150,7 +150,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
 copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_base.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_base.pdb </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -224,7 +224,7 @@ copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_base.pdb </Comman
     <CustomBuildStep>
       <Command>if exist ..\..\..\..\lib\common\hk_base.lib attrib -r ..\..\..\..\lib\common\hk_base.lib 
 copy "$(TargetPath)" ..\..\..\..\lib\common\hk_base.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_base.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_base.pdb </Command>
       <Outputs>..\..\..\..\lib\common\hk_base.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>

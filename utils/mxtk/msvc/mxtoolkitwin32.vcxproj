@@ -102,7 +102,7 @@
 copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\mxtk.pdb </Command>
       <Outputs>..\..\..\lib\common\mxtk.lib;..\..\..\lib\common\mxtk.pdb;%(Outputs)</Outputs>
-      <Inputs>$(TargetDir)mxtk.lib;$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)mxtk.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>
@@ -142,7 +142,7 @@ if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..
 copy "$(TargetDir)mxtk.lib" ..\..\..\lib\common\mxtk.lib 
 if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\lib\common\mxtk.pdb </Command>
       <Outputs>..\..\..\lib\common\mxtk.lib;..\..\..\lib\common\mxtk.pdb;%(Outputs)</Outputs>
-      <Inputs>$(TargetDir)mxtk.lib;$(TargetDir)$(TargetName).pdb;%(Inputs)</Inputs>
+      <Inputs>$(TargetDir)mxtk.lib;%(Inputs)</Inputs>
     </CustomBuildStep>
     <PostBuildEvent>
       <Command>

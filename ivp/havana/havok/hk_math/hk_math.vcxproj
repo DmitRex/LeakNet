@@ -211,7 +211,7 @@
     <CustomBuildStep>
       <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
 copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_math.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_math.pdb </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
@@ -254,7 +254,7 @@ copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_math.pdb </Comman
     <CustomBuildStep>
       <Command>if exist ..\..\..\..\lib\common\hk_math.lib attrib -r ..\..\..\..\lib\common\hk_math.lib 
 copy "$(TargetPath)" ..\..\..\..\lib\common\hk_math.lib 
-copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_math.pdb </Command>
+if exist "$(TargetDir)$(TargetName).pdb" copy "$(TargetDir)$(TargetName).pdb" ..\..\..\..\lib\common\hk_math.pdb </Command>
       <Outputs>..\..\..\..\lib\common\hk_math.lib;%(Outputs)</Outputs>
       <Inputs>$(TargetPath);%(Inputs)</Inputs>
     </CustomBuildStep>
