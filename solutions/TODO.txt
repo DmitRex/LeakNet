@@ -51,5 +51,6 @@ Unify all the paths in the project names, linker outputs, build tools and such
 	The same output files as project names(?)
 	"warning MSB8012: TargetPath/TargetName(...) does not match the Linker's OutputFile property value (...). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile)."
 
-Send classcheck and scenemanager to Microsoft for exclusion from Windows Defender's base
++Send scenemanager to Microsoft for exclusion from Windows Defender's base
+	classcheck now doesn't get detected for some reason.
 Add vcrtrace, normal2dudv
