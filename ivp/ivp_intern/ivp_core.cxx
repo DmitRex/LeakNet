@@ -590,6 +590,23 @@ void IVP_Core::rot_push_core_cs(const IVP_U_Float_Point *rot_impulse_cs)
 // #+# too many calls to this function
 void IVP_Core::commit_all_async_pushes(){   
 
+	// CRITICAL SANITY CHECK: reset speed changes if they somehow became insane
+	// From DmitRex to VXP (bug on zoo_physconvert): This prevents insane speed values to be applied to object.
+	// This code block should not exist, as I seemed to fix most obvious cases where nan's can appear,
+	// but still it may save engine from crashing in some very rare situations
+	if( isnan( this->rot_speed_change.real_length() ) || isnan( this->speed_change.real_length() )
+		|| this->rot_speed_change.real_length() > MAX_PLAUSIBLE_LEN || this->rot_speed_change.real_length() < -MAX_PLAUSIBLE_LEN
+		|| this->speed_change.real_length() > MAX_PLAUSIBLE_LEN || this->speed_change.real_length() < -MAX_PLAUSIBLE_LEN )
+	{
+		IVP_ASSERT(this->rot_speed_change.real_length()<MAX_PLAUSIBLE_LEN);
+		IVP_ASSERT(this->rot_speed_change.real_length()>-MAX_PLAUSIBLE_LEN);
+		IVP_ASSERT(this->speed_change.real_length()<MAX_PLAUSIBLE_LEN);
+		IVP_ASSERT(this->speed_change.real_length()>-MAX_PLAUSIBLE_LEN);
+
+		this->rot_speed_change.set_to_zero();
+		this->speed_change.set_to_zero(); 
+	}
+
     this->rot_speed.add(&this->rot_speed_change);
     this->speed.add(&this->speed_change);
     this->speed_change.set_to_zero(); 

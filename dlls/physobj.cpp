@@ -268,10 +268,16 @@ void CPhysicsSpring::GetSpringObjectConnections( string_t nameStart, string_t na
 	else
 	{
 		CBaseEntity *pEntity0 = (CBaseEntity *) (pStartObject->GetGameData());
-		g_pNotify->AddEntity( this, pEntity0 );
+		if ( pEntity0 )	
+		{	
+			g_pNotify->AddEntity( this, pEntity0 );	
+		}
 
 		CBaseEntity *pEntity1 = (CBaseEntity *) pEndObject->GetGameData();
-		g_pNotify->AddEntity( this, pEntity1 );
+		if ( pEntity1 )	
+		{	
+			g_pNotify->AddEntity( this, pEntity1 );	
+		}
 	}
 
 	*pStart = pStartObject;
@@ -625,8 +631,15 @@ void CPhysBox::OnPhysGunDrop( CBasePlayer *pPhysGunUser, bool wasLaunched )
 //-----------------------------------------------------------------------------
 int CPhysBox::OnTakeDamage( const CTakeDamageInfo &info )
 {
+	if ( IsMarkedForDeletion() )	
+		return 0;
+
 	// note: if motion is disabled, OnTakeDamage can't apply physics force
 	int ret = BaseClass::OnTakeDamage( info );
+
+	// Have we been broken? If so, abort	
+	if ( GetHealth() <= 0 )	
+		return ret;
 
 	// Check our health against the threshold:
 	if( m_damageToEnableMotion > 0 && GetHealth() < m_damageToEnableMotion )
@@ -935,7 +948,8 @@ bool TransferPhysicsObject( CBaseEntity *pFrom, CBaseEntity *pTo )
 	// clear out the pointer so it won't get deleted
 	pFrom->VPhysicsSwapObject( NULL );
 	// remove any AI behavior bound to it
-	pVPhysics->RemoveShadowController();
+	pVPhysics->RemoveShadowController(); // From DmitRex to VXP (bug on zoo_physconvert): you can either recreate vphysics shadow for converted brush or transfer it from func_brush. 
+										// This will prevent ivp crash from happening
 	// transfer to the new owner
 	pTo->VPhysicsSetObject( pVPhysics );
 	pVPhysics->SetGameData( (void *)pTo );
@@ -1395,7 +1409,11 @@ void CPhysMagnet::ConstraintBroken( IPhysicsConstraint *pConstraint )
 		if ( m_MagnettedEntities[i].pConstraint == pConstraint )
 		{
 			IPhysicsObject *pPhysObject = m_MagnettedEntities[i].hEntity->VPhysicsGetObject();
-			m_flTotalMass -= pPhysObject->GetMass();
+
+			if( pPhysObject != NULL )	
+			{	
+				m_flTotalMass -= pPhysObject->GetMass();	
+			}
 
 			m_MagnettedEntities.Remove(i);
 			break;

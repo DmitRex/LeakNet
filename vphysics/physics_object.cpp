@@ -502,9 +502,14 @@ void CPhysicsObject::SetVolume( float volume )
 	if ( volume != 0.f )
 	{
 		volume *= HL2IVP_FACTOR*HL2IVP_FACTOR*HL2IVP_FACTOR;
-		float density = GetMass() / volume;
+		float density = GetMass() / m_volume;//volume; // I think using 'volume" is a mistake? Otherwise volume appears to be too small for such big mass. If it breaks water floating physics them revert this change.
 		float matDensity;
 		physprops->GetPhysicsProperties( GetMaterialIndexInternal(), &matDensity, NULL, NULL, NULL );
+
+		// From DmitRex to VXP (bug on zoo_physconvert): if you don't want to recreate vphysics shadow for simple_physics_brush 
+		// (read my comment in `bool TransferPhysicsObject( CBaseEntity *pFrom, CBaseEntity *pTo )` - then you can limit m_buoyancyRatio, because it gets too big
+		// (check CShadowController::AttachObject( void ) - game sets Mass of 1e6f which is maximum possible) or use more complex formula.
+		// MAYBE, a fornmula in `IVP_Template_Buoyancy *CBuoyancyAttacher::get_parameters_per_core( IVP_Core *pCore )` can be changed to be more physically accurate.
 		m_buoyancyRatio = density / matDensity;
 	}
 	else

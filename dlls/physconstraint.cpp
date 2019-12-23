@@ -143,6 +143,9 @@ void PhysTeleportConstrainedEntity( CBaseEntity *pTeleportSource, IPhysicsObject
 	if ( pFixup->GetMoveType() != MOVETYPE_VPHYSICS )
 		return;
 
+	if ( !pFixup->VPhysicsGetObject() || !pFixup->VPhysicsGetObject()->IsMoveable() )	
+		return;
+
 	QAngle oldAngles = prevAngles;
 
 	if ( !physicsRotate )
@@ -307,6 +310,7 @@ CPhysConstraint::CPhysConstraint( void )
 
 CPhysConstraint::~CPhysConstraint()
 {
+	Deactivate();
 	physenv->DestroyConstraint( m_pConstraint );
 }
 

@@ -1750,6 +1750,17 @@ void IVP_Mutual_Energizer::destroy_percent_energy(IVP_DOUBLE percent_energy_to_d
 {
     IVP_DOUBLE rot_impulse=calc_impulse_to_reduce_energy_level(rot_speed_potential,inv_rot_inertia[0],inv_rot_inertia[1],percent_energy_to_destroy*rot_energy_potential);
     IVP_DOUBLE trans_impulse=calc_impulse_to_reduce_energy_level(trans_speed_potential,inv_trans_inertia[0],inv_trans_inertia[1],percent_energy_to_destroy*trans_energy_potential);
+
+	// From DmitRex to VXP (bug on zoo_physconvert): HACK!! This happens very rarely, I don't have time to catch it properly, sorry.
+	// I was able to get it only twice, but I don't think it's something serious. `percent_energy_to_destroy` is a problematic value.
+	// Usually happens when player touches physics brush, could be just problem in gamemovement code, because player often stucks in that brush.
+	if( isnan( rot_impulse ) || isnan( trans_impulse ) )
+	{
+		IVP_ASSERT( 0 );
+
+		return;
+	}
+
     if(!core[0]->physical_unmoveable) {
 	core[0]->speed_change.add_multiple(&trans_vec_world,inv_trans_inertia[0]*trans_impulse);
 	core[0]->rot_speed_change.add_multiple(&rot_vec_obj[0],inv_rot_inertia[0]*rot_impulse);

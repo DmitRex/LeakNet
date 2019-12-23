@@ -70,7 +70,6 @@ float CPhysicsFluidController::GetDensity()
 	return m_pBuoyancy->m_density;
 }
 
-
 IVP_Template_Buoyancy *CBuoyancyAttacher::get_parameters_per_core( IVP_Core *pCore )
 {
 	if ( pCore )
@@ -84,7 +83,11 @@ IVP_Template_Buoyancy *CBuoyancyAttacher::get_parameters_per_core( IVP_Core *pCo
 		// on a per-object basis.
 		float ratio = pPhys->GetBuoyancyRatio();
 
-		if ( pPhys->GetShadowController() || !(pPhys->GetCallbackFlags() & CALLBACK_DO_FLUID_SIMULATION) )
+		// From DmitRex to VXP (bug on zoo_physconvert): My attempt to solve it without recreating vphysics shadow (read my comments in `void CPhysicsObject::SetVolume( float volume )`
+		// and `bool TransferPhysicsObject( CBaseEntity *pFrom, CBaseEntity *pTo )` ). 
+		if ( pPhys->GetShadowController() || !(pPhys->GetCallbackFlags() & CALLBACK_DO_FLUID_SIMULATION) 
+			// Test attempt to prevent object from floating if it's gravity force bigger than buoyancy force
+			|| ratio > 1e6 ) // 1e6 is the max possible reasonable value
 		{
 			// NOTE: don't do buoyancy on these guys for now!
 			template_buoyancy.medium_density = 0;
@@ -140,6 +143,7 @@ CPhysicsFluidController *CreateFluidController( IVP_Environment *pEnvironment, C
 	// UNDONE: Expose these other parameters
     IVP_Template_Buoyancy buoyancy_input;
     buoyancy_input.medium_density			= ConvertDensityToIVP(pParams->density); // density of water (unit: kg/m^3)
+
     buoyancy_input.pressure_damp_factor     = pParams->damping;
     buoyancy_input.viscosity_factor       = 0.0f;
     buoyancy_input.torque_factor          = 0.01f;
