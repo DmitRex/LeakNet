@@ -502,7 +502,7 @@ void CPhysicsObject::SetVolume( float volume )
 	if ( volume != 0.f )
 	{
 		volume *= HL2IVP_FACTOR*HL2IVP_FACTOR*HL2IVP_FACTOR;
-		float density = GetMass() / m_volume;//volume; // I think using 'volume" is a mistake? Otherwise volume appears to be too small for such big mass. If it breaks water floating physics them revert this change.
+		float density = GetMass() / m_volume;//volume; // I think using 'volume" is a mistake? Otherwise volume appears to be too small for such big mass. If it breaks water floating physics then revert this change.
 		float matDensity;
 		physprops->GetPhysicsProperties( GetMaterialIndexInternal(), &matDensity, NULL, NULL, NULL );
 
